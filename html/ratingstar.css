@@ -1,0 +1,17 @@
+.starrr {
+  display: inline-block; }
+  .starrr a {
+    font-size: 30px;
+    padding: 0 1px;
+    cursor: pointer;
+    color: yellow;
+    text-decoration: none; }
+
+.fa fa-star {
+  display: inline-block; }
+  .starrr a {
+    font-size: 30px;
+    padding: 0 1px;
+    cursor: pointer;
+    color: yellow;
+    text-decoration: none; }
