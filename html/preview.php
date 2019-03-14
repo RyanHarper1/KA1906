@@ -7,8 +7,7 @@
 	if (!isset($_SESSION["who"])){
      header('Location: login.php'); //redirect user if not logged in
    }
-
-   //variables required to display script and perform paypal payment
+   
     $scriptid = $_GET['script'];
     $scriptname = $_GET["scriptName"];
     $category = $_GET["category"];
@@ -16,17 +15,22 @@
     $price = $_GET["price"];
     $rating = $_GET["rating"];
     $userid = $_SESSION["who"];
-  	$storeid = $_GET["storeid"];
-  	$userid = $_GET["userid"];
-  	$curuser = $_SESSION["who"];
-  	$curusername = $_SESSION["username"];
-  	$curuseremail = $_SESSION["email"];
-  	$cat = strtoupper($category);
-  	$cust = $storeid."|".$scriptid."|".$userid."|".$curuser."|".$cat."|".$curusername."|".$curuseremail;
-  	$itmcode = $cat."-".$scriptid;
-
-   //query to determine if a user has bought a script
+	$storeid = $_GET["storeid"];
+	$userid = $_GET["userid"];
+	$curuser = $_SESSION["who"];
+	$curusername = $_SESSION["username"];
+	$curuseremail = $_SESSION["email"];
+	$cat = strtoupper($category);
+	$cust = $storeid."|".$scriptid."|".$userid."|".$curuser."|".$cat."|".$curusername."|".$curuseremail;
+	$itmcode = $cat."-".$scriptid;
+	
+	
+	
+	
+   //only let users who have bought the script rate it
     $results = mysqli_query($dbConnection,"SELECT * FROM sales WHERE scriptid = '$scriptid' AND userid = '$userid'");
+
+   
 ?>
 
 <!DOCTYPE html>
@@ -137,21 +141,17 @@
       	<div id="nav-placeholder">
 
          </div>
-
-         <!-- Shopping cart -->
-         <?php
-            if(isset($_GET['status']) & !empty($_GET['status'])){
-
-        		    if($_GET['status'] == 'success'){
-        			       echo "<div class=\"alert alert-success\" role=\"alert\">Item Successfully Added to Cart</div>";
-        		   } elseif ($_GET['status'] == 'incart') {
-        			      echo "<div class=\"alert alert-info\" role=\"alert\">Item is Already Exists in Cart</div>";
-        		   } elseif ($_GET['status'] == 'failed') {
-        			      echo "<div class=\"alert alert-danger\" role=\"alert\">Failed to Add item, try to Add Again</div>";
-        		}
-          }
-        ?><br>
-
+         <?php if(isset($_GET['status']) & !empty($_GET['status'])){
+		if($_GET['status'] == 'success'){
+			echo "<div class=\"alert alert-success\" role=\"alert\">Item Successfully Added to Cart</div>";
+		}elseif ($_GET['status'] == 'incart') {
+			echo "<div class=\"alert alert-info\" role=\"alert\">Item is Already Exists in Cart</div>";
+		}elseif ($_GET['status'] == 'failed') {
+			echo "<div class=\"alert alert-danger\" role=\"alert\">Failed to Add item, try to Add Again</div>";
+		}
+              }
+          ?>
+      <br>
       <div class="container text-center">
          <h1 style="font-size:70px; color:white;"><b>Preview<img src="loggg.JPG" alt="logo" style="width:200px; height:200px;"><b></h1>
       </div>
@@ -168,7 +168,7 @@
                <?php } ?>
                <th></th>
             </tr>
-
+	 
             <tr>
                <td>
                   <?php echo $scriptname ?>
@@ -182,16 +182,18 @@
                <td>
                   <?php echo $category?>
                </td>
-                  <?php if (mysqli_num_rows($results) == 1){ ?>
+               <?php if (mysqli_num_rows($results) == 1){ ?>
                <td>
-          		    <?php foreach(range(1,5)as $rating):?>
-          		        <a href="rate.php?script=<?php echo  $scriptid; ?>&rating=<?php echo $rating;?>"><?php echo $rating; ?></a>
-          		    <?php endforeach; ?>
-	             </td>
-	             <?php } ?>
-	             <td>
+		  <?php foreach(range(1,5)as $rating):?>
+		  <a href="rate.php?script=<?php echo  $scriptid; ?>&rating=<?php echo $rating;?>"><?php echo $rating; ?></a>
+		 <?php endforeach; ?>
+	      </td>
+	      <?php } ?>
+              </td>
+	      <td>
                  <a href="addtocart.php?script=<?php echo $scriptid; ?>" class="btn btn-primary" role="button">Add to Cart</a>
-               </td>
+             </td>
+                
             </tr>
          </table>
       </div>
@@ -221,37 +223,39 @@
              <br><br><br>
 
       </div>
-
-    	<p>&nbsp;</p>
-    	<div align="center">
-    	<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-    	<input type="hidden" name="cmd" value="_xclick">
-    	<input type="hidden" name="business" value="F4W8JQWMVEK6A">
-    	<input type="hidden" name="item_name" value="<?php echo $scriptname ?>">
-    	<input type="hidden" name="item_number" value="<?php echo $itmcode ?>">
-    	<input type="hidden" name="amount" value="<?php echo $price ?>">
-    	<input type="hidden" name="custom" value="<?php echo $cust ?>">
-    	<input type="hidden" name="no_shipping" value="1">
-    	<input type="hidden" name="no_note" value="1">
-    	<input type="hidden" name="return" value="http://salesscript.com.au/thankyou.php" />
-    	<input type="hidden" name="cancel_return" value="http://salesscript.com.au/cancel.php" />
-    	<input type="hidden" name="notify_url" value="http://salesscript.com.au/ipn.php" />
-    	<input type="hidden" name="currency_code" value="AUD">
-    	<input type="hidden" name="landing_page" value="billing">
-    	<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" id = "Image8" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-    	</form>
-    	</div>
-    	<p>&nbsp;</p>
-
+ 
+	<p>&nbsp;</p>
+	<div align="center">
+	<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+	<input type="hidden" name="cmd" value="_xclick">
+	<input type="hidden" name="business" value="F4W8JQWMVEK6A">
+	<input type="hidden" name="item_name" value="<?php echo $scriptname ?>">
+	<input type="hidden" name="item_number" value="<?php echo $itmcode ?>">
+	<input type="hidden" name="amount" value="<?php echo $price ?>">
+	<input type="hidden" name="custom" value="<?php echo $cust ?>">
+	<input type="hidden" name="no_shipping" value="1">
+	<input type="hidden" name="no_note" value="1">
+	<input type="hidden" name="return" value="http://salesscript.com.au/thankyou.php" />
+	<input type="hidden" name="cancel_return" value="http://salesscript.com.au/cancel.php" />
+	<input type="hidden" name="notify_url" value="http://salesscript.com.au/ipn.php" />
+	<input type="hidden" name="currency_code" value="AUD">
+	<input type="hidden" name="landing_page" value="billing">
+	<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" id = "Image8" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+	</form>
+	</div> 
+	<p>&nbsp;</p>
+      <script src="install.js"></script>
+      <script src="mediaDevices-getUserMedia-polyfill.js"></script>
+      <script src="app.js"></script>
    </body>
+   
+<script>
+$(function(){
+  $("#nav-placeholder").load("nav.php");
+});
+</script>
 
-   <script>
-      $(function(){
-        $("#nav-placeholder").load("nav.php");
-      });
-  </script>
-
-  <script type="text/javascript">
+<script type="text/javascript">
 
       //variables
       var counter         = 0;
@@ -304,6 +308,8 @@
 
 
       });
+
+
 
 
     function getAllUrlParams(url) {
@@ -368,12 +374,12 @@
       return obj;
       }
 
+    //  var content = root.innerHTML
 
     function loadQuestion(){
 
       var formData = new FormData();
 
-      //pass variables to getQuestion.php
       formData.append("questionId", questionId);
       formData.append("scriptId", scriptId);
       formData.append("answerId", answerId);
@@ -384,28 +390,33 @@
           if (this.readyState == 4 && this.status == 200) {
               var loadResponse = JSON.parse(this.responseText);
 
-              counter = loadResponse.i; //number of answers
+              counter = loadResponse.i;
               pitch = loadResponse[0].texts; //load pitch
-              document.getElementById("pitch").value= pitch; //set pitch
-              scriptname = loadResponse.scriptName; //scriptname
-              category = loadResponse.category; //category
+              document.getElementById("pitch").value= pitch;
+              //quill.setText(pitch); //set quill to pitch
+              scriptname = loadResponse.scriptName;
+              category = loadResponse.category;
               counters++;
+
+
 
               //dynamically create amount of text boxes needed to display answers per pitch
               for (var i = 1; i < counter; i++) {
 
                 questionId = loadResponse[i].nextId;
-                //dynamically create answer textbox
-                $(wrapper).append('<div class="col-sm-4"> <div class="panel panel-primary" style="box-shadow: 15px 15px black;"> <div class="panel-heading" >Answer <span id="s'+i+'"> </span></div><div class="panel-body">  <input type="text" style="width:100%; border: none;" id="a'+i+'" name="a'+i+'" readonly></div></div> </div>'); //add input box
-                document.getElementById("a"+i).value= loadResponse[i].id; //display answer
 
-                //let users only see 2 pitches when previewing
+                $(wrapper).append('<div class="col-sm-4"> <div class="panel panel-primary" style="box-shadow: 15px 15px black;"> <div class="panel-heading" >Answer <span id="s'+i+'"> </span></div><div class="panel-body">  <input type="text" style="width:100%; border: none;" id="a'+i+'" name="a'+i+'" readonly></div></div> </div>'); //add input box
+                document.getElementById("a"+i).value= loadResponse[i].id;
+
+		//if (questionId != null) {
                 if (counters <= 1) {
-                  document.getElementById("s"+i).innerHTML = '<button value="click here" onClick=window.location="http://salesscript.com.au/preview.php?script='+scriptId+'&question='+questionId+'&price='+price+'&scriptName='+scriptname+'&category='+category+'&createddate='+createddate+'&rating='+rating+'&counters='+counters+'">NEXT PITCH</button>';
-                //if user is on 2nd pitch, do not let them proceed any further
-                } else {
-                  document.getElementById("back").innerHTML = '&nbsp&nbsp&nbsp&nbsp<button style="height: 40px; width: 70px; font-size: 18px; border-radius: 4px" value="click here" onClick="history.back();"><b>Back<b></button>';
-                }
+                 
+                document.getElementById("s"+i).innerHTML = '<button value="click here" onClick=window.location="http://salesscript.com.au/preview.php?script='+scriptId+'&question='+questionId+'&price='+price+'&scriptName='+scriptname+'&category='+category+'&createddate='+createddate+'&rating='+rating+'&counters='+counters+'">NEXT PITCH</button>';
+                
+              } else {
+                document.getElementById("back").innerHTML = '&nbsp&nbsp&nbsp&nbsp<button style="height: 40px; width: 70px; font-size: 18px; border-radius: 4px" value="click here" onClick="history.back();"><b>Back<b></button>';
+              }
+             // }
 
             }
 
@@ -415,6 +426,16 @@
       xmlhttp.send(formData);
 
     }
-  </script>
+
+
+
+
+
+
+</script>
+
+
+
+
 
 </html>

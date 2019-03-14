@@ -1,22 +1,22 @@
 <?php
    require_once('dbConnection.php');
-
+   
    session_start();
-
+   
    //check user is logged in
    if (!isset($_SESSION["who"])){
      header('Location: login.php'); //redirect user if not logged in
    }
-
-   $userId = $_SESSION["who"]; //store userId
-
-   //Query to get example scripts
+   
+   $userId = $_SESSION["who"];
+   
+   
    $sqlScript = "SELECT * FROM script WHERE example = 'Y'";
-
-   $results =  mysqli_query($dbConnection, $sqlScript) //execute and store result of query
+   
+   $results =  mysqli_query($dbConnection, $sqlScript)
    or die (mysqli_error($dbConnection));
-
-?>
+   
+   ?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -37,7 +37,7 @@
          }
          th {
          border-bottom: 1px solid #ddd;
-
+         
          color: white;
          background-color: #347AB6;
          padding: 8px;
@@ -126,44 +126,44 @@
          width : 500px;
          }
          }
-       </style>
-       </head>
-       <body>
-          <div id="nav-placeholder">
-          </div>
-          <div class="container text-center">
-             <h1 style="color: white; font-size:70px"><b>Example<img src="loggg.JPG" alt="logo" style="width:200px; height:150px;"></b></h1>
-          </div>
-          <div class="container text-center">
-             <h3 style="float: left; color: white;"><b>Browse our free example scripts:<b></h3>
-             <br>
-             <table>
-                <tr>
-                   <th  style="border-top-left-radius: 10px; border-right: 3px solid #ddd; border-bottom-left-radius: 10px;">Name</th>
-                   <th  style="border-top-right-radius: 10px; border-bottom-right-radius: 10px;">Category</th>
-                </tr>
-                <?php
-                   while ($row = mysqli_fetch_array($results)) {
-
-                        $scriptname = $row['scriptName'];
-                        $scriptid = $row['scriptId'];
-                        $firstqn = $row['firstQuestionId'];
-                        $category = $row['category'];
-                        ?>
-                <tr>
-                   <td>
-                      <?php echo '<a href="http://salesscript.com.au/viewScript.php?script=' . $scriptid . '&question=' . $firstqn . '&scriptName=' . $scriptname . '&category=' .
-                         $category . '">' . $scriptname . '</a>';?>
-                   </td>
-                   <td>
-                      <?php echo $row["category"];?>
-                   </td>
-                </tr>
-                    <?php } ?>
-             </table><br><br><br>           
-          </div>
-       </body>
-
+      </style>
+   </head>
+   <body>
+      <div id="nav-placeholder">
+      </div>
+      <div class="container text-center">
+         <h1 style="color: white; font-size:70px"><b>Example<img src="loggg.JPG" alt="logo" style="width:200px; height:150px;"></b></h1>
+      </div>
+      <div class="container text-center">
+         <h3 style="float: left; color: white;"><b>Browse our free example scripts:<b></h3>
+         <br>
+         <table>
+            <tr>
+               <th  style="border-top-left-radius: 10px; border-right: 3px solid #ddd; border-bottom-left-radius: 10px;">Name</th>
+               <th  style="border-top-right-radius: 10px; border-bottom-right-radius: 10px;">Category</th>
+            </tr>
+            <?php
+               while ($row = mysqli_fetch_array($results)) {
+               
+                    $scriptname = $row['scriptName'];
+                    $scriptid = $row['scriptId'];
+                    $firstqn = $row['firstQuestionId'];
+                    $category = $row['category'];
+                    ?>
+            <tr>
+               <td>
+                  <?php echo '<a href="http://salesscript.com.au/viewScript.php?script=' . $scriptid . '&question=' . $firstqn . '&scriptName=' . $scriptname . '&category=' . 
+                 $category . '">' . $scriptname . '</a>';?>
+               </td>
+               <td>
+                  <?php echo $row["category"];?>
+               </td>
+            </tr>
+            <?php } ?>
+         </table>
+         <br><br><br>
+      </div>
+   </body>
    <script>
       $(function(){
         $("#nav-placeholder").load("nav.php");

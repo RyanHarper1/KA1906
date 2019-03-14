@@ -26,6 +26,7 @@ require_once('dbConnection.php');
 	  $item_number = $_REQUEST['item_number'];  // Item Code we sold 
           $item_name = $_REQUEST['item_name'];   // Item name we sold 
 	  $date_format = date("l jS \of F Y h:i:s A");
+    $dt = date("Y-m-d");
 
 
 	  
@@ -33,11 +34,11 @@ require_once('dbConnection.php');
 		  
 		  // Add To Database
 		  
-		    $sqlPurchase = "INSERT INTO sales (scriptid, userid, curuserid, storeid, username, useremail, script, transactionid, category, price, paypalemail, fname, lname, address, city, state, zip, country, phone,  datephp, paymentstatus) VALUES ($scriptid, $userid, $curuser, $storeid, '$curusername', '$curuseremail', '$item_name', '$utxnid', '$cat', $uamount, '$uemail', '$ufname', '$ulname', '$uaddress', '$ucity', '$ustate', '$uzip', '$ucountry', '$uphone', '$date_format', '$ustatus')";
+		    $sqlPurchase = "INSERT INTO sales (scriptid, userid, curuserid, storeid, username, useremail, script, transactionid, category, price, paypalemail, fname, lname, address, city, state, zip, country, phone,  dt, datephp, paymentstatus) VALUES ($scriptid, $userid, $curuser, $storeid, '$curusername', '$curuseremail', '$item_name', '$utxnid', '$cat', $uamount, '$uemail', '$ufname', '$ulname', '$uaddress', '$ucity', '$ustate', '$uzip', '$ucountry', '$uphone', '$dt', '$date_format', '$ustatus')";
     		mysqli_query($dbConnection, $sqlPurchase);
 			
 			// Update To Database
-			$sqlUpdateScript = "UPDATE script set purchased = 'Y' WHERE userId = $curuser AND scriptId = $scriptid AND scriptName = '$item_name' ";
+			$sqlUpdateScript = "UPDATE script set purchased = 'Y', userId = '$curuser' WHERE scriptId = '$scriptid' ";
 			mysqli_query($dbConnection, $sqlUpdateScript);
 			
 			
@@ -54,7 +55,6 @@ require_once('dbConnection.php');
 							"<br>This mail is to notify you that you have purchased $item_name from SaleScript.com.au.<br>".
 							"<br>Script Information<br>".
 							"<br><b>Script Name:</b> $item_name<br>".
-							"<br><b>Script ID:</b> $item_number<br>".
 							"<br><b>Script Category:</b> $cat<br>".
 							"<br><br><br><br>".
 							"<br>Transaction Information<br>".

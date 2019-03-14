@@ -3,39 +3,35 @@
   session_start();
 
   require_once('dbConnection.php');
-
+  
   //check user is logged in
-  if (!isset($_SESSION["who"])) {
-      header('Location: login.php'); //redirect user if not logged in
-  }
+   if (!isset($_SESSION["who"])){
+     header('Location: login.php'); //redirect user if not logged in
+   }
 
-  $user = $_SESSION["who"]; //store userId
+  $user = $_SESSION["who"];
 
-  if (isset($_POST["update"])) {
+  if (isset($_POST["update"]))
+  {
 
-      $username  = $_POST['username']; //store username
-      $firstname = $_POST['firstname']; //store firstname
-      $lastname  = $_POST['lastname']; //store lastname
-      $email     = $_POST['email']; //store email
-      $password  = $_POST['password']; //store password
+      $username = $_POST['username'];
+      $firstname = $_POST['firstname'];
+      $lastname = $_POST['lastname'];
+      $email = $_POST['email'];
+      $password = $_POST['password'];
 
-      //query to update user table
+
       $sqlUpdate = "UPDATE user SET username = '$username', firstname = '$firstname', lastname = '$lastname', email = '$email', password = '$password'  WHERE id = '$user'";
 
-      mysqli_query($dbConnection, $sqlUpdate) or die('Problem with script query' . mysqli_error()); //execute query
-
-      //update session variables
+      mysqli_query($dbConnection, $sqlUpdate);
+      
       $_SESSION['firstname'] = $firstname;
-      $_SESSION['email'] = $email;
-      $_SESSION['lastname'] = $lastname;
-      $_SESSION['username'] = $username;
 
   }
 
-  //query to get user details
   $sqlScript = "SELECT * FROM user WHERE id = '$user'";
-  
-  $results = mysqli_query($dbConnection, $sqlScript); //execute and store query results
+
+  $results =  mysqli_query($dbConnection, $sqlScript);
 
 ?>
 
@@ -116,11 +112,11 @@
       </style>
    </head>
    <body>
-
+      
       <div id="nav-placeholder">
 
       </div>
-
+      
 <div class="jumbotron">
   <div class="container text-center">
     <h1><b>Update Details<b></h1>
@@ -167,12 +163,12 @@
      <label for="password"> <b>Current Password </b> </label> <br>
       <input type="password" name="password" placeholder="Enter Current Password" maxlength="30" value="">
    </div> <br> <br>
-
+   
    <div class="input-group">
      <label for="password2"> <b>New Password</b> </label> <br>
       <input type="password" name="password2" placeholder="At least 8 characters" maxlength="30" value="">
    </div> <br> <br>
-
+   
    <div class="input-group">
      <label for="password3"> <b>Retype New Password </b> </label> <br>
       <input type="password" name="password3" placeholder="At least 8 characters" maxlength="30" value="">
