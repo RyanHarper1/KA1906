@@ -5,6 +5,12 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 
+import { CartComponent } from './components/cart/cart.component';
+import { BuildScriptComponent } from './components/build-script/build-script.component';
+import { CurrentScriptsComponent } from './components/current-scripts/current-scripts.component';
+import { ExampleScriptComponent } from './components/example-script/example-script.component';
+import { StoreComponent } from './components/store/store.component';
+
 const routes: Routes = [
   {
       path: '',
@@ -17,12 +23,32 @@ const routes: Routes = [
   {
   path: 'register',
   component: RegisterComponent
-}, 
+},
 {
   path: 'home',
   component: HomeComponent
-} 
-  
+},
+
+{
+  path: 'cart',
+  component: CartComponent
+},
+{
+  path: 'build-script',
+  component: BuildScriptComponent
+} ,
+{
+  path: 'current-script',
+  component: CurrentScriptsComponent
+},
+{
+  path: 'example-script',
+  component: ExampleScriptComponent
+},
+{
+  path: 'store',
+  component: StoreComponent
+}
 ];
 
 @NgModule({

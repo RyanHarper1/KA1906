@@ -12,13 +12,13 @@ export class RegisterComponent implements OnInit {
   submitted = false;
   success = false;
 
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(private formBuilder: FormBuilder) {
     this.registerForm = this.formBuilder.group({
       fName: ['', Validators.required],
       lName: ['', Validators.required],
       username: ['', Validators.required],
       email: ['', Validators.required],
-      password: ['', Validators.required],
+      password: ['', Validators.required]
     })
   }
 
