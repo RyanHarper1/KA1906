@@ -14,10 +14,12 @@ CREATE DATABASE SalesScript;
 use SalesScript
 CREATE TABLE users(ID int auto_increment, username VARCHAR(15), fName VARCHAR(30), lName VARCHAR(30), email VARCHAR(60), password VARCHAR(50), PRIMARY KEY(ID));
 
-CREATE USER 'Jack'@'localhost' IDENTIFIED BY 'password';
-CREATE USER 'Ryan'@'localhost' IDENTIFIED BY 'password';
-CREATE USER 'Jeanette'@'localhost' IDENTIFIED BY 'password';
+CREATE USER 'user'@'%' IDENTIFIED BY 'Welcome1';
+CREATE USER 'Ryan1'@'178.128.58.183' IDENTIFIED BY 'Ryanpass';
+CREATE USER 'Jeanette'@'localhost' IDENTIFIED BY 'Jaypass';
 
-GRANT ALL PRIVILEGES ON * . * TO 'Jack'@'localhost';
+GRANT ALL PRIVILEGES ON * . * TO 'user'@'%';
 GRANT ALL PRIVILEGES ON * . * TO 'Ryan'@'localhost';
 GRANT ALL PRIVILEGES ON * . * TO 'Jeanette'@'localhost';
+
+Privileges
