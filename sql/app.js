@@ -21,7 +21,8 @@ app.on('error', function(err) {
     console.log("[mysql error]",err);
   });
 
-//insert into users
+//Register users
+
 app.get('/addusers', (req,res) => {
     let user = {fName: 'Ryan', lName:'Harper', email:'ryan@mail.com', password: 'password'};
     let sql = 'INSERT INTO users SET ?';
@@ -37,8 +38,23 @@ app.get('/addusers', (req,res) => {
         res.send('users added');
     });
 
-   
+});
 
+//check login
+app.get('/login', (req,res) => {
+    let user = {fName: 'Ryan', lName:'Harper', email:'ryan@mail.com', password: 'password'};
+    let sql = 'INSERT INTO users SET ?';
+    console.log("On server side");
+    console.log(user);
+    let query = db.query(sql,user, (err, result) => {
+        console.log("2");
+
+        if(err){
+            throw err;
+        }
+        console.log(result);
+        res.send('users added');
+    });
 
 });
 
