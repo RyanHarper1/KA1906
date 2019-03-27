@@ -5,10 +5,10 @@ const app = express();
 
 // Create connection
 const db = mysql.createConnection({
-    host     : 'localhost',
+    host     : '178.128.58.183',
     user     : 'ryan',
     password : 'password',
-    database : 'users'
+    database : 'SalesScript'
 });
 
 // Connect to db

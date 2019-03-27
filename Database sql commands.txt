@@ -13,3 +13,11 @@ sudo mysql
 CREATE DATABASE SalesScript;
 use SalesScript
 CREATE TABLE users(ID int auto_increment, username VARCHAR(15), fName VARCHAR(30), lName VARCHAR(30), email VARCHAR(60), password VARCHAR(50), PRIMARY KEY(ID));
+
+CREATE USER 'Jack'@'localhost' IDENTIFIED BY 'password';
+CREATE USER 'Ryan'@'localhost' IDENTIFIED BY 'password';
+CREATE USER 'Jeanette'@'localhost' IDENTIFIED BY 'password';
+
+GRANT ALL PRIVILEGES ON * . * TO 'Jack'@'localhost';
+GRANT ALL PRIVILEGES ON * . * TO 'Ryan'@'localhost';
+GRANT ALL PRIVILEGES ON * . * TO 'Jeanette'@'localhost';
