@@ -1,0 +1,25 @@
+{
+  "name": "sql",
+  "version": "1.0.0",
+  "description": "Mysql database",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mysql": "^2.16.0",
+    "nodemon": "^1.18.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyanHarper1/KA1906.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RyanHarper1/KA1906/sql/issues"
+  },
+  "homepage": "https://github.com/RyanHarper1/KA1906/sql/#readme"
+}

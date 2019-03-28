@@ -1,0 +1,25 @@
+MySQL server running on Ubuntu subsystem for windows.
+Installation instructions found here:
+https://docs.microsoft.com/en-us/windows/wsl/install-win10
+
+Run Ubuntu setup and set user and root password then do following commands:
+
+Sudo apt update
+sudo apt install mysql-server
+sudo service mysql start
+sudo mysql
+
+
+CREATE DATABASE SalesScript;
+use SalesScript
+CREATE TABLE users(ID int auto_increment, username VARCHAR(15), fName VARCHAR(30), lName VARCHAR(30), email VARCHAR(60), password VARCHAR(50), PRIMARY KEY(ID));
+
+CREATE USER 'user'@'%' IDENTIFIED BY 'Welcome1';
+CREATE USER 'Ryan1'@'178.128.58.183' IDENTIFIED BY 'Ryanpass';
+CREATE USER 'Jeanette'@'localhost' IDENTIFIED BY 'Jaypass';
+
+GRANT ALL PRIVILEGES ON * . * TO 'user'@'%';
+GRANT ALL PRIVILEGES ON * . * TO 'Ryan'@'localhost';
+GRANT ALL PRIVILEGES ON * . * TO 'Jeanette'@'localhost';
+
+Privileges
