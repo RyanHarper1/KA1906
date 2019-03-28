@@ -9,8 +9,8 @@ export class AuthService {
   any: any;
 
   constructor(private http: HttpClient) { }
-  test: any;
-  getUserDetails(){
+  name: any
+  getUser(name){
   
 
     console.log('yeah nah')
