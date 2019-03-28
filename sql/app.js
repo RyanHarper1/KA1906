@@ -22,7 +22,10 @@ app.on('error', function(err) {
   });
 
 //Register users
-
+app.post('/test', (req,res) =>{
+    console.log('connection')
+res.send('working');
+});
 app.get('/addusers', (req,res) => {
     let user = {fName: 'Ryan', lName:'Harper', email:'ryan@mail.com', password: 'password'};
     let sql = 'INSERT INTO users SET ?';

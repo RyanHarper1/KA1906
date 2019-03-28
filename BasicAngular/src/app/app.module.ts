@@ -13,6 +13,7 @@ import { ExampleScriptComponent } from './components/example-script/example-scri
 import { StoreComponent } from './components/store/store.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CurrentScriptsComponent } from './components/current-scripts/current-scripts.component';
+import { HttpClientModule } from '@angular/common/http'; 
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { CurrentScriptsComponent } from './components/current-scripts/current-sc
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
