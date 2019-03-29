@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 
 const app = express();
 app.use(cors());
-app.use(bodyParser.json({extended : true}));
+app.use(bodyParser.json({ extended: true }));
 
 /**bodyParser.json(options)
  * Parses the text as JSON and exposes the resulting object on req.body.
@@ -17,10 +17,10 @@ app.use(bodyParser.json({extended : true}));
 app.use(bodyParser.json());
 // Create connection
 const db = mysql.createConnection({
-    host     : '178.128.58.183',
-    user     : 'user',
-    password : 'Welcome1',
-    database : 'SalesScript'
+    host: '178.128.58.183',
+    user: 'user',
+    password: 'Welcome1',
+    database: 'SalesScript'
 });
 
 // Connect to db
@@ -29,57 +29,71 @@ db.connect((err) => {
     console.log('MySql Connected...');
 });
 
-app.on('error', function(err) {
-    console.log("[mysql error]",err);
-  });
+app.on('error', function (err) {
+    console.log("[mysql error]", err);
+});
 
 //Register users
-app.get('/test', (req,res) =>{
+app.get('/test', (req, res) => {
     console.log('connection')
     const test = [
-        {id: 1, name: 'test'}
+        { id: 1, name: 'test' }
     ];
     res.send(test);
 });
 
 
 
-app.post('/addusers', (req,res) => {
+app.post('/addusers', (req, res) => {
     let test = req.body;
+    let reply = {};
     console.log(test);
-    console.log(String(req.body.fName));
-    let user = {username: req.body.username, fName: req.body.fName, lName: req.body.lName, email: req.body.email, password: req.body.password};
+    let user = { username: req.body.username, fName: req.body.fName, lName: req.body.lName, email: req.body.email, password: req.body.password };
     let sql = 'INSERT INTO users SET ?';
     console.log("On server side");
     console.log(user);
-    let query = db.query(sql,user, (err, result) => {
-        console.log("2");
-
-        if(err){
+    let query = db.query(sql, user, (err, result) => {
+        if (err) {
             throw err;
-        }else{
+        } else {
             console.log("successfully entered");
+
+            reply = {
+                result: 'success', name: req.body.username
+            }
         }
-        res.send(result);
+        res.send(reply);
     });
 
 });
 
 //check login
-app.get('/login', (req,res) => {
-    let user = {fName: 'Ryan', lName:'Harper', email:'ryan@mail.com', password: 'password'};
-    let sql = 'INSERT INTO users SET ?';
+app.post('/login', (req, res) => {
+    let user = { username: req.body.username, password: req.body.password };
+    let sql = 'SELECT * FROM users WHERE username = ?';
     console.log("On server side");
-    console.log(user);
-    let query = db.query(sql,user, (err, result) => {
-        console.log("2");
+    console.log(req.body.username);
 
-        if(err){
+    let query = db.query(sql, req.body.username, (err, result) => {
+
+        if (err) {
             throw err;
         }
-        console.log(result);
-        res.send('users added');
+
+
+        if (result.length > 0) {
+            if (result[0].password == req.body.password) {
+                console.log("same");
+                res.send({ result: 'Success', fName: result[0].fName, lName: result[0].lName, email: result[0].email, username: result[0].username })
+            } else {
+                console.log("incorrect");
+                res.send({ result: 'incorrect' })
+            }
+        } else {
+            res.send({ result: 'User does not exist' });
+        }
     });
+
 
 });
 

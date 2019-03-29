@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -11,8 +13,9 @@ export class LoginComponent implements OnInit {
   logInForm: FormGroup;
   submitted = false;
   success = false;
+  response: Object;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,  private Http: HttpClient) { }
 
   ngOnInit() {
     this.logInForm = this.formBuilder.group({
@@ -31,6 +34,14 @@ export class LoginComponent implements OnInit {
    }
 
    this.success = true;
+
+   this.success = true;
+   let posts = this.Http.post('http://localhost:3000/login',this.logInForm.value );
+   posts.subscribe((response) => {
+     this.response = response;
+     //AuthService.getUser('test');
+     console.log(this.response)
+   });
  }
 }
 
