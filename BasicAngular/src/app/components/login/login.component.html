@@ -1,14 +1,23 @@
 <h1>Login</h1>
 <form [formGroup]="logInForm" (ngSubmit)="onSubmit()">
 
-   <label>
+   <!-- <label>
     Username:
     <input type="text" placeholder="Username" formControlName="username">
     <div *ngIf="submitted && logInForm.controls.username.errors">
       <div *ngIf="logInForm.controls.username.errors.required">Your name is Required<p></p>
       </div>
     </div>
-  </label>
+  </label> -->
+
+  <label>
+      Email:
+      <input type="text" placeholder="Email" formControlName="email">
+      <div *ngIf="submitted && logInForm.controls.email.errors">
+        <div *ngIf="logInForm.controls.email.errors.required">Your email is Required<p></p>
+        </div>
+      </div>
+    </label>
 
   <label>
     Password:

@@ -3,28 +3,13 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
 
-    <label>
+    <!-- <label>
       Username:
       <input type ="text" placeholder="Username" formControlName="username">
       <div *ngIf="submitted && registerForm.controls.username.errors">
         <div *ngIf="registerForm.controls.username.errors.required">Username is Required<p></p></div>
       </div>
-    </label>
-
-    <label>
-      Password:
-      <input type="password" formControlName="password">
-      <div *ngIf="submitted && registerForm.controls.password.errors">
-        <div *ngIf="registerForm.controls.password.errors.required">Password is Required<p></p></div>
-      </div>
-    </label>
-    <label>
-      Confirm Password:
-      <input type="password" formControlName="confirmPass">
-      <div *ngIf="submitted && registerForm.controls.password.errors">
-        <div *ngIf="registerForm.controls.password.errors.required">Password is Required<p></p></div>
-      </div>
-    </label>
+    </label> -->
 
     <label>
       First Name:
@@ -44,11 +29,27 @@
 
     <label>
       Email:
-      <input type="email" placeholder="email"formControlName="email">
+      <input type="email" placeholder="Email"formControlName="email">
       <div *ngIf="submitted && registerForm.controls.email.errors">
         <div *ngIf="registerForm.controls.email.errors.required">Email is Required<p></p></div>
       </div>
     </label>
+
+    <label>
+      Password:
+      <input type="password" formControlName="password">
+      <div *ngIf="submitted && registerForm.controls.password.errors">
+        <div *ngIf="registerForm.controls.password.errors.required">Password is Required<p></p></div>
+      </div>
+    </label>
+    <label>
+
+        Confirm Password:
+      <input type="password" formControlName="confirmPass">
+        <div *ngIf="submitted && registerForm.controls.password.errors">
+          <div *ngIf="registerForm.controls.password.errors.required">Password is Required<p></p></div>
+        </div>
+      </label>
 
     <input type="submit" value="submit">
 
