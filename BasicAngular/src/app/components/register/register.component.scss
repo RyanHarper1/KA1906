@@ -3,9 +3,11 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    width: 100;
-    height: 50;
-    background: rgb(236, 228, 228);
+    width: 100%;
+    height: 100px;
+    background: white;
+    margin-top: 20px;
+
   }
 
     label {
@@ -24,20 +26,20 @@
     margin: 0px 0px 20px 135px;
     margin-top: 10px;
     padding: 10px;
-    font-weight: 300;
+    font-weight: bold;
     font-size: 28px;
     color: rgb(34, 52, 88);
+    text-align: auto;
    
 }
 
-#login-box
+#register-box
 {
     position: relative;
     margin: 5% auto;
-    height: 600px auto;
+    height: 700px auto;
     width: 500px;
     background: #fff;
-    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
     border: 5px solid rgb(34, 52, 88);
    
 }
@@ -51,9 +53,10 @@
             padding: 1em;
             background-color: rgb(236, 228, 228);
             border: none;
+            float: centre;
         }
 
-        input[type="submit"]{
+        input[type="register"]{
         margin-bottom: 28px;
         margin-top: 28px;
         margin: 5% auto;
@@ -68,15 +71,32 @@
         cursor: pointer;
     }
 
-    input[type="submit"]:hover, 
-    input[type="submit"]:focus
+    /* checkbox */
+    .container {
+        // display: block;
+        // position: relative;
+        // padding-left: 35px;
+        // margin-bottom: 28px;
+        // margin-top: 28px;
+        cursor: pointer;
+        font-size: 10px;
+        color: rgb(34, 52, 88);
+        // vertical-align: middle;
+        
+        
+    }
+
+    input[type="register"]:hover, 
+    input[type="register"]:focus
     {
         background: #1745a7e3;
         transition: 0.2s ease;
     }
 
 
-        .error {
+
+
+    .error {
             margin-top: -20px;
             background: yellow;
             padding: .5em;

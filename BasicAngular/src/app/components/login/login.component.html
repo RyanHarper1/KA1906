@@ -1,4 +1,10 @@
-<h1>Login</h1>
+<div id="saleScript">
+    <img src="/assets/Logo_JLEE_SS3.png" alt="logo" style="width:200px;">
+  </div><br>
+  
+<div id="login-box">
+    <div class="left-box">
+      <h1> Login</h1>
 <form [formGroup]="logInForm" (ngSubmit)="onSubmit()">
 
    <!-- <label>
@@ -11,7 +17,7 @@
   </label> -->
 
   <label>
-      Email:
+      Email
       <input type="text" placeholder="Email" formControlName="email">
       <div *ngIf="submitted && logInForm.controls.email.errors">
         <div *ngIf="logInForm.controls.email.errors.required">Your email is Required<p></p>
@@ -20,14 +26,14 @@
     </label>
 
   <label>
-    Password:
+    Password
     <input type="password" placeholder="Password" formControlName="password">
     <div *ngIf="submitted && logInForm.controls.password.errors">
       <div *ngIf="logInForm.controls.password.errors.required">Your Password is Required</div>
     </div>
   </label>
 
-  <input type="submit" value="submit">
+  <input type="Login" value="Login">
 
 </form>
 

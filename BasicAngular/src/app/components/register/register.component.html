@@ -1,9 +1,9 @@
 
   <div id="saleScript">
-      <img src="/assets/Logo_JLEE_SS3.png alt="logo" style="width:700px; height:250px;">
+      <img src="/assets/Logo_JLEE_SS3.png" alt="logo" style="width:200px;">
     </div><br>
 
-  <div id="login-box">
+  <div id="register-box">
       <div class="left-box">
         <h1> Register</h1>
   
@@ -47,12 +47,16 @@
         Confirm Password
       <input type="password" placeholder="Confirm Password"formControlName="confirmPass">
         <div *ngIf="submitted && registerForm.controls.password.errors">
-          <div *ngIf="registerForm.controls.password.errors.required">Password is Required<p></p></div>
+          <div class="error" *ngIf="registerForm.controls.password.errors.required">Password is Required<p></p></div>
         </div>
       </label>
 
+      <label class="container">
+          <input type="checkbox" checked="checked" value="tandc">
+          I agree to Sales Script terms and conditions
+        </label>
 
-    <input type="submit" value="Submit">
+    <input type="register" value="Register">
 
   </form>
   <div *ngFor ="let post of posts | async">
