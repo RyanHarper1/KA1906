@@ -45,7 +45,7 @@
     <label>
 
         <label class="required">*</label>Confirm Password
-      <input type="password" placeholder="Confirm Password"formControlName="confirmPass">
+      <input type="password" placeholder="Re-type Password"formControlName="confirmPass">
         <div *ngIf="submitted && registerForm.controls.password.errors">
           <div class="error" *ngIf="registerForm.controls.password.errors.required">Confirmation password is required<p></p></div>
         </div>
