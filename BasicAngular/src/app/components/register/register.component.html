@@ -7,15 +7,22 @@
       Username:
       <input type ="text" placeholder="Username" formControlName="username">
       <div *ngIf="submitted && registerForm.controls.username.errors">
-        <div *ngIf="registerForm.controls.username.errors.required">Your name is Required<p></p></div>
+        <div *ngIf="registerForm.controls.username.errors.required">Username is Required<p></p></div>
       </div>
     </label>
 
     <label>
       Password:
-      <input type="text" placeholder="password" formControlName="password">
+      <input type="password" formControlName="password">
       <div *ngIf="submitted && registerForm.controls.password.errors">
-        <div *ngIf="registerForm.controls.password.errors.required">Your name is Required<p></p></div>
+        <div *ngIf="registerForm.controls.password.errors.required">Password is Required<p></p></div>
+      </div>
+    </label>
+    <label>
+      Confirm Password:
+      <input type="password" formControlName="confirmPass">
+      <div *ngIf="submitted && registerForm.controls.password.errors">
+        <div *ngIf="registerForm.controls.password.errors.required">Password is Required<p></p></div>
       </div>
     </label>
 
@@ -23,7 +30,7 @@
       First Name:
       <input type="text" placeholder="First Name" formControlName="fName">
       <div *ngIf="submitted && registerForm.controls.fName.errors">
-        <div *ngIf="registerForm.controls.fName.errors.required">Your name is Required<p></p></div>
+        <div *ngIf="registerForm.controls.fName.errors.required">First name is Required<p></p></div>
       </div>
     </label>
 
@@ -31,15 +38,15 @@
       Last Name:
       <input type="text" placeholder="Last Name" formControlName="lName">
       <div *ngIf="submitted && registerForm.controls.lName.errors">
-        <div *ngIf="registerForm.controls.lName.errors.required">Your name is Required<p></p></div>
+        <div *ngIf="registerForm.controls.lName.errors.required">Last name is Required<p></p></div>
       </div>
     </label>
 
     <label>
       Email:
-      <input type="text" placeholder="email"formControlName="email">
+      <input type="email" placeholder="email"formControlName="email">
       <div *ngIf="submitted && registerForm.controls.email.errors">
-        <div *ngIf="registerForm.controls.email.errors.required">Your name is Required<p></p></div>
+        <div *ngIf="registerForm.controls.email.errors.required">Email is Required<p></p></div>
       </div>
     </label>
 

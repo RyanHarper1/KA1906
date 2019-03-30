@@ -13,7 +13,7 @@
 
     <label>
         Password:
-        <input type="text" placeholder="Password" formControlName="password">
+        <input type="password" placeholder="Password" formControlName="password">
         <div *ngIf="submitted && logInForm.controls.password.errors">
           <div *ngIf="logInForm.controls.password.errors.required">Your Password is Required</div>
         </div>

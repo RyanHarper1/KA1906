@@ -1,21 +1,38 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { HttpClientModule} from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   any: any;
+  response: Object;
 
-  constructor(private http: HttpClient) { }
-  name: any
-  getUser(name){
-  
+  constructor(private Http: HttpClient) { }
 
-    console.log('yeah nah')
-   this.any = this.http.get('localhost:3000/test').subscribe()
-   console.log(this.any);
+  //User login function
+  login(username, password) {
+
+    let posts = this.Http.post('http://localhost:3000/login', { username: username, password: password });
+    posts.subscribe((response) => {
+      this.response = response;
+      //AuthService.getUser('test');
+      console.log(this.response)
+    });
 
   }
-}
+
+  register(object){
+
+    let posts = this.Http.post('http://localhost:3000/addusers', object.value);
+    posts.subscribe((response) => {
+      this.response = response;
+
+      console.log(this.response)
+    });
+
+  }
+  }
+
+

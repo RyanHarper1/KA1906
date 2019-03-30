@@ -33,17 +33,8 @@ app.on('error', function (err) {
     console.log("[mysql error]", err);
 });
 
+
 //Register users
-app.get('/test', (req, res) => {
-    console.log('connection')
-    const test = [
-        { id: 1, name: 'test' }
-    ];
-    res.send(test);
-});
-
-
-
 app.post('/addusers', (req, res) => {
     let test = req.body;
     let reply = {};
@@ -59,7 +50,7 @@ app.post('/addusers', (req, res) => {
             console.log("successfully entered");
 
             reply = {
-                result: 'success', name: req.body.username
+                result: 'success', name: req.body.username, fName: req.body.fName, lName: req.body.lName, email: req.body.email
             }
         }
         res.send(reply);
