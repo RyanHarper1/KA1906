@@ -10,45 +10,54 @@ import { BuildScriptComponent } from './components/build-script/build-script.com
 import { CurrentScriptsComponent } from './components/current-scripts/current-scripts.component';
 import { ExampleScriptComponent } from './components/example-script/example-script.component';
 import { StoreComponent } from './components/store/store.component';
+import { AuthService } from './auth.service'
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {
-      path: '',
-      component: HomeComponent
+    path: '',
+    component: HomeComponent
   },
   {
     path: 'login',
     component: LoginComponent
   },
   {
-  path: 'register',
-  component: RegisterComponent
-},
-{
-  path: 'home',
-  component: HomeComponent
-},
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
 
-{
-  path: 'cart',
-  component: CartComponent
-},
-{
-  path: 'build-script',
-  component: BuildScriptComponent
-} ,
-{
-  path: 'current-script',
-  component: CurrentScriptsComponent
-},
-{
-  path: 'example-script',
-  component: ExampleScriptComponent
-},
-{
-  path: 'store',
-  component: StoreComponent
-}
+  },
+  
+  //Only allow access to following components when signed in
+  {
+    path: 'cart',
+    component: CartComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'build-script',
+    component: BuildScriptComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'current-script',
+    component: CurrentScriptsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'example-script',
+    component: ExampleScriptComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'store',
+    component: StoreComponent,
+    canActivate: [AuthGuard]
+  }
 ];
 
 @NgModule({
