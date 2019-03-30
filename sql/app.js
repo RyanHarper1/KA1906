@@ -88,7 +88,16 @@ app.post('/login', (req, res) => {
 
 
 });
+app.get('/store', (req,res) => {
+    let sql = 'Select * from store'
+    let query = db.query(sql, (err, result) => {
 
+        if (err) {
+            throw err;
+        }
+        res.send(result);        
+    });
+});
 
 
 
