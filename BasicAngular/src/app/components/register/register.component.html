@@ -2,47 +2,19 @@
 <div *ngIf="response"><p>Hello: {{response.name}}</p></div>
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
-<<<<<<< HEAD
     <!-- <label>
-=======
-
-    <label>
->>>>>>> master
       Username:
       <input type ="text" placeholder="Username" formControlName="username">
       <div *ngIf="submitted && registerForm.controls.username.errors">
         <div *ngIf="registerForm.controls.username.errors.required">Username is Required<p></p></div>
       </div>
-<<<<<<< HEAD
     </label> -->
-=======
-    </label>
-
-    <label>
-      Password:
-      <input type="password" formControlName="password">
-      <div *ngIf="submitted && registerForm.controls.password.errors">
-        <div *ngIf="registerForm.controls.password.errors.required">Password is Required<p></p></div>
-      </div>
-    </label>
-    <label>
-      Confirm Password:
-      <input type="password" formControlName="confirmPass">
-      <div *ngIf="submitted && registerForm.controls.password.errors">
-        <div *ngIf="registerForm.controls.password.errors.required">Password is Required<p></p></div>
-      </div>
-    </label>
->>>>>>> master
 
     <label>
       First Name:
       <input type="text" placeholder="First Name" formControlName="fName">
       <div *ngIf="submitted && registerForm.controls.fName.errors">
-<<<<<<< HEAD
         <div *ngIf="registerForm.controls.fName.errors.required">Your firstname is Required<p></p></div>
-=======
-        <div *ngIf="registerForm.controls.fName.errors.required">First name is Required<p></p></div>
->>>>>>> master
       </div>
     </label>
 
@@ -50,17 +22,12 @@
       Last Name:
       <input type="text" placeholder="Last Name" formControlName="lName">
       <div *ngIf="submitted && registerForm.controls.lName.errors">
-<<<<<<< HEAD
         <div *ngIf="registerForm.controls.lName.errors.required">Your surname is Required<p></p></div>
-=======
-        <div *ngIf="registerForm.controls.lName.errors.required">Last name is Required<p></p></div>
->>>>>>> master
       </div>
     </label>
 
     <label>
       Email:
-<<<<<<< HEAD
       <input type="text" placeholder="Email"formControlName="email">
       <div *ngIf="submitted && registerForm.controls.email.errors">
         <div *ngIf="registerForm.controls.email.errors.required">Your email is Required<p></p></div>
@@ -72,11 +39,6 @@
       <input type="text" placeholder="Password" formControlName="password">
       <div *ngIf="submitted && registerForm.controls.password.errors">
         <div *ngIf="registerForm.controls.password.errors.required">Your password is Required<p></p></div>
-=======
-      <input type="email" placeholder="email"formControlName="email">
-      <div *ngIf="submitted && registerForm.controls.email.errors">
-        <div *ngIf="registerForm.controls.email.errors.required">Email is Required<p></p></div>
->>>>>>> master
       </div>
     </label>
 
