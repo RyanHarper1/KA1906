@@ -1,11 +1,30 @@
+
 label {
     display: block;
+    //width: 100px;
+    // float: centre;
+    align-items: center;
+    font: 14px bold Tahoma, Arial, sans-serif;
+    margin: 1px;
+    padding: 2px;
+    // background: #eeeeee;
     
-    input, textarea {
+    input, {
         display: block;
         width: 50%;
         margin-bottom: 20px;
+        margin-left: 100px;
+        text-align: left;
         padding: 1em;
+        // width: 200px;
+        // padding: 2px;
+        // border: 1px solid #aaa;
+    }
+
+    textarea {
+        width: 200px;
+        padding: 2px;
+        border: 1px solid #aaa;
     }
 
     .error {
