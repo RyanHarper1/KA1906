@@ -1,15 +1,13 @@
-<h1>Register</h1>
+
+  
+  
+  <div id="login-box">
+      <div class="left-box">
+        <h1> Register</h1>
+  
 <div *ngIf="response"><p>Hello: {{response.name}}</p></div>
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
-
-    <!-- <label>
-      Username:
-      <input type ="text" placeholder="Username" formControlName="username">
-      <div *ngIf="submitted && registerForm.controls.username.errors">
-        <div *ngIf="registerForm.controls.username.errors.required">Username is Required<p></p></div>
-      </div>
-    </label> -->
 
     <label>
       First Name:
@@ -37,7 +35,7 @@
 
     <label>
       Password:
-      <input type="password" formControlName="password">
+      <input type="password" placeholder="Password"formControlName="password">
       <div *ngIf="submitted && registerForm.controls.password.errors">
         <div *ngIf="registerForm.controls.password.errors.required">Password is Required<p></p></div>
       </div>
@@ -45,13 +43,14 @@
     <label>
 
         Confirm Password:
-      <input type="password" formControlName="confirmPass">
+      <input type="password" placeholder="Confirm Password"formControlName="confirmPass">
         <div *ngIf="submitted && registerForm.controls.password.errors">
           <div *ngIf="registerForm.controls.password.errors.required">Password is Required<p></p></div>
         </div>
       </label>
 
-    <input type="submit" value="submit">
+
+    <input type="submit" value="Submit">
 
   </form>
   <div *ngFor ="let post of posts | async">

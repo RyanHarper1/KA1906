@@ -1,62 +1,103 @@
 
-label {
-    display: block;
-    //width: 100px;
-    // float: centre;
-    align-items: center;
-    font: 14px bold Tahoma, Arial, sans-serif;
-    margin: 1px;
-    padding: 2px;
-    // background: #eeeeee;
-    
-    input, {
+    label {
         display: block;
-        width: 50%;
-        margin-bottom: 20px;
-        margin-left: 100px;
-        text-align: left;
+        padding-right: 10px;
+        padding-left: 10px;
+        margin-left: 50px;
+        margin-right: 50px;
+        color: rgb(1,1,48)
+        
+    }
+
+    h1
+{
+    margin: 0px 0px 20px 135px;
+    margin-top: 10px;
+    padding: 10px;
+    font-weight: 300;
+    font-size: 28px;
+    color: rgb(1,1,48);
+   
+}
+
+#login-box
+{
+    position: relative;
+    margin: 5% auto;
+    height: 600px;
+    width: 450px;
+    background: #fff;
+    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    border: 5px solid rgb(1, 1, 48);
+   
+}
+
+        input, textarea  {
+            display: block;
+            width: 80%;
+            margin-bottom: 20px;
+            margin-top: 3px;
+            text-align: left;
+            padding: 1em;
+            background-color: rgb(236, 228, 228);
+            border: none;
+        }
+
+        input[type="submit"]{
+        margin-bottom: 28px;
+        margin-top: 28px;
+        margin: 5% auto;
+        text-align: center;
+        width: 120px;
+        height: 32px;
+        background: rgb(1, 1, 48);
+        border: none;
+        border-radius: 2px;
+        color: white;
+        transition: 0.2s ease;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover, 
+    input[type="submit"]:focus
+    {
+        background: #1745a7e3;
+        transition: 0.2s ease;
+    }
+
+
+        .error {
+            margin-top: -20px;
+            background: yellow;
+            padding: .5em;
+            display: inline-block;
+            font-size: .9em;
+            margin-bottom: 20px;
+            color: red;
+            border:2px solid red;
+        }
+
+
+    .cta {
+        background: #7700FF;
+        border: none;
+        color: white;
+
+        text-transform: uppercase;
+        border-radius: 4px;
         padding: 1em;
-        // width: 200px;
-        // padding: 2px;
-        // border: 1px solid #aaa;
+        cursor: pointer;
+        font-family: 'Montserrat';
     }
 
-    textarea {
-        width: 200px;
-        padding: 2px;
-        border: 1px solid #aaa;
+    .results {
+        margin-top: 50px;
+
+        strong {
+            display: block;
+        }
+        span {
+            margin-bottom: 20px;
+            display: block;
+        }
     }
-
-    .error {
-        margin-top: -20px;
-        background: yellow;
-        padding: .5em;
-        display: inline-block;
-        font-size: .9em;
-        margin-bottom: 20px;
-    }
-}
-
-.cta {
-    background: #7700FF;
-    border: none;
-    color: white;
-
-    text-transform: uppercase;
-    border-radius: 4px;
-    padding: 1em;
-    cursor: pointer;
-    font-family: 'Montserrat';
-}
-
-.results {
-    margin-top: 50px;
-
-    strong {
-        display: block;
-    }
-    span {
-        margin-bottom: 20px;
-        display: block;
-    }
-}
