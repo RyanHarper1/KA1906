@@ -12,42 +12,42 @@
 
 
     <label>
-      First Name
+        <label class="required">*</label>First Name
       <input type="text" placeholder="First Name" formControlName="fName">
       <div *ngIf="submitted && registerForm.controls.fName.errors">
-        <div *ngIf="registerForm.controls.fName.errors.required">Your firstname is Required<p></p></div>
+        <div class="error" *ngIf="registerForm.controls.fName.errors.required">Your firstname is required<p></p></div>
       </div>
     </label>
 
     <label>
-      Last Name
+        <label class="required">*</label>Last Name
       <input type="text" placeholder="Last Name" formControlName="lName">
       <div *ngIf="submitted && registerForm.controls.lName.errors">
-        <div *ngIf="registerForm.controls.lName.errors.required">Your surname is Required<p></p></div>
+        <div class="error" *ngIf="registerForm.controls.lName.errors.required">Your lastname is required<p></p></div>
       </div>
     </label>
 
     <label>
-      Email
+      <label class="required">*</label>Email
       <input type="email" placeholder="Email"formControlName="email">
       <div *ngIf="submitted && registerForm.controls.email.errors">
-        <div *ngIf="registerForm.controls.email.errors.required">Your email is Required<p></p></div>
+        <div class="error" *ngIf="registerForm.controls.email.errors.required">Your email is required<p></p></div>
       </div>
     </label>
 
     <label>
-      Password
+        <label class="required">*</label>Password
       <input type="password" placeholder="Password"formControlName="password">
       <div *ngIf="submitted && registerForm.controls.password.errors">
-        <div *ngIf="registerForm.controls.password.errors.required">Password is Required<p></p></div>
+        <div class="error" *ngIf="registerForm.controls.password.errors.required">Password is required<p></p></div>
       </div>
     </label>
     <label>
 
-        Confirm Password
+        <label class="required">*</label>Confirm Password
       <input type="password" placeholder="Confirm Password"formControlName="confirmPass">
         <div *ngIf="submitted && registerForm.controls.password.errors">
-          <div class="error" *ngIf="registerForm.controls.password.errors.required">Password is Required<p></p></div>
+          <div class="error" *ngIf="registerForm.controls.password.errors.required">Confirmation password is required<p></p></div>
         </div>
       </label>
 
@@ -56,7 +56,7 @@
           I agree to Sales Script terms and conditions
         </label>
 
-    <input type="register" value="Register">
+    <input type="submit" value="Register">
 
   </form>
   <div *ngFor ="let post of posts | async">

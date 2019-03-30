@@ -12,10 +12,10 @@
 
     label {
         display: block;
-        padding-right: 10px;
-        padding-left: 10px;
+        padding-right: 0px;
+        padding-left: 0px;
         margin-left: 50px;
-        margin-right: 50px;
+        margin-right: 5px;
         color: rgb(34, 52, 88);
         font-family: Arial, Verdana;
         
@@ -56,7 +56,8 @@
             float: centre;
         }
 
-        input[type="register"]{
+
+        input[type="submit"]{
         margin-bottom: 28px;
         margin-top: 28px;
         margin: 5% auto;
@@ -73,40 +74,36 @@
 
     /* checkbox */
     .container {
-        // display: block;
-        // position: relative;
-        // padding-left: 35px;
-        // margin-bottom: 28px;
-        // margin-top: 28px;
         cursor: pointer;
         font-size: 10px;
         color: rgb(34, 52, 88);
-        // vertical-align: middle;
+        font-display: center;
+    
         
         
     }
 
-    input[type="register"]:hover, 
-    input[type="register"]:focus
+    input[type="submit"]:hover, 
+    input[type="submit"]:focus
     {
         background: #1745a7e3;
         transition: 0.2s ease;
     }
 
-
-
-
     .error {
             margin-top: -20px;
-            background: yellow;
             padding: .5em;
-            display: inline-block;
-            font-size: .9em;
-            margin-bottom: 20px;
+            font-size: 10px;
+            margin-bottom: 10px;
             color: red;
-            border:2px solid red;
         }
 
+.required{
+    display: inline;
+    margin-left: 0px;
+    text-align: left;
+    color: red;
+}
 
     .cta {
         background: #7700FF;

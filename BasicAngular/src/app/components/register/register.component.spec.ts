@@ -19,6 +19,9 @@ describe('RegisterComponent', () => {
     fixture.detectChanges();
   });
 
+  $("input[required]").parent("label").addClass("required");
+  //one beautiful line of Jquery that's all it takes.
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });
