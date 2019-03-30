@@ -2,6 +2,7 @@ const express = require('express');
 const mysql = require('mysql');
 const cors = require('cors');
 const http = require('http');
+const session = require('express-session');
 var bodyParser = require('body-parser');
 
 // create application/json parser
@@ -10,6 +11,7 @@ var bodyParser = require('body-parser');
 const app = express();
 app.use(cors());
 app.use(bodyParser.json({ extended: true }));
+app.use(session({secret: 'secret'}));
 
 /**bodyParser.json(options)
  * Parses the text as JSON and exposes the resulting object on req.body.
@@ -71,17 +73,16 @@ app.post('/login', (req, res) => {
             throw err;
         }
 
-
         if (result.length > 0) {
             if (result[0].password == req.body.password) {
-                console.log("same");
-                res.send({ result: 'Success', fName: result[0].fName, lName: result[0].lName, email: result[0].email, username: result[0].username })
+                console.log("Authenticated");
+                res.send({ result: 'true', fName: result[0].fName, lName: result[0].lName, email: result[0].email, username: result[0].username })
             } else {
                 console.log("incorrect");
-                res.send({ result: 'incorrect' })
+                res.send({ result: 'false', message: 'Username or password incorrect' })
             }
         } else {
-            res.send({ result: 'User does not exist' });
+            res.send({ result: 'false', message: 'User does not exist' });
         }
     });
 

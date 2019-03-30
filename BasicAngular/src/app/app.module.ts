@@ -14,6 +14,9 @@ import { StoreComponent } from './components/store/store.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CurrentScriptsComponent } from './components/current-scripts/current-scripts.component';
 import { HttpClientModule } from '@angular/common/http'; 
+import { AuthService } from './auth.service'
+import { HttpClient } from '@angular/common/http'; 
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
