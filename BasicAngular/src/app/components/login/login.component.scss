@@ -10,15 +10,14 @@
 
   }
 
-label {
+  label {
     display: block;
-    padding-right: 10px;
-    padding-left: 10px;
+    padding-right: 0px;
+    padding-left: 0px;
     margin-left: 50px;
-    margin-right: 50px;
+    margin-right: 5px;
     color: rgb(34, 52, 88);
     font-family: Arial, Verdana;
-    
 }
 
 input, textarea  {
@@ -86,6 +85,12 @@ input[type="Login"]:focus
     color: red;
 }
 
+.required{
+    display: inline;
+    margin-left: 0px;
+    text-align: left;
+    color: red;
+}
 
 .cta {
     background: #7700FF;
