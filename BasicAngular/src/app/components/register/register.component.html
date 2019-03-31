@@ -34,7 +34,13 @@
         <div *ngIf="registerForm.controls.email.errors.required">Email is Required<p></p></div>
       </div>
     </label>
-
+    <label>
+      Username:
+      <input type="email" placeholder="Username"formControlName="username">
+      <div *ngIf="submitted && registerForm.controls.email.errors">
+        <div *ngIf="registerForm.controls.email.errors.required">Username is Required<p></p></div>
+      </div>
+    </label>
     <label>
       Password:
       <input type="password" formControlName="password">

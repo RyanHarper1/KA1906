@@ -62,12 +62,12 @@ app.post('/addusers', (req, res) => {
 
 //check login
 app.post('/login', (req, res) => {
-    let user = { username: req.body.username, password: req.body.password };
-    let sql = 'SELECT * FROM users WHERE username = ?';
+    let user = { username: req.body.email, password: req.body.password };
+    let sql = 'SELECT * FROM users WHERE email = ?';
     console.log("On server side");
-    console.log(req.body.username);
+    console.log(req.body.email);
 
-    let query = db.query(sql, req.body.username, (err, result) => {
+    let query = db.query(sql, req.body.email, (err, result) => {
 
         if (err) {
             throw err;
@@ -95,7 +95,7 @@ app.get('/store', (req,res) => {
         if (err) {
             throw err;
         }
-        res.send(result);        
+        res.send(result);
     });
 });
 
@@ -107,7 +107,7 @@ app.post('/current-scripts', (req,res) => {
         if (err) {
             throw err;
         }
-        res.send(result);        
+        res.send(result);
     });
 });
 
