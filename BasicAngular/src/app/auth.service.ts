@@ -19,14 +19,14 @@ export class AuthService {
   email = '';
   fName = '';
   lName = '';
-  username = '';
+ // username = '';
 
   constructor(private Http: HttpClient) { }
 
   //User login function
-  login(username, password) {
+  login(email, password) {
 
-    return this.Http.post<userData>('http://localhost:3000/login', { username: username, password: password })    
+    return this.Http.post<userData>('http://localhost:3000/login', { email: email, password: password })    
 
   }
   //User register function
@@ -51,9 +51,9 @@ export class AuthService {
     this.email = object.email;
     this.fName = object.fName;
     this.lName = object.lName;
-    this.username = object.username;
+    //this.username = object.username;
 
-    console.log(this.username);
+    console.log(this.fName);
   }
 
   }
