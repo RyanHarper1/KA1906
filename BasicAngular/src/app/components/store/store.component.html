@@ -4,14 +4,15 @@
   <h1 style="font-size:70px;">Store</h1>
 </div>
 <table>
-  <tr>
-    <th *ngFor="let col of columns">
-      {{col}}
-    </th>
-  </tr>
   <tr *ngFor="let li of list">
-    <td *ngFor="let col of columns">
-      {{li[col]}}
+    <td >
+      Name: {{li.scriptName}}<br>
+      Description: {{li.description}}<br>
+      Category: {{li.category}}<br>
+    </td>
+    <td >
+      Data goes here
     </td>
   </tr>
+
 </table>
