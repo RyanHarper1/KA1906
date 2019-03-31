@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth.service'
 import { HttpClient } from '@angular/common/http'; 
 import { AuthGuard } from './auth.guard';
+import { ScriptShareComponent } from './components/script-share/script-share.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AuthGuard } from './auth.guard';
     ExampleScriptComponent,
     StoreComponent,
     CartComponent,
-    CurrentScriptsComponent
+    CurrentScriptsComponent,
+    ScriptShareComponent
   ],
   imports: [
     BrowserModule,
