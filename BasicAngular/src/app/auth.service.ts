@@ -25,9 +25,9 @@ export class AuthService {
   constructor(private Http: HttpClient) { }
 
   //User login function
-  login(username, password) {
+  login(email, password) {
 
-    return this.Http.post<userData>('http://localhost:3000/login', { username: username, password: password })    
+    return this.Http.post<userData>('http://localhost:3000/login', { email: email, password: password })
 
   }
   //User register function
@@ -64,5 +64,3 @@ export class AuthService {
     return this.id;
   }
   }
-
-
