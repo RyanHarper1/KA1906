@@ -76,7 +76,7 @@ app.post('/login', (req, res) => {
         if (result.length > 0) {
             if (result[0].password == req.body.password) {
                 console.log("Authenticated");
-                res.send({ result: 'true', fName: result[0].fName, lName: result[0].lName, email: result[0].email, username: result[0].username })
+                res.send({ result: 'true', id: result[0].id, fName: result[0].fName, lName: result[0].lName, email: result[0].email, username: result[0].username })
             } else {
                 console.log("incorrect");
                 res.send({ result: 'false', message: 'Username or password incorrect' })
@@ -99,6 +99,17 @@ app.get('/store', (req,res) => {
     });
 });
 
+app.post('/current-scripts', (req,res) => {
+    console.log(req.body.id);
+    let sql = 'SELECT * FROM script WHERE usersId = ' + req.body.id + ' AND example = "N" AND purchased = "N"';
+    let query = db.query(sql, (err, result) => {
+
+        if (err) {
+            throw err;
+        }
+        res.send(result);        
+    });
+});
 
 
 app.listen('3000', () => {

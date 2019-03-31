@@ -19,7 +19,8 @@ export class AuthService {
   email = '';
   fName = '';
   lName = '';
-  username = '';
+  id: String;
+  username: String;
 
   constructor(private Http: HttpClient) { }
 
@@ -48,14 +49,20 @@ export class AuthService {
     return this.loggedIn;
   }
   userDetails(object){
+    this.id = object.id;
     this.email = object.email;
     this.fName = object.fName;
     this.lName = object.lName;
-    this.username = object.username;
+    this.username = String(object.username);
 
     console.log(this.username);
   }
-
+  get getUsername(){
+    return String(this.username);
+  }
+  get getId(){
+    return this.id;
+  }
   }
 
 
