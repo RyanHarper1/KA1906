@@ -1,0 +1,60 @@
+name<!--Script details-->
+<form [formGroup]="scriptForm" (ngSubmit)="onSubmit()">
+  <h3>Category: </h3><input type="text" formControlName="category"><p></p>
+  <h3>Script Name: </h3><input type="text" formControlName="scriptName"><p></p>
+  <button type="submit" value="submit">Save</button>
+</form>
+
+<!--Objections-->
+
+  <div class="grid-container">
+    <div class="boxed">
+      <button type="button">Next Pitch</button>
+      <br>
+      <textarea rows="4" cols="40" name="texts"></textarea>
+    </div>
+
+    <div class="boxed">
+      <button type="button">Next Pitch</button>
+      <br>
+      <textarea rows="4" cols="40" name="texts"></textarea>
+    </div>
+
+    <div class="boxed">
+      <button type="button">Next Pitch</button>
+      <br>
+      <textarea rows="4" cols="40" name="texts"></textarea>
+    </div>
+
+    <div class="boxed">
+      <button type="button">Next Pitch</button>
+      <br>
+      <textarea rows="4" cols="40" name="texts"></textarea>
+    </div>
+
+    <div class="boxed">
+      <button type="button">Next Pitch</button>
+      <br>
+      <textarea rows="4" cols="40" name="texts"></textarea>
+    </div>
+
+    <div class="boxed">
+      <button type="button">Next Pitch</button>
+      <br>
+      <textarea rows="4" cols="40" name="texts"></textarea>
+    </div>
+  </div>
+  <br>
+
+  <!--Pitch-->
+  <div class="boxed">
+    <h6>Pitch</h6>
+    <textarea rows="8" cols="80"></textarea>
+  </div>
+
+<p></p>
+<!--<button type="submit" value="submit" style="display: block; margin: 0 auto;">Save</button>-->
+
+<div *ngFor ="let post of posts | async">
+  {{post | json}}
+</div>

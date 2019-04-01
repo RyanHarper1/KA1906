@@ -85,9 +85,32 @@ app.post('/login', (req, res) => {
             res.send({ result: 'false', message: 'User does not exist' });
         }
     });
-
-
 });
+
+//addscript
+    app.post('/addscript', (req, res) => {
+        let test = req.body;
+        let reply = {};
+        console.log(test);
+        let script = { usersId: 23, category: req.body.category, scriptName: req.body.scriptName };
+        let sql = 'INSERT INTO script SET ?';
+        console.log("On server side");
+        console.log(script);
+        let query = db.query(sql, script, (err, result) => {
+            if (err) {
+                throw err;
+            } else {
+                console.log("successfully entered");
+
+                reply = {
+                    result: 'success', usersId: 23, category: req.body.category, scriptName: req.body.scriptName
+                }
+            }
+            res.send(reply);
+        });
+    });
+
+
 app.get('/store', (req,res) => {
     let sql = 'Select * from store'
     let query = db.query(sql, (err, result) => {
