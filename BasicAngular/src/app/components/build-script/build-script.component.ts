@@ -19,7 +19,7 @@ export class BuildScriptComponent implements OnInit {
   success = false;
   response: Object;
   scriptForm: FormGroup;
-  questionForm: FormGroup;
+  //questionForm: FormGroup;
 
   constructor(private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient) { }
 
@@ -40,6 +40,7 @@ export class BuildScriptComponent implements OnInit {
 
   ngOnInit() {
     this.scriptForm = this.formBuilder.group({
+      usersId: ['', Validators.required],
       category: ['', Validators.required],
       scriptName: ['', Validators.required]
     })

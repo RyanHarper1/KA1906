@@ -1,5 +1,6 @@
-name<!--Script details-->
+<!--Script details-->
 <form [formGroup]="scriptForm" (ngSubmit)="onSubmit()">
+  <input value="{{ this.Auth.getId }}" formControlName="usersId">
   <h3>Category: </h3><input type="text" formControlName="category"><p></p>
   <h3>Script Name: </h3><input type="text" formControlName="scriptName"><p></p>
   <button type="submit" value="submit">Save</button>
