@@ -110,6 +110,29 @@ app.post('/login', (req, res) => {
         });
     });
 
+    /*addscript questions/pitches
+        app.post('/addquestion', (req, res) => {
+            let test = req.body;
+            let reply = {};
+            console.log(test);
+            let script = { texts: req.body.texts, scriptId: 101};
+            let sql = 'INSERT INTO question SET ?';
+            console.log("On server side");
+            console.log(script);
+            let query = db.query(sql, script, (err, result) => {
+                if (err) {
+                    throw err;
+                } else {
+                    console.log("successfully entered");
+
+                    reply = {
+                        result: 'success', texts: req.body.texts, scriptId:101
+                    }
+                }
+                res.send(reply);
+            });
+        });*/
+
 
 app.get('/store', (req,res) => {
     let sql = 'Select * from store'

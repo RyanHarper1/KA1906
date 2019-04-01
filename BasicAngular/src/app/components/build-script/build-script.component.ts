@@ -19,6 +19,7 @@ export class BuildScriptComponent implements OnInit {
   success = false;
   response: Object;
   scriptForm: FormGroup;
+  questionForm: FormGroup;
 
   constructor(private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient) { }
 
@@ -26,21 +27,21 @@ export class BuildScriptComponent implements OnInit {
 
     console.log("yes");
     console.log(this.scriptForm.value)
+    //console.log(this.questionForm.value)
 
       this.submitted = true;
     if (this.scriptForm.invalid) {
       return;
     }
     this.Auth.sendScript(this.scriptForm);
+    //this.Auth.sendQuestion(this.questionForm);
     this.success = true;
   }
 
   ngOnInit() {
     this.scriptForm = this.formBuilder.group({
       category: ['', Validators.required],
-      scriptName: ['', Validators.required],
-
-      //texts: ['', Validators.required]
+      scriptName: ['', Validators.required]
     })
   }
 

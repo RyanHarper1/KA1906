@@ -51,6 +51,15 @@ export class AuthService {
       console.log(this.response)
     });
   }
+  /*Send questions to DB
+  sendQuestion(object){
+    let posts = this.Http.post('http://localhost:3000/addquestion', object.value);
+    posts.subscribe((response) => {
+      this.response = response;
+
+      console.log(this.response)
+    });
+  }*/
 
   setLoggedIn(value: boolean){
     this.loggedIn = value;

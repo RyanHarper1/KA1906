@@ -35,6 +35,7 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
+
     this.Auth.register(this.registerForm);
     this.success = true;
   }
