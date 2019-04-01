@@ -40,12 +40,13 @@ export class BuildScriptComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.usersId=this.Auth.getId;
     this.scriptForm = this.formBuilder.group({
-      usersId: ['', Validators.required],
+      usersId: [this.usersId, Validators.required],
       category: ['', Validators.required],
       scriptName: ['', Validators.required]
     })
-    this.usersId=this.Auth.getId;
+
   }
 
 }
