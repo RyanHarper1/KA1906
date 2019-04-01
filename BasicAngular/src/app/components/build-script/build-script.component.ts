@@ -19,6 +19,7 @@ export class BuildScriptComponent implements OnInit {
   success = false;
   response: Object;
   scriptForm: FormGroup;
+  usersId: any;
   //questionForm: FormGroup;
 
   constructor(private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient) { }
@@ -44,6 +45,7 @@ export class BuildScriptComponent implements OnInit {
       category: ['', Validators.required],
       scriptName: ['', Validators.required]
     })
+    this.usersId=this.Auth.getId;
   }
 
 }
