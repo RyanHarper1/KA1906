@@ -1,10 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 
 interface userData {
 result: string,
 message: string
+
 
 }
 
@@ -21,6 +23,9 @@ export class AuthService {
   lName = '';
   id: String;
   username: String;
+  test: any;
+  @Output() change: EventEmitter<boolean> = new EventEmitter();
+  
 
   constructor(private Http: HttpClient) { }
 
@@ -30,6 +35,7 @@ export class AuthService {
     return this.Http.post<userData>('http://localhost:3000/login', { email: email, password: password })
 
   }
+
   //User register function
   register(object){
 
@@ -41,11 +47,15 @@ export class AuthService {
     });
 
   }
+  @HostListener('setLoggedIn')
   setLoggedIn(value: boolean){
+    
     this.loggedIn = value;
+    this.change.emit(this.loggedIn)
   }
 
   get isloggedIn(){
+    
     return this.loggedIn;
   }
   userDetails(object){
@@ -63,4 +73,15 @@ export class AuthService {
   get getId(){
     return this.id;
   }
+  @HostListener('logout')
+  logout(){
+    this.loggedIn = false;
+    this.email = '';
+    this.fName = '';
+    this.lName = '';
+    this.id= '';
+    this.username= '';
+    console.log('blah');
+  }
+ 
   }
