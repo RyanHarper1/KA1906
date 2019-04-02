@@ -160,6 +160,17 @@ app.post('/current-scripts', (req,res) => {
     });
 });
 
+app.get('/example-scripts', (req,res) => {
+    console.log(req.body.id);
+    let sql = 'SELECT * FROM script WHERE example = "Y" ';
+    let query = db.query(sql, (err, result) => {
+
+        if (err) {
+            throw err;
+        }
+        res.send(result);
+    });
+});
 
 app.listen('3000', () => {
     console.log('server started on port 3000');
