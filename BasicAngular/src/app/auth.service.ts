@@ -42,6 +42,15 @@ export class AuthService {
 
   }
 
+  sendScript(object){
+  let posts = this.Http.post('http://localhost:3000/addscript', object.value);
+  posts.subscribe((response)=>{
+    this.response=response;
+
+    console.log(this.response)
+    console.log(this.response.scriptId)
+  });
+}
   //User register function
   register(object){
 
