@@ -91,8 +91,9 @@ app.post('/login', (req, res) => {
     app.post('/addscript', (req, res) => {
         let test = req.body;
         let reply = {};
+
         console.log(test);
-        let script = { usersId: req.body.usersId, category: req.body.category, scriptName: req.body.scriptName };
+        let script = { usersId: req.body.usersId, category: req.body.category, scriptName: req.body.scriptName};
         let sql = 'INSERT INTO script SET ?';
         console.log("On server side");
         console.log(script);
@@ -103,12 +104,14 @@ app.post('/login', (req, res) => {
                 console.log("successfully entered");
 
                 reply = {
-                    result: 'success', usersId: req.body.usersId, category: req.body.category, scriptName: req.body.scriptName
+                    result: 'success', scriptId: result.insertId
                 }
             }
             res.send(reply);
         });
     });
+
+
 
     /*addscript questions/pitches
         app.post('/addquestion', (req, res) => {

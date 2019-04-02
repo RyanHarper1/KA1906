@@ -8,6 +8,11 @@ message: string
 
 }
 
+interface scriptData {
+scriptId: any
+
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +26,7 @@ export class AuthService {
   lName = '';
   id: String;
   username: String;
+
 
   constructor(private Http: HttpClient) { }
 
@@ -44,13 +50,16 @@ export class AuthService {
 
   //Send script to DB
   sendScript(object){
-    let posts = this.Http.post('http://localhost:3000/addscript', object.value);
+    let posts = this.Http.post<scriptData>('http://localhost:3000/addscript', object.value);
     posts.subscribe((response) => {
       this.response = response;
 
       console.log(this.response)
+      console.log(this.response.scriptId)
     });
   }
+
+
   /*Send questions to DB
   sendQuestion(object){
     let posts = this.Http.post('http://localhost:3000/addquestion', object.value);
