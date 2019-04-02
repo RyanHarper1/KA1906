@@ -13,7 +13,7 @@ ul{
 
 li{
   display: inline;
-  float:left;
+  float: left;
   padding-top: 0px;
   padding-bottom: 0px;
   overflow: hidden;
@@ -31,7 +31,7 @@ li a{
 li a:hover {
   background-color:gray;
   color: black;
-  // box-sizing: border-box;
+  
 }
 li a:active{
   background-color: rgb (34, 52, 88);
