@@ -10,6 +10,11 @@ message: string
 
 }
 
+interface scriptData {
+scriptId: any
+
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,7 +30,8 @@ export class AuthService {
   username: String;
   test: any;
   @Output() change: EventEmitter<boolean> = new EventEmitter();
-  
+
+
 
   constructor(private Http: HttpClient) { }
 
@@ -49,13 +55,13 @@ export class AuthService {
   }
   @HostListener('setLoggedIn')
   setLoggedIn(value: boolean){
-    
+
     this.loggedIn = value;
     this.change.emit(this.loggedIn)
   }
 
   get isloggedIn(){
-    
+
     return this.loggedIn;
   }
   userDetails(object){
@@ -83,5 +89,5 @@ export class AuthService {
     this.username= '';
     console.log('blah');
   }
- 
+
   }

@@ -22,12 +22,6 @@ export class RegisterComponent implements OnInit {
   response: Object;
   registerForm: FormGroup;
 
-
-
-
-
-
-
   constructor(private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient) {
 
   }
@@ -41,6 +35,7 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.invalid) {
       return;
     }
+
     this.Auth.register(this.registerForm);
     this.success = true;
   }
