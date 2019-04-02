@@ -1,17 +1,41 @@
-
-
- <div class="container text-center">
+<div class="container text-center">
   <h1 style="font-size:70px;">Store</h1>
 </div>
-<table>
-  <tr>
-    <th *ngFor="let col of columns">
-      {{col}}
-    </th>
-  </tr>
-  <tr *ngFor="let li of list">
-    <td *ngFor="let col of columns">
-      {{li[col]}}
-    </td>
-  </tr>
-</table>
+
+
+
+<mat-drawer-container [hasBackdrop]="false" #mode value="side">
+
+  <mat-drawer #drawer [mode]="mode.value">Search<br>
+     <mat-form-field>
+      <input matInput placeholder="Keyword">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Select">
+        <mat-option value="option">Option1</mat-option>
+        <mat-option value="option">Option2</mat-option>
+        <mat-option value="option">Option3</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-drawer>
+
+  <mat-select #mode value="side"></mat-select>
+  <mat-drawer-content>
+    <button mat-raised-button (click)="drawer.toggle()">Search</button>
+    <table>
+      <tr *ngFor="let li of list">
+        <td>
+          Name: {{li.scriptName}}<br>
+          Description: {{li.description}}<br>
+          Category: {{li.category}}<br>
+        </td>
+        <td>
+          Data goes here
+        </td>
+      </tr>
+
+    </table>
+
+
+  </mat-drawer-content>
+</mat-drawer-container>

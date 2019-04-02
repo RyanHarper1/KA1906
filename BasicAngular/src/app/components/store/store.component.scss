@@ -95,10 +95,11 @@
        float: left;
        border-collapse: collapse;
    }
-   #mySearch {
-width: 50%;
-font-size: 18px;
-padding: 11px;
-border:1px solid #ddd;
-align: right;
+
+.example_container{
+  float:left; 
+  mat-form-field{
+    float:left; 
+  }
+ 
 }

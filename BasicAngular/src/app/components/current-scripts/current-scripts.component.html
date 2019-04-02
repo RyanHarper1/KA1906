@@ -1,17 +1,51 @@
 
-
  <div class="container text-center">
   <h1 style="font-size:70px;">Current Script</h1>
+ 
 </div>
-<table>
-  <tr>
-    <th *ngFor="let col of columns">
-      {{col}}
-    </th>
-  </tr>
+<div class = "buttons">
+  <button (click)="showSaved()">Saved</button>
+  <button (click)="showUploaded()">Uploaded</button>
+  <button (click)="showPurchased()">Purchased</button>
+  </div>
+<table *ngIf= "saved">
+
   <tr *ngFor="let li of list">
-    <td *ngFor="let col of columns">
-      {{li[col]}}
+    <td >
+      Name: {{li.scriptName}}<br>
+      Description: {{li.description}}<br>
+      Category: {{li.category}}<br>
+    </td>
+    <td >
+      Data goes here
+    </td>
+  </tr>
+
+</table>
+<!--Uploaded table-->
+<table *ngIf= "uploaded">
+
+  <tr *ngFor="let li of list">
+    <td >
+      Name: <br>
+      Description: <br>
+      Category: <br>
+    </td>
+    <td >
+      Data goes here
+    </td>
+  </tr>
+</table>
+<!--Purchased table-->
+<table *ngIf= "purchased">
+  <tr *ngFor="let li of list">
+    <td >
+      Name: <br>
+      Description: <br>
+      Category: <br>
+    </td>
+    <td >
+      Data goes here
     </td>
   </tr>
 </table>

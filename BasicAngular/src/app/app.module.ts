@@ -18,6 +18,8 @@ import { AuthService } from './auth.service'
 import { HttpClient } from '@angular/common/http'; 
 import { AuthGuard } from './auth.guard';
 import { ScriptShareComponent } from './components/script-share/script-share.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule, MatSidenavModule, MatSidenavContent, MatSidenav, MatFormFieldModule, MatInputModule, MatSelectModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -31,13 +33,21 @@ import { ScriptShareComponent } from './components/script-share/script-share.com
     StoreComponent,
     CartComponent,
     CurrentScriptsComponent,
-    ScriptShareComponent
+    ScriptShareComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule, 
+    MatCheckboxModule,
+    MatSidenavModule,     
+    MatFormFieldModule,
+    MatInputModule ,
+    MatSelectModule
   ],
   providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
