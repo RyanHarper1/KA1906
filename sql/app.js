@@ -113,12 +113,12 @@ app.post('/login', (req, res) => {
 
 
 
-    /*addscript questions/pitches
+    //addscript questions/pitches
         app.post('/addquestion', (req, res) => {
             let test = req.body;
             let reply = {};
             console.log(test);
-            let script = { texts: req.body.texts, scriptId: 101};
+            let script = { texts: req.body.texts, scriptId: req.body.scriptId};
             let sql = 'INSERT INTO question SET ?';
             console.log("On server side");
             console.log(script);
@@ -129,12 +129,12 @@ app.post('/login', (req, res) => {
                     console.log("successfully entered");
 
                     reply = {
-                        result: 'success', texts: req.body.texts, scriptId:101
+                        result: 'success', texts: req.body.texts
                     }
                 }
                 res.send(reply);
             });
-        });*/
+        });
 
 
 app.get('/store', (req,res) => {

@@ -4,40 +4,74 @@
   <h3>Script Name: </h3><input type="text" formControlName="scriptName"><p></p>
   <button type="submit" value="submit">Save</button>
 </form>
-
+<button type="button" (click) = "addAnswer()">Add answer</button>
 <!--Objections-->
 
-  <div class="grid-container">
+  <div class="grid-container" *ngIf= "answer > 0">
     <div class="boxed">
       <button type="button">Next Pitch</button>
       <br>
       <textarea rows="4" cols="40" name="texts"></textarea>
     </div>
-
+  </div>
+  <br>
+  <div class="grid-container" *ngIf= "answer > 1">
     <div class="boxed">
       <button type="button">Next Pitch</button>
       <br>
       <textarea rows="4" cols="40" name="texts"></textarea>
     </div>
-
+  </div>
+  <br>
+  <div class="grid-container" *ngIf= "answer > 2">
     <div class="boxed">
       <button type="button">Next Pitch</button>
       <br>
       <textarea rows="4" cols="40" name="texts"></textarea>
     </div>
-
+  </div>
+  <br>
+  <div class="grid-container" *ngIf= "answer > 3">
     <div class="boxed">
       <button type="button">Next Pitch</button>
       <br>
       <textarea rows="4" cols="40" name="texts"></textarea>
     </div>
-
+  </div>
+  <br>
+  <div class="grid-container" *ngIf= "answer > 4">
     <div class="boxed">
       <button type="button">Next Pitch</button>
       <br>
       <textarea rows="4" cols="40" name="texts"></textarea>
     </div>
-
+  </div>
+  <br>
+  <div class="grid-container" *ngIf= "answer > 5">
+    <div class="boxed">
+      <button type="button">Next Pitch</button>
+      <br>
+      <textarea rows="4" cols="40" name="texts"></textarea>
+    </div>
+  </div>
+  <br>
+  <div class="grid-container" *ngIf= "answer > 6">
+    <div class="boxed">
+      <button type="button">Next Pitch</button>
+      <br>
+      <textarea rows="4" cols="40" name="texts"></textarea>
+    </div>
+  </div>
+  <br>
+  <div class="grid-container" *ngIf= "answer > 7">
+    <div class="boxed">
+      <button type="button">Next Pitch</button>
+      <br>
+      <textarea rows="4" cols="40" name="texts"></textarea>
+    </div>
+  </div>
+  <br>
+  <div class="grid-container" *ngIf= "answer > 8">
     <div class="boxed">
       <button type="button">Next Pitch</button>
       <br>
@@ -46,10 +80,11 @@
   </div>
   <br>
 
+
   <!--Pitch-->
   <div class="boxed">
     <h6>Pitch</h6>
-    <textarea rows="8" cols="80"></textarea>
+    <textarea [(ngModel)] = "texts" rows="8" cols="80"></textarea>
   </div>
 
 <p></p>

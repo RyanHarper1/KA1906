@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { getDefaultService } from 'selenium-webdriver/chrome';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-build-script',
@@ -19,7 +20,10 @@ export class BuildScriptComponent implements OnInit {
   success = false;
   response: Object;
   scriptForm: FormGroup;
+  scriptId: any;
   usersId: any;
+  texts: any;
+  answer = 1;
   //questionForm: FormGroup;
 
   constructor(private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient) { }
@@ -34,8 +38,14 @@ export class BuildScriptComponent implements OnInit {
     if (this.scriptForm.invalid) {
       return;
     }
-    this.Auth.sendScript(this.scriptForm);
-    //this.Auth.sendQuestion(this.questionForm);
+    if(this.scriptId == null){
+      console.log(this.texts);
+      
+      this.scriptId = this.Auth.sendScript(this.scriptForm,this.texts);
+
+    }
+    
+    console.log('testarooni' + this.texts);
     this.success = true;
   }
 
@@ -47,6 +57,14 @@ export class BuildScriptComponent implements OnInit {
       scriptName: ['', Validators.required]
     })
 
+  }
+  addAnswer(){
+    if (this.answer >= 9){
+      alert('Maximum count reached');
+    }else{
+      this.answer++;
+    }
+    
   }
 
 }

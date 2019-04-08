@@ -42,14 +42,24 @@ export class AuthService {
 
   }
 
-  sendScript(object){
+  sendScript(object, object1){
   let posts = this.Http.post('http://localhost:3000/addscript', object.value);
   posts.subscribe((response)=>{
     this.response=response;
 
-    console.log(this.response)
-    console.log(this.response.scriptId)
+    console.log(this.response);
+    console.log(this.response.scriptId);
+    console.log('Object 1:' +  object1)
+
+    let quest = this.Http.post('http://localhost:3000/addQuestion', {texts: object1, scriptId: this.response.scriptId});
+    quest.subscribe((response1)=>{
+    console.log('response1: ' + response1)
   });
+  });
+}
+//send first question
+sendQuestion(object){
+  
 }
   //User register function
   register(object){
