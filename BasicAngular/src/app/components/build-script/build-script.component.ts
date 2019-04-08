@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { getDefaultService } from 'selenium-webdriver/chrome';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-build-script',
@@ -24,16 +25,20 @@ export class BuildScriptComponent implements OnInit {
   usersId: any;
   texts: any;
   answer = 1;
+  private answers: string[] = [];
   //questionForm: FormGroup;
 
-  constructor(private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient) { }
+  constructor(private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient, private router: Router) { }
 
   onSubmit(AuthService) {
 
     console.log("yes");
     console.log(this.scriptForm.value)
     //console.log(this.questionForm.value)
+    for (let i = 0; i < this.answers.length ; i++){
+      console.log(this.answers[i]);
 
+    }
       this.submitted = true;
     if (this.scriptForm.invalid) {
       return;
@@ -41,12 +46,13 @@ export class BuildScriptComponent implements OnInit {
     if(this.scriptId == null){
       console.log(this.texts);
       
-      this.scriptId = this.Auth.sendScript(this.scriptForm,this.texts);
+      this.scriptId = this.Auth.sendScript(this.scriptForm,this.texts,this.answers);
 
     }
     
     console.log('testarooni' + this.texts);
     this.success = true;
+    this.router.navigate(['current-script']);
   }
 
   ngOnInit() {
@@ -67,9 +73,10 @@ export class BuildScriptComponent implements OnInit {
     
   }
   removeAnswer(){
-    if (this.answer < 1){
+    if (this.answer <= 1){
       alert('Maximum count reached');
     }else{
+      this.answers[this.answer-1]= '';
       this.answer--;
     }
 

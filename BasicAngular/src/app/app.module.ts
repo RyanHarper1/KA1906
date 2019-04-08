@@ -21,6 +21,7 @@ import { ScriptShareComponent } from './components/script-share/script-share.com
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule, MatSidenavModule, MatSidenavContent, MatSidenav, MatFormFieldModule, MatInputModule, MatSelectModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
+import { EditScriptComponent } from './components/edit-script/edit-script.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { FormsModule } from '@angular/forms';
     CartComponent,
     CurrentScriptsComponent,
     ScriptShareComponent,
+    EditScriptComponent,
     
   ],
   imports: [

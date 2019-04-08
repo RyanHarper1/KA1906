@@ -13,6 +13,7 @@ import { StoreComponent } from './components/store/store.component';
 import { AuthService } from './auth.service'
 import { AuthGuard } from './auth.guard';
 import { ScriptShareComponent} from './components/script-share/script-share.component'
+import { EditScriptComponent} from './components/edit-script/edit-script.component'
 
 const routes: Routes = [
   {
@@ -62,6 +63,11 @@ const routes: Routes = [
   {
     path: 'script-share',
     component: ScriptShareComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'edit-script',
+    component: EditScriptComponent,
     canActivate: [AuthGuard]
   }
 ];

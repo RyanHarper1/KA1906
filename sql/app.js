@@ -126,10 +126,63 @@ app.post('/login', (req, res) => {
                 if (err) {
                     throw err;
                 } else {
-                    console.log("successfully entered");
+                    //Update Script with First Question ID
+                    console.log("successfully entered, trying for question");
+                    let updateScript = 'UPDATE SalesScript.script SET firstQuestionId = '+ result.insertId+ ' WHERE scriptId = ' + req.body.scriptId;
+                    let query2 = db.query(updateScript, (err, result1) => {
+                        if (err) {
+                            throw err;
+                        } else{
+                            console.log(result1);
+                        }
+                    });
 
                     reply = {
-                        result: 'success', texts: req.body.texts
+                        result: 'success', questionId: result.insertId
+                    }
+                }
+                res.send(reply);
+            });
+        });
+
+        
+    //addscript questions/pitches
+    app.post('/addAnswer', (req, res) => {
+        let test = req.body;
+        let reply = {};
+        console.log(test);
+        let script = { texts: req.body.texts, questionId: req.body.questionId};
+        let sql = 'INSERT INTO answer SET ?';
+        console.log("On server side");
+        console.log(script);
+        let query = db.query(sql, script, (err, result) => {
+            if (err) {
+                throw err;
+            } else {
+                console.log("successfully entered");
+
+                reply = {
+                    result: 'success', idanswer: result.insertId
+                }
+            }
+            res.send(reply);
+        });
+    });
+
+        //Delete script
+        app.post('/delete-script', (req, res) => {
+            let script = { texts: req.body.texts, questionId: req.body.questionId};
+            let sql = 'DELETE FROM script WHERE scriptId  = ' + req.body.scriptId;
+            console.log("On server side");
+            console.log(script);
+            let query = db.query(sql, script, (err, result) => {
+                if (err) {
+                    throw err;
+                } else {
+                    console.log("successfully deleted");
+    
+                    reply = {
+                        result: 'success'
                     }
                 }
                 res.send(reply);
@@ -163,6 +216,41 @@ app.post('/current-scripts', (req,res) => {
 app.get('/example-scripts', (req,res) => {
     console.log(req.body.id);
     let sql = 'SELECT * FROM script WHERE example = "Y" ';
+    let query = db.query(sql, (err, result) => {
+
+        if (err) {
+            throw err;
+        }
+        res.send(result);
+    });
+});
+
+app.post('/get-script', (req,res) => {
+    console.log(req.body.scriptId);
+    let sql = 'SELECT * FROM script WHERE scriptId = ' + req.body.scriptId;
+    let query = db.query(sql, (err, result) => {
+
+        if (err) {
+            throw err;
+        }
+        res.send(result);
+    });
+});
+app.post('/get-question', (req,res) => {
+    console.log(req.body.questionId);
+    let sql = 'SELECT * FROM question WHERE questionId = ' + req.body.questionId;
+    let query = db.query(sql, (err, result) => {
+
+        if (err) {
+            throw err;
+        }
+        res.send(result);
+    });
+});
+
+app.post('/get-answer', (req,res) => {
+    console.log(req.body.questionId);
+    let sql = 'SELECT * FROM answer WHERE questionId = ' + req.body.questionId;
     let query = db.query(sql, (err, result) => {
 
         if (err) {

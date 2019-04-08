@@ -15,6 +15,11 @@ scriptId: any
 
 }
 
+interface questionData {
+  questionId: any
+  
+  }
+
 @Injectable({
   providedIn: 'root'
 })
@@ -42,18 +47,34 @@ export class AuthService {
 
   }
 
-  sendScript(object, object1){
-  let posts = this.Http.post('http://localhost:3000/addscript', object.value);
+  sendScript(script, question, answers){
+    //insert script
+  let posts = this.Http.post('http://localhost:3000/addscript', script.value);
   posts.subscribe((response)=>{
     this.response=response;
 
     console.log(this.response);
     console.log(this.response.scriptId);
-    console.log('Object 1:' +  object1)
+    console.log('Object 1:' +  question)
 
-    let quest = this.Http.post('http://localhost:3000/addQuestion', {texts: object1, scriptId: this.response.scriptId});
+    //insert question
+    let quest = this.Http.post('http://localhost:3000/addQuestion', {texts: question, scriptId: this.response.scriptId});
     quest.subscribe((response1)=>{
     console.log('response1: ' + response1)
+    
+    //insert answers
+    for (let i = 0; i < answers.length; i++ ){
+      let ans = this.Http.post('http://localhost:3000/addAnswer', {texts: answers[i], questionId: response1.questionId});
+      ans.subscribe((response2) => {
+
+        console.log('answer responses: ' + response2);
+      });
+      
+     
+
+    }
+    
+
   });
   });
 }

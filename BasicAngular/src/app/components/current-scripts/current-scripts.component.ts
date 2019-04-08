@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from 'src/app/auth.service';
+import { Router } from '@angular/router';
+import { EditScriptComponent } from '../edit-script/edit-script.component';
+import { EditServiceService } from 'src/app/edit-service.service';
 
 @Component({
   selector: 'app-current-scripts',
@@ -15,7 +18,7 @@ export class CurrentScriptsComponent implements OnInit {
   list: any;
   columns = ['scriptName','category'];
   username: String;
-  constructor(private Http: HttpClient, private Auth: AuthService) { }
+  constructor(private Http: HttpClient, private Auth: AuthService, private router: Router, private editService: EditServiceService) { }
 
   ngOnInit() {
     this.saved = true;
@@ -44,5 +47,21 @@ export class CurrentScriptsComponent implements OnInit {
     this.uploaded = false;
     this.purchased = true;
   }
+  editScript(script){
+    this.editService.setScript(script.scriptId);
+    console.log(script);
+    this.router.navigate(['edit-script']);
+
+  }
+  deleteScript(script){
+    let del = this.Http.post('http://localhost:3000/delete-script', {scriptId: script.scriptId});
+    del.subscribe((response) => {
+     
+      this.list=response;
+      console.log(response)
+    });
+    console.log(script);
+  }
+
 
 }
