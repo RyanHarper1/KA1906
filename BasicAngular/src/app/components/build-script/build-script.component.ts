@@ -66,5 +66,12 @@ export class BuildScriptComponent implements OnInit {
     }
     
   }
+  removeAnswer(){
+    if (this.answer < 1){
+      alert('Maximum count reached');
+    }else{
+      this.answer--;
+    }
 
+}
 }

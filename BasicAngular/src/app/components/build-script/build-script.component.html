@@ -1,95 +1,69 @@
 <!--Script details-->
 <form [formGroup]="scriptForm" (ngSubmit)="onSubmit()">
-  <h3>Category: </h3><input type="text" formControlName="category"><p></p>
-  <h3>Script Name: </h3><input type="text" formControlName="scriptName"><p></p>
+  <h3>Category: </h3><input type="text" formControlName="category">
+  <p></p>
+  <h3>Script Name: </h3><input type="text" formControlName="scriptName">
+  <p></p>
   <button type="submit" value="submit">Save</button>
 </form>
-<button type="button" (click) = "addAnswer()">Add answer</button>
+<button type="button" (click)="addAnswer()">Add answer</button>
+<button type="button" (click)="removeAnswer()">Remove answer</button>
 <!--Objections-->
 
-  <div class="grid-container" *ngIf= "answer > 0">
-    <div class="boxed">
-      <button type="button">Next Pitch</button>
-      <br>
-      <textarea rows="4" cols="40" name="texts"></textarea>
-    </div>
-  </div>
-  <br>
-  <div class="grid-container" *ngIf= "answer > 1">
-    <div class="boxed">
-      <button type="button">Next Pitch</button>
-      <br>
-      <textarea rows="4" cols="40" name="texts"></textarea>
-    </div>
-  </div>
-  <br>
-  <div class="grid-container" *ngIf= "answer > 2">
-    <div class="boxed">
-      <button type="button">Next Pitch</button>
-      <br>
-      <textarea rows="4" cols="40" name="texts"></textarea>
-    </div>
-  </div>
-  <br>
-  <div class="grid-container" *ngIf= "answer > 3">
-    <div class="boxed">
-      <button type="button">Next Pitch</button>
-      <br>
-      <textarea rows="4" cols="40" name="texts"></textarea>
-    </div>
-  </div>
-  <br>
-  <div class="grid-container" *ngIf= "answer > 4">
-    <div class="boxed">
-      <button type="button">Next Pitch</button>
-      <br>
-      <textarea rows="4" cols="40" name="texts"></textarea>
-    </div>
-  </div>
-  <br>
-  <div class="grid-container" *ngIf= "answer > 5">
-    <div class="boxed">
-      <button type="button">Next Pitch</button>
-      <br>
-      <textarea rows="4" cols="40" name="texts"></textarea>
-    </div>
-  </div>
-  <br>
-  <div class="grid-container" *ngIf= "answer > 6">
-    <div class="boxed">
-      <button type="button">Next Pitch</button>
-      <br>
-      <textarea rows="4" cols="40" name="texts"></textarea>
-    </div>
-  </div>
-  <br>
-  <div class="grid-container" *ngIf= "answer > 7">
-    <div class="boxed">
-      <button type="button">Next Pitch</button>
-      <br>
-      <textarea rows="4" cols="40" name="texts"></textarea>
-    </div>
-  </div>
-  <br>
-  <div class="grid-container" *ngIf= "answer > 8">
-    <div class="boxed">
-      <button type="button">Next Pitch</button>
-      <br>
-      <textarea rows="4" cols="40" name="texts"></textarea>
-    </div>
-  </div>
-  <br>
-
-
-  <!--Pitch-->
+<div class="grid-container" *ngIf="answer > 0">
   <div class="boxed">
-    <h6>Pitch</h6>
-    <textarea [(ngModel)] = "texts" rows="8" cols="80"></textarea>
+    <textarea rows="4" cols="40" name="texts"></textarea>
   </div>
+<br>
+<div class="boxed" *ngIf="answer > 1">
+  <textarea rows="4" cols="40" name="texts"></textarea>
+</div>
+<br>
+<div class="boxed" *ngIf="answer > 2">
+    <textarea rows="4" cols="40" name="texts"></textarea>
+</div>
+<br>
+<div class="boxed" *ngIf="answer > 3"> 
+    <br>
+    <textarea rows="4" cols="40" name="texts"></textarea>
+</div>
+<br>
+<div class="boxed" *ngIf="answer > 4">
+    <br>
+    <textarea rows="4" cols="40" name="texts"></textarea>
+</div>
+<br>
+<div class="boxed" *ngIf="answer > 5">
+    <br>
+    <textarea rows="4" cols="40" name="texts"></textarea>
+</div>
+<br>
+<div class="boxed" *ngIf="answer > 6">
+    <br>
+    <textarea rows="4" cols="40" name="texts"></textarea>
+</div>
+<br>
+<div class="boxed" *ngIf="answer > 7"> 
+    <br>
+    <textarea rows="4" cols="40" name="texts"></textarea>
+</div>
+<br>
+<div class="boxed" *ngIf="answer > 8">
+    <br>
+    <textarea rows="4" cols="40" name="texts"></textarea>
+</div>
+<br>
+</div>
+
+<!--Pitch-->
+<div class="boxed">
+  <h6>Pitch</h6>
+  <textarea [(ngModel)]="texts" rows="8" cols="80"></textarea>
+</div>
 
 <p></p>
 <!--<button type="submit" value="submit" style="display: block; margin: 0 auto;">Save</button>-->
 
-<div *ngFor ="let post of posts | async">
+<div *ngFor="let post of posts | async">
   {{post | json}}
 </div>
