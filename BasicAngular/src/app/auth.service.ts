@@ -4,21 +4,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 
 interface userData {
-result: string,
-message: string
+  result: string,
+  message: string
 
 
 }
 
 interface scriptData {
-scriptId: any
+  scriptId: any
 
 }
 
 interface questionData {
   questionId: any
-  
-  }
+
+}
 
 @Injectable({
   providedIn: 'root'
@@ -47,43 +47,36 @@ export class AuthService {
 
   }
 
-  sendScript(script, question, answers){
+  sendScript(script, question, answers) {
     //insert script
-  let posts = this.Http.post('http://localhost:3000/addscript', script.value);
-  posts.subscribe((response)=>{
-    this.response=response;
+    let posts = this.Http.post('http://localhost:3000/addscript', script.value);
+    posts.subscribe((response) => {
+      this.response = response;
 
-    console.log(this.response);
-    console.log(this.response.scriptId);
-    console.log('Object 1:' +  question)
+      console.log(this.response);
+      console.log(this.response.scriptId);
+      console.log('Object 1:' + question)
 
-    //insert question
-    let quest = this.Http.post('http://localhost:3000/addQuestion', {texts: question, scriptId: this.response.scriptId});
-    quest.subscribe((response1)=>{
-    console.log('response1: ' + response1)
-    
-    //insert answers
-    for (let i = 0; i < answers.length; i++ ){
-      let ans = this.Http.post('http://localhost:3000/addAnswer', {texts: answers[i], questionId: response1.questionId});
-      ans.subscribe((response2) => {
+      //insert question
+      let quest = this.Http.post('http://localhost:3000/addQuestion', { texts: question, scriptId: this.response.scriptId });
+      quest.subscribe((response1) => {
+        console.log('response1: ' + response1)
 
-        console.log('answer responses: ' + response2);
+        //insert answers
+        for (let i = 0; i < answers.length; i++) {
+          let ans = this.Http.post('http://localhost:3000/addAnswer', { texts: answers[i], questionId: response1.questionId });
+          ans.subscribe((response2) => {
+
+            console.log('answer responses: ' + response2);
+            return response2;
+          });
+        }
       });
-      
-     
-
-    }
-    
-
-  });
-  });
-}
-//send first question
-sendQuestion(object){
+    });
+  }
   
-}
   //User register function
-  register(object){
+  register(object) {
 
     let posts = this.Http.post('http://localhost:3000/addusers', object.value);
     posts.subscribe((response) => {
@@ -94,17 +87,17 @@ sendQuestion(object){
 
   }
   @HostListener('setLoggedIn')
-  setLoggedIn(value: boolean){
+  setLoggedIn(value: boolean) {
 
     this.loggedIn = value;
     this.change.emit(this.loggedIn)
   }
 
-  get isloggedIn(){
+  get isloggedIn() {
 
     return this.loggedIn;
   }
-  userDetails(object){
+  userDetails(object) {
     this.id = object.id;
     this.email = object.email;
     this.fName = object.fName;
@@ -113,21 +106,21 @@ sendQuestion(object){
 
     console.log(this.username);
   }
-  get getUsername(){
+  get getUsername() {
     return String(this.username);
   }
-  get getId(){
+  get getId() {
     return this.id;
   }
   @HostListener('logout')
-  logout(){
+  logout() {
     this.loggedIn = false;
     this.email = '';
     this.fName = '';
     this.lName = '';
-    this.id= '';
-    this.username= '';
+    this.id = '';
+    this.username = '';
     console.log('blah');
   }
 
-  }
+}

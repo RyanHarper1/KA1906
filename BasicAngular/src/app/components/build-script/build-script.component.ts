@@ -25,7 +25,9 @@ export class BuildScriptComponent implements OnInit {
   usersId: any;
   texts: any;
   answer = 1;
+  saved = false;
   private answers: string[] = [];
+  answerIds: any;
   //questionForm: FormGroup;
 
   constructor(private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient, private router: Router) { }
@@ -35,28 +37,28 @@ export class BuildScriptComponent implements OnInit {
     console.log("yes");
     console.log(this.scriptForm.value)
     //console.log(this.questionForm.value)
-    for (let i = 0; i < this.answers.length ; i++){
+    for (let i = 0; i < this.answers.length; i++) {
       console.log(this.answers[i]);
 
     }
-      this.submitted = true;
+    this.submitted = true;
     if (this.scriptForm.invalid) {
       return;
     }
-    if(this.scriptId == null){
+    if (this.scriptId == null) {
       console.log(this.texts);
-      
-      this.scriptId = this.Auth.sendScript(this.scriptForm,this.texts,this.answers);
+
+      this.answerIds = this.Auth.sendScript(this.scriptForm, this.texts, this.answers);
 
     }
-    
+
     console.log('testarooni' + this.texts);
     this.success = true;
-    this.router.navigate(['current-script']);
+    this.saved = true;
   }
 
   ngOnInit() {
-    this.usersId=this.Auth.getId;
+    this.usersId = this.Auth.getId;
     this.scriptForm = this.formBuilder.group({
       usersId: [this.usersId, Validators.required],
       category: ['', Validators.required],
@@ -64,21 +66,33 @@ export class BuildScriptComponent implements OnInit {
     })
 
   }
-  addAnswer(){
-    if (this.answer >= 9){
+  addAnswer() {
+    if (this.answer >= 9) {
       alert('Maximum count reached');
-    }else{
+    } else {
       this.answer++;
     }
-    
+
   }
-  removeAnswer(){
-    if (this.answer <= 1){
+  removeAnswer() {
+    if (this.answer <= 1) {
       alert('Maximum count reached');
-    }else{
-      this.answers[this.answer-1]= '';
+    } else {
+      this.answers[this.answer - 1] = '';
       this.answer--;
     }
 
-}
+  }
+  nextQuestion(selectedAnswer,num) {
+
+    this.texts = '';
+    for (let i = 0; i < this.answers.length; i++){
+      this.answers[i] = null;
+
+    }
+    console.log('answerID: '+ this.answerIds[num]);
+
+  }
+
+  
 }
