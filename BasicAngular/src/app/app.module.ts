@@ -19,7 +19,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
 import { ScriptShareComponent } from './components/script-share/script-share.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatSidenavModule, MatSidenavContent, MatSidenav, MatFormFieldModule, MatInputModule, MatSelectModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatSidenavModule, MatSidenavContent, MatSidenav, MatFormFieldModule, MatInputModule, MatSelectModule, MatMenuModule,MatToolbarModule,MatIconModule, MatTabsModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { EditScriptComponent } from './components/edit-script/edit-script.component';
 
@@ -51,7 +51,16 @@ import { EditScriptComponent } from './components/edit-script/edit-script.compon
     MatSidenavModule,     
     MatFormFieldModule,
     MatInputModule ,
-    MatSelectModule
+    MatSelectModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
+    MatTabsModule,
+    
+    
+  ],
+  exports: [
+    MatToolbarModule,MatIconModule,MatMenuModule,
   ],
   providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]

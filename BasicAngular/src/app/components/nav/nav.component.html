@@ -1,3 +1,24 @@
+<mat-toolbar color="primary">
+<mat-toolbar-row>
+    <button mat-button [routerLink]="[ '/home' ]">Home</button>
+    <button mat-button [routerLink]="[ '/example-script' ]">Example Scripts</button>
+    <button mat-button [routerLink]="[ '/build-script' ]">Build Scripts</button>
+    <button mat-button [routerLink]="[ '/current-script' ]">Current Scripts</button>
+    <button mat-button [routerLink]="[ '/store' ]">Store</button>
+    
+  <span></span>
+  <span class="example-spacer" ></span>
+  <button mat-button [matMenuTriggerFor]="menu"*ngIf=loggedIn>Ryan</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Update Details</button>
+  <button mat-menu-item (click)="logout()" >Logout</button>
+</mat-menu>
+  <button mat-button [routerLink]="[ '/login' ]" *ngIf=!loggedIn>Login</button>
+  <button mat-button [routerLink]="[ '/register' ]" *ngIf=!loggedIn>Register</button>
+</mat-toolbar-row>
+</mat-toolbar>
+
+<!--
 <header>
   <div class="container">
     <nav>
@@ -31,4 +52,4 @@
       </ul>
     </nav>
   </div>
-</header>
+</header>-->
