@@ -56,7 +56,7 @@ export class AuthService {
       console.log(this.response);
       console.log(this.response.scriptId);
       console.log('Object 1:' + question)
-
+      
       //insert question
       let quest = this.Http.post('http://localhost:3000/addQuestion', { texts: question, scriptId: this.response.scriptId });
       quest.subscribe((response1) => {
@@ -66,13 +66,16 @@ export class AuthService {
         for (let i = 0; i < answers.length; i++) {
           let ans = this.Http.post('http://localhost:3000/addAnswer', { texts: answers[i], questionId: response1.questionId });
           ans.subscribe((response2) => {
-
+            this.response = response1
             console.log('answer responses: ' + response2);
-            return response2;
+            
           });
         }
+
+        return response1.questionId;
       });
     });
+  
   }
   
   //User register function

@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { getDefaultService } from 'selenium-webdriver/chrome';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { EditServiceService } from 'src/app/edit-service.service';
 
 @Component({
   selector: 'app-build-script',
@@ -27,10 +28,10 @@ export class BuildScriptComponent implements OnInit {
   answer = 1;
   saved = false;
   private answers: string[] = [];
-  answerIds: any;
+  questionId: any;
   //questionForm: FormGroup;
 
-  constructor(private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient, private router: Router) { }
+  constructor(private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient, private router: Router,private editService: EditServiceService) { }
 
   onSubmit(AuthService) {
 
@@ -48,16 +49,18 @@ export class BuildScriptComponent implements OnInit {
     if (this.scriptId == null) {
       console.log(this.texts);
 
-      this.answerIds = this.Auth.sendScript(this.scriptForm, this.texts, this.answers);
-
+      this.Auth.sendScript(this.scriptForm, this.texts, this.answers);
+   
     }
 
-    console.log('testarooni' + this.texts);
     this.success = true;
     this.saved = true;
+    
+
   }
 
   ngOnInit() {
+    this.questionId = '';
     this.usersId = this.Auth.getId;
     this.scriptForm = this.formBuilder.group({
       usersId: [this.usersId, Validators.required],
@@ -84,13 +87,14 @@ export class BuildScriptComponent implements OnInit {
 
   }
   nextQuestion(selectedAnswer,num) {
-
+    this.answer = 1;
     this.texts = '';
+    let tempAnswer = selectedAnswer;
     for (let i = 0; i < this.answers.length; i++){
       this.answers[i] = null;
 
     }
-    console.log('answerID: '+ this.answerIds[num]);
+    //console.log('questionId: '+ this.questionId);
 
   }
 

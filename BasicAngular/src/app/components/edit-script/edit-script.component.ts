@@ -66,15 +66,21 @@ addAnswer(){
 }
 removeAnswer(){
   if (this.answer <= 1){
-    alert('Maximum count reached');
+    alert('Minumum count reached');
   }else{
     this.answers[this.answer-1]= '';
     this.answer--;
   }
 }
-nextQuestion(answer){
-  this.selectedAnswer = answer;
+nextQuestion(){
+  //this.selectedAnswer =;
   this.question = ''
+  for (let i = 0; i < 9; i++){
+    this.answers[i].texts = null;
+
+
+  }
+  this.answer = 0;
   
 }
 }
