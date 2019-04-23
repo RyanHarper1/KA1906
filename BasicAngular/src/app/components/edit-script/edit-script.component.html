@@ -1,3 +1,6 @@
+<header class = "header"><h2 class = "mat-display-2">Edit Script</h2></header>
+
+
 <!--Script details-->
   <h3>Category: </h3>
   <input type="text" [(ngModel)] = "category">
@@ -5,61 +8,61 @@
   <h3>Script Name: </h3>
   <input type="text" [(ngModel)] ="scriptName">
   <p></p>
-  <button type="submit" value="submit">Save</button>
-<button type="button" (click)="addAnswer()">Add answer</button>
-<button type="button" (click)="removeAnswer()">Remove answer</button>
+  <button mat-button type="submit" value="submit">Save</button>
+  <button mat-button (click)="addAnswer()">Add answer</button>
+  <button mat-button (click)="removeAnswer()">Remove answer</button>
 <!--Objections-->
 
 <div class="grid-container" *ngIf="answer > 0">
   <div class="boxed">
     <textarea [(ngModel)]="answers[0].texts" rows="4" cols="40" name="texts"></textarea>
-    <button type="button" (click)="nextQuestion(answer[0])">Next Question</button>
+    <button mat-button (click)="nextQuestion(answer[0])">Next Question</button>
   </div>
 <br>
 <div class="boxed" *ngIf="answer > 1">
   <textarea [(ngModel)]="answers[1].texts" rows="4" cols="40" name="texts"></textarea>
-  <button type="button" (click)="nextQuestion(answer[1])">Next Question</button>
+  <button mat-button (click)="nextQuestion(answer[1])">Next Question</button>
 </div>
 <br>
 <div class="boxed" *ngIf="answer > 2">
     <textarea [(ngModel)]="answers[2].texts" rows="4" cols="40" name="texts"></textarea>
-    <button type="button" (click)="nextQuestion(answer[2])">Next Question</button>
+    <button mat-button (click)="nextQuestion(answer[2])">Next Question</button>
 </div>
 <br>
 <div class="boxed" *ngIf="answer > 3"> 
     <br>
     <textarea [(ngModel)]="answers[3].texts" rows="4" cols="40" name="texts"></textarea>
-    <button type="button" (click)="nextQuestion(answer[3])">Next Question</button>
+    <button mat-button (click)="nextQuestion(answer[3])">Next Question</button>
 </div>
 <br>
 <div class="boxed" *ngIf="answer > 4">
     <br>
     <textarea [(ngModel)]="answers[4].texts" rows="4" cols="40" name="texts"></textarea>
-    <button type="button" (click)="nextQuestion(answer[4])">Next Question</button>
+    <button mat-button (click)="nextQuestion(answer[4])">Next Question</button>
 </div>
 <br>
 <div class="boxed" *ngIf="answer > 5">
     <br>
     <textarea [(ngModel)]="answers[5].texts" rows="4" cols="40" name="texts"></textarea>
-    <button type="button" (click)="nextQuestion(answer[5])">Next Question</button>
+    <button mat-button (click)="nextQuestion(answer[5])">Next Question</button>
 </div>
 <br>
 <div class="boxed" *ngIf="answer > 6">
     <br>
     <textarea [(ngModel)]="answers[6].texts" rows="4" cols="40" name="texts"></textarea>
-    <button type="button" (click)="nextQuestion(answer[6])">Next Question</button>
+    <button mat-button (click)="nextQuestion(answer[6])">Next Question</button>
 </div>
 <br>
 <div class="boxed" *ngIf="answer > 7"> 
     <br>
     <textarea [(ngModel)]="answers[7].texts" rows="4" cols="40" name="texts"></textarea>
-    <button type="button" (click)="nextQuestion(answer[7])">Next Question</button>
+    <button mat-button (click)="nextQuestion(answer[7])">Next Question</button>
 </div>
 <br>
 <div class="boxed" *ngIf="answer > 8">
     <br>
     <textarea [(ngModel)]="answers[8].tests" rows="4" cols="40" name="texts"></textarea>
-    <button type="button" (click)="nextQuestion(answer[8])">Next Question</button>
+    <button mat-button (click)="nextQuestion(answer[8])">Next Question</button>
 </div>
 <br>
 </div>

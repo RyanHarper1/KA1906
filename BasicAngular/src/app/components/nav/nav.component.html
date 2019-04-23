@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar class ="mat-elevation-z24" style ="max-height: 50px; min-height: 50px; background-color:rgb(36,58,93); color:white;">
 <mat-toolbar-row>
     <button mat-button [routerLink]="[ '/home' ]">Home</button>
     <button mat-button [routerLink]="[ '/example-script' ]">Example Scripts</button>
@@ -6,7 +6,7 @@
     <button mat-button [routerLink]="[ '/current-script' ]">Current Scripts</button>
     <button mat-button [routerLink]="[ '/store' ]">Store</button>
     
-  <span></span>
+  
   <span class="example-spacer" ></span>
   <button mat-button [matMenuTriggerFor]="menu"*ngIf=loggedIn>Ryan</button>
 <mat-menu #menu="matMenu">
@@ -17,39 +17,3 @@
   <button mat-button [routerLink]="[ '/register' ]" *ngIf=!loggedIn>Register</button>
 </mat-toolbar-row>
 </mat-toolbar>
-
-<!--
-<header>
-  <div class="container">
-    <nav>
-      <ul id="leftNav">
-        <li><a [routerLink]="[ '/home' ]">Home</a></li>
-        <div *ngIf=loggedIn>
-
-          <li><a [routerLink]="[ '/example-script' ]">
-              <div>Example Scripts</div>
-            </a></li>
-          <li><a [routerLink]="[ '/build-script' ]">
-              <div>Build Scripts</div>
-            </a></li>
-          <li><a [routerLink]="[ '/current-script' ]">
-              <div>Current Scripts</div>
-            </a></li>
-          <li><a [routerLink]="[ '/store' ]">Store</a></li>
-          <li><a [routerLink]="[ '/script-share' ]">Script Share</a></li>
-        </div>
-        <div class="rightNav" *ngIf=loggedIn>
-          <li><a [routerLink]="[ '/cart' ] "><img src="./assets/cart.png" style="width:40px; height:40px" title="cart"
-                alt="cart"></a></li>
-          <li><a [routerLink]="[ '/home' ] " (click)="logout()">
-              <div>logout</div>
-            </a></li>
-        </div>
-      </ul>
-      <ul class="rightNav" *ngIf=!loggedIn>
-        <li><a [routerLink]="[ '/login' ]">Login</a></li>
-        <li><a [routerLink]="[ '/register' ]">Register</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>-->

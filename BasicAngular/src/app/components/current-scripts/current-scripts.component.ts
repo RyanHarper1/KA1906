@@ -59,8 +59,11 @@ export class CurrentScriptsComponent implements OnInit {
      
       this.list=response;
       console.log(response)
+      this.router.navigate(['/current-script']);
     });
     console.log(script);
+   
+
   }
 
 

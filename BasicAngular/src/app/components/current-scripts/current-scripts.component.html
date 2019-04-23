@@ -1,8 +1,8 @@
 
- <div class="container text-center">
-  <h1 style="font-size:70px;">Current Script</h1>
- 
-</div>
+ <header class="header">
+  <h2 class="mat-display-2">Current Script</h2>
+ </header>
+
 
 
 <mat-tab-group>
@@ -15,7 +15,7 @@
               Description: {{li.description}}<br>
               Category: {{li.category}}<br>
               <button type="button" (click)="editScript(li)">Edit</button>
-              <button type="button" (click)="deleteScript(li)">Delete</button>
+              <button type="button" (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]" >Delete</button>
             </td>
             <td >
               Data goes here
