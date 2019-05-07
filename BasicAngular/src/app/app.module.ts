@@ -22,6 +22,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule, MatSidenavModule, MatSidenavContent, MatSidenav, MatFormFieldModule, MatInputModule, MatSelectModule, MatMenuModule,MatToolbarModule,MatIconModule, MatTabsModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { EditScriptComponent } from './components/edit-script/edit-script.component';
+import { UpdateDetailsComponent } from './components/update-details/update-details.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { EditScriptComponent } from './components/edit-script/edit-script.compon
     CurrentScriptsComponent,
     ScriptShareComponent,
     EditScriptComponent,
+    UpdateDetailsComponent,
     
   ],
   imports: [

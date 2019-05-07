@@ -1,4 +1,4 @@
-<mat-toolbar class ="mat-elevation-z24" style ="max-height: 50px; min-height: 50px; background-color:rgb(36,58,93); color:white;">
+<mat-toolbar class ="mat-elevation-z15" style ="max-height: 50px; min-height: 50px; background-color:rgb(36,58,93); color:white;">
 <mat-toolbar-row>
     <button mat-button [routerLink]="[ '/home' ]">Home</button>
     <button mat-button [routerLink]="[ '/example-script' ]">Example Scripts</button>
@@ -10,8 +10,8 @@
   <span class="example-spacer" ></span>
   <button mat-button [matMenuTriggerFor]="menu"*ngIf=loggedIn>Ryan</button>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item>Update Details</button>
-  <button mat-menu-item (click)="logout()" >Logout</button>
+  <button mat-menu-item [routerLink]="[ '/update-details' ]">Update Details</button>
+  <button mat-menu-item (click)="logout()" [routerLink] = "['/home']">Logout</button>
 </mat-menu>
   <button mat-button [routerLink]="[ '/login' ]" *ngIf=!loggedIn>Login</button>
   <button mat-button [routerLink]="[ '/register' ]" *ngIf=!loggedIn>Register</button>
