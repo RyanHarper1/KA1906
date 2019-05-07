@@ -44,32 +44,26 @@ const routes: Routes = [
   {
     path: 'build-script',
     component: BuildScriptComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'current-script',
     component: CurrentScriptsComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'example-script',
     component: ExampleScriptComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'store',
     component: StoreComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'script-share',
     component: ScriptShareComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'edit-script',
     component: EditScriptComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'update-details',

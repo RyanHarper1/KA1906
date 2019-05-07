@@ -9,15 +9,43 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class ExampleScriptComponent implements OnInit {
   list: any;
+  scriptId: any;
+  scriptName: any;
+  response:any
+  category: any;
+  questionId: any;
+  question: any;
+  private answers: any;
+  answer = 0;
+  selectedAnswer: any;
   constructor(private Http: HttpClient) { }
 
   ngOnInit() {
-
-    let current = this.Http.get('http://localhost:3000/example-scripts');
-    current.subscribe((response) => {
-     
-      this.list=response;
-      console.log(response)
+    let query = this.Http.post('http://localhost:3000/get-script', {scriptId: 61});
+    query.subscribe((response)=>{
+      console.log('response to this is: ' + response)
+      this.response=response;
+      this.category = response[0].category;
+      this.scriptName = response[0].scriptName;
+      this.questionId = response[0].firstQuestionId;
+  
+  
+      //get question
+      let quest = this.Http.post('http://localhost:3000/get-question',{questionId: this.questionId});
+      quest.subscribe((response1)=>{
+      console.log('response1: ' + response1[0].texts)
+      this.question = response1[0].texts;
+      
+      //get answers
+        let ans = this.Http.post('http://localhost:3000/get-answer', {questionId: this.questionId});
+        ans.subscribe((response2) => {
+          this.answers = response2;
+          for( let i = 0; i < this.answers.length; i++){
+            console.log('answer responses: ' + this.answers[i].texts);
+            this.answer++;
+          }
+        });
+    });
     });
   }
 

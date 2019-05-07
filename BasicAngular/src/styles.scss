@@ -42,6 +42,13 @@ section {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color:#50617D;
+    background-color:#243A5D;
     color: white;
+  }
+  footer {
+
+    background-color: #ddd;
+    border-top: 1px solid #bbb;
+    text-align: center;
+    align-self: flex-end;
   }

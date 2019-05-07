@@ -2,11 +2,17 @@
  <header class="header">
   <h2 class="mat-display-2">Current Script</h2>
  </header>
+<div *ngIf = !loggedIn>
+<p>
+  This is where the current script preloggin information goes
+</p>
+</div>
 
 
+<mat-tab-group *ngIf = loggedIn>
 
-<mat-tab-group>
   <mat-tab label="Saved">
+  
       <table *ngIf= "saved">
 
           <tr *ngFor="let li of list">
@@ -14,17 +20,20 @@
               Name: {{li.scriptName}}<br>
               Description: {{li.description}}<br>
               Category: {{li.category}}<br>
-              <button type="button" (click)="editScript(li)">Edit</button>
-              <button type="button" (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]" >Delete</button>
+              Sub-Category: {{li.subcategory}}
+             
             </td>
             <td >
-              Data goes here
+              Last Edited: <br>
+              Template: <br>            
+              <button mat-button (click)="editScript(li)">Edit</button> 
+              <button mat-button >Upload</button>  
+              <button mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]" >Delete</button>
             </td>
-          </tr>
-        
-        </table>
+          </tr>        
+        </table>       
   </mat-tab>
-  <mat-tab label="Uploaded">
+  <mat-tab label="Uploaded"> 
       <table *ngIf= "uploaded">
 
           <tr *ngFor="let li of list">
@@ -32,14 +41,15 @@
               Name: <br>
               Description: <br>
               Category: <br>
+              Sub-Category: <br>
             </td>
             <td >
               Data goes here
             </td>
           </tr>
-        </table>
+        </table>     
   </mat-tab>
-  <mat-tab label="Purchased">
+  <mat-tab label="Purchased">   
       <table *ngIf= "purchased">
           <tr *ngFor="let li of list">
             <td >
@@ -51,6 +61,6 @@
               Data goes here
             </td>
           </tr>
-        </table>
+        </table>      
   </mat-tab>
 </mat-tab-group>

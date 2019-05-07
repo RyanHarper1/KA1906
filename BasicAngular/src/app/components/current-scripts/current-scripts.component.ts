@@ -18,19 +18,23 @@ export class CurrentScriptsComponent implements OnInit {
   list: any;
   columns = ['scriptName','category'];
   username: String;
+  loggedIn = false;
   constructor(private Http: HttpClient, private Auth: AuthService, private router: Router, private editService: EditServiceService) { }
 
   ngOnInit() {
     this.saved = true;
     this.uploaded = false;
     this.purchased = false;
-
-    let current = this.Http.post('http://localhost:3000/current-scripts', {id: this.Auth.getId});
-    current.subscribe((response) => {
-     
-      this.list=response;
-      console.log(response)
-    });
+    this.loggedIn = this.Auth.loggedIn
+    if (this.loggedIn){
+      let current = this.Http.post('http://localhost:3000/current-scripts', {id: this.Auth.getId});
+      current.subscribe((response) => {
+       
+        this.list=response;
+        console.log(response)
+      });
+    }
+  
   }
   showSaved(){
     this.saved = true;

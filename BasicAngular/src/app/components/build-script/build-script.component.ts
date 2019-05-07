@@ -29,6 +29,7 @@ export class BuildScriptComponent implements OnInit {
   saved = false;
   private answers: string[] = [];
   questionId: any;
+  loggedIn = false;
   //questionForm: FormGroup;
 
   constructor(private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient, private router: Router,private editService: EditServiceService) { }
@@ -60,6 +61,7 @@ export class BuildScriptComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loggedIn = this.Auth.loggedIn;
     this.questionId = '';
     this.usersId = this.Auth.getId;
     this.scriptForm = this.formBuilder.group({
