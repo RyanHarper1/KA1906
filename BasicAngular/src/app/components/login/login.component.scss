@@ -31,6 +31,7 @@
     width: 20%;
     height: 60%;
     background: black;
+<<<<<<< HEAD
   }
 
   .logo-img:after{
@@ -54,6 +55,31 @@
       
 //   }
 
+=======
+  }
+
+  .logo-img:after{
+      content: "";
+      float:left;
+      display: inline-block;
+    vertical-align: middle;
+      clear: both;
+      display: table;
+  }
+
+
+//   {  display: flex;
+//     // flex-direction: column;
+//     align-items: left;
+//     text-align: left;
+//     width: 70%;
+//     height: 1450x;
+//     background: black;
+//     margin-top: 0px
+      
+//   }
+
+>>>>>>> parent of f5a29932... banner working
   label {
     display: block;
     padding-right: 0px;
