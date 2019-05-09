@@ -31,25 +31,17 @@ export class AuthService {
   email = '';
   fName = '';
   lName = '';
-<<<<<<< HEAD
- // username = '';
-=======
   id: String;
   username: String;
   test: any;
   @Output() change: EventEmitter<boolean> = new EventEmitter();
 
 
->>>>>>> master
 
   constructor(private Http: HttpClient) { }
 
   //User login function
   login(email, password) {
-<<<<<<< HEAD
-
-    return this.Http.post<userData>('http://localhost:3000/login', { email: email, password: password })    
-=======
 
     return this.Http.post<userData>('http://localhost:3000/login', { email: email, password: password })
 
@@ -69,7 +61,6 @@ export class AuthService {
       let quest = this.Http.post('http://localhost:3000/addQuestion', { texts: question, scriptId: this.response.scriptId });
       quest.subscribe((response1) => {
         console.log('response1: ' + response1)
->>>>>>> master
 
         //insert answers
         for (let i = 0; i < answers.length; i++) {
@@ -114,11 +105,7 @@ export class AuthService {
     this.email = object.email;
     this.fName = object.fName;
     this.lName = object.lName;
-<<<<<<< HEAD
-    //this.username = object.username;
-=======
     this.username = String(object.username);
->>>>>>> master
 
     console.log(this.fName);
   }

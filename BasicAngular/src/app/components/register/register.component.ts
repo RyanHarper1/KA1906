@@ -22,15 +22,6 @@ export class RegisterComponent implements OnInit {
   response: Object;
   registerForm: FormGroup;
 
-<<<<<<< HEAD
-
- 
-
-
-
-
-=======
->>>>>>> master
   constructor(private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient) {
 
   }
