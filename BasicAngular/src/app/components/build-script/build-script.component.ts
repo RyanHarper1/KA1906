@@ -50,7 +50,7 @@ export class BuildScriptComponent implements OnInit {
     if (this.scriptId == null) {
       console.log(this.texts);
 
-      this.Auth.sendScript(this.scriptForm, this.texts, this.answers);
+      this.Auth.sendScript({ script: this.scriptForm, question: this.texts, answers: this.answers });
    
     }
 
