@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 .banner-img{
   display: inline-block;
@@ -42,6 +43,21 @@
 }
 
 label{
+=======
+#saleScript{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 1450x;
+    background: rgb(245, 236, 236);
+    margin-top: 0px;
+
+  }
+
+  label {
+>>>>>>> master
     display: block;
     padding-right: 0px;
     padding-left: 0px;
@@ -51,7 +67,11 @@ label{
     font-family: Arial, Verdana;
 }
 
+<<<<<<< HEAD
 input, textarea{
+=======
+input, textarea  {
+>>>>>>> master
     display: block;
     width: 80%;
     margin-bottom: 20px;
@@ -63,6 +83,7 @@ input, textarea{
     float: centre;
 }
 
+<<<<<<< HEAD
 #login-box{
     margin-top: auto;
     margin-left: auto;
@@ -80,15 +101,40 @@ input, textarea{
 .heading-inbox{
     margin: auto;
     text-align: center;
+=======
+
+    h1
+    {
+         margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 190px;
+>>>>>>> master
     padding: 10px;
     font-weight: bold;
     font-size: 28px;
     color: rgb(34, 52, 88);
+<<<<<<< HEAD
     float: center;
     vertical-align: middle;
 }
 
 input[type="Login"]{
+=======
+       
+    }
+
+    #login-box
+{
+    position: relative;
+    margin: 5% auto;
+    height: 700px auto;
+    width: 500px;
+    background: #fff;
+    border: 5px solid rgb(34, 52, 88);
+   
+}
+input[type="submit"]{
+>>>>>>> master
     margin-bottom: 28px;
     margin-top: 28px;
     margin: 5% auto;
@@ -103,9 +149,15 @@ input[type="Login"]{
     cursor: pointer;
 }
 
+<<<<<<< HEAD
 //login button
 input[type="Login"]:hover, 
 input[type="Login"]:focus{
+=======
+input[type="submit"]:hover, 
+input[type="submit"]:focus
+{
+>>>>>>> master
     background: #1745a7e3;
     transition: 0.2s ease;
 }

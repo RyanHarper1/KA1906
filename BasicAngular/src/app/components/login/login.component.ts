@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule} from '@angular/common/http';
 import { AuthService } from 'src/app/auth.service';
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   success = false;
   result: any;
- 
+
 
   constructor(private formBuilder: FormBuilder,  private Auth: AuthService, private router: Router) { }
 
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
       this.Auth.setLoggedIn(true);
     }
    });
-  
-  
+
+
  }
 }

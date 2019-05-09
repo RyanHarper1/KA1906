@@ -1,13 +1,16 @@
-<header class = "header"><h2 class = "mat-display-2">Example Script</h2></header>
+<header class = "header"><h2 class = "mat-display-2">Edit Script</h2></header>
 
 
 <!--Script details-->
   <h3>Category: </h3>
-  <input type="text" [(ngModel)] = "category" readonly>
+  <input type="text" [(ngModel)] = "category">
   <p></p>
   <h3>Script Name: </h3>
-  <input type="text" [(ngModel)] ="scriptName" readonly>
+  <input type="text" [(ngModel)] ="scriptName">
   <p></p>
+  <button mat-button type="submit" value="submit">Save</button>
+  <button mat-button (click)="addAnswer()">Add answer</button>
+  <button mat-button (click)="removeAnswer()">Remove answer</button>
 <!--Objections-->
 
 <div class="grid-container" *ngIf="answer > 0">

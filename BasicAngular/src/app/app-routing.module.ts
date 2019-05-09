@@ -12,6 +12,9 @@ import { ExampleScriptComponent } from './components/example-script/example-scri
 import { StoreComponent } from './components/store/store.component';
 import { AuthService } from './auth.service'
 import { AuthGuard } from './auth.guard';
+import { ScriptShareComponent} from './components/script-share/script-share.component'
+import { EditScriptComponent} from './components/edit-script/edit-script.component'
+import {UpdateDetailsComponent} from './components/update-details/update-details.component'
 
 const routes: Routes = [
   {
@@ -41,21 +44,30 @@ const routes: Routes = [
   {
     path: 'build-script',
     component: BuildScriptComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'current-script',
     component: CurrentScriptsComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'example-script',
     component: ExampleScriptComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'store',
     component: StoreComponent,
+  },
+  {
+    path: 'script-share',
+    component: ScriptShareComponent,
+  },
+  {
+    path: 'edit-script',
+    component: EditScriptComponent,
+  },
+  {
+    path: 'update-details',
+    component: UpdateDetailsComponent,
     canActivate: [AuthGuard]
   }
 ];

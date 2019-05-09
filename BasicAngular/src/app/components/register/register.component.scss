@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 #saleScript{
     display: flex;
     flex-direction: column;
@@ -63,6 +67,7 @@
         color: rgb(34, 52, 88);
         display: inline-block;
         float: left;
+<<<<<<< HEAD
     }
    
     
@@ -99,6 +104,44 @@
         cursor: pointer;
     }
 
+=======
+    }
+   
+    
+/*terms and conditions*/
+    .tandc {
+        display: inline;
+        margin-left: 0px;
+        text-align: left;
+        color: rgb(34, 52, 88);
+        font-size: 10px;
+        float: left;
+    }
+
+    input[type="submit"]:hover, 
+    input[type="submit"]:focus
+    {
+        background: #1745a7e3;
+        transition: 0.2s ease;
+    }
+
+
+        input[type="submit"]{
+        margin-bottom: 28px;
+        margin-top: 28px;
+        margin: 5% auto;
+        text-align: center;
+        width: 120px;
+        height: 32px;
+        background: rgb(1, 1, 48);
+        border: none;
+        border-radius: 2px;
+        color: white;
+        transition: 0.2s ease;
+        cursor: pointer;
+    }
+
+>>>>>>> master
    
     .error {
             margin-top: -20px;
@@ -125,6 +168,7 @@
         padding: 1em;
         cursor: pointer;
         font-family: 'Montserrat';
+<<<<<<< HEAD
     }
 
     .results {
@@ -138,3 +182,19 @@
             display: block;
         }
     }
+=======
+    }
+
+    .results {
+        margin-top: 50px;
+
+        strong {
+            display: block;
+        }
+        span {
+            margin-bottom: 20px;
+            display: block;
+        }
+    }
+
+>>>>>>> master

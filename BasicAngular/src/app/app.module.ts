@@ -17,6 +17,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth.service'
 import { HttpClient } from '@angular/common/http'; 
 import { AuthGuard } from './auth.guard';
+import { ScriptShareComponent } from './components/script-share/script-share.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule, MatSidenavModule, MatSidenavContent, MatSidenav, MatFormFieldModule, MatInputModule, MatSelectModule, MatMenuModule,MatToolbarModule,MatIconModule, MatTabsModule} from '@angular/material';
+import { FormsModule } from '@angular/forms';
+import { EditScriptComponent } from './components/edit-script/edit-script.component';
+import { UpdateDetailsComponent } from './components/update-details/update-details.component';
 
 @NgModule({
   declarations: [
@@ -29,13 +35,34 @@ import { AuthGuard } from './auth.guard';
     ExampleScriptComponent,
     StoreComponent,
     CartComponent,
-    CurrentScriptsComponent
+    CurrentScriptsComponent,
+    ScriptShareComponent,
+    EditScriptComponent,
+    UpdateDetailsComponent,
+    
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule, 
+    MatCheckboxModule,
+    MatSidenavModule,     
+    MatFormFieldModule,
+    MatInputModule ,
+    MatSelectModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
+    MatTabsModule,
+    
+    
+  ],
+  exports: [
+    MatToolbarModule,MatIconModule,MatMenuModule,
   ],
   providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
