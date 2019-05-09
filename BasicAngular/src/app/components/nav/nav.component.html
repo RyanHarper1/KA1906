@@ -1,18 +1,20 @@
-<header>
-  <div class ="container">
-    <nav>
-        <ul id="leftNav">
-          <li><a [routerLink]="[ '/home' ]">Home</a></li>
-          <li><a [routerLink]="[ '/example-script' ]"><div>Example Scripts</div></a></li>
-          <li><a [routerLink]="[ '/build-script' ]"><div>Build Scripts</div></a></li>
-          <li><a [routerLink]="[ '/current-script' ]"><div>Current Scripts</div></a></li>
-          <li><a [routerLink]="[ '/store' ]">Store</a></li>
-        </ul>
-        <ul id = "rightNav">
-          <li><a [routerLink]="[ '/cart' ]">Cart</a></li>
-          <li><a [routerLink]="[ '/login' ]">Login</a></li>
-          <li><a [routerLink]="[ '/register' ]">Register</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<mat-toolbar class ="mat-elevation-z15" style ="max-height: 50px; min-height: 50px; background-color:rgb(51,51,51); color:white;">
+<mat-toolbar-row>
+  <img src = "./assets/icon.png" style = "width: 80px; height: 40px">
+    <button mat-button [routerLink]="[ '/home' ]">Home</button>
+    <button mat-button [routerLink]="[ '/example-script' ]">Example Scripts</button>
+    <button mat-button [routerLink]="[ '/build-script' ]">Build Scripts</button>
+    <button mat-button [routerLink]="[ '/current-script' ]">Current Scripts</button>
+    <button mat-button [routerLink]="[ '/store' ]">Store</button>
+    <button mat-button [routerLink]="[ '/script-share' ]">Script Share</button>
+  
+  <span class="example-spacer" ></span>
+  <button mat-button [matMenuTriggerFor]="menu"*ngIf=loggedIn>Ryan</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item [routerLink]="[ '/update-details' ]">Update Details</button>
+  <button mat-menu-item (click)="logout()" [routerLink] = "['/home']">Logout</button>
+</mat-menu>
+  <button mat-button [routerLink]="[ '/login' ]" *ngIf=!loggedIn>Login</button>
+  <button mat-button [routerLink]="[ '/register' ]" *ngIf=!loggedIn>Register</button>
+</mat-toolbar-row>
+</mat-toolbar>

@@ -1,24 +1,30 @@
-<h1>Login</h1>
+
+<div id="saleScript">
+    <img src="/assets/logo.JPG" alt="logo" style="width:450px;">
+  </div><br>
+  
+<div id="login-box">
+    <div class="left-box">
+      <h1> Login</h1>
 <form [formGroup]="logInForm" (ngSubmit)="onSubmit()">
 
-  <h2 *ngIf="success">Form is Valid</h2>
-
-    <label>
-        Username:
-        <input type ="text" placeholder="Username" formControlName="username">
-        <div *ngIf="submitted && logInForm.controls.username.errors">
-          <div *ngIf="logInForm.controls.username.errors.required">Your name is Required<p></p></div>
+  <label>
+      <label class="required">*</label>Email
+      <input type="text" placeholder="Email" formControlName="email">
+      <div *ngIf="submitted && logInForm.controls.email.errors">
+        <div *ngIf="logInForm.controls.email.errors.required">Your email is required<p></p>
         </div>
+      </div>
     </label>
 
-    <label>
-        Password:
-        <input type="text" placeholder="Password" formControlName="password">
-        <div *ngIf="submitted && logInForm.controls.password.errors">
-          <div *ngIf="logInForm.controls.password.errors.required">Your Password is Required</div>
-        </div>
-    </label>
+  <label>
+      <label class="required">*</label>Password
+    <input type="password" placeholder="Password" formControlName="password">
+    <div *ngIf="submitted && logInForm.controls.password.errors">
+      <div *ngIf="logInForm.controls.password.errors.required">Your Password is required</div>
+    </div>
+  </label>
 
-    <input type="submit" value="submit">
+  <input type="submit" value="Login">
 
 </form>
