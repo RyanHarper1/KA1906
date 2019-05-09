@@ -77,35 +77,29 @@ input, textarea  {
     float: centre;
 }
 
-//login header
-    h1
-    {
-        margin: 10px 10px 10px 10px;
-    // margin-top: 10px;
-    // margin-bottom: 10px;
-    // margin-left: 190px;
+#login-box
+{
+    // position: relative;
+    float: center;
+    margin: auto;
+
+    height:  700px;
+    width: 400px;
+    background: #fff;
+    border: 5px solid rgb(34, 52, 88);
+    vertical-align: middle;
+}
+
+
+.heading-inbox{
+    margin: auto;
+    text-align: center;
     padding: 10px;
     font-weight: bold;
     font-size: 28px;
     color: rgb(34, 52, 88);
     float: center;
-    }
-
-    #login-box
-{
-    position: relative;
-    float: center;
-    margin: 20px 20px 20px 20px;
-    height: 700px auto;
-    width: 500px;
-    background: #fff;
-    border: 5px solid rgb(34, 52, 88);
-}
-
-.left-box{
-
-
-
+    vertical-align: middle;
 }
 
 input[type="Login"]{
