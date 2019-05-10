@@ -1,7 +1,5 @@
-import { Injectable, Output, EventEmitter, HostListener } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
-import { HttpClientModule } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { EventEmitter, HostListener, Injectable, Output } from '@angular/core';
 
 interface userData {
   result: string,
@@ -58,7 +56,7 @@ export class AuthService {
       console.log('Object 1:' + question)
       
       //insert question
-      let quest = this.Http.post('http://localhost:3000/addQuestion', { texts: question, scriptId: this.response.scriptId });
+      let quest = this.Http.post<any>('http://localhost:3000/addQuestion', { texts: question, scriptId: this.response.scriptId });
       quest.subscribe((response1) => {
         console.log('response1: ' + response1)
 
