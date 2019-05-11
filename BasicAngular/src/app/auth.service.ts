@@ -56,13 +56,13 @@ export class AuthService {
       console.log('Object 1:' + question)
       
       //insert question
-      let quest = this.Http.post<any>('http://localhost:3000/addQuestion', { texts: question, scriptId: this.response.scriptId });
+      let quest = this.Http.post<questionData>('http://localhost:3000/addQuestion', { texts: question, scriptId: this.response.scriptId });
       quest.subscribe((response1) => {
         console.log('response1: ' + response1)
 
         //insert answers
         for (let i = 0; i < answers.length; i++) {
-           let ans = this.Http.post('http://localhost:3000/addAnswer', { texts: answers[i], questionId: response1.questionId });
+          let ans = this.Http.post<questionData>('http://localhost:3000/addAnswer', { texts: answers[i], questionId: response1.questionId });
           ans.subscribe((response2) => {
             this.response = response1
             console.log('answer responses: ' + response2);
