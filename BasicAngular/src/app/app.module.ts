@@ -8,7 +8,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { ReactiveFormsModule} from '@angular/forms';
-import { BuildScriptComponent } from './components/build-script/build-script.component';
+import { BuildScriptComponent, DialogForm } from './components/build-script/build-script.component';
 import { ExampleScriptComponent } from './components/example-script/example-script.component';
 import { StoreComponent } from './components/store/store.component';
 import { CartComponent } from './components/cart/cart.component';
@@ -19,7 +19,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
 import { ScriptShareComponent } from './components/script-share/script-share.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatSidenavModule, MatSidenavContent, MatSidenav, MatFormFieldModule, MatInputModule, MatSelectModule, MatMenuModule,MatToolbarModule,MatIconModule, MatTabsModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatSidenavModule, MatSidenavContent, MatSidenav, MatFormFieldModule, MatInputModule, MatSelectModule, MatMenuModule,MatToolbarModule,MatIconModule, MatTabsModule, MatDialogModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { EditScriptComponent } from './components/edit-script/edit-script.component';
 import { UpdateDetailsComponent } from './components/update-details/update-details.component';
@@ -39,6 +39,8 @@ import { UpdateDetailsComponent } from './components/update-details/update-detai
     ScriptShareComponent,
     EditScriptComponent,
     UpdateDetailsComponent,
+    DialogForm,
+    
     
   ],
   imports: [
@@ -58,6 +60,7 @@ import { UpdateDetailsComponent } from './components/update-details/update-detai
     MatIconModule,
     MatMenuModule,
     MatTabsModule,
+    MatDialogModule,
     
     
   ],

@@ -69,6 +69,14 @@ export class CurrentScriptsComponent implements OnInit {
    
 
   }
+  uploadScript(script){
+    let upload = this.Http.post('http://localhost:3000/upload-script', {usersID: this.Auth.id,scriptID:script.scriptId, scriptName: script.scriptName, price: 5, category: script.category, description:script.description });
+    upload.subscribe((response) => {
+      console.log(response)
+    });
+
+
+  }
 
 
 }

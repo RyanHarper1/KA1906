@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-script-share',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./script-share.component.scss']
 })
 export class ScriptShareComponent implements OnInit {
-
-  constructor() { }
+  logged = false;
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
+    this.logged = this.auth.loggedIn;
   }
 
 }

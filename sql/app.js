@@ -7,11 +7,22 @@ var bodyParser = require('body-parser');
 
 // create application/json parser
 
-
+const SESSION_SECRET = "topsecretstuff4323"
 const app = express();
 app.use(cors());
 app.use(bodyParser.json({ extended: true }));
-app.use(session({secret: 'secret'}));
+//app.use(session({
+    /*name:"lid",
+    secret: SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        maxAge: 1000* 60 * 60 * 24 //1 day
+    }*/
+//})
+//);
 
 /**bodyParser.json(options)
  * Parses the text as JSON and exposes the resulting object on req.body.
@@ -38,6 +49,7 @@ app.on('error', function (err) {
 
 //Register users
 app.post('/addusers', (req, res) => {
+   
     let test = req.body;
     let reply = {};
     console.log(test);
@@ -253,6 +265,17 @@ app.post('/get-answer', (req,res) => {
     let sql = 'SELECT * FROM answer WHERE questionId = ' + req.body.questionId;
     let query = db.query(sql, (err, result) => {
 
+        if (err) {
+            throw err;
+        }
+        res.send(result);
+    });
+});
+
+app.post('/upload-script',(req,res) =>{
+    let sql = 'INSERT INTO store SET ?';
+    let values = {usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName:req.body.scriptName, price: req.body.price, uploadDate:Date.now(),category: req.body.category,rating: 0,question:0,description:req.body.description}
+    let query = db.query(sql,values, (err,result) => {
         if (err) {
             throw err;
         }

@@ -6,7 +6,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 
 import { CartComponent } from './components/cart/cart.component';
-import { BuildScriptComponent } from './components/build-script/build-script.component';
+import { BuildScriptComponent, DialogForm } from './components/build-script/build-script.component';
 import { CurrentScriptsComponent } from './components/current-scripts/current-scripts.component';
 import { ExampleScriptComponent } from './components/example-script/example-script.component';
 import { StoreComponent } from './components/store/store.component';
@@ -69,6 +69,11 @@ const routes: Routes = [
     path: 'update-details',
     component: UpdateDetailsComponent,
     canActivate: [AuthGuard]
+  },
+    {
+    path: 'DialogForm',
+    component: DialogForm,
+    
   }
 ];
 
