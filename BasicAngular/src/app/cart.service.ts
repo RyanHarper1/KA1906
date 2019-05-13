@@ -6,20 +6,21 @@ import { AngularWaitBarrier } from 'blocking-proxy/built/lib/angular_wait_barrie
 @Injectable({
   providedIn: 'root'
 })
-export class EditServiceService {
-  scriptId: any;
+export class CartService {
+
+  storeID: any;
 
   constructor(private Http: HttpClient) { }
 
-  setScript(scriptId){
-    this.scriptId = scriptId
-
+  setStoreID(storeID){
+    this.storeID = storeID;
   }
 
   getEditScript(){
-    return this.scriptId
+    return this.storeID
   }
 
+  add(object){}
 
-
+  sumCart(){}
 }

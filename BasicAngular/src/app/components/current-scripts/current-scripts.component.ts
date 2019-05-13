@@ -29,12 +29,12 @@ export class CurrentScriptsComponent implements OnInit {
     if (this.loggedIn){
       let current = this.Http.post('http://localhost:3000/current-scripts', {id: this.Auth.getId});
       current.subscribe((response) => {
-       
+
         this.list=response;
         console.log(response)
       });
     }
-  
+
   }
   showSaved(){
     this.saved = true;
@@ -57,17 +57,16 @@ export class CurrentScriptsComponent implements OnInit {
     this.router.navigate(['edit-script']);
 
   }
+
   deleteScript(script){
     let del = this.Http.post('http://localhost:3000/delete-script', {scriptId: script.scriptId});
     del.subscribe((response) => {
-     
+
       this.list=response;
       console.log(response)
       this.router.navigate(['/current-script']);
     });
     console.log(script);
-   
-
   }
 
 

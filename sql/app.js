@@ -145,7 +145,7 @@ app.post('/login', (req, res) => {
             });
         });
 
-        
+
     //addscript questions/pitches
     app.post('/addAnswer', (req, res) => {
         let test = req.body;
@@ -180,7 +180,27 @@ app.post('/login', (req, res) => {
                     throw err;
                 } else {
                     console.log("successfully deleted");
-    
+
+                    reply = {
+                        result: 'success'
+                    }
+                }
+                res.send(reply);
+            });
+        });
+
+        //Delete cart Item
+        app.post('/delete-item', (req, res) => {
+            let cart = { storeID: req.body.storeID, usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, description: req.body.description, rating: req.body.rating, uploadDate: req.body.uploadDate, category: req.body.category};
+            let sql = 'DELETE FROM cart WHERE cartID  = ' + req.body.cartID;
+            console.log("On server side");
+            console.log(cart);
+            let query = db.query(sql, cart, (err, result) => {
+                if (err) {
+                    throw err;
+                } else {
+                    console.log("successfully deleted");
+
                     reply = {
                         result: 'success'
                     }
@@ -192,6 +212,19 @@ app.post('/login', (req, res) => {
 
 app.get('/store', (req,res) => {
     let sql = 'Select * from store'
+    let query = db.query(sql, (err, result) => {
+
+        if (err) {
+            throw err;
+        }
+        res.send(result);
+    });
+});
+
+//load cart
+app.post('/cart', (req,res) => {
+    console.log(req.body.id);
+    let sql = 'SELECT * FROM cart WHERE usersId = ' + req.body.id;
     let query = db.query(sql, (err, result) => {
 
         if (err) {
@@ -262,4 +295,41 @@ app.post('/get-answer', (req,res) => {
 
 app.listen('3000', () => {
     console.log('server started on port 3000');
+});
+
+
+//get storeID
+app.post('/get-answer', (req,res) => {
+    console.log(req.body.questionId);
+    let sql = 'SELECT * FROM answer WHERE questionId = ' + req.body.questionId;
+    let query = db.query(sql, (err, result) => {
+
+        if (err) {
+            throw err;
+        }
+        res.send(result);
+    });
+});
+
+//add to cart
+app.post('/addToCart', (req, res) => {
+    let test = req.body;
+    let reply = {};
+    console.log(test);
+    let script = { texts: req.body.texts, questionId: req.body.questionId};
+    let sql = 'INSERT INTO answer SET ?';
+    console.log("On server side");
+    console.log(script);
+    let query = db.query(sql, script, (err, result) => {
+        if (err) {
+            throw err;
+        } else {
+            console.log("successfully entered");
+
+            reply = {
+                result: 'success', idanswer: result.insertId
+            }
+        }
+        res.send(reply);
+    });
 });

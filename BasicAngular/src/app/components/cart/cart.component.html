@@ -1,3 +1,76 @@
-<p>
-  cart works!
-</p>
+<div class="container text-center">
+  <h1 style="font-size:70px;">Cart</h1>
+</div>
+
+
+
+<mat-drawer-container [hasBackdrop]="false" #mode value="side">
+
+  <mat-drawer #drawer [mode]="mode.value">Search<br>
+     <mat-form-field>
+      <input matInput placeholder="Keyword">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Select">
+        <mat-option value="option">Option1</mat-option>
+        <mat-option value="option">Option2</mat-option>
+        <mat-option value="option">Option3</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-drawer>
+
+  <mat-select #mode value="side"></mat-select>
+  <mat-drawer-content>
+    <table>
+      <th>
+        Name
+      </th>
+      <th>
+        Category
+      </th>
+      <th>
+        Price
+      </th>
+      <th>
+
+      </th>
+
+
+      <tr *ngFor="let li of list">
+        <td>
+          {{li.scriptName}}
+        </td>
+        <td>
+          {{li.category}}
+        </td>
+        <td>
+          ${{li.price}}
+        </td>
+        <td>
+          <button mat-button (click)="deleteCart(li)" [routerLink]="[ '/cart' ]">Delete</button>
+        </td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td><h5>Total: ${{ getTotal() }}</h5></td>
+        <td>
+          <input type="hidden" name="cmd" value="_ext-enter">
+          <form action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
+            <input type="hidden" name="cmd" value="_ext-enter">
+            <input type="hidden" name="redirect_cmd" value="_xclick">
+            <input type="hidden" name="business" value="jbeckhaus1@gmail.com">
+            <input type="hidden" name="item_name" value="Item Name">
+            <input type="hidden" name="currency_code" value="AUD">
+            <input type="hidden" name="amount" value="{{ getTotal() }}">
+            <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+          </form>
+        </td>
+      </tr>
+
+    </table>
+
+
+  </mat-drawer-content>
+</mat-drawer-container>

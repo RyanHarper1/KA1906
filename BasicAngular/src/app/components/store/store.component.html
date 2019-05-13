@@ -1,13 +1,9 @@
-<header class ="header">
-  <h2 class = "mat-display-2">Store</h2>
-</header>
-<div *ngIf = !loggedIn>
-<p>
-  This is where the information about store will be
-</p>
+<div class="container text-center">
+  <h1 style="font-size:70px;">Store</h1>
 </div>
 
-<div *ngIf = loggedIn>
+
+
 <mat-drawer-container [hasBackdrop]="false" #mode value="side">
 
   <mat-drawer #drawer [mode]="mode.value">Search<br>
@@ -36,6 +32,8 @@
         <td>
           Data goes here
         </td>
+
+        <td><button type="button" value="{{li.storeID}}">Add to Cart</button></td>
       </tr>
 
     </table>
@@ -43,4 +41,3 @@
 
   </mat-drawer-content>
 </mat-drawer-container>
-</div>
