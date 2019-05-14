@@ -1,21 +1,22 @@
 
+#banner{  
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  }
 
 .banner-img{
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 374.281px;
-    width: 100%;
-    opacity: .6;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 350px;
+  width: 1000px;
+  box-shadow: 5px 10px 8px #b9b9b3;
+  opacity: .6;
   }
   
   .logo-img{
-    //   display: right;
-      // margin-left: auto;
-      // margin-right: auto;
-      // height: auto;
-      // width: 30%;
-      // background-color: #7700FF;
       position: absolute;
       left: 0;
       top: 0;
@@ -23,13 +24,6 @@
       vertical-align: center;
       font-size: 30px;
   }
-  
-  #banner{  
-      display: inline-block;
-      margin-left: auto;
-      margin-right: auto;
-      position: relative;
-    }
   
   .title{
       position: absolute;
@@ -39,5 +33,5 @@
       text-align: center;
       font-weight: bold;
       font-size: 50px;
-      color: rgb(34, 52, 88);
+      color: #597dc7;
   }

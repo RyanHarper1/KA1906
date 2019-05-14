@@ -1,47 +1,41 @@
 
 
-
-.banner-img{
-    display: inline-block;
+#banner{  
+    display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 374.281px;
-    width: 100%;
-    opacity: .6;
-  }
-  
-  .logo-img{
-      // display: inline-block;
-      // margin-left: auto;
-      // margin-right: auto;
-      // height: auto;
-      // width: 30%;
-      // background-color: #7700FF;
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 10%;
-      vertical-align: center;
-      font-size: 30px;
-  }
-  
-  #banner{  
-      display: inline-block;
-      margin-left: auto;
-      margin-right: auto;
-      position: relative;
+    position: relative;
     }
   
-  .title{
-      position: absolute;
-      left: 0;
-      top: 50%;
-      width: 100%;
-      text-align: center;
-      font-weight: bold;
-      font-size: 28px;
-      color: rgb(34, 52, 88);
-  }
+  .banner-img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 350px;
+    width: 1000px;
+    box-shadow: 5px 10px 8px #b9b9b3;
+    opacity: .6;
+    }
+    
+    .logo-img{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 10%;
+        vertical-align: center;
+        font-size: 30px;
+    }
+    
+    .title{
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        font-size: 50px;
+        color: rgb(34, 52, 88);
+    }
 
     label {
         display: block;
@@ -49,7 +43,7 @@
         padding-left: 0px;
         margin-left: 50px;
         margin-right: 5px;
-        color: rgb(34, 52, 88);
+        color: #597dc7;
         font-family: Arial, Verdana;
     }
 
