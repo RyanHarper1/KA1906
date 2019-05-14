@@ -32,6 +32,8 @@ export class AuthService {
   id: String;
   username: String;
   test: any;
+  orgId=null;
+  blank = "";
   @Output() change: EventEmitter<boolean> = new EventEmitter();
 
 
@@ -45,9 +47,10 @@ export class AuthService {
 
   }
 
-  sendScript(script, question, answers) {
+
+  sendScript(scriptName, category, subcategory, description, question, answers) {
     //insert script
-    let posts = this.Http.post('http://localhost:3000/addscript', script.value);
+    let posts = this.Http.post('http://localhost:3000/addscript', {usersID: this.id,category:category,scriptName:scriptName,subcategory:subcategory,description:description});
     posts.subscribe((response) => {
       this.response = response;
 
@@ -104,6 +107,7 @@ export class AuthService {
     this.fName = object.fName;
     this.lName = object.lName;
     this.username = String(object.username);
+    this.orgId = object.orgId;
 
     console.log(this.username);
   }
@@ -121,6 +125,7 @@ export class AuthService {
     this.lName = '';
     this.id = '';
     this.username = '';
+    this.orgId = null;
     console.log('blah');
   }
 

@@ -1,8 +1,7 @@
-.example-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .example-container > * {
-    width: 100%;
-  }
+.userDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: auto; margin-left: auto; margin-top:2%;
+  width: 50%;
+}

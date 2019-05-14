@@ -5,6 +5,9 @@ import { AuthService } from 'src/app/auth.service';
 import { Router } from '@angular/router';
 import { EditScriptComponent } from '../edit-script/edit-script.component';
 import { EditServiceService } from 'src/app/edit-service.service';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-current-scripts',
@@ -16,57 +19,87 @@ export class CurrentScriptsComponent implements OnInit {
   uploaded: boolean;
   purchased: boolean;
   list: any;
-  columns = ['scriptName','category'];
+  storelist: any;
+  columns = ['scriptName', 'category'];
   username: String;
   loggedIn = false;
-  constructor(private Http: HttpClient, private Auth: AuthService, private router: Router, private editService: EditServiceService) { }
+  constructor(sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, private Http: HttpClient, private Auth: AuthService, private router: Router, private editService: EditServiceService) {
+
+    iconRegistry.addSvgIcon(
+      'upload',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/upload-solid.svg'));
+    iconRegistry.addSvgIcon(
+      'edit',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/edit-regular.svg'));
+    iconRegistry.addSvgIcon(
+      'delete',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/times-solid.svg'));
+
+
+
+  }
 
   ngOnInit() {
     this.saved = true;
     this.uploaded = false;
     this.purchased = false;
     this.loggedIn = this.Auth.loggedIn
-    if (this.loggedIn){
-      let current = this.Http.post('http://localhost:3000/current-scripts', {id: this.Auth.getId});
+    if (this.loggedIn) {
+      let current = this.Http.post('http://localhost:3000/current-scripts', { id: this.Auth.getId });
       current.subscribe((response) => {
-       
-        this.list=response;
+
+        this.list = response;
+        console.log(response)
+      });
+      let store = this.Http.post('http://localhost:3000/uploaded', { id: this.Auth.getId });
+      store.subscribe((response) => {
+
+        this.storelist = response;
         console.log(response)
       });
     }
-  
+
+
   }
-  showSaved(){
+  showSaved() {
     this.saved = true;
     this.uploaded = false;
     this.purchased = false;
   }
-  showUploaded(){
+  showUploaded() {
     this.saved = false;
     this.uploaded = true;
     this.purchased = false;
   }
-  showPurchased(){
+  showPurchased() {
     this.saved = false;
     this.uploaded = false;
     this.purchased = true;
   }
-  editScript(script){
+  editScript(script) {
     this.editService.setScript(script.scriptId);
     console.log(script);
     this.router.navigate(['edit-script']);
 
   }
-  deleteScript(script){
-    let del = this.Http.post('http://localhost:3000/delete-script', {scriptId: script.scriptId});
+  deleteScript(script) {
+    let del = this.Http.post('http://localhost:3000/delete-script', { scriptId: script.scriptId });
     del.subscribe((response) => {
-     
-      this.list=response;
+
+      this.list = response;
       console.log(response)
       this.router.navigate(['/current-script']);
     });
     console.log(script);
-   
+
+
+  }
+  uploadScript(script) {
+    let upload = this.Http.post('http://localhost:3000/upload-script', { usersID: this.Auth.id, scriptID: script.scriptId, scriptName: script.scriptName, price: 5, category: script.category, description: script.description });
+    upload.subscribe((response) => {
+      console.log(response)
+    });
+
 
   }
 
