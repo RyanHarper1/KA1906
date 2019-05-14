@@ -1,5 +1,10 @@
     
-        
+        <div style = "  display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: auto; margin-left: auto; margin-top:2%;
+        width: 50%;
+      ">
         <h3>Script Name: </h3><input matInput [(ngModel)]="name" placeholder ="Input Name">
         <h3>Category: </h3>
     <mat-form-field>
@@ -25,7 +30,7 @@
             <option value="Area Sales">Area Sales</option>
           </select>
         </mat-form-field>
-    <textarea [(ngModel)]="description"></textarea>
+    <input matInput [(ngModel)]="description" placeholder="Description">
     <p></p>
     <button mat-button (click) = "closeDialog()">Save</button>
-    
+      </div>

@@ -104,7 +104,7 @@ export class BuildScriptComponent implements OnInit {
   }
   openDialog() {
     const dialogRef = this.dialog.open(DialogForm,{
-      width: '1000px'
+      width: '700px'
     });
     
     dialogRef.afterClosed().subscribe(result => {

@@ -8,6 +8,45 @@ body, html {
     margin: 0 auto;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+.banner-img{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 374.281px;
+    width: 100%;
+    // opacity: .6;
+  }
+  #banner{  
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+  .logo-img{
+    //   display: right;
+      // margin-left: auto;
+      // margin-right: auto;
+      // height: auto;
+      // width: 30%;
+      // background-color: #7700FF;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 10%;
+      vertical-align: center;
+      font-size: 30px;
+  }
+  .title{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    vertical-align: center;
+    font-size: 50px;
+    color: rgb(89, 125, 199);
+}
 /*
 body {
     font-family: 'Arial';
