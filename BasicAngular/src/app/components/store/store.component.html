@@ -30,7 +30,9 @@
           Category: {{li.category}}<br>
         </td>
         <td>
-          Data goes here
+          Price: ${{li.price}}<br>
+          Rating: {{li.rating}}<br>
+          Date: {{li.uploadDate}}<br>
         </td>
 
         <td><button mat-button (click)="addToCart(li)" [routerLink]="[ '/store' ]">Add To Cart</button></td>
