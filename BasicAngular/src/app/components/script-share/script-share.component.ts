@@ -8,10 +8,14 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class ScriptShareComponent implements OnInit {
   logged = false;
+  orgId = "";
   constructor(private auth: AuthService) { }
 
   ngOnInit() {
     this.logged = this.auth.loggedIn;
+    this.orgId = this.auth.orgId;
+    console.log(this.orgId)
+
   }
 
 }

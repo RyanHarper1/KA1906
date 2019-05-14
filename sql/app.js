@@ -91,7 +91,7 @@ app.post('/login', (req, res) => {
             if (result[0].password == req.body.password) {
                 console.log("Authenticated");
                 //req.session.user = result.id;
-                res.send({ result: 'true', id: result[0].id, fName: result[0].fName, lName: result[0].lName, email: result[0].email, username: result[0].username })
+                res.send({ result: 'true', id: result[0].id, fName: result[0].fName, lName: result[0].lName, email: result[0].email, username: result[0].username, orgId: result[0].orgId })
             } else {
                 console.log("incorrect");
                 res.send({ result: 'false', message: 'Username or password incorrect' })
