@@ -11,6 +11,8 @@ const SESSION_SECRET = "topsecretstuff4323"
 const app = express();
 app.use(cors());
 app.use(bodyParser.json({ extended: true }));
+
+//Sessions to be added later
 //app.use(session({
     /*name:"lid",
     secret: SESSION_SECRET,
@@ -88,6 +90,7 @@ app.post('/login', (req, res) => {
         if (result.length > 0) {
             if (result[0].password == req.body.password) {
                 console.log("Authenticated");
+                //req.session.user = result.id;
                 res.send({ result: 'true', id: result[0].id, fName: result[0].fName, lName: result[0].lName, email: result[0].email, username: result[0].username })
             } else {
                 console.log("incorrect");
@@ -99,13 +102,19 @@ app.post('/login', (req, res) => {
     });
 });
 
+/* Sessions to be added later
+app.get('/login', (req, res) => {
+    req.session.user ? res.status(200).send({loggedIn: true}) : res.status(200).send({loggedIn: false});
+  });
+  */
+
 //addscript
     app.post('/addscript', (req, res) => {
         let test = req.body;
         let reply = {};
 
         console.log(test);
-        let script = { usersId: req.body.usersId, category: req.body.category, scriptName: req.body.scriptName};
+        let script = { usersID: req.body.usersID, category: req.body.category, scriptName: req.body.scriptName, subcategory: req.body.subcategory, description:req.body.description};
         let sql = 'INSERT INTO script SET ?';
         console.log("On server side");
         console.log(script);

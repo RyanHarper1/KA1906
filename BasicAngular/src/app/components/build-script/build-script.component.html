@@ -10,7 +10,7 @@
 
 
 <div class="logged" *ngIf =loggedIn>
-  <button mat-button (click)="openDialog()">Open dialog</button>
+
 
 <button mat-button (click)="addAnswer()">Add answer</button>
 
@@ -80,7 +80,7 @@
   <textarea [(ngModel)]="texts" rows="8" cols="80"></textarea>
 </div>
 
-
+<button style ="align-self: center" mat-button (click)="openDialog()">Save</button>
 </div>
 <p></p>
 <!--<button type="submit" value="submit" style="display: block; margin: 0 auto;">Save</button>-->

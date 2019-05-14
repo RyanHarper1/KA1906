@@ -47,9 +47,10 @@ export class AuthService {
 
   }
 
-  sendScript(script, question, answers) {
+
+  sendScript(scriptName, category, subcategory, description, question, answers) {
     //insert script
-    let posts = this.Http.post('http://localhost:3000/addscript', script.value);
+    let posts = this.Http.post('http://localhost:3000/addscript', {usersID: this.id,category:category,scriptName:scriptName,subcategory:subcategory,description:description});
     posts.subscribe((response) => {
       this.response = response;
 

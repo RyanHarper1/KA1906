@@ -1,6 +1,9 @@
-    <h3>Category: </h3>
+    
+        
+        <h3>Script Name: </h3><input matInput [(ngModel)]="name" placeholder ="Input Name">
+        <h3>Category: </h3>
     <mat-form-field>
-        <mat-select  [(ngModel)]="data.category">
+        <mat-select  [(ngModel)]="category">
           <mat-option value="IT">IT</mat-option>
           <mat-option value="Health">Health</mat-option>
           <mat-option value="Insurance">Insurance</mat-option>
@@ -9,7 +12,7 @@
     </mat-form-field>
       <h3>Sub-Category: </h3>
       <mat-form-field>
-          <select matNativeControl [(ngModel)] ="data.subcategory">
+          <select matNativeControl [(ngModel)] ="subcategory">
             <option value="Business Development">Business Development</option>
             <option value="Sales Representative">Sales Representative</option>
             <option value="Telesales">Telesales</option>
@@ -22,6 +25,7 @@
             <option value="Area Sales">Area Sales</option>
           </select>
         </mat-form-field>
-    <h3>Script Name: </h3><input matInput [(ngModel)]="data.name">
+    <textarea [(ngModel)]="description"></textarea>
     <p></p>
-    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+    <button mat-button (click) = "closeDialog()">Save</button>
+    
