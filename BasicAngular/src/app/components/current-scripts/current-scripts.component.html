@@ -17,10 +17,10 @@
 
   <mat-tab label="Saved">
   
-      <table *ngIf= "saved">
+      <table class ="table">
 
           <tr *ngFor="let li of list">
-            <td >
+            <td class = "text">
               Name: {{li.scriptName}}<br>
               Description: {{li.description}}<br>
               Category: {{li.category}}<br>
@@ -28,34 +28,39 @@
              
             </td>
             <td >
-              Last Edited: <br>
-              Template: <br>            
-              <button mat-button (click)="editScript(li)">Edit</button> 
-              <button mat-button >Upload</button>  
-              <button mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]" >Delete</button>
+              Last Edited: {{li.edited}}<br>
+              Template: {{li.templates}}<br>
+              <div class= "functions" align="right" valign = "top">        
+                  
+              <button mat-button (click)="editScript(li)"><mat-icon svgIcon="edit"></mat-icon></button> 
+              <button mat-button (click) ='uploadScript(li)'><mat-icon svgIcon="upload"></mat-icon>   </button>  
+              <button mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]" ><mat-icon svgIcon="delete"></mat-icon></button>
+            </div> 
             </td>
           </tr>        
         </table>       
   </mat-tab>
   <mat-tab label="Uploaded"> 
-      <table *ngIf= "uploaded">
+      <table >
 
-          <tr *ngFor="let li of list">
+          <tr *ngFor="let lo of storelist">
             <td >
-              Name: <br>
-              Description: <br>
-              Category: <br>
-              Sub-Category: <br>
+                Name: {{lo.scriptName}}<br>
+                Description: {{lo.description}}<br>
+                Category: {{lo.category}}<br>
+                Sub-Category: {{lo.subcategory}}
+                Price: {{lo.price}}
             </td>
             <td >
-              Data goes here
+                Last Edited: {{lo.edited}}<br>
+                Template: {{lo.templates}}<br>
             </td>
           </tr>
         </table>     
   </mat-tab>
   <mat-tab label="Purchased">   
-      <table *ngIf= "purchased">
-          <tr *ngFor="let li of list">
+      <table >
+          <tr *ngFor="let li of purchasedlist">
             <td >
               Name: <br>
               Description: <br>
