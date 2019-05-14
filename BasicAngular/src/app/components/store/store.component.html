@@ -32,7 +32,7 @@
         <td>
           Price: ${{li.price}}<br>
           Rating: {{li.rating}}<br>
-          Date: {{li.uploadDate}}<br>
+          Date: {{li.uploadDate | slice:0:10}}<br>
         </td>
 
         <td><button mat-button (click)="addToCart(li)" [routerLink]="[ '/store' ]">Add To Cart</button></td>
