@@ -212,7 +212,8 @@ app.post('/login', (req, res) => {
         //add cart item
         app.post('/add-item', (req, res) => {
             let reply = {};
-            let store = { storeID: req.body.storeID, usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, description: req.body.description, rating: req.body.rating, uploadDate: req.body.uploadDate, category: req.body.category};
+            let store = { storeID: req.body.storeID, usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price,
+                          description: req.body.description, rating: req.body.rating, uploadDate: req.body.uploadDate, category: req.body.category};
             let sql = 'INSERT INTO cart SET ?';
             console.log("On server side");
             console.log(store);

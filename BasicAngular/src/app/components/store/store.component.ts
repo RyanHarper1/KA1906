@@ -18,8 +18,10 @@ export class StoreComponent implements OnInit {
   list: any;
   loggedIn = false;
   columns = [ 'scriptName','category', 'uploadDate', 'category', 'rating' ];
+  usersID: any;
 
   ngOnInit() {
+    this.usersID = this.Auth.getId;
     this.loggedIn = this.Auth.loggedIn
     let store = this.Http.get('http://localhost:3000/store');
     store.subscribe((response) => {
@@ -35,7 +37,8 @@ export class StoreComponent implements OnInit {
   }*/
 
   addToCart(store){
-    let add = this.Http.post('http://localhost:3000/add-item', {storeID: store.storeId});
+    let add = this.Http.post('http://localhost:3000/add-item', {storeID: store.storeID, usersID: this.usersID, scriptID: store.scriptID, scriptName:store.scriptName, price: store.price,
+                  description: store.description, rating: store.rating, uploadDate: store.uploadDate, category: store.category});
     add.subscribe((response) => {
 
       this.list=response;
