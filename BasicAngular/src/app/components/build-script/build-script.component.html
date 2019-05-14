@@ -39,38 +39,33 @@
     
 </div>
 <div class="boxed" *ngIf="answer > 4">
-    <br>
     <button mat-button *ngIf ="saved" (click)="nextQuestion(answer[4],4)">Next Question</button>
     <button mat-button (click)="removeAnswer()">Remove answer</button>
     <textarea [(ngModel)]="answers[4]" rows="5" cols="50" name="texts"></textarea>
 
 </div>
 <div class="boxed" *ngIf="answer > 5">
-    <br>
     <button mat-button *ngIf ="saved" (click)="nextQuestion(answer[5],5)">Next Question</button>
     <button mat-button (click)="removeAnswer()">Remove answer</button>
     <textarea [(ngModel)]="answers[5]" rows="5" cols="50" name="texts"></textarea>
 
 </div>
 <div class="boxed" *ngIf="answer > 6">
-    <br>
     <button mat-button *ngIf ="saved" (click)="nextQuestion(answer[6],6)">Next Question</button>
     <button mat-button (click)="removeAnswer()">Remove answer</button>
-    <textarea [(ngModel)]="answers[6]" rows="4" cols="40" name="texts"></textarea>
+    <textarea [(ngModel)]="answers[6]" rows="5" cols="50" name="texts"></textarea>
    
 </div>
 <div class="boxed" *ngIf="answer > 7"> 
-    <br>
     <button mat-button *ngIf ="saved" (click)="nextQuestion(answer[7],7)">Next Question</button>
     <button mat-button (click)="removeAnswer()">Remove answer</button>
-    <textarea [(ngModel)]="answers[7]" rows="4" cols="40" name="texts"></textarea>
+    <textarea [(ngModel)]="answers[7]" rows="5" cols="50" name="texts"></textarea>
    
 </div>
 <div class="boxed" *ngIf="answer > 8">
-    <br>
     <button mat-button *ngIf ="saved" (click)="nextQuestion(answer[8],8)">Next Question</button>
     <button mat-button (click)="removeAnswer()">Remove answer</button>
-    <textarea [(ngModel)]="answers[8]" rows="4" cols="50" name="texts"></textarea>
+    <textarea [(ngModel)]="answers[8]" rows="5" cols="50" name="texts"></textarea>
   
 </div>
 </div>
