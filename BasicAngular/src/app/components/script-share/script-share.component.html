@@ -68,4 +68,60 @@
 
 </div>
 </div>
+<mat-tab-group *ngIf = "orgId != null " style ="margin-left: 5%; margin-right: 5%;margin-top: 3%">
 
+  <mat-tab label="Saved">
+  
+      <table *ngIf= "saved" class ="table">
+
+          <tr *ngFor="let li of list">
+            <td class = "text">
+              Name: {{li.scriptName}}<br>
+              Description: {{li.description}}<br>
+              Category: {{li.category}}<br>
+              Sub-Category: {{li.subcategory}}
+             
+            </td>
+            <td >
+              Last Edited: <br>
+              Template: <br>
+              <div class= "functions">           
+              <button mat-button (click)="editScript(li)">Edit</button> 
+              <button mat-button (click) ='uploadScript(li)'>Upload</button>  
+              <button mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]" >Delete</button>
+            </div> 
+            </td>
+          </tr>        
+        </table>       
+  </mat-tab>
+  <mat-tab label="Uploaded"> 
+      <table *ngIf= "uploaded">
+
+          <tr *ngFor="let li of list">
+            <td >
+              Name: <br>
+              Description: <br>
+              Category: <br>
+              Sub-Category: <br>
+            </td>
+            <td >
+              Data goes here
+            </td>
+          </tr>
+        </table>     
+  </mat-tab>
+  <mat-tab label="Purchased">   
+      <table *ngIf= "purchased">
+          <tr *ngFor="let li of list">
+            <td >
+              Name: <br>
+              Description: <br>
+              Category: <br>
+            </td>
+            <td >
+              Data goes here
+            </td>
+          </tr>
+        </table>      
+  </mat-tab>
+</mat-tab-group>

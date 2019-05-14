@@ -292,6 +292,16 @@ app.post('/upload-script',(req,res) =>{
     });
 });
 
+app.post('/uploaded',(req,res) =>{
+    let sql = 'SELECT * FROM store WHERE usersID = ' + req.body.id;
+   let query = db.query(sql, (err,result) => {
+        if (err) {
+            throw err;
+        }
+        res.send(result);
+    });
+});
+
 app.listen('3000', () => {
     console.log('server started on port 3000');
 });

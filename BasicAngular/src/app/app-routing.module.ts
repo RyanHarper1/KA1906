@@ -15,6 +15,7 @@ import { AuthGuard } from './auth.guard';
 import { ScriptShareComponent} from './components/script-share/script-share.component'
 import { EditScriptComponent} from './components/edit-script/edit-script.component'
 import {UpdateDetailsComponent} from './components/update-details/update-details.component'
+import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
   {
@@ -74,7 +75,12 @@ const routes: Routes = [
     path: 'DialogForm',
     component: DialogForm,
     
-  }
+  },
+  {
+  path: 'admin',
+  component: AdminComponent,
+  
+}
 ];
 
 @NgModule({

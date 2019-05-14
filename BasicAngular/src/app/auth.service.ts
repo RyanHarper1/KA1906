@@ -34,7 +34,7 @@ export class AuthService {
   id: String;
   username: String;
   test: any;
-  orgId="";
+  orgId=null;
   blank = "";
   @Output() change: EventEmitter<boolean> = new EventEmitter();
 
@@ -127,6 +127,7 @@ export class AuthService {
     this.lName = '';
     this.id = '';
     this.username = '';
+    this.orgId = null;
     console.log('blah');
   }
 

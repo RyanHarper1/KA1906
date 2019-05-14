@@ -19,10 +19,11 @@ import { HttpClient } from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
 import { ScriptShareComponent } from './components/script-share/script-share.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatSidenavModule, MatSidenavContent, MatSidenav, MatFormFieldModule, MatInputModule, MatSelectModule, MatMenuModule,MatToolbarModule,MatIconModule, MatTabsModule, MatDialogModule} from '@angular/material';
+import {MatButtonModule, MatRadioModule,  MatCheckboxModule, MatSidenavModule, MatSidenavContent, MatSidenav, MatFormFieldModule, MatInputModule, MatSelectModule, MatMenuModule,MatToolbarModule,MatIconModule, MatTabsModule, MatDialogModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { EditScriptComponent } from './components/edit-script/edit-script.component';
 import { UpdateDetailsComponent } from './components/update-details/update-details.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,8 @@ import { UpdateDetailsComponent } from './components/update-details/update-detai
     EditScriptComponent,
     UpdateDetailsComponent,
     DialogForm,
+    AdminComponent,
+
     
     
   ],
@@ -61,7 +64,8 @@ import { UpdateDetailsComponent } from './components/update-details/update-detai
     MatMenuModule,
     MatTabsModule,
     MatDialogModule,
-    
+    MatRadioModule,
+
     
   ],
   exports: [
