@@ -17,23 +17,24 @@
   }
   
   .logo-img{
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 10%;
-      vertical-align: center;
-      font-size: 30px;
+    position: absolute;
+    left: 50%;
+    right: 50%;
   }
   
   .title{
-      position: absolute;
-      left: 0;
-      top: 50%;
-      width: 100%;
-      text-align: center;
-      font-weight: bold;
-      font-size: 50px;
-      color: #597dc7;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+    font-weight: lighter;
+    font-family: Helvetica, sans-serif;
+    font-kerning: normal;
+    letter-spacing: .2rem;
+    font-variant-caps: all-petite-caps;
+    color: #597dc7;
   }
 
 .grid-container {
