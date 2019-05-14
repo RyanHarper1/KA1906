@@ -16,11 +16,9 @@ export class CartService {
     this.storeID = storeID;
   }
 
-  getEditScript(){
+  getCartItem(){
     return this.storeID
   }
 
   add(object){}
-
-  sumCart(){}
 }

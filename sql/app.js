@@ -209,6 +209,27 @@ app.post('/login', (req, res) => {
             });
         });
 
+        //add cart item
+        app.post('/add-item', (req, res) => {
+            let reply = {};
+            let store = { storeID: req.body.storeID, usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, description: req.body.description, rating: req.body.rating, uploadDate: req.body.uploadDate, category: req.body.category};
+            let sql = 'INSERT INTO cart SET ?';
+            console.log("On server side");
+            console.log(store);
+            let query = db.query(sql, store, (err, result) => {
+                if (err) {
+                    throw err;
+                } else {
+                    console.log("successfully added");
+
+                    reply = {
+                        result: 'success', idanswer: result.insertId
+                    }
+                }
+                res.send(reply);
+            });
+        });
+
 
 app.get('/store', (req,res) => {
     let sql = 'Select * from store'
@@ -308,28 +329,5 @@ app.post('/get-answer', (req,res) => {
             throw err;
         }
         res.send(result);
-    });
-});
-
-//add to cart
-app.post('/addToCart', (req, res) => {
-    let test = req.body;
-    let reply = {};
-    console.log(test);
-    let script = { texts: req.body.texts, questionId: req.body.questionId};
-    let sql = 'INSERT INTO answer SET ?';
-    console.log("On server side");
-    console.log(script);
-    let query = db.query(sql, script, (err, result) => {
-        if (err) {
-            throw err;
-        } else {
-            console.log("successfully entered");
-
-            reply = {
-                result: 'success', idanswer: result.insertId
-            }
-        }
-        res.send(reply);
     });
 });

@@ -33,7 +33,7 @@
           Data goes here
         </td>
 
-        <td><button type="button" value="{{li.storeID}}">Add to Cart</button></td>
+        <td><button mat-button (click)="addToCart(li)" [routerLink]="[ '/store' ]">Add To Cart</button></td>
       </tr>
 
     </table>
