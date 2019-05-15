@@ -5,31 +5,28 @@
     <div class="title">Login</div>
 </div>
 
-
-
 <div id="login-box">
   <div class="heading-inbox">
-    <h1> Login</h1>
-    </div>
-<form [formGroup]="logInForm" (ngSubmit)="onSubmit()">
+    <h1>Enter your details</h1>
+  </div>
 
-  <label>
-      <label class="required">*</label>Email
-      <input type="text" placeholder="Email" formControlName="email">
+<form [formGroup]="logInForm" (ngSubmit)="onSubmit()">
+  
+  <label class="required">*</label> <label> Email</label>
+      <input class="placeholder" type="text" placeholder="Email" formControlName="email">
       <div *ngIf="submitted && logInForm.controls.email.errors">
-        <div *ngIf="logInForm.controls.email.errors.required">Your email is required<p></p>
+        <div class="error" *ngIf="logInForm.controls.email.errors.required">Your email is required<p></p>
         </div>
       </div>
-    </label>
 
-  <label>
-      <label class="required">*</label>Password
+  <label class="required">*</label> <label> Password</label>
     <input type="password" placeholder="Password" formControlName="password">
     <div *ngIf="submitted && logInForm.controls.password.errors">
-      <div *ngIf="logInForm.controls.password.errors.required">Your Password is required</div>
+      <div class="error" *ngIf="logInForm.controls.password.errors.required">Your Password is required
+      </div>
     </div>
-  </label>
 
-  <input type="submit" value="Login">
+
+  <input type="Login" value="Login">
 
 </form>
