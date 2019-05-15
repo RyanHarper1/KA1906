@@ -1,38 +1,37 @@
-
 #banner{  
-  display: block;
+  display: table;
   margin-left: auto;
   margin-right: auto;
-  position: relative;
   }
 
 .banner-img{
-  display: block;
   margin-left: auto;
   margin-right: auto;
-  height: 350px;
-  width: 1000px;
+  height: 355px;
+  width: 1800px;
   box-shadow: 5px 10px 8px #b9b9b3;
   opacity: .6;
+  object-fit: contain;
   }
   
   .logo-img{
-    position: absolute;
-    left: 50%;
-    right: 50%;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top: 0;
   }
   
   .title{
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 100%;
-    text-align: center;
-    font-size: 50px;
-    font-weight: lighter;
-    font-family: Helvetica, sans-serif;
-    font-kerning: normal;
-    letter-spacing: .2rem;
-    font-variant-caps: all-petite-caps;
-    color: #597dc7;
+  position: absolute;
+  left: 0;
+  top: 45%;
+  text-align: center;
+  font-size: 50px;
+  font-weight: lighter;
+  font-family: Helvetica, sans-serif;
+  font-kerning: normal;
+  letter-spacing: .2rem;
+  font-variant-caps: all-petite-caps;
+  color: #223458;
   }
+
