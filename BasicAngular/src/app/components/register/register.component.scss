@@ -13,7 +13,7 @@
     box-shadow: 5px 10px 8px #b9b9b3;
     opacity: .6;
     object-fit: cover;
-    
+    object-position: 50% 82%;
     }
     
 .logo-img{
@@ -26,16 +26,28 @@
 .title{
     position: absolute;
     left: 0;
-    top: 25%;
+    top: 40%;
     text-align: center;
     font-size: 50px;
-    font-weight: lighter;
+    font-weight: normal;
     font-family: Helvetica, sans-serif;
     font-kerning: normal;
     letter-spacing: .2rem;
     font-variant-caps: all-petite-caps;
     color: white;
-    } 
+
+
+    } .icon{
+        position: absolute;
+        height: 100px;
+        width: 90px;
+        object-fit: contain;
+        left: 46%;
+        right: 50%;
+        top: 50px;
+      }
+
+
 /*end of banner styling*/
 
 label {
@@ -44,20 +56,35 @@ label {
     margin-right: auto;
     color: rgb(34, 52, 88);
     font-family: Arial, Verdana;
+    margin-top: 15px;
+    margin-bottom: 10px
     }
 
-input {
-    display: block;
-    width: 400px;
-    margin-bottom: 20px;
-    margin-top: 3px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-    padding: 1em;
-    background-color: #ece4e4;
-    border: none;
+    #input_container {
+        position:relative;
+        margin-right: auto;
+        margin-left: auto;
+        height: 40px;
+        width: 450px;
+        background:#ddd;
     }
+    
+    #input {
+        display: block;  
+        height: 40px;
+        width: 430px;
+        margin-bottom: 20px;
+        margin-top: 3px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+        background-color: white;
+        opacity: 0.4;
+        border: none;
+        padding-left: 20px;
+        
+    }
+
 
 #register-box{
     margin-top: 100px;
@@ -100,15 +127,13 @@ input {
 
 .checkbox{
     display: inline-block;
-    position: absolute;
-    margin-left: 50px;
-    margin-right: auto;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 /*terms and conditions*/
 .tandc {
     display: inline-block;
-    // width: 400px;
     margin-left: auto;
     margin-right: auto;
     text-align: left;
@@ -125,35 +150,50 @@ input[type="Submit"]:focus{
 
 input[type="Submit"]{
     margin-bottom: 28px;
-    margin-top: 28px;
-    margin: 5% auto;
-    text-align: center;
-    width: 120px;
-    height: 32px;
-    background: rgb(1, 1, 48);
-    border: none;
-    border-radius: 2px;
-    color: white;
-    transition: 0.2s ease;
-    cursor: pointer;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 120px;
+  height: 32px;
+  background: rgb(1, 1, 48);
+  border: none;
+  border-radius: 2px;
+  color: white;
+  transition: 0.2s ease;
+  cursor: pointer;
+  display: block;
 }
 
  /*validation error*/  
+ .error-container{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5em;
+}
+
 .error {
-    margin-top: -20px;
-    margin-left: 45px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 430px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     padding: .5em;
-    font-size: 10px;
-    margin-bottom: 10px;
+    font-size: 15px;
     color: red;
 }
+
+
 
 /*asterisk on form*/
 .required{
     display: inline-block;
-    margin-left: 35px;
+    margin-left: 30px;
     text-align: left;
     color: red;
+    padding-right: 4px;
 }
 
 
