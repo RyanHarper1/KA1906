@@ -12,9 +12,8 @@
   margin-left: auto;
   margin-right: auto;
   // opacity: .8;
-  // object-fit: contain;
-  // object-position: right;
-
+  object-fit: contain;
+  object-position: right;
   }
   
   .logo-img{
@@ -30,7 +29,7 @@
   top: 35%;
   text-align: center;
   font-size: 50px;
-  font-weight: lighter;
+  font-weight: normal;
   font-family: Helvetica, sans-serif;
   font-kerning: normal;
   letter-spacing: .2rem;
