@@ -2,17 +2,19 @@
   display: table;
   margin-left: auto;
   margin-right: auto;
+  height: 355px;
+  width: 1100px;
+  box-shadow: 5px 10px 8px #b9b9b3;
+  background: #f5f8fb;
   }
 
 .banner-img{
   margin-left: auto;
   margin-right: auto;
-  height: 355px;
-  width: 1800px;
-  box-shadow: 5px 10px 8px #b9b9b3;
-  opacity: .8;
-  object-fit: contain;
-  background: #f5f8fb;
+  // opacity: .8;
+  // object-fit: contain;
+  // object-position: right;
+
   }
   
   .logo-img{
