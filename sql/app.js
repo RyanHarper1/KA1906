@@ -302,6 +302,17 @@ app.post('/uploaded',(req,res) =>{
     });
 });
 
+app.post('/updateAnswer',(req,res) =>{
+    console.log('Updated request is: ' + req.body.nextQuestionId + ' + ' + req.body.questionId + ' + ' + req.body.texts);
+    let sql = 'UPDATE answer set nextQuestionId = ' + req.body.nextQuestionId + ' WHERE questionId = ' + req.body.questionId + ' AND texts = "' + req.body.texts + '"';
+   let query = db.query(sql, (err,result) => {
+        if (err) {
+            throw err;
+        }
+        res.send(result);
+    });
+});
+
 app.listen('3000', () => {
     console.log('server started on port 3000');
 });
