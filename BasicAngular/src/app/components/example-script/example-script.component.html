@@ -1,4 +1,5 @@
 
+
 <div id="banner">
   <img class="banner-img" src="/assets/img/example.svg" width="100%" height="100%">
   <img class="logo-img" src="/assets/img/Logo.png" alt="logo" width="100%" heght="100%">
@@ -6,13 +7,11 @@
 </div>
 
 <!--Script details-->
-<div style = "text-align: center">
-  <h3>Category: </h3>
-  <input type="text" [(ngModel)] = "category" readonly>
-  <p></p>
-  <h3>Script Name: </h3>
-  <input type="text" [(ngModel)] ="scriptName" readonly>
-  <p></p>
+<div class="script-details-container">
+  <div class="script-details">Category</div>
+  <input class="input-details"type="text" [(ngModel)] ="category" readonly>
+  <div class="script-details">Script Name</div>
+  <input class="input-details" type="text" [(ngModel)] ="scriptName" readonly>
 </div>
 
 <!--Objections-->
