@@ -19,7 +19,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
 import { ScriptShareComponent } from './components/script-share/script-share.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatRadioModule,  MatCheckboxModule, MatSidenavModule, MatSidenavContent, MatSidenav, MatFormFieldModule, MatInputModule, MatSelectModule, MatMenuModule,MatToolbarModule,MatIconModule, MatTabsModule, MatDialogModule} from '@angular/material';
+import {MatButtonModule, MatRadioModule,  MatCheckboxModule, MatSidenavModule, MatSidenavContent, MatSidenav, MatFormFieldModule, MatInputModule, MatSelectModule, MatMenuModule, MatToolbarModule,MatIconModule, MatTabsModule, MatDialogModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { EditScriptComponent } from './components/edit-script/edit-script.component';
 import { UpdateDetailsComponent } from './components/update-details/update-details.component';
@@ -71,7 +71,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     
   ],
   exports: [
-    MatToolbarModule,MatIconModule,MatMenuModule,
+    MatToolbarModule, MatIconModule, MatMenuModule,
   ],
   providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]

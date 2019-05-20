@@ -1,3 +1,48 @@
+#banner{  
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  height: 355px;
+  width: 1100px;
+  box-shadow: 5px 10px 8px #b9b9b3;
+  background: #e6e6e6;
+  }
+
+.banner-img{
+  margin-left: 550px;
+  margin-right: 0;
+  margin-top: 80px;
+  height: 300px;
+  width: 400px;
+  object-fit: scale-down;
+  object-position: right;
+  }
+  
+  .logo-img{
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top: 0;
+  }
+  
+  .title{
+  position: absolute;
+  left: -15%;
+  top: 35%;
+  text-align: center;
+  font-size: 50px;
+  font-weight: normal;
+  font-family: Helvetica, sans-serif;
+  font-kerning: normal;
+  letter-spacing: .2rem;
+  font-variant-caps: all-petite-caps;
+  color: #223458;
+  }
+
+
+
+
+
 /* Remove the navbar's default margin-bottom and rounded borders */
 .navbar {
     margin-bottom: 0;

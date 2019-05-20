@@ -1,8 +1,10 @@
-<div id="banner">
-  <img class="banner-img" src="/assets/img/ballpen-cell-phone-company-796602.jpg" width="100%" height="100%">
-  <img class="logo-img" src="/assets/img/Logo.png" alt="logo" width="100%" heght="100%">
-  <div class="title">Current Script</div>
+
+   <div id="banner">
+    <img class="banner-img" src="/assets/img/current.png" width="100%" height="100%">
+    <img class="logo-img" src="/assets/img/Logo.png" alt="logo" width="100%" heght="100%">
+    <div class="title">Current Script</div>
 </div>
+
 <div *ngIf = !loggedIn>
 <p>
   This is where the current script preloggin information goes
@@ -10,7 +12,8 @@
 </div>
 
 
-<mat-tab-group *ngIf = loggedIn style ="margin-left: 5%; margin-right: 5%;margin-top: 3%">
+
+<mat-tab-group *ngIf = loggedIn>
 
   <mat-tab label="Saved">
   
