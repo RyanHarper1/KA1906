@@ -3,8 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { HttpClientModule } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { BuildScriptComponent } from './components/build-script/build-script.component';
-import { HttpClient } from '@angular/common/http';
-import { EventEmitter, HostListener, Injectable, Output } from '@angular/core';
+
 
 
 interface userData {
