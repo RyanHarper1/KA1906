@@ -18,6 +18,7 @@
 
 <div class="grid-container" *ngIf="answer > 0">
   <div class="boxed">
+    <img class="chev" src="/assets/img/chevron.svg" alt="logo" width="100%" heght="100%">
     <div class="answer">Answer</div>
     <textarea [(ngModel)]="answers[0].texts" rows="4" cols="40" name="texts"></textarea>
     <button class="next-q-btn" mat-button (click)="nextQuestion(answer[0])">Next Question</button>
