@@ -65,6 +65,7 @@ const routes: Routes = [
   {
     path: 'edit-script',
     component: EditScriptComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'update-details',
@@ -79,6 +80,7 @@ const routes: Routes = [
   {
   path: 'admin',
   component: AdminComponent,
+  canActivate: [AuthGuard]
   
 }
 ];
