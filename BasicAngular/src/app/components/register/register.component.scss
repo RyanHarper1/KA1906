@@ -1,142 +1,211 @@
-
-#saleScript{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/*Start of banner styling*/
+#banner{  
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    }
+  
+.banner-img{
+    margin-left: auto;
+    margin-right: auto;
+    height: 355px;
+    width: 1100px;
+    box-shadow: 5px 10px 8px #b9b9b3;
+    opacity: .6;
+    object-fit: cover;
+    object-position: 50% 82%;
+    }
+    
+.logo-img{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: 0;
+    }
+    
+.title{
+    position: absolute;
+    left: 0;
+    top: 40%;
     text-align: center;
-    width: 100%;
-    height: 1450x;
-    background: rgb(245, 236, 236);
-    margin-top: 0px;
+    font-size: 50px;
+    font-weight: normal;
+    font-family: Helvetica, sans-serif;
+    font-kerning: normal;
+    letter-spacing: .2rem;
+    font-variant-caps: all-petite-caps;
+    color: white;
 
-  }
 
-    label {
-        display: block;
-        padding-right: 0px;
-        padding-left: 0px;
-        margin-left: 50px;
-        margin-right: 5px;
-        color: rgb(34, 52, 88);
-        font-family: Arial, Verdana;
+    } .icon{
+        position: absolute;
+        height: 100px;
+        width: 90px;
+        object-fit: contain;
+        left: 46%;
+        right: 50%;
+        top: 50px;
+      }
+
+
+/*end of banner styling*/
+
+label {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgb(34, 52, 88);
+    font-family: Arial, Verdana;
+    margin-top: 15px;
+    margin-bottom: 10px
     }
 
-    h1
-{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 190px;
-    padding: 10px;
-    font-weight: bold;
-    font-size: 28px;
-    color: rgb(34, 52, 88);
+    #input_container {
+        position:relative;
+        margin-right: auto;
+        margin-left: auto;
+        height: 40px;
+        width: 450px;
+        background:#ddd;
+    }
     
-   
-}
+    #input {
+        display: block;  
+        height: 40px;
+        width: 430px;
+        margin-bottom: 20px;
+        margin-top: 3px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: left;
+        background-color: white;
+        opacity: 0.4;
+        border: none;
+        padding-left: 20px;
+        
+    }
 
-#register-box
-{
-    position: relative;
-    margin: 5% auto;
-    height: 700px auto;
+
+#register-box{
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+    padding: 10px;
+    height:  700px auto;
     width: 500px;
     background: #fff;
     border: 5px solid rgb(34, 52, 88);
-   
+    vertical-align: middle;
+    font-family: Helvetica, sans-serif;
 }
 
-        input, textarea  {
-            display: block;
-            width: 80%;
-            margin-bottom: 20px;
-            margin-top: 3px;
-            text-align: left;
-            padding: 1em;
-            background-color: rgb(236, 228, 228);
-            border: none;
-            float: centre;
-        }
+/*Enter your details*/
+.heading-inbox{
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(34, 52, 88);
+    vertical-align: middle;
+    font-variant-caps: all-petite-caps;
+    font-family: Helvetica, sans-serif;
+}
 
 
- /* checkbox */
-    .container {
-        cursor: pointer;
-        color: rgb(34, 52, 88);
-        display: inline-block;
-        float: left;
-    }
-   
-    
+ .tnc-container {
+    cursor: pointer;
+    color: rgb(34, 52, 88);
+    display: block;
+    width: 400px;
+    margin-bottom: 20px;
+    margin-top: 3px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.checkbox{
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 /*terms and conditions*/
-    .tandc {
-        display: inline;
-        margin-left: 0px;
-        text-align: left;
-        color: rgb(34, 52, 88);
-        font-size: 10px;
-        float: left;
-    }
-
-    input[type="submit"]:hover, 
-    input[type="submit"]:focus
-    {
-        background: #1745a7e3;
-        transition: 0.2s ease;
-    }
-
-
-        input[type="submit"]{
-        margin-bottom: 28px;
-        margin-top: 28px;
-        margin: 5% auto;
-        text-align: center;
-        width: 120px;
-        height: 32px;
-        background: rgb(1, 1, 48);
-        border: none;
-        border-radius: 2px;
-        color: white;
-        transition: 0.2s ease;
-        cursor: pointer;
-    }
-
-   
-    .error {
-            margin-top: -20px;
-            padding: .5em;
-            font-size: 10px;
-            margin-bottom: 10px;
-            color: red;
-        }
-
-.required{
-    display: inline;
-    margin-left: 0px;
+.tandc {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
     text-align: left;
+    color: rgb(34, 52, 88);
+    font-size: 10px;
+    
+}
+
+input[type="Submit"]:hover, 
+input[type="Submit"]:focus{
+    background: #1745a7e3;
+    transition: 0.2s ease;
+}
+
+input[type="Submit"]{
+    margin-bottom: 28px;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 120px;
+  height: 32px;
+  background: rgb(1, 1, 48);
+  border: none;
+  border-radius: 2px;
+  color: white;
+  transition: 0.2s ease;
+  cursor: pointer;
+  display: block;
+}
+
+ /*validation error*/  
+ .error-container{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5em;
+}
+
+.error {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 430px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: .5em;
+    font-size: 15px;
     color: red;
 }
 
-    .cta {
-        background: #7700FF;
-        border: none;
-        color: white;
 
-        text-transform: uppercase;
-        border-radius: 4px;
-        padding: 1em;
-        cursor: pointer;
-        font-family: 'Montserrat';
-    }
 
-    .results {
-        margin-top: 50px;
+/*asterisk on form*/
+.required{
+    display: inline-block;
+    margin-left: 30px;
+    text-align: left;
+    color: red;
+    padding-right: 4px;
+}
 
-        strong {
-            display: block;
-        }
-        span {
-            margin-bottom: 20px;
-            display: block;
-        }
-    }
+
+.results {
+    margin-top: 50px;
+}
+strong {
+    display: block;
+}
+ span {
+    margin-bottom: 20px;
+    display: block;
+}
+
 

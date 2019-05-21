@@ -14,7 +14,11 @@ interface DialogData {
   name: string;
   category: string;
   subcategory: string;
-  description:string;
+  description:string; 
+}
+interface scriptData {
+  questionId: any; 
+  scriptId: any;
 }
 
 @Component({
@@ -30,7 +34,9 @@ export class BuildScriptComponent implements OnInit {
   posts: any;
   submitted = false;
   success = false;
-  response: Object;
+  response: scriptData;
+  scriptData1 = {} as scriptData;
+
   scriptForm: FormGroup;
   scriptId: any;
   usersId: any;
@@ -40,6 +46,7 @@ export class BuildScriptComponent implements OnInit {
   private answers: string[] = [];
   questionId: any;
   loggedIn = false;
+  tempAnswer: any;
   description: string;
   //questionForm: FormGroup;
 
@@ -58,8 +65,10 @@ export class BuildScriptComponent implements OnInit {
     if (this.scriptId == null) {
       console.log(this.texts);
 
-      this.Auth.sendScript(this.scriptName, this.category,this.subcategory, this.description, this.texts, this.answers);
-   
+      this.Auth.sendScript<scriptData>(this.scriptName, this.category,this.subcategory, this.description, this.texts, this.answers);
+     
+
+     
     }
 
     this.success = true;
@@ -69,11 +78,12 @@ export class BuildScriptComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     this.loggedIn = this.Auth.loggedIn;
     this.questionId = '';
     this.usersId = this.Auth.getId;
-    
   }
+
   addAnswer() {
     if (this.answer >= 9) {
       alert('Maximum count reached');
@@ -94,14 +104,25 @@ export class BuildScriptComponent implements OnInit {
   nextQuestion(selectedAnswer,num) {
     this.answer = 1;
     this.texts = '';
-    let tempAnswer = selectedAnswer;
+    this.saved = true;
+    this.submitted = true;
+    this.tempAnswer = this.answers[num];
     for (let i = 0; i < this.answers.length; i++){
-      this.answers[i] = null;
+      this.answers[i] = " ";
 
     }
     //console.log('questionId: '+ this.questionId);
 
   }
+  submitAnswer(){
+    console.log('ques:' + this.response )
+    this.scriptData1.questionId = this.Auth.scriptData1.questionId;
+    this.scriptData1.scriptId = this.Auth.scriptData1.scriptId;
+        console.log('ques: ' + this.questionId + 'scri' + this.scriptId)
+    this.Auth.submitAnswer( this.questionId, this.scriptId, this.answers, this.texts, this.tempAnswer)
+  
+  }
+
   openDialog() {
     const dialogRef = this.dialog.open(DialogForm,{
       width: '700px'
