@@ -24,6 +24,7 @@ import { FormsModule } from '@angular/forms';
 import { EditScriptComponent } from './components/edit-script/edit-script.component';
 import { UpdateDetailsComponent } from './components/update-details/update-details.component';
 import { AdminComponent } from './components/admin/admin.component';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { AdminComponent } from './components/admin/admin.component';
     MatTabsModule,
     MatDialogModule,
     MatRadioModule,
+    MatGridListModule
 
     
   ],

@@ -10,7 +10,10 @@
   
   <span class="example-spacer" ></span>
   <button mat-button [matMenuTriggerFor]="menu"*ngIf=loggedIn>Ryan</button>
-<mat-menu #menu="matMenu">  <button mat-menu-item (click)="logout()" [routerLink] = "['/home']">Logout</button>
+<mat-menu #menu="matMenu"> 
+    <button mat-menu-item [routerLink] = "['/admin']">admin</button> 
+  <button mat-menu-item (click)="logout()" [routerLink] = "['/home']">Logout</button>
+  
 </mat-menu>
   <button mat-button [routerLink]="[ '/login' ]" *ngIf=!loggedIn>Login</button>
   <button mat-button [routerLink]="[ '/register' ]" *ngIf=!loggedIn>Register</button>
