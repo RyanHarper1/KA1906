@@ -17,7 +17,7 @@ interface DialogData {
   description:string;
 }
 interface scriptData {
-  questionId: any;
+  questionId: any; 
   scriptId: any;
 }
 
