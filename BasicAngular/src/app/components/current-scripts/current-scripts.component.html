@@ -9,11 +9,11 @@
     This is where the current script preloggin information goes
   </p>
 </div>
-<mat-tab-group *ngIf=loggedIn>
+<mat-tab-group *ngIf=loggedIn style="margin-left: 5%; margin-right: 5%;margin-top: 3%">
 <mat-tab label="Saved">
-  <mat-grid-list cols="6" rowHeight="300px" *ngFor="let li of list">
+  <mat-grid-list cols="6" rowHeight="300px" *ngFor="let li of list" class= "currentlist">
     <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-    <mat-grid-tile [colspan]="2">
+    <mat-grid-tile [colspan]="2" >
       Name: {{li.scriptName}}<br>
       Description: {{li.description}}<br>
       Category: {{li.category}}<br>
