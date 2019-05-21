@@ -254,6 +254,7 @@ app.post('/get-script', (req, res) => {
         if (err) {
             throw err;
         }
+        console.log(result)
         res.send(result);
     });
 });
@@ -332,6 +333,20 @@ app.post('/orgUsers', (req, res) => {
     });
 
 });
+
+app.post('/get-orgscripts', (req, res) => {
+    let sql = 'SELECT * FROM orgScripts WHERE orgId = ' + req.body.orgId;
+    let query = db.query(sql, (err, result) => {
+        if (err) {
+            throw err;
+        }
+        console.log(result);        
+        res.send(result);
+    });
+
+});
+
+
 app.listen('3000', () => {
     console.log('server started on port 3000');
 });

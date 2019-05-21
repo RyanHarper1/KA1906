@@ -11,12 +11,12 @@
 </div>
 <div *ngIf="orgId == NULL ">
   <mat-grid-list cols="11" rowHeight ="300px"*ngIf ="logged">
-    <mat-grid-tile [colspan]="6" >
+    <mat-grid-tile [colspan]="6" [rowspan] = "1.5">
 
       <img src="../assets/videoplaceholder.jpg" *ngIf=logged
         style="float: left; width: 640px; height:350px; margin-left:2%; margin-top:2%">
     </mat-grid-tile>
-    <mat-grid-tile [colspan]="5" >
+    <mat-grid-tile [colspan]="5" [rowspan] = "1.5">
       <p *ngIf="logged" > Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
@@ -50,6 +50,7 @@
       </div>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="1" ></mat-grid-tile>
+    <mat-grid-tile [colspan]="1" ></mat-grid-tile>
     <mat-grid-tile [colspan]="3" >
       <div class="boxed">
         <h3>Quarterly</h3>
@@ -74,6 +75,7 @@
         <button mat-button>Subscribe</button>
       </div>
     </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" ></mat-grid-tile>
     <mat-grid-tile [colspan]="1" ></mat-grid-tile>
     <mat-grid-tile [colspan]="3" >
       <div class="boxed">
@@ -104,60 +106,53 @@
   </mat-grid-list>
 </div>
 
-<mat-tab-group *ngIf="orgId != null " style="margin-left: 5%; margin-right: 5%;margin-top: 3%">
-
-  <mat-tab label="Saved">
-
-    <table *ngIf="saved" class="table">
-
-      <tr *ngFor="let li of list">
-        <td class="text">
+<mat-tab-group *ngIf=logged style="margin-left: 5%; margin-right: 5%;margin-top: 3%">
+    <mat-tab label="Saved">
+      <mat-grid-list cols="6" rowHeight="300px" *ngFor="let li of list2">
+        <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+        <mat-grid-tile [colspan]="2">
           Name: {{li.scriptName}}<br>
           Description: {{li.description}}<br>
           Category: {{li.category}}<br>
           Sub-Category: {{li.subcategory}}
-
-        </td>
-        <td>
-          Last Edited: <br>
-          Template: <br>
-          <div class="functions">
-            <button mat-button (click)="editScript(li)">Edit</button>
-            <button mat-button (click)='uploadScript(li)'>Upload</button>
-            <button mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">Delete</button>
+        </mat-grid-tile> 
+        <mat-grid-tile [colspan]="2">
+          Last Edited: {{li.edited}}<br>
+          Template: {{li.templates}}<br>
+          <div class="functions" align="right" valign="top">
+                 <button mat-button (click)="editScript(li)">
+              <mat-icon svgIcon="edit"></mat-icon>
+            </button>
+            <button mat-button (click)='uploadScript(li)'>
+              <mat-icon svgIcon="upload"></mat-icon>
+            </button>
+            <button mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">
+              <mat-icon svgIcon="delete"></mat-icon>
+            </button>
           </div>
-        </td>
-      </tr>
-    </table>
-  </mat-tab>
-  <mat-tab label="Uploaded">
-    <table *ngIf="uploaded">
-
-      <tr *ngFor="let li of list">
-        <td>
-          Name: <br>
-          Description: <br>
-          Category: <br>
-          Sub-Category: <br>
-        </td>
-        <td>
-          Data goes here
-        </td>
-      </tr>
-    </table>
-  </mat-tab>
-  <mat-tab label="Purchased">
-    <table *ngIf="purchased">
-      <tr *ngFor="let li of list">
-        <td>
-          Name: <br>
-          Description: <br>
-          Category: <br>
-        </td>
-        <td>
-          Data goes here
-        </td>
-      </tr>
-    </table>
-  </mat-tab>
-</mat-tab-group>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+    
+    </mat-grid-list>
+    </mat-tab>
+    <mat-tab label="Uploaded">
+      <table>
+    
+        <tr *ngFor="let lo of storelist">
+          <td>
+            Name: {{lo.scriptName}}<br>
+            Description: {{lo.description}}<br>
+            Category: {{lo.category}}<br>
+            Sub-Category: {{lo.subcategory}}
+            Price: {{lo.price}}
+          </td>
+          <td>
+            Last Edited: {{lo.edited}}<br>
+            Template: {{lo.templates}}<br>
+          </td>
+        </tr>
+      </table>
+    </mat-tab>
+    <mat-tab label="Purchased">
+    </mat-tab>
+    </mat-tab-group>
