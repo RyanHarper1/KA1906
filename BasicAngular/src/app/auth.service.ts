@@ -42,6 +42,7 @@ export class AuthService {
   orgId=null;
   blank = "";
   returns: object;
+  scriptData1 = {} as scriptData;
   @Output() change: EventEmitter<boolean> = new EventEmitter();
 
 
@@ -71,9 +72,9 @@ export class AuthService {
       quest.subscribe((response1) => {
         this.returns ={};
         this.response1 = response1;
-        this.returns.scriptId = this.response.scriptId;
+        this.scriptData1.scriptId = this.response.scriptId;
         console.log('response1: ' + response1.questionId)
-        this.returns.questionId = response1.questionId;
+        this.scriptData1.questionId = response1.questionId;
         //insert answers
         for (let i = 0; i < answers.length; i++) {
           let ans = this.Http.post<questionData>('http://localhost:3000/addAnswer', { texts: answers[i], questionId: response1.questionId });
@@ -166,5 +167,7 @@ export class AuthService {
     this.orgId = null;
     console.log('blah');
   }
+
+  
 
 }

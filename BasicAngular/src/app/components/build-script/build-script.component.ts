@@ -14,7 +14,7 @@ interface DialogData {
   name: string;
   category: string;
   subcategory: string;
-  description:string;
+  description:string; 
 }
 interface scriptData {
   questionId: any; 
@@ -35,7 +35,7 @@ export class BuildScriptComponent implements OnInit {
   submitted = false;
   success = false;
   response: scriptData;
-  
+  scriptData1 = {} as scriptData;
 
   scriptForm: FormGroup;
   scriptId: any;
@@ -78,6 +78,7 @@ export class BuildScriptComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     this.loggedIn = this.Auth.loggedIn;
     this.questionId = '';
     this.usersId = this.Auth.getId;
@@ -115,8 +116,8 @@ export class BuildScriptComponent implements OnInit {
   }
   submitAnswer(){
     console.log('ques:' + this.response )
-    this.questionId = this.Auth.returns.questionId;
-    this.scriptId = this.Auth.returns.scriptId;
+    this.scriptData1.questionId = this.Auth.scriptData1.questionId;
+    this.scriptData1.scriptId = this.Auth.scriptData1.scriptId;
         console.log('ques: ' + this.questionId + 'scri' + this.scriptId)
     this.Auth.submitAnswer( this.questionId, this.scriptId, this.answers, this.texts, this.tempAnswer)
   
