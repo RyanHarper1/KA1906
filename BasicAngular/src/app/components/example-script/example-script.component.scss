@@ -14,6 +14,24 @@
   object-fit: contain;
   object-position: right;
   }
+  .script-details-container{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .input-details{
+    display: inline-block;
+    border: none;
+  }
+
+  .script-details{
+    display: inline;
+    font-weight: bold;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
   
   .logo-img{
   position: absolute;

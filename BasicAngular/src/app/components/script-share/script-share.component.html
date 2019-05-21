@@ -2,132 +2,162 @@
   <img class="banner-img" src="/assets/img/sharescript.jpg" width="100%" height="100%">
   <img class="logo-img" src="/assets/img/WhiteLogo.png" alt="logo" width="100%" heght="100%">
   <div class="title">Script Share</div>
-</div> 
-
-   <div *ngIf = !logged>
-     <p>
-       This is where the prelogged in information of scriptshare will be
-     </p>
-   </div>
-   <div *ngIf ="orgId == NULL ">
-     <div style=" width: 1270px;" >
-   <img src = "../assets/videoplaceholder.jpg" *ngIf = logged  style ="float: left; width: 640px; height:350px; margin-left:2%; margin-top:2%">
-   <p  *ngIf = "logged" style ="float: right ;"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
-  </div>
-
-   <div class = "grid-container" *ngIf = logged>
-   <div class="boxed">
-     <h3>Monthly</h3>
-     <p><b>$140</b>/month<br>
-    Billed Monthly</p>
-      <button mat-button>Subscribe</button>
-   </div>
-   <div class="boxed">
-    <h3>Monthly</h3>
-    <p><b>$140</b>/month<br>
-   Billed Monthly</p>
-     <button mat-button>Subscribe</button>
-  </div>
-  <div class="boxed">
-    <h3>Monthly</h3>
-    <p><b>$140</b>/month<br>
-   Billed Monthly</p>
-     <button mat-button>Subscribe</button>
-  </div>
-  <div class="boxed">
-    <h3>Quarterly</h3>
-    <p><b>$400</b>/month<br>
-   Billed Quarterly</p>
-     <button mat-button>Subscribe</button>
-  </div>
-  <div class="boxed">
-    <h3>Quarterly</h3>
-    <p><b>$400</b>/month<br>
-   Billed Quarterly</p>
-     <button mat-button>Subscribe</button>
-  </div>
-  <div class="boxed">
-    <h3>Quarterly</h3>
-    <p><b>$400</b>/month<br>
-   Billed Quarterly</p>
-     <button mat-button>Subscribe</button>
-  </div>
-  <div class="boxed">
-    <h3>Yearly</h3>
-    <p><b>$1400</b>/month<br>
-   Billed Yearly</p>
-     <button mat-button>Subscribe</button>
-  </div>
-  <div class="boxed">
-    <h3>Yearly</h3>
-    <p><b>$1400</b>/month<br>
-   Billed Yearly</p>
-     <button mat-button>Subscribe</button>
-  </div>
-  <div class="boxed">
-    <h3>Yearly</h3>
-    <p><b>$1400</b>/month<br>
-   Billed Yearly</p>
-     <button mat-button>Subscribe</button>
-  </div>
-
 </div>
+
+<div *ngIf=!logged>
+  <p>
+    This is where the prelogged in information of scriptshare will be
+  </p>
 </div>
-<mat-tab-group *ngIf = "orgId != null " style ="margin-left: 5%; margin-right: 5%;margin-top: 3%">
+<div *ngIf="orgId == NULL ">
+  <mat-grid-list cols="11" rowHeight ="300px"*ngIf ="logged">
+    <mat-grid-tile [colspan]="6" >
+
+      <img src="../assets/videoplaceholder.jpg" *ngIf=logged
+        style="float: left; width: 640px; height:350px; margin-left:2%; margin-top:2%">
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="5" >
+      <p *ngIf="logged" > Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+        officia deserunt mollit anim id est laborum.
+      </p>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" ></mat-grid-tile>
+    <mat-grid-tile [colspan]="3" >
+      <div class="boxed">
+        <h3>Monthly</h3>
+        <p><b>$140</b>/month<br>
+          Billed Monthly</p>
+        <button mat-button>Subscribe</button>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3" >
+      <div class="boxed">
+        <h3>Monthly</h3>
+        <p><b>$140</b>/month<br>
+          Billed Monthly</p>
+        <button mat-button>Subscribe</button>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3" >
+      <div class="boxed">
+        <h3>Monthly</h3>
+        <p><b>$140</b>/month<br>
+          Billed Monthly</p>
+        <button mat-button>Subscribe</button>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" ></mat-grid-tile>
+    <mat-grid-tile [colspan]="3" >
+      <div class="boxed">
+        <h3>Quarterly</h3>
+        <p><b>$400</b>/month<br>
+          Billed Quarterly</p>
+        <button mat-button>Subscribe</button>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3" >
+      <div class="boxed">
+        <h3>Quarterly</h3>
+        <p><b>$400</b>/month<br>
+          Billed Quarterly</p>
+        <button mat-button>Subscribe</button>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3" >
+      <div class="boxed">
+        <h3>Quarterly</h3>
+        <p><b>$400</b>/month<br>
+          Billed Quarterly</p>
+        <button mat-button>Subscribe</button>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" ></mat-grid-tile>
+    <mat-grid-tile [colspan]="3" >
+      <div class="boxed">
+        <h3>Yearly</h3>
+        <p><b>$1400</b>/month<br>
+          Billed Yearly</p>
+        <button mat-button>Subscribe</button>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3" >
+      <div class="boxed">
+        <h3>Yearly</h3>
+        <p><b>$1400</b>/month<br>
+          Billed Yearly</p>
+        <button mat-button>Subscribe</button>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3" >
+      <div class="boxed">
+        <h3>Yearly</h3>
+        <p><b>$1400</b>/month<br>
+          Billed Yearly</p>
+        <button mat-button>Subscribe</button>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1"></mat-grid-tile>
+
+  </mat-grid-list>
+</div>
+
+<mat-tab-group *ngIf="orgId != null " style="margin-left: 5%; margin-right: 5%;margin-top: 3%">
 
   <mat-tab label="Saved">
-  
-      <table *ngIf= "saved" class ="table">
 
-          <tr *ngFor="let li of list">
-            <td class = "text">
-              Name: {{li.scriptName}}<br>
-              Description: {{li.description}}<br>
-              Category: {{li.category}}<br>
-              Sub-Category: {{li.subcategory}}
-             
-            </td>
-            <td >
-              Last Edited: <br>
-              Template: <br>
-              <div class= "functions">           
-              <button mat-button (click)="editScript(li)">Edit</button> 
-              <button mat-button (click) ='uploadScript(li)'>Upload</button>  
-              <button mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]" >Delete</button>
-            </div> 
-            </td>
-          </tr>        
-        </table>       
-  </mat-tab>
-  <mat-tab label="Uploaded"> 
-      <table *ngIf= "uploaded">
+    <table *ngIf="saved" class="table">
 
-          <tr *ngFor="let li of list">
-            <td >
-              Name: <br>
-              Description: <br>
-              Category: <br>
-              Sub-Category: <br>
-            </td>
-            <td >
-              Data goes here
-            </td>
-          </tr>
-        </table>     
+      <tr *ngFor="let li of list">
+        <td class="text">
+          Name: {{li.scriptName}}<br>
+          Description: {{li.description}}<br>
+          Category: {{li.category}}<br>
+          Sub-Category: {{li.subcategory}}
+
+        </td>
+        <td>
+          Last Edited: <br>
+          Template: <br>
+          <div class="functions">
+            <button mat-button (click)="editScript(li)">Edit</button>
+            <button mat-button (click)='uploadScript(li)'>Upload</button>
+            <button mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">Delete</button>
+          </div>
+        </td>
+      </tr>
+    </table>
   </mat-tab>
-  <mat-tab label="Purchased">   
-      <table *ngIf= "purchased">
-          <tr *ngFor="let li of list">
-            <td >
-              Name: <br>
-              Description: <br>
-              Category: <br>
-            </td>
-            <td >
-              Data goes here
-            </td>
-          </tr>
-        </table>      
+  <mat-tab label="Uploaded">
+    <table *ngIf="uploaded">
+
+      <tr *ngFor="let li of list">
+        <td>
+          Name: <br>
+          Description: <br>
+          Category: <br>
+          Sub-Category: <br>
+        </td>
+        <td>
+          Data goes here
+        </td>
+      </tr>
+    </table>
+  </mat-tab>
+  <mat-tab label="Purchased">
+    <table *ngIf="purchased">
+      <tr *ngFor="let li of list">
+        <td>
+          Name: <br>
+          Description: <br>
+          Category: <br>
+        </td>
+        <td>
+          Data goes here
+        </td>
+      </tr>
+    </table>
   </mat-tab>
 </mat-tab-group>
