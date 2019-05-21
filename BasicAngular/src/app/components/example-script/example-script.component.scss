@@ -74,9 +74,40 @@
     border: none;
   }
 
-  .chev{
-    height: 24px;
-    width: 24px;
+  .next-answer{
+    top: 0;
+    display: inline;
+    padding: 0;
+    float: left;
+  }
+
+ .answer-title{
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 15px;
+  vertical-align: middle;
+  color: white;
+
+ }
+
+  .remove-answer{
+    top: 0;
+    display: inline;
+    padding: 0;
+    float: right;
+  }
+
+  .mat-button{
+    vertical-align: top;
+  }
+
+
+  textarea{
+    margin: 0;
+    border: none;
+    width: 100%;
+    vertical-align: bottom;
   }
 .grid-container {
     display: grid;
@@ -88,11 +119,13 @@
   }
   
   .boxed {
-    background-color: rgba(255, 255, 255, 0.8);
+    display: inline;
+    background-color: #3a4f6e;
     border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
     font-size: 30px;
     text-align: center;
+    margin-left: 20px;
+    margin-bottom: 10px;
   }
   
   .next-q-btn{

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser'; 
 
 @Component({
   selector: 'app-example-script',
@@ -18,7 +20,16 @@ export class ExampleScriptComponent implements OnInit {
   private answers: any;
   answer = 0;
   selectedAnswer: any;
-  constructor(private Http: HttpClient) { }
+  constructor(sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, private Http: HttpClient) { 
+
+    iconRegistry.addSvgIcon(
+      'answer',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/chevron.svg'));
+    iconRegistry.addSvgIcon(
+      'remove',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/red-cross.svg'));
+    }
+
 
   ngOnInit() {
     let query = this.Http.post('http://localhost:3000/get-script', {scriptId: 61});
@@ -28,8 +39,8 @@ export class ExampleScriptComponent implements OnInit {
       this.category = response[0].category;
       this.scriptName = response[0].scriptName;
       this.questionId = response[0].firstQuestionId;
-  
-  
+
+      
       //get question
       let quest = this.Http.post('http://localhost:3000/get-question',{questionId: this.questionId});
       quest.subscribe((response1)=>{

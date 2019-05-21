@@ -3,9 +3,16 @@
 <svg version="1.1" id="Layer_1" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 	 x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:none;stroke:#FFFFFF;stroke-width:21;stroke-miterlimit:10;}
+	.st0{fill:#FFFFFF;}
+	.st1{fill:none;stroke:#FFFFFF;stroke-width:14;stroke-miterlimit:10;}
 </style>
-<path class="st0" d="M256.5,18C388.3,18,495,124.7,495,256.5S388.3,495,256.5,495S18,388.3,18,256.5S124.7,18,256.5,18z M366,240.2
-	L235.7,109.8c-9-9-23.7-9-32.6,0l-16.3,16.3c-9,9-9,23.7,0,32.6l97.7,97.7l-97.7,97.7c-9,9-9,23.7,0,32.6l16.3,16.3
-	c9,9,23.7,9,32.6,0L366,272.8C375.1,263.8,375.1,249.2,366,240.2z"/>
+<g id="XMLID_1_">
+	<g>
+		<path class="st0" d="M366,240.2c9.1,9,9.1,23.6,0,32.6L235.7,403c-8.9,9-23.6,9-32.6,0l-16.3-16.3c-9-8.9-9-23.6,0-32.6l97.7-97.7
+			l-97.7-97.7c-9-8.9-9-23.6,0-32.6l16.3-16.3c8.9-9,23.6-9,32.6,0L366,240.2z"/>
+	</g>
+	<g>
+		<circle class="st1" cx="256.5" cy="256.5" r="238.5"/>
+	</g>
+</g>
 </svg>
