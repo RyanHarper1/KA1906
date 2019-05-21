@@ -1,8 +1,10 @@
 <div id="banner">
-  <img class="banner-img" src="/assets/img/communication-contact-conversation-33999.jpg" width="100%" height="100%">
+  <img class="banner-img" src="/assets/img/build-noshdw.png" width="100%" height="100%">
   <img class="logo-img" src="/assets/img/Logo.png" alt="logo" width="100%" heght="100%">
   <div class="title">Build Script</div>
 </div>
+
+<!-- build.jpg -->
 
 <div class ="notLogged" *ngIf = !loggedIn>
 
@@ -10,76 +12,113 @@
     This is where we build scripts
   </p>
 </div>
+
+
 <!--Script details-->
 
 
-<div class="logged" *ngIf =loggedIn>
+<div class="logged" *ngIf=loggedIn>
 
+  <mat-grid-list cols="11" rowHeight="1:1">
+    <mat-grid-tile  [colspan]="0"> </mat-grid-tile>
+    <mat-grid-tile [colspan]= "0"> </mat-grid-tile>
+    <mat-grid-tile [colspan]="11"><button mat-button (click)="addAnswer()">Add answer</button> </mat-grid-tile>
+    <mat-grid-tile  [colspan]="0"> </mat-grid-tile>
+    <mat-grid-tile [colspan]="0"> </mat-grid-tile>
 
-<button mat-button (click)="addAnswer()">Add answer</button>
+    <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+    <mat-grid-tile  [colspan]="3">
+      <div class="boxed" *ngIf="answer > 0">
+        <button mat-button *ngIf="saved" (click)="nextQuestion(answer[0],0)">Next Question</button>
+        <button mat-button (click)="removeAnswer()">Remove answer</button>
+        <textarea [(ngModel)]="answers[0]" rows="4" cols="40" name="texts"> </textarea>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3">
+      <div class="boxed" *ngIf="answer > 1">
+        <button mat-button *ngIf="saved" (click)="nextQuestion(answer[1],1)">Next Question</button>
+        <button mat-button (click)="removeAnswer()">Remove answer</button>
+        <textarea [(ngModel)]="answers[1]" rows="4" cols="40" name="texts"> </textarea>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3">
+      <div class="boxed" *ngIf="answer > 2">
+        <button mat-button *ngIf="saved" (click)="nextQuestion(answer[2],2)">Next Question</button>
+        <button mat-button (click)="removeAnswer()">Remove answer</button>
+        <textarea [(ngModel)]="answers[2]" rows="4" cols="40" name="texts"> </textarea>
 
-<!--Objections-->
-<div class = "grid-container">
-<div class="boxed" *ngIf="answer > 0">
-      <button mat-button *ngIf ="saved" (click)="nextQuestion(answer[0],0)">Next Question</button>
-    <button mat-button (click)="removeAnswer()">Remove answer</button>
-    <textarea [(ngModel)]="answers[0]" editable="true" rows="5" cols="50" name="texts"></textarea>
-    </div>
-<div class="boxed" *ngIf="answer > 1">
-    <button mat-button *ngIf ="saved" (click)="nextQuestion(answer[1],1)">Next Question</button>
-    <button mat-button (click)="removeAnswer()">Remove answer</button>
-  <textarea [(ngModel)]="answers[1]" rows="5" cols="50" name="texts"></textarea> 
-</div>
-<div class="boxed" *ngIf="answer > 2">
-    <button mat-button *ngIf ="saved" (click)="nextQuestion(answer[2],2)">Next Question</button>
-    <button mat-button (click)="removeAnswer()">Remove answer</button>
-    <textarea [(ngModel)]="answers[2]" rows="5" cols="50" name="texts"></textarea>
- 
-</div>
-<div class="boxed" *ngIf="answer > 3"> 
-    <button mat-button *ngIf ="saved" (click)="nextQuestion(answer[3],3)">Next Question</button>
-    <button mat-button (click)="removeAnswer()">Remove answer</button>
-    <textarea [(ngModel)]="answers[3]" rows="5" cols="50" name="texts"></textarea>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+    <mat-grid-tile [colspan]="3">
+      <div class="boxed" *ngIf="answer > 3">
+        <button mat-button *ngIf="saved" (click)="nextQuestion(answer[3],3)">Next Question</button>
+        <button mat-button (click)="removeAnswer()">Remove answer</button>
+        <textarea [(ngModel)]="answers[3]" rows="4" cols="40" name="texts"> </textarea>
+
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3">
+      <div class="boxed" *ngIf="answer > 4">
+        <button mat-button *ngIf="saved" (click)="nextQuestion(answer[4],4)">Next Question</button>
+        <button mat-button (click)="removeAnswer()">Remove answer</button>
+        <textarea [(ngModel)]="answers[4]" rows="4" cols="40" name="texts"> </textarea>
+
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3">
+      <div class="boxed" *ngIf="answer > 5">
+        <button mat-button *ngIf="saved" (click)="nextQuestion(answer[5],5)">Next Question</button>
+        <button mat-button (click)="removeAnswer()">Remove answer</button>
+        <textarea [(ngModel)]="answers[5]" rows="4" cols="40" name="texts"> </textarea>
+
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+    <mat-grid-tile [colspan]="3">
+      <div class="boxed" *ngIf="answer > 6">
+        <button mat-button *ngIf="saved" (click)="nextQuestion(answer[6],6)">Next Question</button>
+        <button mat-button (click)="removeAnswer()">Remove answer</button>
+        <textarea [(ngModel)]="answers[6]" rows="4" cols="40" name="texts"> </textarea>
+
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3">
+      <div class="boxed" *ngIf="answer > 7">
+        <button mat-button *ngIf="saved" (click)="nextQuestion(answer[7],7)">Next Question</button>
+        <button mat-button (click)="removeAnswer()">Remove answer</button>
+        <textarea [(ngModel)]="answers[7]" rows="4" cols="40" name="texts"> </textarea>
+
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3">
+      <div class="boxed" *ngIf="answer > 8">
+        <button mat-button *ngIf="saved" (click)="nextQuestion(answer[8],8)">Next Question</button>
+        <button mat-button (click)="removeAnswer()">Remove answer</button>
+        <textarea [(ngModel)]="answers[8]" rows="4" cols="40" name="texts"> </textarea>
+
+      </div>
+    </mat-grid-tile>
     
-</div>
-<div class="boxed" *ngIf="answer > 4">
-    <button mat-button *ngIf ="saved" (click)="nextQuestion(answer[4],4)">Next Question</button>
-    <button mat-button (click)="removeAnswer()">Remove answer</button>
-    <textarea [(ngModel)]="answers[4]" rows="5" cols="50" name="texts"></textarea>
+    <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+    <mat-grid-tile [colspan]="11"></mat-grid-tile>
+     <mat-grid-tile [colspan]="3"> </mat-grid-tile>
+    <mat-grid-tile [colspan]="5">
+      <div class="pitch">
+        <h6>Pitch</h6>
+        <textarea [(ngModel)]="texts" rows="6" cols="50"> </textarea>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3"> </mat-grid-tile>
 
-</div>
-<div class="boxed" *ngIf="answer > 5">
-    <button mat-button *ngIf ="saved" (click)="nextQuestion(answer[5],5)">Next Question</button>
-    <button mat-button (click)="removeAnswer()">Remove answer</button>
-    <textarea [(ngModel)]="answers[5]" rows="5" cols="50" name="texts"></textarea>
 
-</div>
-<div class="boxed" *ngIf="answer > 6">
-    <button mat-button *ngIf ="saved" (click)="nextQuestion(answer[6],6)">Next Question</button>
-    <button mat-button (click)="removeAnswer()">Remove answer</button>
-    <textarea [(ngModel)]="answers[6]" rows="5" cols="50" name="texts"></textarea>
-   
-</div>
-<div class="boxed" *ngIf="answer > 7"> 
-    <button mat-button *ngIf ="saved" (click)="nextQuestion(answer[7],7)">Next Question</button>
-    <button mat-button (click)="removeAnswer()">Remove answer</button>
-    <textarea [(ngModel)]="answers[7]" rows="5" cols="50" name="texts"></textarea>
-   
-</div>
-<div class="boxed" *ngIf="answer > 8">
-    <button mat-button *ngIf ="saved" (click)="nextQuestion(answer[8],8)">Next Question</button>
-    <button mat-button (click)="removeAnswer()">Remove answer</button>
-    <textarea [(ngModel)]="answers[8]" rows="5" cols="50" name="texts"></textarea>
-  
-</div>
-</div>
-<!--Pitch-->
-<div class ="pitch">
-  <h6>Pitch</h6>
-  <textarea [(ngModel)]="texts" rows="8" cols="80"></textarea>
-</div>
+    <mat-grid-tile [colspan]="3"> </mat-grid-tile>
+    <mat-grid-tile  [colspan]="5"><button mat-button (click)="submitAnswer()">Save</button></mat-grid-tile>
+    <mat-grid-tile *ngIf = "!saved" [colspan]="5"><button mat-button (click)="openDialog()">Save</button></mat-grid-tile>
+    <mat-grid-tile [colspan]="3"> </mat-grid-tile>
 
-<button style ="margin-right: auto; margin-left: auto;" mat-button (click)="openDialog()">Save</button>
-</div>
-<p></p>
-<!--<button type="submit" value="submit" style="display: block; margin: 0 auto;">Save</button>-->
+  </mat-grid-list>

@@ -1,72 +1,61 @@
 <div id="banner">
-  <img class="banner-img" src="/assets/img/ballpen-cell-phone-company-796602.jpg" width="100%" height="100%">
-  <img class="logo-img" src="/assets/img/Logo.png" alt="logo" width="100%" heght="100%">
+  <img class="banner-img" src="/assets/img/current.png" width="100%" height="100%">
+  <img class="logo-img" src="/assets/img/Logo.png" alt="logo" width="100%" height="100%">
   <div class="title">Current Script</div>
 </div>
-<div *ngIf = !loggedIn>
-<p>
-  This is where the current script preloggin information goes
-</p>
+
+<div *ngIf=!loggedIn>
+  <p>
+    This is where the current script preloggin information goes
+  </p>
 </div>
+<mat-tab-group *ngIf=loggedIn>
+<mat-tab label="Saved">
+  <mat-grid-list cols="6" rowHeight="300px" *ngFor="let li of list">
+    <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+    <mat-grid-tile [colspan]="2">
+      Name: {{li.scriptName}}<br>
+      Description: {{li.description}}<br>
+      Category: {{li.category}}<br>
+      Sub-Category: {{li.subcategory}}
+    </mat-grid-tile> 
+    <mat-grid-tile [colspan]="2">
+      Last Edited: {{li.edited}}<br>
+      Template: {{li.templates}}<br>
+      <div class="functions" align="right" valign="top">
+             <button mat-button (click)="editScript(li)">
+          <mat-icon svgIcon="edit"></mat-icon>
+        </button>
+        <button mat-button (click)='uploadScript(li)'>
+          <mat-icon svgIcon="upload"></mat-icon>
+        </button>
+        <button mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">
+          <mat-icon svgIcon="delete"></mat-icon>
+        </button>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1"> </mat-grid-tile>
 
+</mat-grid-list>
+</mat-tab>
+<mat-tab label="Uploaded">
+  <table>
 
-<mat-tab-group *ngIf = loggedIn style ="margin-left: 5%; margin-right: 5%;margin-top: 3%">
-
-  <mat-tab label="Saved">
-  
-      <table class ="table">
-
-          <tr *ngFor="let li of list">
-            <td class = "text">
-              Name: {{li.scriptName}}<br>
-              Description: {{li.description}}<br>
-              Category: {{li.category}}<br>
-              Sub-Category: {{li.subcategory}}
-             
-            </td>
-            <td >
-              Last Edited: {{li.edited}}<br>
-              Template: {{li.templates}}<br>
-              <div class= "functions" align="right" valign = "top">        
-                  
-              <button mat-button (click)="editScript(li)"><mat-icon svgIcon="edit"></mat-icon></button> 
-              <button mat-button (click) ='uploadScript(li)'><mat-icon svgIcon="upload"></mat-icon>   </button>  
-              <button mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]" ><mat-icon svgIcon="delete"></mat-icon></button>
-            </div> 
-            </td>
-          </tr>        
-        </table>       
-  </mat-tab>
-  <mat-tab label="Uploaded"> 
-      <table >
-
-          <tr *ngFor="let lo of storelist">
-            <td >
-                Name: {{lo.scriptName}}<br>
-                Description: {{lo.description}}<br>
-                Category: {{lo.category}}<br>
-                Sub-Category: {{lo.subcategory}}
-                Price: {{lo.price}}
-            </td>
-            <td >
-                Last Edited: {{lo.edited}}<br>
-                Template: {{lo.templates}}<br>
-            </td>
-          </tr>
-        </table>     
-  </mat-tab>
-  <mat-tab label="Purchased">   
-      <table >
-          <tr *ngFor="let li of purchasedlist">
-            <td >
-              Name: <br>
-              Description: <br>
-              Category: <br>
-            </td>
-            <td >
-              Data goes here
-            </td>
-          </tr>
-        </table>      
-  </mat-tab>
+    <tr *ngFor="let lo of storelist">
+      <td>
+        Name: {{lo.scriptName}}<br>
+        Description: {{lo.description}}<br>
+        Category: {{lo.category}}<br>
+        Sub-Category: {{lo.subcategory}}
+        Price: {{lo.price}}
+      </td>
+      <td>
+        Last Edited: {{lo.edited}}<br>
+        Template: {{lo.templates}}<br>
+      </td>
+    </tr>
+  </table>
+</mat-tab>
+<mat-tab label="Purchased">
+</mat-tab>
 </mat-tab-group>
