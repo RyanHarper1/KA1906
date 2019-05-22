@@ -23,7 +23,8 @@ import {MatButtonModule, MatCheckboxModule, MatSidenavModule, MatSidenavContent,
 import { FormsModule } from '@angular/forms';
 import { EditScriptComponent } from './components/edit-script/edit-script.component';
 import { UpdateDetailsComponent } from './components/update-details/update-details.component';
-import { CartService } from './cart.service'
+import { CartService } from './cart.service';
+import { NgxPayPalModule } from 'ngx-paypal'
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { CartService } from './cart.service'
     MatIconModule,
     MatMenuModule,
     MatTabsModule,
+    NgxPayPalModule
 
 
   ],

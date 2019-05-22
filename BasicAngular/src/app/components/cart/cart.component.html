@@ -44,7 +44,7 @@
           {{li.category}}
         </td>
         <td>
-          ${{li.price}}
+          ${{li.price.toFixed(2)}}
         </td>
         <td>
           <button mat-button (click)="deleteCart(li)" [routerLink]="[ '/cart' ]">Delete</button>
@@ -56,16 +56,8 @@
         <td></td>
         <td><h5>Total: ${{ getTotal() }}</h5></td>
         <td>
-          <input type="hidden" name="cmd" value="_ext-enter">
-          <form action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
-            <input type="hidden" name="cmd" value="_ext-enter">
-            <input type="hidden" name="redirect_cmd" value="_xclick">
-            <input type="hidden" name="business" value="jbeckhaus1@gmail.com">
-            <input type="hidden" name="item_name" value="Item Name">
-            <input type="hidden" name="currency_code" value="AUD">
-            <input type="hidden" name="amount" value="{{ getTotal() }}">
-            <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
-          </form>
+          <div id="paypal-checkout-btn"></div>
+          <!--<ngx-paypal [config]="payPalConfig"></ngx-paypal>-->
         </td>
       </tr>
 
