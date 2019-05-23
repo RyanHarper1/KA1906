@@ -4,7 +4,8 @@
 	 x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
 <style type="text/css">
 	.st0{fill:none;}
-	.st1{font-family:'MyriadPro-Bold';}
+	.st3{font-family:'MyriadPro-Bold';
+				stroke:black;}
 	.st2{font-size:150px;}
 </style>
 <g>
@@ -12,10 +13,10 @@
 	<rect x="157.8" y="246.3" width="332.1" height="39.2"/>
 	<rect x="157.8" y="406.3" width="332.1" height="39.2"/>
 	<rect x="36" y="26.2" class="st0" width="123" height="151"/>
-	<text transform="matrix(1 0 0 1 36 132.688)" class="st1 st2">1</text>
+	<text transform="matrix(1 0 0 1 36 132.688)" class="st3 st2">1</text>
 	<rect x="36" y="190.4" class="st0" width="123" height="151"/>
-	<text transform="matrix(1 0 0 1 36 296.9249)" class="st1 st2">2</text>
+	<text transform="matrix(1 0 0 1 36 296.9249)" class="st3 st2">2</text>
 	<rect x="36" y="350.4" class="st0" width="123" height="151"/>
-	<text transform="matrix(1 0 0 1 36 456.8661)" class="st1 st2">3</text>
+	<text transform="matrix(1 0 0 1 36 456.8661)" class="st3 st2">3</text>
 </g>
 </svg>
