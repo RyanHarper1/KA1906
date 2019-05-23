@@ -1,4 +1,4 @@
-
+/*BEGNI BANNER*/
 .banner-img{
   object-fit: contain;
   object-position: right;
@@ -14,37 +14,76 @@
   .title{
   top: 35%;
   }
+/*END BANNER*/
 
-.mat-button-wrapper{
+/*START SCRIPT DETAILS*/
+.script-details-container{
   text-align: center;
-  margin-bottom: 15px;
-  margin-top: 80px;
   margin-left: auto;
   margin-right: auto;
-  background: rgb(34, 52, 88);
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
-
-.grid-container {
-  display: inline-grid;
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
-  grid-template-columns: auto auto auto;
-  padding: 10px;
+.input-details{
+  display: inline-block;
+  border: none;
 }
 
-.boxed {
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 10px;
-  font-size: 30px;
-  text-align: center;
+.script-details{
+  display: inline;
+  font-weight: bold;
+  padding-left: 1em;
+  padding-right: 1em;
 }
-textarea {
-  resize: none;
+
+/*END SCRIPT DETAILS*/
+
+.add-btn{
+  color: white;
+  background: #3a4f6e;
+  width: 150px;
 }
-.pitch{
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 2px;
-  font-size: 30px;
-  text-align: center;
+
+.new-answer-text{
+  margin-left: 10px;
+  display: inline-block;
 }
+
+.mat-figure{
+  left: 220px;
+  right: none;
+}
+// .mat-button-wrapper{
+//   text-align: center;
+//   margin-bottom: 15px;
+//   margin-top: 80px;
+//   margin-left: auto;
+//   margin-right: auto;
+//   background: rgb(34, 52, 88);
+// }
+
+
+// .grid-container {
+//   display: inline-grid;
+//   grid-column-gap: 10px;
+//   grid-row-gap: 10px;
+//   grid-template-columns: auto auto auto;
+//   padding: 10px;
+// }
+
+// .boxed {
+//   border: 1px solid rgba(0, 0, 0, 0.8);
+//   padding: 10px;
+//   font-size: 30px;
+//   text-align: center;
+// }
+// textarea {
+//   resize: none;
+// }
+// .pitch{
+//   border: 1px solid rgba(0, 0, 0, 0.8);
+//   padding: 2px;
+//   font-size: 30px;
+//   text-align: center;
+// }
