@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/auth.service';
 
 export class NavComponent implements OnInit {
   
-  constructor(private Auth:AuthService) { 
+  constructor(private Auth:AuthService) {
       
   }
   loggedIn: Boolean;

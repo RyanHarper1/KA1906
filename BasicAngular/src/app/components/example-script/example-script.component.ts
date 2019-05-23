@@ -20,7 +20,7 @@ export class ExampleScriptComponent implements OnInit {
   private answers: any;
   answer = 0;
   selectedAnswer: any;
-  constructor(sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, private Http: HttpClient) { 
+  constructor(sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, private Http: HttpClient) {
 
     iconRegistry.addSvgIcon(
       'answer',
@@ -67,17 +67,16 @@ export class ExampleScriptComponent implements OnInit {
       this.scriptName = response[0].scriptName;
       this.questionId = response[0].firstQuestionId;
 
-      
-      //get question
+  // get question
       let quest = this.Http.post('http://localhost:3000/get-question',{questionId: this.questionId});
       quest.subscribe((response1)=>{
       console.log('response1: ' + response1[0].texts)
       this.question = response1[0].texts;
-      
-      //get answers
+
+      // get answers
         let ans = this.Http.post('http://localhost:3000/get-answer', {questionId: this.questionId});
         ans.subscribe((response2) => {
-          this.answers = response2;
+        this.answers = response2;
           for( let i = 0; i < this.answers.length; i++){
             console.log('answer responses: ' + this.answers[i].texts);
             this.answer++;
