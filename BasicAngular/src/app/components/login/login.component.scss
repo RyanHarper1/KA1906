@@ -72,23 +72,36 @@ input::placeholder {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 100px;
-    padding: 10px;
-    height:  500px;
+    // padding: 10px;
+    height:  550px;
     width: 400px;
+    border-radius: 10px;
     background: #fff;
     border: 5px solid rgb(34, 52, 88);
+    box-shadow: 5px 10px 8px #b9b9b3;
     vertical-align: middle;
     font-family: Helvetica, sans-serif;
+  }
+
+  .bkgrnd{
+        position: relative;
+        -o-object-fit: contain;
+        object-fit: contain;
+        padding: 0;
+        left: 0;
+        width: 100%;
+    
   }
   
   /*Enter your details*/
   .heading-inbox{
     margin: auto;
     text-align: center;
+    margin-top: -20%;
     padding: 10px;
     font-weight: bold;
     font-size: 18px;
-    color: rgb(34, 52, 88);
+    color: #010130;
     vertical-align: middle;
     font-variant-caps: all-petite-caps;
     font-family: Helvetica, sans-serif;
@@ -102,8 +115,8 @@ input::placeholder {
   }
 
   input[type="submit"]{
-  margin-bottom: 15px;
-  margin-top: 80px;
+    margin-bottom: 10px;
+    margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
