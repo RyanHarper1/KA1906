@@ -39,7 +39,7 @@ export class ExampleScriptComponent implements OnInit {
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/stop-solid.svg'));
     iconRegistry.addSvgIcon(
       'bold',
-      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/bold.svg'));
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/bold-solid.svg'));
     iconRegistry.addSvgIcon(
       'italic',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/italic-solid.svg'));

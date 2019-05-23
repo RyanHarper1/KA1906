@@ -14,6 +14,10 @@ body, html {
   margin-left: auto;
   margin-right: auto;
   position: relative;
+  height: 350px;
+  width: 1500px;
+  box-shadow: 5px 10px 8px #b9b9b3;
+  background: #e6e6e6;
 }
 
 .banner-img{
@@ -28,21 +32,29 @@ body, html {
       left: 0;
       top: 0;
       width: 10%;
-      vertical-align: center;
       font-size: 30px;
+      object-fit: contain;
   }
   .title{
     position: absolute;
-    left: 0;
+    left: auto;
+    right: auto;
     top: 50%;
     width: 100%;
     text-align: center;
-    font-weight: bold;
+    font-weight: normal;
     vertical-align: center;
     font-size: 50px;
-    color: rgb(89, 125, 199);
+    font-family: Helvetica, sans-serif;
+    font-kerning: normal;
+    letter-spacing: .2rem;
+    font-variant-caps: all-small-caps;
+    color: #223458;
 }
 
+.textarea{
+  font-family: Helvetica, sans-serif;
+}
 .header{
     padding: 20px;
     display: flex;
