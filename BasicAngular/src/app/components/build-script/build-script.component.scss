@@ -28,6 +28,7 @@
 .input-details{
   display: inline-block;
   border: none;
+  font-size: 14pt;
 }
 
 .script-details{
@@ -35,6 +36,7 @@
   font-weight: bold;
   padding-left: 1em;
   padding-right: 1em;
+  font-size: 14pt;
 }
 
 /*END SCRIPT DETAILS*/
@@ -49,11 +51,28 @@
   margin-left: 10px;
   display: inline-block;
 }
-
-.mat-figure{
-  left: 220px;
-  right: none;
+.new-ans-btn-container{
+  left: 16%;
+  right: auto;
+  // bottom: 0;
+  // position: absolute;
+  display: grid;
+  align-items: left;
+  justify-content: center;
+  height: 100%;
 }
+
+// .mat-figure{
+//     // top: 0;
+//     left: 16%;
+//     right: auto;
+//     // bottom: 0;
+//     // position: absolute;
+//     display: grid;
+//     align-items: left;
+//     justify-content: center;
+//     height: 100%;
+// }
 // .mat-button-wrapper{
 //   text-align: center;
 //   margin-bottom: 15px;
