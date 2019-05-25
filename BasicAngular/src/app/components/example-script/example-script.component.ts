@@ -13,7 +13,7 @@ export class ExampleScriptComponent implements OnInit {
   list: any;
   scriptId: any;
   scriptName: any;
-  response:any
+  response:any;
   category: any;
   questionId: any;
   question: any;

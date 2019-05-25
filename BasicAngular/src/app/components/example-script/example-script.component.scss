@@ -11,7 +11,7 @@
 
 /*END BANNER*/
 
-
+/*START SCRIPT DETAILS*/
   .script-details-container{
     text-align: center;
     margin-left: auto;
@@ -23,6 +23,7 @@
   .input-details{
     display: inline-block;
     border: none;
+    font-size: 14pt;
   }
 
   .script-details{
@@ -30,7 +31,10 @@
     font-weight: bold;
     padding-left: 1em;
     padding-right: 1em;
+    font-size: 14pt;
   }
+
+/*END SCRIPT DETAILS*/
 
   .next-answer{
     top: 0;
@@ -63,7 +67,7 @@
     font-size: 30px;
     text-align: center;
     margin-left: 20px;
-    width: 100%;
+    // width: 100%;
     box-shadow: 5px 10px 8px #b9b9b3;
   }
 

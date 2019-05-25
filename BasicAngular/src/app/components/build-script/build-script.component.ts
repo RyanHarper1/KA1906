@@ -9,8 +9,6 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EditServiceService } from 'src/app/edit-service.service';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { MatIconRegistry } from '@angular/material';
-import { DomSanitizer } from '@angular/platform-browser';
 
 interface DialogData {
   name: string;
@@ -52,14 +50,7 @@ export class BuildScriptComponent implements OnInit {
   description: string;
   //questionForm: FormGroup;
 
-  constructor(sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, public dialog: MatDialog, private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient, private router: Router,private editService: EditServiceService) { 
-
-    iconRegistry.addSvgIcon(
-      'add',
-      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/plus-circle-solid.svg'));
-  }
-
-  
+  constructor(public dialog: MatDialog, private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient, private router: Router,private editService: EditServiceService) { }
 
   Submit() {
 
@@ -196,4 +187,3 @@ export class DialogForm implements OnInit{
 
 
 }
-
