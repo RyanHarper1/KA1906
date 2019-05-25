@@ -13,16 +13,22 @@
     </p>
   </div>
   
-  
-  <!--Script details-->
-  
-  
   <div class="logged" *ngIf=loggedIn>
+
+     <!--Script details-->
+  <div class="script-details-container">
+      <div class="script-details">Category</div>
+      <input class="input-details"type="text" [(ngModel)] ="category" readonly>
+      <div class="script-details">Script Name</div>
+      <input class="input-details" type="text" [(ngModel)] ="scriptName" readonly>
+  </div>
+  
+    <!--Objections-->
   
     <mat-grid-list cols="11" rowHeight="1:1">
       <mat-grid-tile  [colspan]="0"> </mat-grid-tile>
       <mat-grid-tile [colspan]= "0"> </mat-grid-tile>
-      <mat-grid-tile [colspan]="11"><button mat-button (click)="addAnswer()">Add answer</button> </mat-grid-tile>
+      <mat-grid-tile [colspan]="11"><button mat-button (click)="addAnswer()"><mat-icon svgIcon="add"></mat-icon>Add answer</button> </mat-grid-tile>
       <mat-grid-tile  [colspan]="0"> </mat-grid-tile>
       <mat-grid-tile [colspan]="0"> </mat-grid-tile>
   
@@ -122,3 +128,4 @@
       <mat-grid-tile [colspan]="3"> </mat-grid-tile>
   
     </mat-grid-list>
+    </div>

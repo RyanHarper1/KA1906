@@ -2,19 +2,12 @@
 .banner-img{
   object-fit: contain;
   object-position: right;
-  
-  }
-  
-  // .logo-img{
-  // margin-left: auto;
-  // margin-right: auto;
-  // top: 0;
-  // }
+    }
+
   
   .title{
   top: 35%;
   }
-
 /*END BANNER*/
 
 /*START SCRIPT DETAILS*/
@@ -39,8 +32,8 @@
   padding-right: 1em;
   font-size: 14pt;
 }
-
 /*END SCRIPT DETAILS*/
+
 
 .add-btn{
   color: white;
@@ -65,6 +58,19 @@
   justify-content: left;
   height: 100%;
   margin-left: auto;
+}
+
+/*Override styling for Add new button*/
+::ng-deep button.mat-button{
+  background: #3a4f6e;
+  color: white;
+  width: 150px;
+}
+
+/*Override styling for Add new button*/
+::ng-deep mat-icon.mat-icon.notranslate.mat-icon-no-color{
+   color: white;
+   margin-right: 10px;
 }
 
 
