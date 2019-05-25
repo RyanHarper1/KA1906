@@ -151,20 +151,31 @@
   
         </div>
       </mat-grid-tile>
-      
       <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+
+      <!--Pitch-->
       <mat-grid-tile [colspan]="11"></mat-grid-tile>
-       <mat-grid-tile [colspan]="3"> </mat-grid-tile>
-      <mat-grid-tile [colspan]="5">
-        <div class="pitch">
-          <h6>Pitch</h6>
-          <textarea [(ngModel)]="texts" rows="6" cols="50"> </textarea>
+       <mat-grid-tile [colspan]="2"> </mat-grid-tile>
+       <mat-grid-tile [colspan]="7" [rowspan] ="3">
+      <div class="boxed-pitch">
+          <div class="pitch-title">Pitch</div>
+          <div class="edit-ribbon-container">
+            <button class="edit-icon" mat-button><mat-icon svgIcon="bold"></mat-icon></button>
+            <button class="edit-icon" mat-button><mat-icon svgIcon="italic"></mat-icon></button>
+            <button class="edit-icon" mat-button><mat-icon svgIcon="underline"></mat-icon></button>
+            <button class="edit-icon" mat-button><mat-icon svgIcon="bullet"></mat-icon></button>
+            <button class="edit-icon" mat-button><mat-icon svgIcon="numbering"></mat-icon></button>
+            <button class="edit-icon" mat-button><mat-icon svgIcon="font"></mat-icon></button>
+          </div>
+          <textarea [(ngModel)]="texts" rows="8" cols="80"></textarea>
+          
+          <div class="save-edit-container">
+            <button class="save-btn" mat-button>Save</button>
+            <button class="edit-btn" mat-button>Edit</button>
+          </div>
         </div>
       </mat-grid-tile>
-      <mat-grid-tile [colspan]="3"> </mat-grid-tile>
-  
-  
-      <mat-grid-tile [colspan]="3"> </mat-grid-tile>
+            
       <mat-grid-tile  [colspan]="5"><button mat-button (click)="submitAnswer()">Save</button></mat-grid-tile>
       <mat-grid-tile *ngIf = "!saved" [colspan]="5"><button mat-button (click)="openDialog()">Save</button></mat-grid-tile>
       <mat-grid-tile [colspan]="3"> </mat-grid-tile>

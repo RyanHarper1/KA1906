@@ -157,3 +157,41 @@ textarea {
   border: 1px solid black;
   text-align: center;
 }
+
+.edit-ribbon-container{
+  background: white;
+  border: 1px solid black;
+  text-align: center;
+}
+
+
+  .edit-icon{
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  
+  }
+
+  .save-edit-container{
+    text-align: center;
+    background: #f1f1f1;
+  
+  }
+  .save-btn{
+    background: orangered;
+    color: white;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .edit-btn{
+    background: orange;
+    color: white;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
