@@ -55,7 +55,7 @@
         <div class="boxed" *ngIf="answer > 1">
           <button mat-button (click)="nextQuestion(answer[1])"><mat-icon svgIcon="answer"></mat-icon></button>
           <div class="answer-title">Answer</div>
-          <button mat-button *ngIf="saved" (click)="nextQuestion(answer[1],1)">Next Question</button>
+          <!-- <button mat-button *ngIf="saved" (click)="nextQuestion(answer[1],1)">Next Question</button> -->
           <div class="remove-answer">
               <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
           </div>
@@ -67,7 +67,7 @@
         <div class="boxed" *ngIf="answer > 2">
             <button mat-button (click)="nextQuestion(answer[2])"><mat-icon svgIcon="answer"></mat-icon></button>
             <div class="answer-title">Answer</div>
-          <button mat-button *ngIf="saved" (click)="nextQuestion(answer[2],2)">Next Question</button>
+          <!-- <button mat-button *ngIf="saved" (click)="nextQuestion(answer[2],2)">Next Question</button> -->
           <div class="remove-answer">
               <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
           </div>
@@ -81,7 +81,7 @@
         <div class="boxed" *ngIf="answer > 3">
             <button mat-button (click)="nextQuestion(answer[3])"><mat-icon svgIcon="answer"></mat-icon></button>
             <div class="answer-title">Answer</div>
-          <button mat-button *ngIf="saved" (click)="nextQuestion(answer[3],3)">Next Question</button>
+          <!-- <button mat-button *ngIf="saved" (click)="nextQuestion(answer[3],3)">Next Question</button> -->
           <div class="remove-answer">
               <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
           </div>
@@ -93,7 +93,7 @@
         <div class="boxed" *ngIf="answer > 4">
           <button mat-button (click)="nextQuestion(answer[4])"><mat-icon svgIcon="answer"></mat-icon></button>
           <div class="answer-title">Answer</div>
-          <button mat-button *ngIf="saved" (click)="nextQuestion(answer[4],4)">Next Question</button>
+          <!-- <button mat-button *ngIf="saved" (click)="nextQuestion(answer[4],4)">Next Question</button> -->
           <div class="remove-answer">
               <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
           </div>
@@ -105,7 +105,7 @@
         <div class="boxed" *ngIf="answer > 5">
             <button mat-button (click)="nextQuestion(answer[5])"><mat-icon svgIcon="answer"></mat-icon></button>
             <div class="answer-title">Answer</div>
-          <button mat-button *ngIf="saved" (click)="nextQuestion(answer[5],5)">Next Question</button>
+          <!-- <button mat-button *ngIf="saved" (click)="nextQuestion(answer[5],5)">Next Question</button> -->
           <div class="remove-answer">
               <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
           </div>
@@ -119,7 +119,7 @@
         <div class="boxed" *ngIf="answer > 6">
           <button mat-button (click)="nextQuestion(answer[6])"><mat-icon svgIcon="answer"></mat-icon></button>
           <div class="answer-title">Answer</div>
-          <button mat-button *ngIf="saved" (click)="nextQuestion(answer[6],6)">Next Question</button>
+          <!-- <button mat-button *ngIf="saved" (click)="nextQuestion(answer[6],6)">Next Question</button> -->
           <div class="remove-answer">
               <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
           </div>
@@ -131,7 +131,7 @@
         <div class="boxed" *ngIf="answer > 7">
           <button mat-button (click)="nextQuestion(answer[7])"><mat-icon svgIcon="answer"></mat-icon></button>
           <div class="answer-title">Answer</div>
-          <button mat-button *ngIf="saved" (click)="nextQuestion(answer[7],7)">Next Question</button>
+          <!-- <button mat-button *ngIf="saved" (click)="nextQuestion(answer[7],7)">Next Question</button> -->
           <div class="remove-answer">
               <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
           </div>
@@ -143,7 +143,7 @@
         <div class="boxed" *ngIf="answer > 8">
           <button mat-button (click)="nextQuestion(answer[8])"><mat-icon svgIcon="answer"></mat-icon></button>
           <div class="answer-title">Answer</div>
-          <button mat-button *ngIf="saved" (click)="nextQuestion(answer[8],8)">Next Question</button>
+          <!-- <button mat-button *ngIf="saved" (click)="nextQuestion(answer[8],8)">Next Question</button> -->
           <div class="remove-answer">
               <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
           </div>
@@ -170,15 +170,15 @@
           <textarea [(ngModel)]="texts" rows="8" cols="80"></textarea>
           
           <div class="save-edit-container">
-            <button class="save-btn" mat-button>Save</button>
-            <button class="edit-btn" mat-button>Edit</button>
+            <button class="save-btn" mat-button (click)="submitAnswer()">Save</button>
+            <button class="edit-btn" mat-button *ngIf = "!saved" mat-button (click)="openDialog()">Edit</button>
           </div>
         </div>
       </mat-grid-tile>
             
-      <mat-grid-tile  [colspan]="5"><button mat-button (click)="submitAnswer()">Save</button></mat-grid-tile>
+      <!-- <mat-grid-tile  [colspan]="5"><button mat-button (click)="submitAnswer()">Save</button></mat-grid-tile>
       <mat-grid-tile *ngIf = "!saved" [colspan]="5"><button mat-button (click)="openDialog()">Save</button></mat-grid-tile>
-      <mat-grid-tile [colspan]="3"> </mat-grid-tile>
+      <mat-grid-tile [colspan]="3"> </mat-grid-tile> -->
   
     </mat-grid-list>
     </div>
