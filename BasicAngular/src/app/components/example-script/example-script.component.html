@@ -21,7 +21,7 @@
   <mat-grid-tile [colspan]="3">
     <div class="boxed">
         <div class="next-answer">
-        <button mat-button (click)="nextQuestion(answer[0],0)"><mat-icon svgIcon="answer"></mat-icon></button>
+        <button mat-button (click)="nextQuestion(answer[0],0)" *ngIf="answers[0].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
       </div>
       <div class="answer-title">Answer</div>
       <textarea [(ngModel)]="answers[0].texts" rows="4" cols="40" name="texts" readonly></textarea>
@@ -31,7 +31,7 @@
   <mat-grid-tile [colspan]="3">
     <div class="boxed" *ngIf="answer > 1">
         <div class="next-answer">
-            <button mat-button (click)="nextQuestion(answer[1],1)"><mat-icon svgIcon="answer"></mat-icon></button>
+            <button mat-button (click)="nextQuestion(answer[1],1)" *ngIf="answers[1].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
       <textarea [(ngModel)]="answers[1].texts" rows="4" cols="40" name="texts" readonly></textarea>
@@ -41,7 +41,7 @@
   <mat-grid-tile [colspan]="3">
     <div class="boxed" *ngIf="answer > 2">
         <div class="next-answer">
-            <button mat-button (click)="nextQuestion(answer[2],2)"><mat-icon svgIcon="answer"></mat-icon></button>
+            <button mat-button (click)="nextQuestion(answer[2],2)" *ngIf="answers[2].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
       <textarea [(ngModel)]="answers[2].texts" rows="4" cols="40" name="texts" readonly></textarea>
@@ -53,7 +53,7 @@
   <mat-grid-tile [colspan]="3">
     <div class="boxed" *ngIf="answer > 3">
         <div class="next-answer">
-            <button mat-button (click)="nextQuestion(answer[3],3)"><mat-icon svgIcon="answer"></mat-icon></button>
+            <button mat-button (click)="nextQuestion(answer[3],3)" *ngIf="answers[3].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
       <textarea [(ngModel)]="answers[3].texts" rows="4" cols="40" name="texts" readonly></textarea>
@@ -63,7 +63,7 @@
   <mat-grid-tile [colspan]="3">
     <div class="boxed" *ngIf="answer > 4">
         <div class="next-answer">
-            <button mat-button (click)="nextQuestion(answer[4],4)"><mat-icon svgIcon="answer"></mat-icon></button>
+            <button mat-button (click)="nextQuestion(answer[4],4)" *ngIf="answers[4].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
       <textarea [(ngModel)]="answers[4].texts" rows="4" cols="40" name="texts" readonly></textarea>
@@ -73,7 +73,7 @@
   <mat-grid-tile [colspan]="3">
     <div class="boxed" *ngIf="answer > 5">
        <div class="next-answer">
-        <button mat-button (click)="nextQuestion(answer[5],5)"><mat-icon svgIcon="answer"></mat-icon></button>
+        <button mat-button (click)="nextQuestion(answer[5],5)" *ngIf="answers[5].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
     </div>
     <div class="answer-title">Answer</div>
       <textarea [(ngModel)]="answers[5].texts" rows="4" cols="40" name="texts" readonly></textarea>
@@ -85,7 +85,7 @@
   <mat-grid-tile [colspan]="3">
     <div class="boxed" *ngIf="answer > 6">
         <div class="next-answer">
-            <button mat-button (click)="nextQuestion(answer[6],6)"><mat-icon svgIcon="answer"></mat-icon></button>
+            <button mat-button (click)="nextQuestion(answer[6],6)" *ngIf="answers[6].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
       <textarea [(ngModel)]="answers[6].texts" rows="4" cols="40" name="texts" readonly></textarea>
@@ -95,7 +95,7 @@
   <mat-grid-tile [colspan]="3">
     <div class="boxed" *ngIf="answer > 7">
         <div class="next-answer">
-            <button mat-button (click)="nextQuestion(answer[7],7)"><mat-icon svgIcon="answer"></mat-icon></button>
+            <button mat-button (click)="nextQuestion(answer[7],7)" *ngIf="answers[7].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
       <textarea [(ngModel)]="answers[7].texts" rows="4" cols="40" name="texts" readonly></textarea>
@@ -105,10 +105,10 @@
   <mat-grid-tile [colspan]="3">
     <div class="boxed" *ngIf="answer > 8">
         <div class="next-answer">
-            <button mat-button (click)="nextQuestion(answer[8],8)"><mat-icon svgIcon="answer"></mat-icon></button>
+            <button mat-button (click)="nextQuestion(answer[8],8)" *ngIf="answers[8].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
-      <textarea [(ngModel)]="answers[8].tests" rows="4" cols="40" name="texts" readonly></textarea>
+      <textarea [(ngModel)]="answers[8].texts" rows="4" cols="40" name="texts" readonly></textarea>
     </div>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="1"> </mat-grid-tile>

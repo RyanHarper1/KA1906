@@ -59,6 +59,8 @@ export class ExampleScriptComponent implements OnInit {
 
 
   ngOnInit() {
+    this.answer = 0;
+    
     let query = this.Http.post('http://localhost:3000/get-script', {scriptId: 61});
     query.subscribe((response)=>{
       console.log('response to this is: ' + response)
@@ -88,7 +90,7 @@ export class ExampleScriptComponent implements OnInit {
   nextQuestion(object,num){
     if( this.answers[num].nextQuestionId != null){
       console.log(Number(this.answers[num].nextQuestionId))
-        this.answer = 1;
+        this.answer = 0;
         let quest = this.Http.post('http://localhost:3000/get-question',{questionId: Number(this.answers[num].nextQuestionId)});
         quest.subscribe((response1)=>{
         console.log('response1: ' + response1[0].texts)
@@ -102,6 +104,7 @@ export class ExampleScriptComponent implements OnInit {
               console.log('answer responses: ' + this.answers[i].texts);
               this.answer++;
             }
+
           });
       });
      
