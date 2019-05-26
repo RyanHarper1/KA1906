@@ -5,38 +5,27 @@
   }
 
 .banner-img{
-  margin-left: auto;
-  margin-right: auto;
-  height: 355px;
-  width: 1100px;
-  box-shadow: 5px 10px 8px #b9b9b3;
   object-fit: cover;
   object-position: 50% 35%;
   }
   
-  .logo-img{
-  position: absolute;
-  margin-left: auto;
-  margin-right: auto;
-  top: 0;
-  }
   
-  .title{
-  position: absolute;
-  left: 0;
+.title{
   top: 35%;
-  text-align: center;
-  font-size: 50px;
-  font-weight: normal;
-  font-family: Helvetica, sans-serif;
-  font-kerning: normal;
-  letter-spacing: .2rem;
-  font-variant-caps: all-petite-caps;
-  color: white;
+  color: #223458;
+  text-shadow: #fef7f1 1px 0 10px;
   }
 
-
-
+  .icon{
+    position: absolute;
+    display: block;
+    height: 180px;
+    width: 100%;
+    object-fit: contain;
+    margin-left: auto;
+    margin-right: auto;
+    top: -5%;
+  }
 
 .grid-container {
     display: grid;

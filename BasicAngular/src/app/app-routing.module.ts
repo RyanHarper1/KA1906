@@ -19,8 +19,8 @@ import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: HomeComponent
+    path: 'cart',
+    component: CartComponent
   },
   {
     path: 'login',
@@ -33,7 +33,6 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-
   },
   
   //Only allow access to following components when signed in

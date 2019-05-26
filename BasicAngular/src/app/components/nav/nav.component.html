@@ -15,6 +15,7 @@
   <button mat-menu-item (click)="logout()" [routerLink] = "['/home']">Logout</button>
   
 </mat-menu>
+  <button mat-button [routerLink]="[ '/cart' ]" *ngIf=!loggedIn>Cart</button>
   <button mat-button [routerLink]="[ '/login' ]" *ngIf=!loggedIn>Login</button>
   <button mat-button [routerLink]="[ '/register' ]" *ngIf=!loggedIn>Register</button>
 </mat-toolbar-row>
