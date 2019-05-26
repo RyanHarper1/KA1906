@@ -134,11 +134,14 @@ export class BuildScriptComponent implements OnInit {
     this.scriptData1.questionId = this.Auth.scriptData1.questionId;
     this.scriptData1.scriptId = this.Auth.scriptData1.scriptId;
         console.log('ques: ' + this.questionId + 'scri' + this.scriptId)
-    this.Auth.submitAnswer( this.questionId, this.scriptId, this.answers, this.texts, this.tempAnswer)
+    this.Auth.submitAnswer( this.scriptData1.questionId, this.scriptData1.scriptId, this.answers, this.texts, this.tempAnswer)
   
   }
 
   openDialog() {
+    if (!this.saved ) {
+      
+    
     const dialogRef = this.dialog.open(DialogForm,{
       width: '700px'
     });
@@ -155,7 +158,10 @@ export class BuildScriptComponent implements OnInit {
       console.log('Dialog result:' + result.subcategory);
       this.Submit()
     });
-
+  }
+  else{
+    this.submitAnswer();
+  }
   
 }
 }
