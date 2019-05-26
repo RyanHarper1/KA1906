@@ -85,5 +85,28 @@ export class ExampleScriptComponent implements OnInit {
     });
     });
   }
+  nextQuestion(object,num){
+    if( this.answers[num].nextQuestionId != null){
+      console.log(Number(this.answers[num].nextQuestionId))
+        this.answer = 1;
+        let quest = this.Http.post('http://localhost:3000/get-question',{questionId: Number(this.answers[num].nextQuestionId)});
+        quest.subscribe((response1)=>{
+        console.log('response1: ' + response1[0].texts)
+        this.question = response1[0].texts;
+  
+        // get answers
+          let ans = this.Http.post('http://localhost:3000/get-answer', {questionId: Number(this.answers[num].nextQuestionId)});
+          ans.subscribe((response2) => {
+          this.answers = response2;
+            for( let i = 0; i < this.answers.length; i++){
+              console.log('answer responses: ' + this.answers[i].texts);
+              this.answer++;
+            }
+          });
+      });
+     
+
+    }
+  }
 
 }

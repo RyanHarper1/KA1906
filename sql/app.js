@@ -261,6 +261,7 @@ app.post('/get-script', (req, res) => {
 app.post('/get-question', (req, res) => {
     console.log(req.body.questionId);
     let sql = 'SELECT * FROM question WHERE questionId = ' + req.body.questionId;
+    console.log(sql);
     let query = db.query(sql, (err, result) => {
 
         if (err) {
