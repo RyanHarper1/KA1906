@@ -162,7 +162,7 @@ export class BuildScriptComponent implements OnInit {
   }
 
   openDialog() {
-    if (!this.saved ) {
+    if (!this.saved ) { 
       
     
     const dialogRef = this.dialog.open(DialogForm,{
