@@ -24,7 +24,7 @@
         <button mat-button (click)="nextQuestion(answer[0],0)"><mat-icon svgIcon="answer"></mat-icon></button>
       </div>
       <div class="answer-title">Answer</div>
-      <textarea [(ngModel)]="answers[0].texts" rows="4" cols="40" name="texts"></textarea>
+      <textarea [(ngModel)]="answers[0].texts" rows="4" cols="40" name="texts" readonly></textarea>
     </div>
   </mat-grid-tile>
     
@@ -34,7 +34,7 @@
             <button mat-button (click)="nextQuestion(answer[1],1)"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
-      <textarea [(ngModel)]="answers[1].texts" rows="4" cols="40" name="texts"></textarea>
+      <textarea [(ngModel)]="answers[1].texts" rows="4" cols="40" name="texts" readonly></textarea>
     </div>
   </mat-grid-tile>
   
@@ -44,7 +44,7 @@
             <button mat-button (click)="nextQuestion(answer[2],2)"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
-      <textarea [(ngModel)]="answers[2].texts" rows="4" cols="40" name="texts"></textarea>
+      <textarea [(ngModel)]="answers[2].texts" rows="4" cols="40" name="texts" readonly></textarea>
     </div>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="1"></mat-grid-tile>
@@ -56,7 +56,7 @@
             <button mat-button (click)="nextQuestion(answer[3],3)"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
-      <textarea [(ngModel)]="answers[3].texts" rows="4" cols="40" name="texts"></textarea>
+      <textarea [(ngModel)]="answers[3].texts" rows="4" cols="40" name="texts" readonly></textarea>
     </div>
   </mat-grid-tile>
   
@@ -66,7 +66,7 @@
             <button mat-button (click)="nextQuestion(answer[4],4)"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
-      <textarea [(ngModel)]="answers[4].texts" rows="4" cols="40" name="texts"></textarea>
+      <textarea [(ngModel)]="answers[4].texts" rows="4" cols="40" name="texts" readonly></textarea>
     </div>
   </mat-grid-tile>
 
@@ -76,7 +76,7 @@
         <button mat-button (click)="nextQuestion(answer[5],5)"><mat-icon svgIcon="answer"></mat-icon></button>
     </div>
     <div class="answer-title">Answer</div>
-      <textarea [(ngModel)]="answers[5].texts" rows="4" cols="40" name="texts"></textarea>
+      <textarea [(ngModel)]="answers[5].texts" rows="4" cols="40" name="texts" readonly></textarea>
     </div>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="1"> </mat-grid-tile>
@@ -88,7 +88,7 @@
             <button mat-button (click)="nextQuestion(answer[6],6)"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
-      <textarea [(ngModel)]="answers[6].texts" rows="4" cols="40" name="texts"></textarea>
+      <textarea [(ngModel)]="answers[6].texts" rows="4" cols="40" name="texts" readonly></textarea>
     </div>
   </mat-grid-tile>
 
@@ -98,7 +98,7 @@
             <button mat-button (click)="nextQuestion(answer[7],7)"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
-      <textarea [(ngModel)]="answers[7].texts" rows="4" cols="40" name="texts"></textarea>
+      <textarea [(ngModel)]="answers[7].texts" rows="4" cols="40" name="texts" readonly></textarea>
     </div>
   </mat-grid-tile>
 
@@ -108,7 +108,7 @@
             <button mat-button (click)="nextQuestion(answer[8],8)"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
-      <textarea [(ngModel)]="answers[8].tests" rows="4" cols="40" name="texts"></textarea>
+      <textarea [(ngModel)]="answers[8].tests" rows="4" cols="40" name="texts" readonly></textarea>
     </div>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="1"> </mat-grid-tile>
@@ -120,7 +120,7 @@
     <div class="boxed-pitch">
       <div class="pitch-title">Pitch</div>
      
-      <textarea [(ngModel)]="question" rows="8" cols="80"></textarea>
+      <textarea [(ngModel)]="question" rows="8" cols="80" readonly></textarea>
      
 
     </div>
