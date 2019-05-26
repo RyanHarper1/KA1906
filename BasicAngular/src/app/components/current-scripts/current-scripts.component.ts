@@ -87,9 +87,7 @@ export class CurrentScriptsComponent implements OnInit {
     let del = this.Http.post('http://localhost:3000/delete-script', { scriptId: script.scriptId });
     del.subscribe((response) => {
 
-      this.list = response;
-      console.log(response)
-      this.router.navigate(['/current-script']);
+      this.ngOnInit()
     });
     console.log(script);
 

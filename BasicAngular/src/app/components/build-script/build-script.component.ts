@@ -45,6 +45,7 @@ export class BuildScriptComponent implements OnInit {
   texts: any;
   answer = 1;
   saved = false;
+  submit = false;
   private answers: string[] = [];
   questionId: any;
   loggedIn = false;
@@ -110,6 +111,7 @@ export class BuildScriptComponent implements OnInit {
     }
 
     this.success = true;
+    this.submit = true;
     this.saved = true;
     
 
@@ -140,17 +142,20 @@ export class BuildScriptComponent implements OnInit {
 
   }
   nextQuestion(selectedAnswer,num) {
+    this.saved = false;
     this.answer = 1;
     this.texts = '';
-    this.saved = true;
     this.submitted = true;
     this.tempAnswer = this.answers[num];
     for (let i = 0; i < this.answers.length; i++){
-      this.answers[i] = " ";
+      this.answers[i] = "";
 
     }
     //console.log('questionId: '+ this.questionId);
 
+  }
+  isSubmited(){
+    return this.saved
   }
   submitAnswer(){
     console.log('ques:' + this.response )
@@ -158,11 +163,11 @@ export class BuildScriptComponent implements OnInit {
     this.scriptData1.scriptId = this.Auth.scriptData1.scriptId;
         console.log('ques: ' + this.questionId + 'scri' + this.scriptId)
     this.Auth.submitAnswer( this.scriptData1.questionId, this.scriptData1.scriptId, this.answers, this.texts, this.tempAnswer)
-  
+    this.saved = true;
   }
 
   openDialog() {
-    if (!this.saved ) { 
+    if (!this.submit ) { 
       
     
     const dialogRef = this.dialog.open(DialogForm,{
