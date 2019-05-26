@@ -7,7 +7,9 @@
 </div>
 
 <!--Script details-->
+<div *ngIf = "loaded"> 
 <div class="script-details-container">
+  <button mat-button (click)="backQuestion()" *ngIf ="previousAnswerCount > 0 ">Back</button>
     <div class="script-details">Category</div>
     <input class="input-details"type="text" [(ngModel)] ="category" readonly>
     <div class="script-details">Script Name</div>
@@ -130,7 +132,7 @@
 
 </mat-grid-list>
 
-
+</div>
 
   
 

@@ -20,6 +20,9 @@ export class ExampleScriptComponent implements OnInit {
   private answers: any;
   answer = 0;
   selectedAnswer: any;
+  previousAnswers: any[] ;
+  previousAnswerCount = 0;
+  loaded = false;
   constructor(sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, private Http: HttpClient) {
 
     iconRegistry.addSvgIcon(
@@ -59,8 +62,7 @@ export class ExampleScriptComponent implements OnInit {
 
 
   ngOnInit() {
-    this.answer = 0;
-    
+      this.previousAnswers = []
     let query = this.Http.post('http://localhost:3000/get-script', {scriptId: 61});
     query.subscribe((response)=>{
       console.log('response to this is: ' + response)
@@ -83,13 +85,23 @@ export class ExampleScriptComponent implements OnInit {
             console.log('answer responses: ' + this.answers[i].texts);
             this.answer++;
           }
+          this.loaded = true;
         });
+      
     });
+  
     });
+   
   }
   nextQuestion(object,num){
     if( this.answers[num].nextQuestionId != null){
-      console.log(Number(this.answers[num].nextQuestionId))
+      
+      console.log('previous:' + this.previousAnswers[this.previousAnswerCount])
+     
+      this.questionId =  Number(this.answers[num].questionId)
+      this.previousAnswers[this.previousAnswerCount] = Number(this.questionId);
+      this.previousAnswerCount++;
+      console.log(Number(this.questionId))
         this.answer = 0;
         let quest = this.Http.post('http://localhost:3000/get-question',{questionId: Number(this.answers[num].nextQuestionId)});
         quest.subscribe((response1)=>{
@@ -110,6 +122,27 @@ export class ExampleScriptComponent implements OnInit {
      
 
     }
+  }
+  backQuestion(){
+    this.answer = 0;
+    let quest = this.Http.post('http://localhost:3000/get-question',{questionId: this.previousAnswers[this.previousAnswerCount -1]});
+    quest.subscribe((response1)=>{
+    console.log('response1: ' + response1[0].texts)
+    this.question = response1[0].texts;
+
+    // get answers
+      let ans = this.Http.post('http://localhost:3000/get-answer', {questionId: this.previousAnswers[this.previousAnswerCount -1]});
+      ans.subscribe((response2) => {
+      this.answers = response2;
+        for( let i = 0; i < this.answers.length; i++){
+          console.log('answer responses: ' + this.answers[i].texts);
+          this.answer++;
+        }
+        this.previousAnswerCount--;
+
+      });
+  });
+  
   }
 
 }
