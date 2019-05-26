@@ -25,6 +25,7 @@ import { EditScriptComponent } from './components/edit-script/edit-script.compon
 import { UpdateDetailsComponent } from './components/update-details/update-details.component';
 import { AdminComponent } from './components/admin/admin.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { ViewScriptComponent } from './components/view-script/view-script.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     UpdateDetailsComponent,
     DialogForm,
     AdminComponent,
+    ViewScriptComponent,
 
     
     
@@ -73,7 +75,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
   exports: [
     MatToolbarModule, MatIconModule, MatMenuModule,
   ],
-  providers: [AuthGuard, AuthService],
+  providers: [AuthGuard, AuthService,ViewScriptComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -23,6 +23,7 @@
       Last Edited: {{li.edited}}<br>
       Template: {{li.templates}}<br>
       <div class="functions" valign="top">
+        <button mat-button (click) ="viewScript(li)">View Script</button>
              <button mat-button (click)="editScript(li)">
           <mat-icon svgIcon="edit"></mat-icon>
         </button>

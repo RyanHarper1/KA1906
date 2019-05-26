@@ -7,6 +7,7 @@ import { EditScriptComponent } from '../edit-script/edit-script.component';
 import { EditServiceService } from 'src/app/edit-service.service';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ViewScriptService } from 'src/app/view-script.service';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class CurrentScriptsComponent implements OnInit {
   columns = ['scriptName', 'category'];
   username: String;
   loggedIn = false;
-  constructor(sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, private Http: HttpClient, private Auth: AuthService, private router: Router, private editService: EditServiceService) {
+  constructor(sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, private Http: HttpClient, private Auth: AuthService, private router: Router, private editService: EditServiceService, private viewService: ViewScriptService) {
 
     iconRegistry.addSvgIcon(
       'upload',
@@ -101,6 +102,11 @@ export class CurrentScriptsComponent implements OnInit {
     });
 
 
+  }
+  viewScript(script){
+    this.viewService.setScript(script.scriptId);
+    console.log(script);
+    this.router.navigate(['view-script']);
   }
 
 
