@@ -88,6 +88,9 @@ export class BuildScriptComponent implements OnInit {
     iconRegistry.addSvgIcon(
         'font',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/font-solid.svg'));
+      iconRegistry.addSvgIcon(
+        'add',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/plus-circle-solid.svg'));
     }
  
 
