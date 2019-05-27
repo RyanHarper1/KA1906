@@ -21,11 +21,11 @@ declare let paypal: any;//Paypal Test
 export class CartComponent implements OnInit {
   constructor(private Http: HttpClient, private Auth : AuthService, private router: Router) { }
   list: any;
-//  id:any;
   loggedIn = false;
   columns = [ 'scriptName','price', 'uploadDate', 'category', 'rating' ];
 
-public payPalConfig ? : IPayPalConfig;
+  public payPalConfig ? : IPayPalConfig;
+  idPayPal: any; //paypal
 
   ngOnInit(): void {
     this.loggedIn = this.Auth.loggedIn
@@ -40,53 +40,34 @@ public payPalConfig ? : IPayPalConfig;
     }
   }
 
-/*Paypal-NgxPayPalModule
-private initConfig(): void {
-        this.payPalConfig = {
-            currency: 'AUD',
-            clientId: 'ATLwc0WWOHlrcKAOnk3GauEX2bsQjQjvzi8SnoB7LyUewiXe_XZdcuM-yhK2wKEw_uPNeT4CNdXn0VTv',
-            advanced: {
-                commit: 'true'
-            },
-            style: {
-                label: 'paypal',
-                layout: 'vertical'
-            },
-            onApprove: (data, actions) => {
-                console.log('onApprove - transaction was approved, but not authorized', data, actions);
-
-                    console.log('onApprove - you can get full order details inside onApprove: ');
-            },
-            onClientAuthorization: (data) => {
-                console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
-                //this.showSuccess = true;
-            },
-            onCancel: (data, actions) => {
-                console.log('OnCancel', data, actions);
-                //this.showCancel = true;
-
-            },
-            onError: err => {
-                console.log('OnError', err);
-                //this.showError = true;
-            },
-            onClick: () => {
-                console.log('onClick');
-                //this.resetStatus();
-            },
-        };
-    }
-
-
-
-//paypal-NgxPayPalModule*/
-
-
 //Paypal Test
   addScript: boolean = false;
 
+  clearCart(cart){
+    let del = this.Http.post('http://localhost:3000/clear-cart', {usersID: this.Auth.getId});
+    del.subscribe((response) => {
+
+      this.list=response;
+      console.log(response)
+      this.router.navigate(['/cart']);
+    });
+    console.log(cart);
+  }
+
+  addToPayment(cart){
+    let add = this.Http.post('http://localhost:3000/payment-details', {storeID: cart.storeID, usersID: this.Auth.getId, scriptID: cart.scriptID, scriptName: cart.scriptName, price: this.getTotal,
+                  description: cart.description, rating: cart.rating, uploadDate: cart.uploadDate, category: cart.category});
+    add.subscribe((response) => {
+
+      this.list=response;
+      console.log(response)
+      this.router.navigate(['/cart']);
+    });
+    console.log(cart);
+  }
+
     paypalConfig = {
-      env: 'production',
+      env: 'sandbox',
       client: {
         sandbox: 'ATLwc0WWOHlrcKAOnk3GauEX2bsQjQjvzi8SnoB7LyUewiXe_XZdcuM-yhK2wKEw_uPNeT4CNdXn0VTv',
         production: 'Ad8s5ANbWU0uocw05O7SirbgSjricgca63l-m-Hk-zfrsh6nFQCs_366WYQQXc6qV2omh4pjTrOqeIB3'
@@ -103,7 +84,9 @@ private initConfig(): void {
       },
       onAuthorize: (data, actions) => {
         return actions.payment.execute().then((payment) => {
-          //Do something when payment is successful.
+          //this.addToPayment(this.list);
+          console.log('Transaction completed '/* + payment.payer_given_name*/);
+          this.clearCart(this.list); 
         })
       }
     };
