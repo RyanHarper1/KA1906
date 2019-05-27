@@ -15,7 +15,6 @@ export class EditServiceService {
     this.scriptId = scriptId
 
   }
-
   getEditScript(){
     return this.scriptId
   }

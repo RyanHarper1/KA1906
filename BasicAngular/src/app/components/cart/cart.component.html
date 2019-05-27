@@ -4,67 +4,7 @@
   <div class="title">Cart</div>
 </div>
 
-<div *ngIf = "loaded">
-<mat-drawer-container [hasBackdrop]="false" #mode value="side">
 
-  <mat-drawer #drawer [mode]="mode.value">Search<br>
-     <mat-form-field>
-      <input matInput placeholder="Keyword">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-select placeholder="Select">
-        <mat-option value="option">Option1</mat-option>
-        <mat-option value="option">Option2</mat-option>
-        <mat-option value="option">Option3</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </mat-drawer>
-
-  <mat-select #mode value="side"></mat-select>
-  <mat-drawer-content>
-    <table>
-      <th>
-        Name
-      </th>
-      <th>
-        Category
-      </th>
-      <th>
-        Price
-      </th>
-      <th>
-
-      </th>
-
-
-      <tr *ngFor="let li of list">
-        <td>
-          {{li.scriptName}}
-        </td>
-        <td>
-          {{li.category}}
-        </td>
-        <td>
-          ${{li.price.toFixed(2)}}
-        </td>
-        <td>
-          <button mat-button (click)="deleteCart(li)" [routerLink]="[ '/cart' ]">Delete</button>
-        </td>
-      </tr>
-
-      <tr>
-        <td></td>
-        <td><button mat-button (click)="clearCart(li)">clear</button></td>
-        <td><h5>Total: ${{ getTotal() }}</h5></td>
-        <td>
-          <div id="paypal-checkout-btn"></div>
-          <!--<ngx-paypal [config]="payPalConfig"></ngx-paypal>-->
-        </td>
-      </tr>
-
-    </table>
-
-
-  </mat-drawer-content>
-</mat-drawer-container>
-</div>
+<p>
+  cart works!
+</p>
