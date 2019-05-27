@@ -34,6 +34,12 @@
 }
 /*END SCRIPT DETAILS*/
 
+.next-answer{
+  top: 0;
+  padding: 0;
+  float: left;
+  fill: white;
+}
 
 .add-btn{
   color: white;
@@ -90,7 +96,7 @@
   top: 0;
   padding: 0;
   float: right;
-  margin-right: 30px;
+  // margin-right: 30px;
 }
 
 .mat-button{

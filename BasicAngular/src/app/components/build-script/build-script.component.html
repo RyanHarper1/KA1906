@@ -40,7 +40,9 @@
       <mat-grid-tile [colspan]="1"> </mat-grid-tile>
       <mat-grid-tile  [colspan]="3">
         <div class="boxed-answer" *ngIf="answer > 0">
+          <div class="next-answer">
           <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[0],0)"><mat-icon svgIcon="answer"></mat-icon></button> 
+          </div>
         <div class="answer-title">Answer</div>
           <!--<button mat-button *ngIf="saved" (click)="nextQuestion(answer[0],0)"></button> -->
         <div class="remove-answer">
