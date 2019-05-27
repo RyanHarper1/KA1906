@@ -25,18 +25,20 @@
       <input class="input-details" type="text" [(ngModel)] ="scriptName" readonly>
   </div>
   
-    <!--Objections-->
+    <!--Add answer row-->
   
-    <mat-grid-list cols="11" rowHeight="1:1">
+    <mat-grid-list cols="11" rowHeight="100px">
       <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-      <mat-grid-tile [colspan]="3"><button mat-button (click)="addAnswer()"><mat-icon svgIcon="add"></mat-icon>Add answer</button> </mat-grid-tile>
+      <mat-grid-tile id="bck-btn" [colspan]="3"><button mat-button (click)="addAnswer()"><mat-icon svgIcon="add"></mat-icon>Add answer</button> </mat-grid-tile>
       <mat-grid-tile [colspan]="0"> </mat-grid-tile>
       <mat-grid-tile [colspan]="3"> </mat-grid-tile>
       <mat-grid-tile [colspan]="0"> </mat-grid-tile>
       <mat-grid-tile [colspan]="3"> </mat-grid-tile>
       <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+    </mat-grid-list>
 
-      
+    <!--Objections-->
+    <mat-grid-list cols="11" rowHeight="1:1">
       <mat-grid-tile [colspan]="1"> </mat-grid-tile>
       <mat-grid-tile  [colspan]="3">
         <div class="boxed-answer" *ngIf="answer > 0">
