@@ -51,7 +51,7 @@ export class CartComponent implements OnInit {
 
       this.list=response;
       console.log(response)
-      this.router.navigate(['/cart']);
+      this.ngOnInit();
     });
     console.log(cart);
   }
