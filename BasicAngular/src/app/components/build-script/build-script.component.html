@@ -42,7 +42,7 @@
         <div class="boxed-answer" *ngIf="answer > 0">
           <button mat-button (click)="nextQuestion(answer[0])"><mat-icon svgIcon="answer"></mat-icon></button>
         <div class="answer-title">Answer</div>
-          <button mat-button *ngIf="saved" (click)="nextQuestion(answer[0],0)"></button>
+          <!--<button mat-button *ngIf="saved" (click)="nextQuestion(answer[0],0)"></button> -->
         <div class="remove-answer">
           <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
         </div>
@@ -170,12 +170,13 @@
           <textarea [(ngModel)]="texts" rows="8" cols="80"></textarea>
           
           <div class="save-edit-container">
-            <button class="save-btn" mat-button (click)="submitAnswer()">Save</button>
-            <button class="edit-btn" mat-button *ngIf = "!saved" mat-button (click)="openDialog()">Edit</button>
+            <!--<button class="save-btn" mat-button (click)="submitAnswer()">Save</button>-->
+            <button class="edit-btn" mat-button  mat-button (click)="openDialog()">Save</button>
           </div>
         </div>
       </mat-grid-tile>
-            
+      <mat-grid-tile [colspan]="2"> </mat-grid-tile>
+      <mat-grid-tile [colspan]="1" [rowspan] ="2"> </mat-grid-tile>
       <!-- <mat-grid-tile  [colspan]="5"><button mat-button (click)="submitAnswer()">Save</button></mat-grid-tile>
       <mat-grid-tile *ngIf = "!saved" [colspan]="5"><button mat-button (click)="openDialog()">Save</button></mat-grid-tile>
       <mat-grid-tile [colspan]="3"> </mat-grid-tile> -->

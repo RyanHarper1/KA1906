@@ -146,6 +146,32 @@ app.post('/addquestion', (req, res) => {
     let query = db.query(sql, script, (err, result) => {
         if (err) {
             throw err;
+        }
+        reply = {
+            result: 'success', questionId: result.insertId
+        }
+        res.send(reply);
+    });
+
+  
+});
+
+       
+   
+
+
+app.post('/addFirstQuestion', (req, res) => {
+    console.log('ADD FIRST QUESTION');
+    let test = req.body;
+    let reply = {};
+    console.log(test);
+    let script = { texts: req.body.texts, scriptId: req.body.scriptId };
+    let sql = 'INSERT INTO question SET ?';
+    console.log("On server side first");
+    console.log(script);
+    let query = db.query(sql, script, (err, result) => {
+        if (err) {
+            throw err;
         } else {
             //Update Script with First Question ID
             console.log("successfully entered, trying for question");
@@ -261,6 +287,7 @@ app.post('/get-script', (req, res) => {
 app.post('/get-question', (req, res) => {
     console.log(req.body.questionId);
     let sql = 'SELECT * FROM question WHERE questionId = ' + req.body.questionId;
+    console.log(sql);
     let query = db.query(sql, (err, result) => {
 
         if (err) {
@@ -321,13 +348,13 @@ app.post('/orgUsers', (req, res) => {
             throw err;
         }
         console.log(result)
-        
+
         let sql2 = 'SELECT * FROM users WHERE orgId = ' + result[0].orgId;
         let query2 = db.query(sql2, (err, result1) => {
             if (err) {
                 throw err;
             }
-            console.log('result 2= ' +result1);
+            console.log('result 2= ' + result1);
             res.send(result1);
         });
     });
@@ -340,7 +367,7 @@ app.post('/get-orgscripts', (req, res) => {
         if (err) {
             throw err;
         }
-        console.log(result);        
+        console.log(result);
         res.send(result);
     });
 

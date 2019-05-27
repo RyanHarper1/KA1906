@@ -45,6 +45,7 @@ export class BuildScriptComponent implements OnInit {
   texts: any;
   answer = 1;
   saved = false;
+  submit = false;
   private answers: string[] = [];
   questionId: any;
   loggedIn = false;
@@ -55,16 +56,39 @@ export class BuildScriptComponent implements OnInit {
   constructor(public dialog: MatDialog, private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient, private router: Router,private editService: EditServiceService, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) { 
    
     iconRegistry.addSvgIcon(
-      'add',
-      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/plus-circle-solid.svg'));
+      'answer',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/chevron.svg'));
     iconRegistry.addSvgIcon(
       'remove',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/red-cross.svg'));
     iconRegistry.addSvgIcon(
-      'answer',
-      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/chevron.svg'));
-  }
- 
+      'record',
+     sanitizer.bypassSecurityTrustResourceUrl('../assets/img/microphone-solid.svg'));
+    iconRegistry.addSvgIcon(
+      'pause',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/pause-solid.svg'));
+    iconRegistry.addSvgIcon(
+      'stop',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/stop-solid.svg'));
+    iconRegistry.addSvgIcon(
+      'bold',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/bold-solid.svg'));
+    iconRegistry.addSvgIcon(
+      'italic',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/italic-solid.svg'));
+    iconRegistry.addSvgIcon(
+      'underline',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/underline-solid.svg'));
+    iconRegistry.addSvgIcon(
+      'bullet',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/bulletpoint-solid.svg'));
+    iconRegistry.addSvgIcon(
+       'numbering',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/numbering-solid.svg'));
+    iconRegistry.addSvgIcon(
+        'font',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/font-solid.svg'));
+    }
  
 
   Submit() {
@@ -87,6 +111,7 @@ export class BuildScriptComponent implements OnInit {
     }
 
     this.success = true;
+    this.submit = true;
     this.saved = true;
     
 
@@ -117,28 +142,34 @@ export class BuildScriptComponent implements OnInit {
 
   }
   nextQuestion(selectedAnswer,num) {
+    this.saved = false;
     this.answer = 1;
     this.texts = '';
-    this.saved = true;
     this.submitted = true;
     this.tempAnswer = this.answers[num];
     for (let i = 0; i < this.answers.length; i++){
-      this.answers[i] = " ";
+      this.answers[i] = "";
 
     }
     //console.log('questionId: '+ this.questionId);
 
+  }
+  isSubmited(){
+    return this.saved
   }
   submitAnswer(){
     console.log('ques:' + this.response )
     this.scriptData1.questionId = this.Auth.scriptData1.questionId;
     this.scriptData1.scriptId = this.Auth.scriptData1.scriptId;
         console.log('ques: ' + this.questionId + 'scri' + this.scriptId)
-    this.Auth.submitAnswer( this.questionId, this.scriptId, this.answers, this.texts, this.tempAnswer)
-  
+    this.Auth.submitAnswer( this.scriptData1.questionId, this.scriptData1.scriptId, this.answers, this.texts, this.tempAnswer)
+    this.saved = true;
   }
 
   openDialog() {
+    if (!this.submit ) { 
+      
+    
     const dialogRef = this.dialog.open(DialogForm,{
       width: '700px'
     });
@@ -155,7 +186,10 @@ export class BuildScriptComponent implements OnInit {
       console.log('Dialog result:' + result.subcategory);
       this.Submit()
     });
-
+  }
+  else{
+    this.submitAnswer();
+  }
   
 }
 }

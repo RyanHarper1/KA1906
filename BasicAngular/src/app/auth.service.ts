@@ -39,7 +39,7 @@ export class AuthService {
   id: String;
   username: String;
   test: any;
-  orgId=null;
+  orgId = null;
   blank = "";
   returns: object;
   scriptData1 = {} as scriptData;
@@ -59,18 +59,18 @@ export class AuthService {
 
   sendScript<scriptData>(scriptName, category, subcategory, description, question, answers) {
     //insert script
-    let posts = this.Http.post('http://localhost:3000/addscript', {usersID: this.id,category:category,scriptName:scriptName,subcategory:subcategory,description:description});
+    let posts = this.Http.post('http://localhost:3000/addscript', { usersID: this.id, category: category, scriptName: scriptName, subcategory: subcategory, description: description });
     posts.subscribe((response) => {
       this.response = response;
 
       console.log(this.response);
       console.log(this.response.scriptId);
       console.log('Object 1:' + question)
-      
+
       //insert question
-      let quest = this.Http.post<questionData>('http://localhost:3000/addQuestion', { texts: question, scriptId: this.response.scriptId });
+      let quest = this.Http.post<questionData>('http://localhost:3000/addFirstQuestion', { texts: question, scriptId: this.response.scriptId });
       quest.subscribe((response1) => {
-        this.returns ={};
+        this.returns = {};
         this.response1 = response1;
         this.scriptData1.scriptId = this.response.scriptId;
         console.log('response1: ' + response1.questionId)
@@ -81,31 +81,35 @@ export class AuthService {
           ans.subscribe((response2) => {
             this.response = response1
             console.log('answer responses: ' + response2);
-            
+
           });
         }
-        
-       
-      
-     
+
+
+
+
 
         return this.returns;
       });
     });
-  return null;
+    return null;
   }
-  submitAnswer(questionId,scriptId, answers, question, selectedAnswer){
+
+  submitAnswer(questionId, scriptId, answers, question, selectedAnswer) {
+    console.log('It is trying to submit answer')
     let quest = this.Http.post<questionData>('http://localhost:3000/addQuestion', { texts: question, scriptId: scriptId });
     quest.subscribe((response1) => {
       console.log('response1: ' + response1)
-
+      this.response1 = response1;
+      console.log('response1: ' + response1.questionId)
+      this.scriptData1.questionId = response1.questionId;
       //insert answers
       for (let i = 0; i < answers.length; i++) {
         let ans = this.Http.post<questionData>('http://localhost:3000/addAnswer', { texts: answers[i], questionId: response1.questionId });
         ans.subscribe((response2) => {
           this.response = response1
           console.log('answer responses: ' + response2);
-          
+
         });
       }
       console.log('selected answer: ' + selectedAnswer)
@@ -114,10 +118,10 @@ export class AuthService {
 
       });
       return response1.questionId;
-      
+
     });
   }
-  
+
   //User register function
   register(object) {
 
@@ -168,6 +172,6 @@ export class AuthService {
     console.log('blah');
   }
 
-  
+
 
 }

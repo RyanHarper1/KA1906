@@ -7,7 +7,9 @@
 </div>
 
 <!--Script details-->
+<div *ngIf = "loaded"> 
 <div class="script-details-container">
+  <button mat-button (click)="backQuestion()" *ngIf ="previousAnswerCount > 0 ">Back</button>
     <div class="script-details">Category</div>
     <input class="input-details"type="text" [(ngModel)] ="category" readonly>
     <div class="script-details">Script Name</div>
@@ -21,39 +23,30 @@
   <mat-grid-tile [colspan]="3">
     <div class="boxed-answer">
         <div class="next-answer">
-        <button mat-button (click)="nextQuestion(answer[0])"><mat-icon svgIcon="answer"></mat-icon></button>
+        <button mat-button (click)="nextQuestion(answer[0],0)" *ngIf="answers[0].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
       </div>
       <div class="answer-title">Answer</div>
-      <div class="remove-answer">
-       <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
-      </div>
-      <textarea [(ngModel)]="answers[0].texts" rows="4" cols="40" name="texts"></textarea>
+      <textarea [(ngModel)]="answers[0].texts" rows="4" cols="40" name="texts" readonly></textarea>
     </div>
   </mat-grid-tile>
     
   <mat-grid-tile [colspan]="3">
     <div class="boxed-answer" *ngIf="answer > 1">
         <div class="next-answer">
-            <button mat-button (click)="nextQuestion(answer[1])"><mat-icon svgIcon="answer"></mat-icon></button>
+            <button mat-button (click)="nextQuestion(answer[1],1)" *ngIf="answers[1].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
-        <div class="remove-answer">
-            <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
-        </div>
-      <textarea [(ngModel)]="answers[1].texts" rows="4" cols="40" name="texts"></textarea>
+      <textarea [(ngModel)]="answers[1].texts" rows="4" cols="40" name="texts" readonly></textarea>
     </div>
   </mat-grid-tile>
   
   <mat-grid-tile [colspan]="3">
     <div class="boxed-answer" *ngIf="answer > 2">
         <div class="next-answer">
-            <button mat-button (click)="nextQuestion(answer[2])"><mat-icon svgIcon="answer"></mat-icon></button>
+            <button mat-button (click)="nextQuestion(answer[2],2)" *ngIf="answers[2].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
-        <div class="remove-answer">
-            <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
-        </div>
-      <textarea [(ngModel)]="answers[2].texts" rows="4" cols="40" name="texts"></textarea>
+      <textarea [(ngModel)]="answers[2].texts" rows="4" cols="40" name="texts" readonly></textarea>
     </div>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="1"></mat-grid-tile>
@@ -62,39 +55,30 @@
   <mat-grid-tile [colspan]="3">
     <div class="boxed-answer" *ngIf="answer > 3">
         <div class="next-answer">
-            <button mat-button (click)="nextQuestion(answer[3])"><mat-icon svgIcon="answer"></mat-icon></button>
+            <button mat-button (click)="nextQuestion(answer[3],3)" *ngIf="answers[3].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
-        <div class="remove-answer">
-            <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
-        </div>
-      <textarea [(ngModel)]="answers[3].texts" rows="4" cols="40" name="texts"></textarea>
+      <textarea [(ngModel)]="answers[3].texts" rows="4" cols="40" name="texts" readonly></textarea>
     </div>
   </mat-grid-tile>
   
   <mat-grid-tile [colspan]="3">
     <div class="boxed-answer" *ngIf="answer > 4">
         <div class="next-answer">
-            <button mat-button (click)="nextQuestion(answer[4])"><mat-icon svgIcon="answer"></mat-icon></button>
+            <button mat-button (click)="nextQuestion(answer[4],4)" *ngIf="answers[4].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
-        <div class="remove-answer">
-            <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
-        </div>
-      <textarea [(ngModel)]="answers[4].texts" rows="4" cols="40" name="texts"></textarea>
+      <textarea [(ngModel)]="answers[4].texts" rows="4" cols="40" name="texts" readonly></textarea>
     </div>
   </mat-grid-tile>
 
   <mat-grid-tile [colspan]="3">
     <div class="boxed-answer" *ngIf="answer > 5">
        <div class="next-answer">
-        <button mat-button (click)="nextQuestion(answer[5])"><mat-icon svgIcon="answer"></mat-icon></button>
+        <button mat-button (click)="nextQuestion(answer[5],5)" *ngIf="answers[5].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
     </div>
     <div class="answer-title">Answer</div>
-    <div class="remove-answer">
-        <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
-    </div>
-      <textarea [(ngModel)]="answers[5].texts" rows="4" cols="40" name="texts"></textarea>
+      <textarea [(ngModel)]="answers[5].texts" rows="4" cols="40" name="texts" readonly></textarea>
     </div>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="1"> </mat-grid-tile>
@@ -103,39 +87,30 @@
   <mat-grid-tile [colspan]="3">
     <div class="boxed-answer" *ngIf="answer > 6">
         <div class="next-answer">
-            <button mat-button (click)="nextQuestion(answer[6])"><mat-icon svgIcon="answer"></mat-icon></button>
+            <button mat-button (click)="nextQuestion(answer[6],6)" *ngIf="answers[6].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
-        <div class="remove-answer">
-            <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
-        </div>
-      <textarea [(ngModel)]="answers[6].texts" rows="4" cols="40" name="texts"></textarea>
+      <textarea [(ngModel)]="answers[6].texts" rows="4" cols="40" name="texts" readonly></textarea>
     </div>
   </mat-grid-tile>
 
   <mat-grid-tile [colspan]="3">
     <div class="boxed-answer" *ngIf="answer > 7">
         <div class="next-answer">
-            <button mat-button (click)="nextQuestion(answer[7])"><mat-icon svgIcon="answer"></mat-icon></button>
+            <button mat-button (click)="nextQuestion(answer[7],7)" *ngIf="answers[7].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
-        <div class="remove-answer">
-            <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
-        </div>
-      <textarea [(ngModel)]="answers[7].texts" rows="4" cols="40" name="texts"></textarea>
+      <textarea [(ngModel)]="answers[7].texts" rows="4" cols="40" name="texts" readonly></textarea>
     </div>
   </mat-grid-tile>
 
   <mat-grid-tile [colspan]="3">
     <div class="boxed-answer" *ngIf="answer > 8">
         <div class="next-answer">
-            <button mat-button (click)="nextQuestion(answer[8])"><mat-icon svgIcon="answer"></mat-icon></button>
+            <button mat-button (click)="nextQuestion(answer[8],8)" *ngIf="answers[8].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
-        <div class="remove-answer">
-            <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
-        </div>
-      <textarea [(ngModel)]="answers[8].tests" rows="4" cols="40" name="texts"></textarea>
+      <textarea [(ngModel)]="answers[8].texts" rows="4" cols="40" name="texts" readonly></textarea>
     </div>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="1"> </mat-grid-tile>
@@ -146,19 +121,10 @@
 <mat-grid-tile [colspan]="7" [rowspan] ="3">
     <div class="boxed-pitch">
       <div class="pitch-title">Pitch</div>
-      <div class="edit-ribbon-container">
-        <button class="edit-icon" mat-button><mat-icon svgIcon="bold"></mat-icon></button>
-        <button class="edit-icon" mat-button><mat-icon svgIcon="italic"></mat-icon></button>
-        <button class="edit-icon" mat-button><mat-icon svgIcon="underline"></mat-icon></button>
-        <button class="edit-icon" mat-button><mat-icon svgIcon="bullet"></mat-icon></button>
-        <button class="edit-icon" mat-button><mat-icon svgIcon="numbering"></mat-icon></button>
-        <button class="edit-icon" mat-button><mat-icon svgIcon="font"></mat-icon></button>
-      </div>
-        <textarea [(ngModel)]="question" rows="8" cols="80"></textarea>
-         <div class="save-edit-container">
-       <button class="save-btn" mat-button>Save</button>
-       <button class="edit-btn" mat-button>Edit</button>
-      </div>
+     
+      <textarea [(ngModel)]="question" rows="8" cols="80" readonly></textarea>
+     
+
     </div>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="2"> </mat-grid-tile>
@@ -166,7 +132,7 @@
 
 </mat-grid-list>
 
-
+</div>
 
   
 

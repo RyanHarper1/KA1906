@@ -16,6 +16,7 @@ import { ScriptShareComponent} from './components/script-share/script-share.comp
 import { EditScriptComponent} from './components/edit-script/edit-script.component'
 import {UpdateDetailsComponent} from './components/update-details/update-details.component'
 import { AdminComponent } from './components/admin/admin.component';
+import { ViewScriptComponent } from './components/view-script/view-script.component';
 
 const routes: Routes = [
   {
@@ -79,6 +80,12 @@ const routes: Routes = [
   {
   path: 'admin',
   component: AdminComponent,
+  canActivate: [AuthGuard]
+  
+},
+{
+  path: 'view-script',
+  component: ViewScriptComponent,
   canActivate: [AuthGuard]
   
 }
