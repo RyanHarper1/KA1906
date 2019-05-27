@@ -48,7 +48,6 @@ export class CurrentScriptsComponent implements OnInit {
     if (this.loggedIn) {
       let current = this.Http.post('http://localhost:3000/current-scripts', { id: this.Auth.getId });
       current.subscribe((response) => {
-
         this.list = response;
         console.log(response)
       });

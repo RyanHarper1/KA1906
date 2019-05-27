@@ -9,23 +9,23 @@ import { AuthService } from 'src/app/auth.service';
 })
 
 export class NavComponent implements OnInit {
-  
+
   constructor(private Auth:AuthService) {
       
   }
+
   loggedIn: Boolean;
   ngOnInit() {
     this.Auth.change.subscribe(loggedIn => {
-           this.loggedIn = loggedIn;  
+           this.loggedIn = loggedIn;
       console.log('nav: ' + this.loggedIn)
     });
-    
-   
+
   }
   logout(){
     this.Auth.logout();
     this.Auth.change.subscribe(loggedIn => {
-      this.loggedIn = loggedIn;  
+      this.loggedIn = loggedIn;
  console.log('nav2: ' + this.loggedIn)
   });
   this.loggedIn = false;
