@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
     this.result = data.message;
     if ( data.result == 'true'){
       this.Auth.userDetails(data);
-      this.router.navigate(['']);
+      this.router.navigate(['home']);
       this.Auth.setLoggedIn(true);
     }
    });

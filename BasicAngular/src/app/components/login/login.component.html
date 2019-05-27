@@ -1,30 +1,53 @@
 
-<div id="saleScript">
-    <img src="/assets/logo.JPG" alt="logo" style="width:450px;">
-  </div><br>
-  
+  <div id="banner">
+    <img class="banner-img" src="/assets/img/login-gradient-overlay.png" width="100%" height="100%">
+    <img class="logo-img" src="/assets/img/WhiteLogo.png" alt="logo" width="100%" heght="100%">
+    <div class="title">Login</div>
+    <img class="icon" src="assets/img/Login-icon.png">
+</div>
+
 <div id="login-box">
-    <div class="left-box">
-      <h1> Login</h1>
+    <img class="bkgrnd" src="assets/img/bkgrndlogin-17.png">
+  <div class="heading-inbox">
+    <h1>User login</h1>
+  </div>
+
 <form [formGroup]="logInForm" (ngSubmit)="onSubmit()">
+  
+  <label class="required">*</label> <label> Email</label>
 
-  <label>
-      <label class="required">*</label>Email
-      <input type="text" placeholder="Email" formControlName="email">
-      <div *ngIf="submitted && logInForm.controls.email.errors">
-        <div *ngIf="logInForm.controls.email.errors.required">Your email is required<p></p>
-        </div>
+  <div *ngIf="submitted && logInForm.controls.email.errors" id="error-container">
+      <div class="error" *ngIf="logInForm.controls.email.errors.required">Your email is required
       </div>
-    </label>
-
-  <label>
-      <label class="required">*</label>Password
-    <input type="password" placeholder="Password" formControlName="password">
-    <div *ngIf="submitted && logInForm.controls.password.errors">
-      <div *ngIf="logInForm.controls.password.errors.required">Your Password is required</div>
     </div>
-  </label>
+
+  <div id="input_container">
+      <input type="text" placeholder="Email" id="email" formControlName="email" >
+      <img src="assets/img/envelope-solid.svg" id="input_icon">
+  </div>
+      
+
+  <label class="required">*</label> <label> Password</label>
+  <div *ngIf="submitted && logInForm.controls.password.errors" id="error-container">
+      <div class="error" *ngIf="logInForm.controls.password.errors.required">Your password is required
+      </div>
+    </div>
+  <div id="input_container">
+    <input type="password" placeholder="Password" id="password" formControlName="password">
+    <img src="assets/img/lock-solid.png" id="input_icon">
+  </div>  
+
+    
+  <div class="fgt-psw-container">
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
 
   <input type="submit" value="Login">
+  
+
+  
+<div *ngFor ="let post of posts | async">
+  {{post | json}}
+  </div>
 
 </form>

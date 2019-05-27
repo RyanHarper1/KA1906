@@ -1,0 +1,36 @@
+    
+        <div style = "  display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-right: auto; margin-left: auto; margin-top:2%;
+        width: 50%;
+      ">
+        <h3>Script Name: </h3><input matInput [(ngModel)]="name" placeholder ="Input Name">
+        <h3>Category: </h3>
+    <mat-form-field>
+        <mat-select  [(ngModel)]="category">
+          <mat-option value="IT">IT</mat-option>
+          <mat-option value="Health">Health</mat-option>
+          <mat-option value="Insurance">Insurance</mat-option>
+          <mat-option value="Electricity">Electricity</mat-option>
+        </mat-select>
+    </mat-form-field>
+      <h3>Sub-Category: </h3>
+      <mat-form-field>
+          <mat-select   [(ngModel)] ="subcategory">
+            <mat-option value="Business Development">Business Development</mat-option>
+            <mat-option value="Sales Representative">Sales Representative</mat-option>
+            <mat-option value="Telesales">Telesales</mat-option>
+            <mat-option value="Marketing">Marketing</mat-option>
+            <mat-option value="Account Management">Account Management</mat-option>
+            <mat-option value="Outbound">Outbound</mat-option>
+            <mat-option value="Inbound">Inbound</mat-option>
+            <mat-option value="Sales Management">Sales Management</mat-option>
+            <mat-option value="Territory Sales">Territory Sales</mat-option>
+            <mat-option value="Area Sales">Area Sales</mat-option>
+          </mat-select>
+        </mat-form-field>
+    <input matInput [(ngModel)]="description" placeholder="Description">
+    <p></p>
+    <button mat-button (click) = "closeDialog()">Save</button>
+      </div>

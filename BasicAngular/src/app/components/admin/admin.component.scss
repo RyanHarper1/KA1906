@@ -1,0 +1,21 @@
+.userDetails {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: auto; margin-left: auto; margin-top:2%;
+    width: 50%;
+  }
+  
+  
+  
+  .example-container form {
+    margin-bottom: 20px;
+  }
+  
+  .example-container form > * {
+    margin: 5px 0;
+  }
+  
+  .example-container .mat-radio-button {
+    margin: 0 50px;
+  }
