@@ -1,89 +1,54 @@
 <div id="banner">
-    <img class="banner-img" src="/assets/img/admin.png" width="100%" height="100%">
-    <img class="logo-img" src="/assets/img/Logo.png" alt="logo" width="100%" heght="100%">
-    <div class="title">Admin</div>
-  </div>
+  <img class="banner-img" src="/assets/img/admin.png
+  " width="100%" height="100%">
+  <img class="logo-img" src="/assets/img/Logo.png" alt="logo" width="100%" heght="100%">
+  <div class="title">Admin</div>
+</div>
 
 
+<div class ="userDetails">
+<mat-form-field>
+  <input matInput placeholder="First Name">
+</mat-form-field>
 
+<mat-form-field>
+  <textarea matInput placeholder="Last Name"></textarea>
+</mat-form-field>
+<mat-form-field>
+  <textarea matInput placeholder="email"></textarea>
+</mat-form-field>
+<mat-form-field>
+  <textarea matInput placeholder="password"></textarea>
+</mat-form-field>
+<mat-radio-group aria-label="User type">
+    <mat-radio-button value="1">User</mat-radio-button>
+    <mat-radio-button value="2">Supervisor</mat-radio-button>
+    <mat-radio-button value="3">Admin</mat-radio-button>
+  </mat-radio-group>
+</div>
+<br>
+<br>
 
-
-<!--ADD NEW USER ROW-->
-  
-<mat-grid-list cols="11" rowHeight="100px">
-    <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-    <mat-grid-tile id="new-user-tile" [colspan]="3"><button mat-button id="new-usr-bttn"><mat-icon svgIcon="add"></mat-icon>New User</button></mat-grid-tile>
-    <!-- <mat-grid-tile id="new-user-tile" [colspan]="0"> </mat-grid-tile> -->
-    <mat-grid-tile id="new-user-tile" [colspan]="3"> </mat-grid-tile>
-    <!-- <mat-grid-tile id="new-user-tile" [colspan]="0"> </mat-grid-tile> -->
-    <mat-grid-tile id="new-user-tile" [colspan]="3"> </mat-grid-tile>
-    <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-
-
-     <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-      <mat-grid-tile [colspan]="3">
-
-        <div class ="userDetails">
-            <mat-form-field id="form">
-              <input matInput placeholder="First Name">
-            </mat-form-field>
-            <mat-form-field id="form">
-                <input matInput placeholder="Last Name">
-            </mat-form-field>
-          </div>
-
-      </mat-grid-tile>
-    <!-- <mat-grid-tile [colspan]="0"> </mat-grid-tile> -->
-    <mat-grid-tile [colspan]="3"> 
-        <div class ="userDetails">
-        <mat-form-field id="form">
-            <input matInput placeholder="Email">
-        </mat-form-field>
-        <mat-form-field id="form">
-            <input matInput placeholder="Password">
-        </mat-form-field>
-      </div>
-    </mat-grid-tile>
-    <!-- <mat-grid-tile [colspan]="0"> </mat-grid-tile> -->
-    <mat-grid-tile [colspan]="3">
-
-
-        <div class ="userDetails">
-            <div class="perm-title">Permission</div>
-        <mat-radio-group aria-label="User type">
-            <mat-radio-button id="radio" value="1">User</mat-radio-button>
-            <mat-radio-button id="radio" value="2">Supervisor</mat-radio-button>
-            <mat-radio-button id="radio" value="3">Admin</mat-radio-button>
-        </mat-radio-group>
-        </div>
+<mat-grid-list cols ="7" rowHeight = "100px">
+    <mat-grid-tile [colspan]= "1"> </mat-grid-tile>
+    <mat-grid-tile  [colspan]="1">First Name </mat-grid-tile>
+    <mat-grid-tile [colspan]= "1">Last Name </mat-grid-tile>
+    <mat-grid-tile  [colspan]="1">Email </mat-grid-tile>
+    <mat-grid-tile [colspan]= "1">Permission </mat-grid-tile>
+    <mat-grid-tile [colspan]= "1"> </mat-grid-tile>
+    <mat-grid-tile [colspan]= "1"> </mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list cols ="7" rowHeight = "100px" *ngFor="let li of list">
+    <mat-grid-tile [colspan]= "1"> </mat-grid-tile>
+    <mat-grid-tile  [colspan]="1">{{li.fName}}</mat-grid-tile>
+    <mat-grid-tile [colspan]= "1">{{li.lName}}</mat-grid-tile>
+    <mat-grid-tile  [colspan]="1">{{li.email}}</mat-grid-tile>
+    <mat-grid-tile [colspan]= "1"></mat-grid-tile>
+    <mat-grid-tile [colspan]= "1"> <button mat-button (click)="editScript(li)"> <mat-icon svgIcon="edit"></mat-icon>
+    </button>
+    <button mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">
+      <mat-icon svgIcon="delete"></mat-icon>
+    </button></mat-grid-tile>
+    <mat-grid-tile [colspan]= "1"> </mat-grid-tile>
     
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="1"> </mat-grid-tile>
- 
-  </mat-grid-list>
-    <br>
-    <br>
-    
-    <mat-grid-list cols ="7" rowHeight = "100px">
-        <mat-grid-tile [colspan]= "1"> </mat-grid-tile>
-        <mat-grid-tile class="table" [colspan]="1">First Name </mat-grid-tile>
-        <mat-grid-tile [colspan]= "1">Last Name </mat-grid-tile>
-        <mat-grid-tile  [colspan]="1">Email </mat-grid-tile>
-        <mat-grid-tile [colspan]= "1">Permission </mat-grid-tile>
-        <mat-grid-tile [colspan]= "1"> </mat-grid-tile>
-        <mat-grid-tile [colspan]= "1"> </mat-grid-tile>
-    </mat-grid-list>
-    <mat-grid-list cols ="7" rowHeight = "100px" *ngFor="let li of list">
-        <mat-grid-tile [colspan]= "1"> </mat-grid-tile>
-        <mat-grid-tile  [colspan]="1">{{li.fName}}</mat-grid-tile>
-        <mat-grid-tile [colspan]= "1">{{li.lName}}</mat-grid-tile>
-        <mat-grid-tile  [colspan]="1">{{li.email}}</mat-grid-tile>
-        <mat-grid-tile [colspan]= "1"></mat-grid-tile>
-        <mat-grid-tile [colspan]= "1"> <button mat-button (click)="editScript(li)"> <mat-icon svgIcon="edit"></mat-icon>
-        </button>
-        <button mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">
-          <mat-icon svgIcon="delete"></mat-icon>
-        </button></mat-grid-tile>
-        <mat-grid-tile [colspan]= "1"> </mat-grid-tile>
-        
-    </mat-grid-list>
+</mat-grid-list>
