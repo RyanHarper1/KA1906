@@ -23,6 +23,7 @@ export class CartComponent implements OnInit {
   list: any;
   loggedIn = false;
   columns = [ 'scriptName','price', 'uploadDate', 'category', 'rating' ];
+  loaded = false;
 
   public payPalConfig ? : IPayPalConfig;
   idPayPal: any; //paypal
@@ -36,6 +37,7 @@ export class CartComponent implements OnInit {
 
         this.list=response;
         console.log(response)
+        this.loaded = true;
       });
     }
   }
@@ -117,6 +119,7 @@ export class CartComponent implements OnInit {
       this.list=response;
       console.log(response)
       this.router.navigate(['/cart']);
+      this.ngOnInit()
     });
     console.log(cart);
   }

@@ -365,7 +365,7 @@ app.post('/get-answer', (req, res) => {
 
 app.post('/upload-script', (req, res) => {
     let sql = 'INSERT INTO store SET ?';
-    let values = { usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, uploadDate: Date.now(), category: req.body.category, rating: 0, question: 0, description: req.body.description }
+    let values = { usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, uploadDate:req.body.uploadDate, question: req.body.question, category: req.body.category, rating: 0, description: req.body.description }
     let query = db.query(sql, values, (err, result) => {
         if (err) {
             throw err;
