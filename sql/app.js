@@ -153,11 +153,11 @@ app.post('/addquestion', (req, res) => {
         res.send(reply);
     });
 
-  
+
 });
 
-       
-   
+
+
 
 
 app.post('/addFirstQuestion', (req, res) => {
@@ -183,7 +183,9 @@ app.post('/addFirstQuestion', (req, res) => {
                     console.log(result1);
                 }
             });
-
+        }
+    });
+});
 
 
 //addscript questions/pitches
@@ -231,27 +233,29 @@ app.post('/delete-script', (req, res) => {
 });
 
 
-        //add cart item
-        app.post('/add-item', (req, res) => {
-            let reply = {};
-            let store = { storeID: req.body.storeID, usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price,
-                          description: req.body.description, rating: req.body.rating, uploadDate: req.body.uploadDate, category: req.body.category};
-            let sql = 'INSERT INTO cart SET ?';
-            console.log("On server side");
-            console.log(store);
-            let query = db.query(sql, store, (err, result) => {
-                if (err) {
-                    throw err;
-                } else {
-                    console.log("successfully added");
+//add cart item
+app.post('/add-item', (req, res) => {
+    let reply = {};
+    let store = {
+        storeID: req.body.storeID, usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price,
+        description: req.body.description, rating: req.body.rating, uploadDate: req.body.uploadDate, category: req.body.category
+    };
+    let sql = 'INSERT INTO cart SET ?';
+    console.log("On server side");
+    console.log(store);
+    let query = db.query(sql, store, (err, result) => {
+        if (err) {
+            throw err;
+        } else {
+            console.log("successfully added");
 
-                    reply = {
-                        result: 'success', idanswer: result.insertId
-                    }
-                }
-                res.send(reply);
-            });
-        });
+            reply = {
+                result: 'success', idanswer: result.insertId
+            }
+        }
+        res.send(reply);
+    });
+});
 
 
 app.get('/store', (req, res) => {
@@ -266,7 +270,7 @@ app.get('/store', (req, res) => {
 });
 
 //load cart
-app.post('/cart', (req,res) => {
+app.post('/cart', (req, res) => {
     console.log(req.body.id);
     let sql = 'SELECT * FROM cart WHERE usersId = ' + req.body.id;
     let query = db.query(sql, (err, result) => {
@@ -411,7 +415,7 @@ app.listen('3000', () => {
 
 
 //get storeID
-app.post('/get-answer', (req,res) => {
+app.post('/get-answer', (req, res) => {
     console.log(req.body.questionId);
     let sql = 'SELECT * FROM answer WHERE questionId = ' + req.body.questionId;
     let query = db.query(sql, (err, result) => {
@@ -425,7 +429,7 @@ app.post('/get-answer', (req,res) => {
 
 //Clear Cart
 app.post('/clear-cart', (req, res) => {
-    let cart = { storeID: req.body.storeID, usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, description: req.body.description, rating: req.body.rating, uploadDate: req.body.uploadDate, category: req.body.category};
+    let cart = { storeID: req.body.storeID, usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, description: req.body.description, rating: req.body.rating, uploadDate: req.body.uploadDate, category: req.body.category };
     let sql = 'DELETE FROM cart WHERE usersID  = ' + req.body.usersID;
     console.log("On server side");
     console.log(cart);
@@ -446,8 +450,10 @@ app.post('/clear-cart', (req, res) => {
 //cart paid
 app.post('/payment-details', (req, res) => {
     let reply = {};
-    let paid = { storeID: req.body.storeID, usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price,
-                  description: req.body.description, rating: req.body.rating, uploadDate: req.body.uploadDate, category: req.body.category};
+    let paid = {
+        storeID: req.body.storeID, usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price,
+        description: req.body.description, rating: req.body.rating, uploadDate: req.body.uploadDate, category: req.body.category
+    };
     let sql = 'INSERT INTO PayPal SET ?';
     console.log("On server side");
     console.log(paid);
