@@ -116,7 +116,6 @@
 // }
 
 .boxed-answer {
-
   display: inline;
   background-color: #3a4f6e;
   font-size: 30px;
@@ -135,6 +134,7 @@ textarea {
 .boxed-pitch{
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
   display: block;
   background: #3a4f6e;
   box-shadow: 5px 10px 8px #b9b9b3;
@@ -147,6 +147,8 @@ textarea {
   font-weight: 500;
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .edit-ribbon-container{
