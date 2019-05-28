@@ -13,9 +13,10 @@ export class AdminComponent implements OnInit {
   list:any;
   constructor( sanitizer: DomSanitizer, iconRegistry: MatIconRegistry,private Auth: AuthService, private Http: HttpClient) {
 
-    
-   
-      iconRegistry.addSvgIcon(
+    iconRegistry.addSvgIcon(
+      'add',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/plus-circle-solid.svg'));
+    iconRegistry.addSvgIcon(
       'edit',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/edit-regular.svg'));
     iconRegistry.addSvgIcon(
