@@ -36,10 +36,10 @@
 
 /*END SCRIPT DETAILS*/
 
-.bck-btn-container{
-  margin-left: 10px;
-  margin-right: 10px;
 
+.bck-btn-container >::ng-deep .mat-figure{
+  justify-content: left;
+  margin-left: 5%;
 }
 
 #bck-btn{
