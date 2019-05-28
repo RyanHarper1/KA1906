@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/auth.service';
 import { Router } from '@angular/router';
+import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal'
 
 @Component({
   selector: 'app-cart',
