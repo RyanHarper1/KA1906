@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/auth.service';
 import { Router } from '@angular/router';
+<<<<<<< HEAD
+=======
+import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal'
+>>>>>>> parent of b7ac9093... cart
 
 @Component({
   selector: 'app-cart',
