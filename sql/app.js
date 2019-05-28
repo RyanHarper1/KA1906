@@ -236,6 +236,26 @@ app.post('/delete-script', (req, res) => {
     });
 });
 
+//Delete cart Item
+app.post('/delete-item', (req, res) => {
+    let cart = { storeID: req.body.storeID, usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, description: req.body.description, rating: req.body.rating, uploadDate: req.body.uploadDate, category: req.body.category};
+    let sql = 'DELETE FROM cart WHERE cartID  = ' + req.body.cartID;
+    console.log("On server side");
+    console.log(cart);
+    let query = db.query(sql, cart, (err, result) => {
+        if (err) {
+            throw err;
+        } else {
+            console.log("successfully deleted");
+
+            reply = {
+                result: 'success'
+            }
+        }
+        res.send(reply);
+    });
+});
+
 
 app.get('/store', (req, res) => {
     let sql = 'Select * from store'
