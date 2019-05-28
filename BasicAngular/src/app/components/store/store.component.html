@@ -9,7 +9,8 @@
 </p>
 </div>
 
-<div *ngIf = loggedIn>
+
+
 <mat-drawer-container [hasBackdrop]="false" #mode value="side">
 
   <mat-drawer #drawer [mode]="mode.value">Search<br>
@@ -36,8 +37,12 @@
           Category: {{li.category}}<br>
         </td>
         <td>
-          Data goes here
+          Price: ${{li.price}}<br>
+          Rating: {{li.rating}}<br>
+          Date: {{li.uploadDate | slice:0:10}}<br>
         </td>
+
+        <td><button mat-button (click)="addToCart(li)" [routerLink]="[ '/store' ]">Add To Cart</button></td>
       </tr>
 
     </table>
@@ -45,4 +50,3 @@
 
   </mat-drawer-content>
 </mat-drawer-container>
-</div>
