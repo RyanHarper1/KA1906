@@ -41,23 +41,37 @@
     </mat-grid-list>
   </mat-tab>
   <mat-tab label="Uploaded">
-    <table>
-
-      <tr *ngFor="let lo of storelist">
-        <td>
-          Name: {{lo.scriptName}}<br>
-          Description: {{lo.description}}<br>
-          Category: {{lo.category}}<br>
-          Sub-Category: {{lo.subcategory}}
-          Price: {{lo.price}}
-        </td>
-        <td>
-          Last Edited: {{lo.edited}}<br>
-          Template: {{lo.templates}}<br>
-        </td>
-      </tr>
-    </table>
+    <mat-grid-list cols="6" rowHeight="300px" *ngFor="let lo of storelist" class= "currentlist">
+        <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+        <mat-grid-tile [colspan]="2" >
+            Name: {{lo.scriptName}}<br>
+            Description: {{lo.description}}<br>
+            Category: {{lo.category}}<br>
+            Sub-Category: {{lo.subcategory}}
+            Price: {{lo.price}}
+        </mat-grid-tile> 
+        <mat-grid-tile [colspan]="2">
+            Last Edited: {{lo.edited}}<br>
+            Template: {{lo.templates}}<br>
+          <div class="functions" valign="top">
+            <button mat-button (click) ="viewScript(li)">View Script</button>
+                 <button mat-button (click)="editScript(li)">
+              <mat-icon svgIcon="edit"></mat-icon>
+            </button>
+            <button mat-button (click)='uploadScript(li)'>
+              <mat-icon svgIcon="upload"></mat-icon>
+            </button>
+            <button mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">
+              <mat-icon svgIcon="delete"></mat-icon>
+            </button>
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+    
+    
+        </mat-grid-list>
   </mat-tab>
+  
   <mat-tab label="Purchased">
   </mat-tab>
 </mat-tab-group>
