@@ -86,7 +86,7 @@ export class CartComponent implements OnInit {
         return actions.payment.execute().then((payment) => {
           //this.addToPayment(this.list);
           console.log('Transaction completed '/* + payment.payer_given_name*/);
-          this.clearCart(this.list); 
+          this.clearCart(this.list);
         })
       }
     };

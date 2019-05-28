@@ -16,6 +16,8 @@ import { Router } from '@angular/router';
 export class StoreComponent implements OnInit {
   constructor(private Http: HttpClient, private Auth : AuthService, private cartService: CartService, private router: Router) { }
   list: any;
+  store:Array<any>;
+  i=0;
   loggedIn = false;
   columns = [ 'scriptName','category', 'uploadDate', 'category', 'rating' ];
   usersID: any;
@@ -27,7 +29,8 @@ export class StoreComponent implements OnInit {
     store.subscribe((response) => {
 
       this.list=response;
-      console.log(response)
+      console.log(response);
+      console.log(this.list);
     });
   }
 
