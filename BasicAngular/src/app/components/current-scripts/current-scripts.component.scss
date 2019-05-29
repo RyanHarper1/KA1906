@@ -137,3 +137,8 @@ body {
     .buttons{
         display:inline-block;
     }
+.currentlist > ::ng-deep figure{
+  text-align:left;
+  justify-content: flex-start !important;
+ 
+}
