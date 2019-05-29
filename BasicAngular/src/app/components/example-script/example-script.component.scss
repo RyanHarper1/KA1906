@@ -1,19 +1,17 @@
-#banner{  
-  display: table;
-  margin-left: auto;
-  margin-right: auto;
-  height: 355px;
-  width: 1100px;
-  box-shadow: 5px 10px 8px #b9b9b3;
-  background: #e6e6e6;
-  }
 
+/*START BANNER*/
 .banner-img{
-  margin-left: auto;
-  margin-right: auto;
   object-fit: contain;
   object-position: right;
   }
+
+  .title{
+    top: 35%;
+  }
+
+/*END BANNER*/
+
+/*START SCRIPT DETAILS*/
   .script-details-container{
     text-align: center;
     margin-left: auto;
@@ -21,9 +19,11 @@
     margin-top: 50px;
     margin-bottom: 50px;
   }
+
   .input-details{
     display: inline-block;
     border: none;
+    font-size: 14pt;
   }
 
   .script-details{
@@ -31,44 +31,138 @@
     font-weight: bold;
     padding-left: 1em;
     padding-right: 1em;
+    font-size: 14pt;
   }
-  
-  .logo-img{
-  position: absolute;
+
+/*END SCRIPT DETAILS*/
+
+.bck-btn-container{
+  margin-left: 10px;
+  margin-right: 10px;
+
+}
+
+#bck-btn{
+  background-color: #3a4f6e;
+  color: white;
+  float: left;
+ }
+
+#bck-btn-icon{
+ margin-left: 10px;
+  margin-right: 10px;
+}
+
+  .next-answer{
+    top: 0;
+    padding: 0;
+    float: left;
+  }
+
+ .answer-title{
+  display: inline-block;
   margin-left: auto;
   margin-right: auto;
-  top: 0;
-  }
-  
-  .title{
-  position: absolute;
-  left: 0;
-  top: 35%;
-  text-align: center;
-  font-size: 50px;
-  font-weight: normal;
-  font-family: Helvetica, sans-serif;
-  font-kerning: normal;
-  letter-spacing: .2rem;
-  font-variant-caps: all-petite-caps;
+  font-size: 20px;
+  vertical-align: middle;
   color: white;
-  }
+ }
 
-
-.grid-container {
-    display: grid;
-    grid-column-gap: 30px;
-    grid-row-gap: 10px;
-    grid-template-columns: auto auto auto;
-    background-color: #2196F3;
-    padding: 10px;
+  .remove-answer{
+    top: 0;
+    padding: 0;
+    float: right;
   }
   
-  .boxed {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
+  .mat-button{
+    vertical-align: top;
+  }
+
+  .boxed-answer {
+    display: inline;
+    background-color: #3a4f6e;
     font-size: 30px;
     text-align: center;
+    width: 93%;
+    box-sizing: border-box;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-shadow: 5px 10px 8px #b9b9b3;
   }
+
+  textarea{
+    margin: 0;
+    border: none;
+    width: 100%;
+    vertical-align: bottom;
+    background: #f1f1f1;
+    resize: none;
+    font-size: 20px;
+    box-sizing: border-box;
+  }
+
+  .boxed-pitch{
+    width: 93%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background: #3a4f6e;
+    box-shadow: 5px 10px 8px #b9b9b3;
+   }
+  
+
+  .pitch-title{
+  color: white;
+  text-align: center;
+  font-size: 20pt;
+  font-weight: 500;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  
+  }
+
+  .edit-ribbon-container{
+    background: #3a4f6e;
+    border: 1px solid black;
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+
+    .edit-icon{
+      margin-left: 40px;
+      margin-right: 40px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      display: inline-block;
+      
+    
+    }
+  
+    .save-edit-container{
+      text-align: center;
+      background: #f1f1f1;
+      padding-left: 10%;
+      padding-right: 10%;
+    
+    }
+    .save-btn{
+      background: orangered;
+      color: white;
+      margin-left: 30px;
+      margin-right: 30px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .edit-btn{
+      background: orange;
+      color: white;
+      margin-left: 40px;
+      margin-right: 40px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+ 
   

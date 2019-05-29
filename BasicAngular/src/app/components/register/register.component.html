@@ -7,61 +7,59 @@
 </div>
 
 <div id="register-box">
+    <img class="bkgrnd" src="assets/img/bkgrndlogin-17.png">
     <div class="heading-inbox">
       <h1>Sign up here</h1></div>
 <div *ngIf="response"><p>Hello: {{response.name}}</p></div>
 
+
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
-
   <label class="required">*</label> <label>First Name</label>
+  <div *ngIf="submitted && registerForm.controls.fName.errors" id="error-container">
+      <div class="error" *ngIf="registerForm.controls.fName.errors.required">Your firstname is required
+      </div>
+  </div>
 
 <div id="input_container">
   <input type="text" placeholder="First Name" id="input" formControlName="fName">
   </div>
-  <div *ngIf="submitted && registerForm.controls.fName.errors" id="error-container">
-  <div class="error" *ngIf="registerForm.controls.fName.errors.required">Your firstname is required<p></p></div>
-</div>
-  
   
   <label class="required">*</label> <label> Last Name</label>
-
+  <div *ngIf="submitted && registerForm.controls.lName.errors" id="error-container">
+      <div class="error" *ngIf="registerForm.controls.lName.errors.required">Your lastname is required
+      </div>
+  </div>
   <div id="input_container">
     <input type="text" placeholder="Last Name" id="input" formControlName="lName">
   </div>
-    <div *ngIf="submitted && registerForm.controls.lName.errors" id="error-container">
-      <div class="error" *ngIf="registerForm.controls.lName.errors.required">Your lastname is required<p></p></div>
-  </div>
-  
+    
     <label class="required">*</label> <label>Email</label>
-
+    <div *ngIf="submitted && registerForm.controls.email.errors" id="error-container">
+        <div class="error" *ngIf="registerForm.controls.email.errors.required">Your email is required
+        </div>
+      </div>
     <div id="input_container">
       <input type="email" placeholder="Email" id="input" formControlName="email">
     </div>
-    <div *ngIf="submitted && registerForm.controls.email.errors">
-      <div class="error" *ngIf="registerForm.controls.email.errors.required">Your email is required<p></p></div>
-    </div>
-
-
-
+    
     <label class="required">*</label> <label>Password</label> 
-
+    <div *ngIf="submitted && registerForm.controls.password.errors" id="error-container">
+    <div class="error" *ngIf="registerForm.controls.password.errors.required">Password is required
+    </div>
+  </div>
     <div id="input_container">
     <input type="password" placeholder="Password" id="input" formControlName="password">
   </div>
-    <div *ngIf="submitted && registerForm.controls.password.errors">
-      <div class="error" *ngIf="registerForm.controls.password.errors.required">Password is required<p></p></div>
-    </div>
   
     <label class="required">*</label> <label>Confirm Password</label> 
-    
+    <div *ngIf="submitted && registerForm.controls.password.errors" id="error-container">
+        <div class="error" *ngIf="registerForm.controls.password.errors.required">Confirmation password is required
+        </div>
+      </div>
     <div id="input_container">
     <input type="password" placeholder="Re-type Password" id="input" formControlName="confirmPass">
     </div>  
-    <div *ngIf="submitted && registerForm.controls.password.errors">
-        <div class="error" *ngIf="registerForm.controls.password.errors.required">Confirmation password is required<p></p>
-        </div>
-      </div>
     
 
     <label class="tnc-container">

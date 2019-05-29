@@ -7,6 +7,7 @@ import { EditScriptComponent } from '../edit-script/edit-script.component';
 import { EditServiceService } from 'src/app/edit-service.service';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ViewScriptService } from 'src/app/view-script.service';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class CurrentScriptsComponent implements OnInit {
   columns = ['scriptName', 'category'];
   username: String;
   loggedIn = false;
-  constructor(sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, private Http: HttpClient, private Auth: AuthService, private router: Router, private editService: EditServiceService) {
+  constructor(sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, private Http: HttpClient, private Auth: AuthService, private router: Router, private editService: EditServiceService, private viewService: ViewScriptService) {
 
     iconRegistry.addSvgIcon(
       'upload',
@@ -47,7 +48,6 @@ export class CurrentScriptsComponent implements OnInit {
     if (this.loggedIn) {
       let current = this.Http.post('http://localhost:3000/current-scripts', { id: this.Auth.getId });
       current.subscribe((response) => {
-
         this.list = response;
         console.log(response)
       });
@@ -86,21 +86,29 @@ export class CurrentScriptsComponent implements OnInit {
     let del = this.Http.post('http://localhost:3000/delete-script', { scriptId: script.scriptId });
     del.subscribe((response) => {
 
-      this.list = response;
-      console.log(response)
-      this.router.navigate(['/current-script']);
+      this.ngOnInit()
     });
     console.log(script);
 
 
   }
   uploadScript(script) {
-    let upload = this.Http.post('http://localhost:3000/upload-script', { usersID: this.Auth.id, scriptID: script.scriptId, scriptName: script.scriptName, price: 5, category: script.category, description: script.description });
+    console.log('first question' + script.firstQuestionId)
+    let dateFormat = require('dateformat');
+    let now = new Date();
+    let date = String(dateFormat(now, "dd/mm/yyyy"));
+    let upload = this.Http.post('http://localhost:3000/upload-script', { usersID: this.Auth.id, scriptID: script.scriptId, uploadDate: date ,scriptName: script.scriptName, price: 5, category: script.category, question: Number(script.firstQuestionId), description: script.description });
     upload.subscribe((response) => {
       console.log(response)
+      this.ngOnInit();
     });
 
 
+  }
+  viewScript(script){
+    this.viewService.setScript(script.scriptId);
+    console.log(script);
+    this.router.navigate(['view-script']);
   }
 
 

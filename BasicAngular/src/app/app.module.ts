@@ -13,9 +13,9 @@ import { ExampleScriptComponent } from './components/example-script/example-scri
 import { StoreComponent } from './components/store/store.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CurrentScriptsComponent } from './components/current-scripts/current-scripts.component';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth.service'
-import { HttpClient } from '@angular/common/http'; 
+import { HttpClient } from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
 import { ScriptShareComponent } from './components/script-share/script-share.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -23,8 +23,11 @@ import {MatButtonModule, MatRadioModule,  MatCheckboxModule, MatSidenavModule, M
 import { FormsModule } from '@angular/forms';
 import { EditScriptComponent } from './components/edit-script/edit-script.component';
 import { UpdateDetailsComponent } from './components/update-details/update-details.component';
+import { CartService } from './cart.service';
+import { NgxPayPalModule } from 'ngx-paypal'
 import { AdminComponent } from './components/admin/admin.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { ViewScriptComponent } from './components/view-script/view-script.component';
 
 @NgModule({
   declarations: [
@@ -43,9 +46,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     UpdateDetailsComponent,
     DialogForm,
     AdminComponent,
-
-    
-    
+    ViewScriptComponent,
   ],
   imports: [
     FormsModule,
@@ -54,9 +55,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatButtonModule, 
+    MatButtonModule,
     MatCheckboxModule,
-    MatSidenavModule,     
+    MatSidenavModule,
     MatFormFieldModule,
     MatInputModule ,
     MatSelectModule,
@@ -64,16 +65,16 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatIconModule,
     MatMenuModule,
     MatTabsModule,
+    NgxPayPalModule,
     MatDialogModule,
     MatRadioModule,
     MatGridListModule
 
-    
   ],
   exports: [
     MatToolbarModule, MatIconModule, MatMenuModule,
   ],
-  providers: [AuthGuard, AuthService],
+  providers: [AuthGuard, AuthService,ViewScriptComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
