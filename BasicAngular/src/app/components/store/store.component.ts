@@ -22,6 +22,9 @@ export class StoreComponent implements OnInit {
   columns = [ 'scriptName','category', 'uploadDate', 'category', 'rating' ];
   usersID: any;
 
+  isDesc: boolean = false;
+  column: string = 'CategoryName';
+
   ngOnInit() {
     this.usersID = this.Auth.getId;
     this.loggedIn = this.Auth.loggedIn
@@ -30,7 +33,6 @@ export class StoreComponent implements OnInit {
 
       this.list=response;
       console.log(response);
-      console.log(this.list);
     });
   }
 

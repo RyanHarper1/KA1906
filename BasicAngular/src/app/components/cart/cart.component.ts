@@ -24,6 +24,7 @@ export class CartComponent implements OnInit {
   loggedIn = false;
   columns = [ 'scriptName','price', 'uploadDate', 'category', 'rating' ];
 
+
   public payPalConfig ? : IPayPalConfig;
   idPayPal: any; //paypal
 
@@ -49,7 +50,7 @@ export class CartComponent implements OnInit {
 
       this.list=response;
       console.log(response)
-      this.router.navigate(['/cart']);
+      this.ngOnInit();
     });
     console.log(cart);
   }
@@ -77,16 +78,16 @@ export class CartComponent implements OnInit {
         return actions.payment.create({
           payment: {
             transactions: [
-              { amount: { total: 0.01, currency: 'AUD' } }
+              { amount: { total: this.getTotal(), currency: 'AUD' } }
             ]
           }
         });
       },
       onAuthorize: (data, actions) => {
         return actions.payment.execute().then((payment) => {
-          //this.addToPayment(this.list);
-          console.log('Transaction completed '/* + payment.payer_given_name*/);
-          this.clearCart(this.list);
+          this.addToPayment(this.list);
+          console.log('Transaction completed ' + payment.invoice_number);
+          this.clearCart(this.list.usersID);
         })
       }
     };
@@ -115,21 +116,21 @@ export class CartComponent implements OnInit {
     del.subscribe((response) => {
 
       this.list=response;
-      console.log(response)
-      this.router.navigate(['/cart']);
+      console.log(response);
+      this.ngOnInit();
     });
     console.log(cart);
   }
 
 //sum price
-getTotal() {
-  let total = 0;
+getTotal(): number {
+  let total: number = 0;
   for (var i = 0; i < this.list.length; i++) {
       if (this.list[i].price) {
           total += this.list[i].price;
       }
   }
-  return total.toFixed(Math.max(2,2));
+  return total;
 }
 
 load(val) {
