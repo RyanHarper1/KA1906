@@ -1,5 +1,3 @@
-
-
 <div id="banner">
   <img class="banner-img" src="/assets/img/example.png" width="100%" height="100%">
   <img class="logo-img" src="/assets/img/Logo.png" alt="logo" width="100%" heght="100%">
@@ -34,97 +32,211 @@
 <mat-grid-list cols="11" rowHeight="1:1.2" [gutterSize]="'10px'">
  <mat-grid-tile [colspan]="1"> </mat-grid-tile>
   <mat-grid-tile [colspan]="3">
-    <div class="boxed-answer">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div class="next-answer"><button mat-button (click)="nextQuestion(answer[0],0)" *ngIf="answers[0].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
+        <div class="answer-title">Answer</div>
+      </mat-card-header>
+      <mat-card-content> 
+          <textarea [(ngModel)]="answers[1].texts" rows="4" cols="40" name="texts" readonly></textarea>
+      </mat-card-content>
+    </mat-card>
+  
+
+
+    <!-- <div class="boxed-answer">
       <div class="next-answer">
         <button mat-button (click)="nextQuestion(answer[0],0)" *ngIf="answers[0].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
       </div>
     <div class="answer-title">Answer</div>
       <textarea [(ngModel)]="answers[0].texts" rows="4" cols="40" name="texts" readonly></textarea>
-    </div>
+    </div> -->
   </mat-grid-tile>
     
   <mat-grid-tile [colspan]="3">
-    <div class="boxed-answer" *ngIf="answer > 1">
+    <mat-card class="example-card" *ngIf="answer > 1">
+        <mat-card-header>
+          <div class="next-answer"><button mat-button (click)="nextQuestion(answer[1],1)" *ngIf="answers[1].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
+          <div class="answer-title">Answer</div>
+        </mat-card-header>
+        <mat-card-content> 
+            <textarea [(ngModel)]="answers[1].texts" rows="4" cols="40" name="texts" readonly></textarea>
+        </mat-card-content>
+      </mat-card>
+
+
+
+    <!-- <div class="boxed-answer" *ngIf="answer > 1">
         <div class="next-answer">
             <button mat-button (click)="nextQuestion(answer[1],1)" *ngIf="answers[1].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
       <textarea [(ngModel)]="answers[1].texts" rows="4" cols="40" name="texts" readonly></textarea>
-    </div>
+    </div> -->
   </mat-grid-tile>
   
   <mat-grid-tile [colspan]="3">
+    <mat-card class="example-card" *ngIf="answer > 2">
+        <mat-card-header>
+          <div class="next-answer"><button mat-button (click)="nextQuestion(answer[2],2)" *ngIf="answers[2].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
+          <div class="answer-title">Answer</div>
+        </mat-card-header>
+        <mat-card-content> 
+            <textarea [(ngModel)]="answers[2].texts" rows="4" cols="40" name="texts" readonly></textarea>
+        </mat-card-content>
+      </mat-card>
+
+
+<!--     
     <div class="boxed-answer" *ngIf="answer > 2">
         <div class="next-answer">
             <button mat-button (click)="nextQuestion(answer[2],2)" *ngIf="answers[2].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
       <textarea [(ngModel)]="answers[2].texts" rows="4" cols="40" name="texts" readonly></textarea>
-    </div>
+    </div> -->
   </mat-grid-tile>
   <mat-grid-tile [colspan]="1"></mat-grid-tile>
 
   <mat-grid-tile [colspan]="1"> </mat-grid-tile>
   <mat-grid-tile [colspan]="3">
-    <div class="boxed-answer" *ngIf="answer > 3">
+      <mat-card class="example-card" *ngIf="answer > 3">
+          <mat-card-header>
+            <div class="next-answer"><button mat-button (click)="nextQuestion(answer[3],3)" *ngIf="answers[3].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
+            <div class="answer-title">Answer</div>
+          </mat-card-header>
+          <mat-card-content> 
+              <textarea [(ngModel)]="answers[3].texts" rows="4" cols="40" name="texts" readonly></textarea>
+          </mat-card-content>
+        </mat-card>
+
+
+
+
+
+    <!-- <div class="boxed-answer" *ngIf="answer > 3">
         <div class="next-answer">
             <button mat-button (click)="nextQuestion(answer[3],3)" *ngIf="answers[3].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
       <textarea [(ngModel)]="answers[3].texts" rows="4" cols="40" name="texts" readonly></textarea>
-    </div>
+    </div> -->
   </mat-grid-tile>
   
   <mat-grid-tile [colspan]="3">
-    <div class="boxed-answer" *ngIf="answer > 4">
+      <mat-card class="example-card" *ngIf="answer > 4">
+          <mat-card-header>
+            <div class="next-answer"><button mat-button (click)="nextQuestion(answer[4],4)" *ngIf="answers[4].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
+            <div class="answer-title">Answer</div>
+          </mat-card-header>
+          <mat-card-content> 
+              <textarea [(ngModel)]="answers[4].texts" rows="4" cols="40" name="texts" readonly></textarea>
+          </mat-card-content>
+        </mat-card>
+
+
+
+
+    <!-- <div class="boxed-answer" *ngIf="answer > 4">
         <div class="next-answer">
             <button mat-button (click)="nextQuestion(answer[4],4)" *ngIf="answers[4].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
       <textarea [(ngModel)]="answers[4].texts" rows="4" cols="40" name="texts" readonly></textarea>
-    </div>
+    </div> -->
   </mat-grid-tile>
 
   <mat-grid-tile [colspan]="3">
+      <mat-card class="example-card" *ngIf="answer > 5">
+          <mat-card-header>
+            <div class="next-answer"><button mat-button (click)="nextQuestion(answer[5],5)" *ngIf="answers[5].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
+            <div class="answer-title">Answer</div>
+          </mat-card-header>
+          <mat-card-content> 
+              <textarea [(ngModel)]="answers[5].texts" rows="4" cols="40" name="texts" readonly></textarea>
+          </mat-card-content>
+        </mat-card>
+
+
+
+<!-- 
     <div class="boxed-answer" *ngIf="answer > 5">
        <div class="next-answer">
         <button mat-button (click)="nextQuestion(answer[5],5)" *ngIf="answers[5].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
     </div>
     <div class="answer-title">Answer</div>
       <textarea [(ngModel)]="answers[5].texts" rows="4" cols="40" name="texts" readonly></textarea>
-    </div>
+    </div> -->
   </mat-grid-tile>
   <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-
   <mat-grid-tile [colspan]="1"> </mat-grid-tile>
   <mat-grid-tile [colspan]="3">
-    <div class="boxed-answer" *ngIf="answer > 6">
+      <mat-card class="example-card" *ngIf="answer > 6">
+          <mat-card-header>
+            <div class="next-answer"><button mat-button (click)="nextQuestion(answer[6],6)" *ngIf="answers[6].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
+            <div class="answer-title">Answer</div>
+          </mat-card-header>
+          <mat-card-content> 
+              <textarea [(ngModel)]="answers[6].texts" rows="4" cols="40" name="texts" readonly></textarea>
+          </mat-card-content>
+        </mat-card>
+
+
+
+
+    <!-- <div class="boxed-answer" *ngIf="answer > 6">
         <div class="next-answer">
             <button mat-button (click)="nextQuestion(answer[6],6)" *ngIf="answers[6].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
       <textarea [(ngModel)]="answers[6].texts" rows="4" cols="40" name="texts" readonly></textarea>
-    </div>
+    </div> -->
   </mat-grid-tile>
 
   <mat-grid-tile [colspan]="3">
-    <div class="boxed-answer" *ngIf="answer > 7">
+      <mat-card class="example-card" *ngIf="answer > 7">
+          <mat-card-header>
+            <div class="next-answer"><button mat-button (click)="nextQuestion(answer[7],7)" *ngIf="answers[7].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
+            <div class="answer-title">Answer</div>
+          </mat-card-header>
+          <mat-card-content> 
+              <textarea [(ngModel)]="answers[7].texts" rows="4" cols="40" name="texts" readonly></textarea>
+          </mat-card-content>
+        </mat-card>
+
+
+
+    <!-- <div class="boxed-answer" *ngIf="answer > 7">
         <div class="next-answer">
             <button mat-button (click)="nextQuestion(answer[7],7)" *ngIf="answers[7].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
       <textarea [(ngModel)]="answers[7].texts" rows="4" cols="40" name="texts" readonly></textarea>
-    </div>
+    </div> -->
   </mat-grid-tile>
 
   <mat-grid-tile [colspan]="3">
-    <div class="boxed-answer" *ngIf="answer > 8">
+      <mat-card class="example-card" *ngIf="answer > 8">
+      <mat-card-header>
+        <div class="next-answer"><button mat-button (click)="nextQuestion(answer[8],8)" *ngIf="answers[8].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
+        <div class="answer-title">Answer</div>
+      </mat-card-header>
+      <mat-card-content> 
+          <textarea [(ngModel)]="answers[8].texts" rows="4" cols="40" name="texts" readonly></textarea>
+      </mat-card-content>
+    </mat-card>
+
+
+
+
+
+    <!-- <div class="boxed-answer" *ngIf="answer > 8">
         <div class="next-answer">
             <button mat-button (click)="nextQuestion(answer[8],8)" *ngIf="answers[8].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button>
         </div>
         <div class="answer-title">Answer</div>
       <textarea [(ngModel)]="answers[8].texts" rows="4" cols="40" name="texts" readonly></textarea>
-    </div>
+    </div> -->
   </mat-grid-tile>
   <mat-grid-tile [colspan]="1"> </mat-grid-tile>
 
