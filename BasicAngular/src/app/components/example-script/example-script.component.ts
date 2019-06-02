@@ -26,6 +26,9 @@ export class ExampleScriptComponent implements OnInit {
   constructor(sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, private Http: HttpClient) {
 
     iconRegistry.addSvgIcon(
+      'back',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/back-btn.svg'));
+    iconRegistry.addSvgIcon(
       'answer',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/chevron.svg'));
     iconRegistry.addSvgIcon(

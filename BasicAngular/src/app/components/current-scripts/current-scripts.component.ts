@@ -35,6 +35,8 @@ export class CurrentScriptsComponent implements OnInit {
     iconRegistry.addSvgIcon(
       'delete',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/times-solid.svg'));
+      
+
 
 
 
@@ -48,6 +50,7 @@ export class CurrentScriptsComponent implements OnInit {
     if (this.loggedIn) {
       let current = this.Http.post('http://localhost:3000/current-scripts', { id: this.Auth.getId });
       current.subscribe((response) => {
+
         this.list = response;
         console.log(response)
       });
@@ -93,14 +96,9 @@ export class CurrentScriptsComponent implements OnInit {
 
   }
   uploadScript(script) {
-    console.log('first question' + script.firstQuestionId)
-    let dateFormat = require('dateformat');
-    let now = new Date();
-    let date = String(dateFormat(now, "dd/mm/yyyy"));
-    let upload = this.Http.post('http://localhost:3000/upload-script', { usersID: this.Auth.id, scriptID: script.scriptId, uploadDate: date ,scriptName: script.scriptName, price: 5, category: script.category, question: Number(script.firstQuestionId), description: script.description });
+    let upload = this.Http.post('http://localhost:3000/upload-script', { usersID: this.Auth.id, scriptID: script.scriptId, scriptName: script.scriptName, price: 5, category: script.category, description: script.description });
     upload.subscribe((response) => {
       console.log(response)
-      this.ngOnInit();
     });
 
 

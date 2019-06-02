@@ -19,7 +19,11 @@ import { AdminComponent } from './components/admin/admin.component';
 import { ViewScriptComponent } from './components/view-script/view-script.component';
 
 const routes: Routes = [
-    {
+  {
+    path: 'cart',
+    component: CartComponent
+  },
+  {
     path: 'login',
     component: LoginComponent
   },
