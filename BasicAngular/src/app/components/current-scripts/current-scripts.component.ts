@@ -35,6 +35,8 @@ export class CurrentScriptsComponent implements OnInit {
     iconRegistry.addSvgIcon(
       'delete',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/times-solid.svg'));
+      
+
 
 
 

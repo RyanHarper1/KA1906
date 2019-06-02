@@ -3,8 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { AuthService } from 'src/app/auth.service';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 import { CartService } from 'src/app/cart.service';
-import { CartComponent } from '../cart/cart.component';
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,9 +17,14 @@ import { Router } from '@angular/router';
 export class StoreComponent implements OnInit {
   constructor(private Http: HttpClient, private Auth : AuthService, private cartService: CartService, private router: Router) { }
   list: any;
+  store:Array<any>;
+  i=0;
   loggedIn = false;
   columns = [ 'scriptName','category', 'uploadDate', 'category', 'rating' ];
   usersID: any;
+
+  isDesc: boolean = false;
+  column: string = 'CategoryName';
 
   ngOnInit() {
     this.usersID = this.Auth.getId;
@@ -37,7 +43,7 @@ export class StoreComponent implements OnInit {
   }*/
 
   addToCart(store){
-    let add = this.Http.post('http://localhost:3000/add-item', {storeID: store.storeID, usersID: this.usersID, scriptID: store.scriptID, scriptName:store.scriptName, price: store.price,
+    let add = this.Http.post('http://localhost:3000/add-item', {storeID: store.storeID, usersID: this.Auth.id, scriptID: store.scriptID, scriptName:store.scriptName, price: store.price,
                   description: store.description, rating: store.rating, uploadDate: store.uploadDate, category: store.category});
     add.subscribe((response) => {
 

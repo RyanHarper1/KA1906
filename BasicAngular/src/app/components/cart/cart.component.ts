@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { AuthService } from 'src/app/auth.service';
-import { Router } from '@angular/router';
-<<<<<<< HEAD
-=======
-import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal'
->>>>>>> parent of b7ac9093... cart
-=======
 import { Component, OnInit, AfterViewChecked } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,7 +11,6 @@ import {IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 
 
 declare let paypal: any;//Paypal Test
->>>>>>> parent of 76660b7b... undo merge from master
 
 @Component({
   selector: 'app-cart',
@@ -34,8 +23,7 @@ export class CartComponent implements OnInit {
   list: any;
   loggedIn = false;
   columns = [ 'scriptName','price', 'uploadDate', 'category', 'rating' ];
-  loaded = false;
-<<<<<<< HEAD
+
 
   public payPalConfig ? : IPayPalConfig;
   idPayPal: any; //paypal
@@ -49,7 +37,6 @@ export class CartComponent implements OnInit {
 
         this.list=response;
         console.log(response)
-        this.loaded = true;
       });
     }
   }
@@ -64,35 +51,6 @@ export class CartComponent implements OnInit {
       this.list=response;
       console.log(response)
       this.ngOnInit();
-=======
-
-  public payPalConfig ? : IPayPalConfig;
-  idPayPal: any; //paypal
-
-  ngOnInit(): void {
-    this.loggedIn = this.Auth.loggedIn
-    //this.initConfig();//ngrx-paypal
-    if (this.loggedIn){
-      let cart = this.Http.post('http://localhost:3000/cart', {id: this.Auth.getId});
-      cart.subscribe((response) => {
-
-        this.list=response;
-        console.log(response)
-        this.loaded = true;
-      });
-    }
-  }
-
-//Paypal Test
-  addScript: boolean = false;
-
-  clearCart(cart){
-    let del = this.Http.post('http://localhost:3000/clear-cart', {usersID: this.Auth.getId});
-    del.subscribe((response) => {
-
-      this.list=response;
-      console.log(response)
-      this.router.navigate(['/cart']);
     });
     console.log(cart);
   }
@@ -105,14 +63,10 @@ export class CartComponent implements OnInit {
       this.list=response;
       console.log(response)
       this.router.navigate(['/cart']);
->>>>>>> parent of 76660b7b... undo merge from master
     });
     console.log(cart);
   }
 
-<<<<<<< HEAD
-
-=======
     paypalConfig = {
       env: 'sandbox',
       client: {
@@ -124,16 +78,16 @@ export class CartComponent implements OnInit {
         return actions.payment.create({
           payment: {
             transactions: [
-              { amount: { total: 0.01, currency: 'AUD' } }
+              { amount: { total: this.getTotal(), currency: 'AUD' } }
             ]
           }
         });
       },
       onAuthorize: (data, actions) => {
         return actions.payment.execute().then((payment) => {
-          //this.addToPayment(this.list);
-          console.log('Transaction completed '/* + payment.payer_given_name*/);
-          this.clearCart(this.list); 
+          this.addToPayment(this.list);
+          console.log('Transaction completed ' + payment.invoice_number);
+          this.clearCart(this.list.usersID);
         })
       }
     };
@@ -162,22 +116,21 @@ export class CartComponent implements OnInit {
     del.subscribe((response) => {
 
       this.list=response;
-      console.log(response)
-      this.router.navigate(['/cart']);
-      this.ngOnInit()
+      console.log(response);
+      this.ngOnInit();
     });
     console.log(cart);
   }
 
 //sum price
-getTotal() {
-  let total = 0;
+getTotal(): number {
+  let total: number = 0;
   for (var i = 0; i < this.list.length; i++) {
       if (this.list[i].price) {
           total += this.list[i].price;
       }
   }
-  return total.toFixed(Math.max(2,2));
+  return total;
 }
 
 load(val) {
@@ -188,5 +141,4 @@ if (val == this.router.url) {
   };
  }
 }
->>>>>>> parent of 76660b7b... undo merge from master
 }

@@ -18,17 +18,14 @@
 
 <mat-grid-list cols="11" rowHeight="100px">
   <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-  <mat-grid-tile id="new-user-tile" [colspan]="3"><button mat-button id="new-usr-bttn"><mat-icon svgIcon="add"></mat-icon>New User</button></mat-grid-tile>
-  <!-- <mat-grid-tile id="new-user-tile" [colspan]="0"> </mat-grid-tile> -->
+  <mat-grid-tile class="new-user-tile" [colspan]="3">
+      <button mat-button id="new-usr-bttn"><mat-icon class="plus-icon" svgIcon="add"></mat-icon>New User</button></mat-grid-tile>
   <mat-grid-tile id="new-user-tile" [colspan]="3"> </mat-grid-tile>
-  <!-- <mat-grid-tile id="new-user-tile" [colspan]="0"> </mat-grid-tile> -->
   <mat-grid-tile id="new-user-tile" [colspan]="3"> </mat-grid-tile>
   <mat-grid-tile [colspan]="1"> </mat-grid-tile>
 
-
-   <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-    <mat-grid-tile [colspan]="3">
-
+  <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+  <mat-grid-tile [colspan]="3">
       <div class ="userDetails">
           <mat-form-field id="form">
             <input matInput placeholder="First Name">
@@ -37,9 +34,8 @@
               <input matInput placeholder="Last Name">
           </mat-form-field>
         </div>
-
     </mat-grid-tile>
-  <!-- <mat-grid-tile [colspan]="0"> </mat-grid-tile> -->
+
   <mat-grid-tile [colspan]="3"> 
       <div class ="userDetails">
       <mat-form-field id="form">
@@ -50,10 +46,8 @@
       </mat-form-field>
     </div>
   </mat-grid-tile>
-  <!-- <mat-grid-tile [colspan]="0"> </mat-grid-tile> -->
+  
   <mat-grid-tile [colspan]="3">
-
-
       <div class ="userDetails">
           <div class="perm-title">Permission</div>
       <mat-radio-group aria-label="User type">
@@ -62,7 +56,6 @@
           <mat-radio-button id="radio" value="3">Admin</mat-radio-button>
       </mat-radio-group>
       </div>
-  
   </mat-grid-tile>
   <mat-grid-tile [colspan]="1"> </mat-grid-tile>
 
@@ -73,9 +66,9 @@
   <mat-grid-list cols ="7" rowHeight = "100px">
       <mat-grid-tile [colspan]= "1"> </mat-grid-tile>
       <mat-grid-tile class="table" [colspan]="1">First Name </mat-grid-tile>
-      <mat-grid-tile [colspan]= "1">Last Name </mat-grid-tile>
-      <mat-grid-tile  [colspan]="1">Email </mat-grid-tile>
-      <mat-grid-tile [colspan]= "1">Permission </mat-grid-tile>
+      <mat-grid-tile class="table" [colspan]= "1">Last Name </mat-grid-tile>
+      <mat-grid-tile class="table" [colspan]="1">Email </mat-grid-tile>
+      <mat-grid-tile class="table" [colspan]= "1">Permission </mat-grid-tile>
       <mat-grid-tile [colspan]= "1"> </mat-grid-tile>
       <mat-grid-tile [colspan]= "1"> </mat-grid-tile>
   </mat-grid-list>
@@ -85,10 +78,10 @@
       <mat-grid-tile [colspan]= "1">{{li.lName}}</mat-grid-tile>
       <mat-grid-tile  [colspan]="1">{{li.email}}</mat-grid-tile>
       <mat-grid-tile [colspan]= "1"></mat-grid-tile>
-      <mat-grid-tile [colspan]= "1"> <button mat-button (click)="editScript(li)"> <mat-icon svgIcon="edit"></mat-icon>
+      <mat-grid-tile [colspan]= "1"> <button mat-button (click)="editScript(li)"> <mat-icon id="edit-icon" svgIcon="edit"></mat-icon>
       </button>
       <button mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">
-        <mat-icon svgIcon="delete"></mat-icon>
+        <mat-icon id="delete-icon" svgIcon="delete"></mat-icon>
       </button></mat-grid-tile>
       <mat-grid-tile [colspan]= "1"> </mat-grid-tile>
       
