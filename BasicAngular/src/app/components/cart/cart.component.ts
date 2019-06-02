@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from 'src/app/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -13,7 +16,7 @@ export class CartComponent implements OnInit {
   columns = [ 'scriptName','price', 'uploadDate', 'category', 'rating' ];
   loaded = false;
 
-  public payPalConfig ? : IPayPalConfig;
+  //public payPalConfig ? : IPayPalConfig;
   idPayPal: any; //paypal
 
   ngOnInit(): void {
@@ -43,3 +46,4 @@ export class CartComponent implements OnInit {
     });
     console.log(cart);
   }
+}
