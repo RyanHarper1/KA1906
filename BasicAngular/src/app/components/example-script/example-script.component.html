@@ -13,14 +13,27 @@
     <input class="input-details" type="text" [(ngModel)] ="scriptName" readonly>
   </div>
 
+<!--Description explaining how build script works with example script-->
+<mat-grid-list cols="11" rowHeight="220px">
+    <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+    <mat-grid-tile [colspan]="9">
+      <div class="example-tbl">
+          If you decide to sign up you will see that I have done an example script that I designed for a Recruiter pitching a potential client. This came from my experience working as a recruiter and you will find that the majority of scripts will come from people that have experience in the industry in some sort of capacity. 
+          <p>This example script will show you how the template works and how you can effectively use it when prospecting a client.
+          The example script looks like this which will be the same format for all of the templates with a pitch box towards the bottom of the screen and above it a series of boxes which will have objections in them. You will use the pitch box to try and sell your service or product to the potential client and the objection boxes will give you an idea of potential objections that the client might have in regards to your product or service.  
+          </p>         
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+  </mat-grid-list>
+
+
 <!--Back button row-->
 
-  <mat-grid-list cols="11" rowHeight="100px">
+  <mat-grid-list cols="11" rowHeight="50px">
     <mat-grid-tile [colspan]="1"> </mat-grid-tile>
     <mat-grid-tile class="bck-btn-container" [colspan]="3">
-      <!-- <div class="bck-btn-container"> -->
     <button id="bck-btn" mat-button (click)="backQuestion()" *ngIf ="previousAnswerCount > 0 "><mat-icon id="bck-btn-icon" svgIcon="back"></mat-icon>Back</button>
-    <!-- </div> -->
     </mat-grid-tile>
     <mat-grid-tile [colspan]="3"></mat-grid-tile>
     <mat-grid-tile [colspan]="3"></mat-grid-tile>
