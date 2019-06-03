@@ -27,23 +27,100 @@
     top: -5%;
   }
 
-.grid-container {
-    display: grid;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    grid-template-columns: 20% 20% 20%;
-    padding: 10px;
-    align-content: center;
+// .grid-container {
+//     display: grid;
+//     grid-column-gap: 10px;
+//     grid-row-gap: 10px;
+//     grid-template-columns: 20% 20% 20%;
+//     padding: 10px;
+//     align-content: center;
+//     text-align: center;
+//   }
+  
+ 
+  .share-script-header-cards{
+    background: #3a4f6e;
+    text-align: center;
+    font-variant-caps: all-small-caps;
+    color: white;
+    height: 30px;
+    font-size: 20pt;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  ::ng-deep .mat-card.script-share-card.mat-card{
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    box-shadow: 280ms cubic-bezier(.4,0,.2,1);
+    display: block;
+    position: relative;
+    padding: 0;
+    border-radius: 4px;
+    width: 300px;
+    justify-content: center;
+    margin: 0;
+    height: 230px;
+  }
+  
+  ::ng-deep .div.mat-card-header-text{
+    margin: 0;
+  }
+  .mat-card-header-text{
+    // margin-left: auto;
+    // margin-right: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    margin: 0;
+}
+
+
+  .price{
+    font-size: 20pt;
+    font-weight: 800;
+    margin-top: 20px;
+    display: inline-block;
+    // padding-right: 16px;
+  }
+
+  .month{
+    font-size: 16pt;
+    display: inline-block;
+    margin-top: 20px;
+    padding-left: 16px;
+    
+  }
+  
+  .div.mat-card-header-text{
+    margin: 0;
+  }
+  .monthly{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .billed-monthly{
+    font-size: 16pt;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .subscribe-btn{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .mat-card-actions.subscribe-actions.mat-card-actions{
+    padding: 8px 0;
+    text-align: center;
+  }
+
+  .price-bill-container{
     text-align: center;
   }
   
-  .boxed {
-      #h3{
-          background-color: aqua
-      }
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-  }
   
