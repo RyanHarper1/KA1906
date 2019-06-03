@@ -92,9 +92,14 @@
           <mat-card-header class="store-header">{{li.scriptName}}</mat-card-header>
           <mat-card-content class="content-card">
             <mat-card-title class="title-card">Description</mat-card-title>
+            <div class="content-div">
                {{li.description}} 
+              </div>
             <mat-card-title class="title-card">Category</mat-card-title>
-               {{li.category}} </mat-card-content>
+            <div class="content-div">
+               {{li.category}} 
+              </div>
+              </mat-card-content>
           </mat-card>
     </mat-grid-tile>
         <mat-grid-tile  [colspan]="4">
@@ -103,11 +108,17 @@
               <mat-icon class="cart-icon" svgIcon="cart"></mat-icon></button> </mat-card-actions>
               <mat-card-content class="content-card">
               <mat-card-title class="title-card">Last Edited</mat-card-title>
+              <div class="content-div">
               {{li.edited}}
+            </div>
               <mat-card-title class="title-card">Template</mat-card-title>
+              <div class="content-div">
               {{li.templates}} 
+            </div>
               <mat-card-title class="title-card">Price</mat-card-title>
+              <div class="content-div">
               {{li.price}}
+            </div>
             </mat-card-content>
 
             </mat-card>

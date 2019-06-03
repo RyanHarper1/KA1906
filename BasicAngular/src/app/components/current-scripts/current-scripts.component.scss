@@ -51,12 +51,7 @@ margin-right: auto;
    
   }
 
- ::ng-deep .mat-card-content.content-card.mat-card-content{
-    display: block;
-    // line-height: 36px;
-    font-size: large;
-    padding: 16px;
-  }
+ 
 
   .img{
     margin-left: 5px;
@@ -89,13 +84,13 @@ margin-right: auto;
 .crnt-btn{
    background: #ffffff;
    color: black;
-   box-shadow: 5px 6px 11px 1px rgba(0,0,0,0.94);
+  //  box-shadow: 5px 6px 11px 1px rgba(0,0,0,0.94);
 }
 
 .del-btn{
   background: #ffffff;
   color: red;
-  box-shadow: 5px 6px 11px 1px rgba(0,0,0,0.94);
+  // box-shadow: 5px 6px 11px 1px rgba(0,0,0,0.94);
 }
 
 ::ng-deep .mat-icon.mat-icon.notranslate.mat-icon-no-color{

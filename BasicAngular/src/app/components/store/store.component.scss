@@ -36,11 +36,17 @@
     box-shadow: none;
   }
 
+  ::ng-deep .mat-card-title.title-card.mat-card-title{
+    margin: 10px 0 10px 0;
+  }
+
+  .content-div{
+    margin: 10px 0 10px 0;
+  }
+
   .cart-btn{
       background: #ffffff;
-      // color: black;
-      // fill: black;
-      box-shadow: 5px 6px 11px 1px rgba(0,0,0,0.94);
+      
    }
   
    ::ng-deep .mat-card-actions.mat-card-actions{
