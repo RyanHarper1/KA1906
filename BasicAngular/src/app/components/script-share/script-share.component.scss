@@ -37,13 +37,18 @@
 //     text-align: center;
 //   }
   
+.share-script-description{
+  padding: 10px;
+  font-size: 16pt;
+  
+}
  
   .share-script-header-cards{
     background: #3a4f6e;
     text-align: center;
     font-variant-caps: all-small-caps;
     color: white;
-    height: 30px;
+    height: 40px;
     font-size: 20pt;
     font-weight: 500;
     margin: 0;
@@ -81,7 +86,7 @@
     font-weight: 800;
     margin-top: 20px;
     display: inline-block;
-    // padding-right: 16px;
+    
   }
 
   .month{
@@ -99,6 +104,8 @@
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 
   .billed-monthly{
