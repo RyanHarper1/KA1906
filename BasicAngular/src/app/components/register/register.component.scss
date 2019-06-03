@@ -5,12 +5,6 @@
     object-position: 50% 65%;
     }
     
-// .logo-img{
-//     position: absolute;
-//     margin-left: auto;
-//     margin-right: auto;
-//     top: 0;
-//     }
     
 .title{
     top: 40%;
@@ -188,5 +182,27 @@ input[type="Submit"]{
     color: red;
     padding-right: 4px;
 }
+
+
+.bottom-links{
+    flex: 0 0 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    text-decoration: none;
+      font-weight: normal;
+      // margin-right: 15px;
+      color: #005EB8;
+  }
+  
+  
+  #login-pg-vertbar{
+    color: #D8DADA;
+    margin-right: 15px;
+    margin-left: 15px;
+  }
 
 
