@@ -4,15 +4,6 @@
   <div class="title">Example Script</div>
 </div>
 
-<!--Script details-->
-<div *ngIf = "loaded"> 
-<div class="script-details-container">
-  <div class="script-details">Category</div>
-    <input class="input-details"type="text" [(ngModel)] ="category" readonly>
-  <div class="script-details">Script Name</div>
-    <input class="input-details" type="text" [(ngModel)] ="scriptName" readonly>
-  </div>
-
 <!--Description explaining how build script works with example script-->
 <mat-grid-list cols="11" rowHeight="220px">
     <mat-grid-tile [colspan]="1"> </mat-grid-tile>
@@ -27,6 +18,14 @@
     <mat-grid-tile [colspan]="1"> </mat-grid-tile>
   </mat-grid-list>
 
+<!--Script details-->
+<div *ngIf = "loaded"> 
+<div class="script-details-container">
+  <div class="script-details">Category</div>
+    <input class="input-details"type="text" [(ngModel)] ="category" readonly>
+  <div class="script-details">Script Name</div>
+    <input class="input-details" type="text" [(ngModel)] ="scriptName" readonly>
+  </div>
 
 <!--Back button row-->
 
