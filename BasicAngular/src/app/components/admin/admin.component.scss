@@ -3,25 +3,50 @@
   object-fit: cover;
   object-position: right;
     }
-
   
   .title{
   top: 35%;
   }
 /*END BANNER*/
 
-
-
-
-
-.userDetails {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-right: auto; margin-left: auto; margin-top:2%;
-    width: 50%;
+#form {
+  display: block;
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
   }
-  
+
+.perm-title{
+  font-size: 16pt;
+  font-weight: 500;
+  text-align: center;
+  display: block;
+  margin-bottom: 2%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+#radio{
+  margin-right: 10px;
+ }
+
+::ng-deep .mat-radio-group.mat-radio-group{
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.plus-icon{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#new-usr-bttn{
+  color: white;
+  background: #3a4f6e;
+  margin-left: 5%;
+}
+
 /*Override styling for claa new-user-tile*/
 .new-user-tile >::ng-deep .mat-figure{
   justify-content: left;
@@ -52,21 +77,6 @@ background: #e2e2e0;
 
  }
 
-  
-  
-  .example-container form {
-    margin-bottom: 20px;
-  }
-  
-  .example-container form > * {
-    margin: 5px 0;
-  }
-  
-  .example-container .mat-radio-button {
-    margin: 0 50px;
-  }
-
  #delete-icon{
    fill: red;
  }
-
