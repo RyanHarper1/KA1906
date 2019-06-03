@@ -7,6 +7,14 @@
 </div>
 
 <div *ngIf=!logged>
+
+    <mat-grid-list cols = 8>
+        <mat-grid-tile [colspan] = "1" [rowspan] = "2"></mat-grid-tile>
+        <mat-grid-tile [colspan] = "3" [rowspan] = "2"></mat-grid-tile>
+        <mat-grid-tile [colspan] = "3" [rowspan] = "2"></mat-grid-tile>
+        <mat-grid-tile [colspan] = "1" [rowspan] = "2"></mat-grid-tile>
+    </mat-grid-list>
+
   <p>
     This is where the prelogged in information of scriptshare will be
   </p>
