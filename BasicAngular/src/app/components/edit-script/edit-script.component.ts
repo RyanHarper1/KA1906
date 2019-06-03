@@ -130,7 +130,7 @@ export class EditScriptComponent implements OnInit {
 
       let send = this.Http.post<questionData>('http://localhost:3000/editAnswer', { texts: this.answers[j].texts, questionId: this.questionId, nextQuestionId: this.answers[j].nextQuestionId });
         send.subscribe((res) => {
-          console.log('THIS IS WHAT HAS RERTUEND: ' + res.result)
+          //console.log('THIS IS WHAT HAS RERTUEND: ' + res.result)
         });
 
     }
