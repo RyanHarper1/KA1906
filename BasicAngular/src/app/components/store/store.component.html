@@ -4,9 +4,63 @@
   <div class="title">Store</div>
 </div>
 <div *ngIf = !loggedIn>
-<p>
-  This is where the information about store will be
-</p>
+    <mat-grid-list cols="10" rowHeight="480px" [gutterSize]="'10px'">
+        <mat-grid-tile [colspan]="1"></mat-grid-tile>
+        <mat-grid-tile  [colspan]="4">
+            <div class="store-tbl">
+                If you are wanting to buy scripts for yourself then you can go to the store icon which essentially 
+                brings you out to the market of all of the sales script scripts that have been uploaded. When you 
+                first go to the store screen it will look very familiar to the current scripts page except their will 
+                be additional information for all scripts on the second part of the table. These will be obviously the 
+                price of the script and also their will be a review section where you can click on reviews and you can
+                 read reviews from other people that have bought the script. If a script is a fake script or they are 
+                 just overloading a whole lot of rubbish just so they can make money then their reviews will soon 
+                 indicate this.
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile  [colspan]="4"></mat-grid-tile>
+        <mat-grid-tile  [colspan]="1"></mat-grid-tile>
+        <mat-grid-tile  [colspan]="1"></mat-grid-tile>
+        <mat-grid-tile  [colspan]="4">
+            <div class="store-tbl">
+                If you are wanting to buy scripts for yourself then you can go to the store icon which essentially 
+                brings you out to the market of all of the sales script scripts that have been uploaded. When you 
+                first go to the store screen it will look very familiar to the current scripts page except their 
+                will be additional information for all scripts on the second part of the table. These will be obviously 
+                the price of the script and also their will be a review section where you can click on reviews and you 
+                can read reviews from other people that have bought the script. If a script is a fake script or they 
+                are just overloading a whole lot of rubbish just so they can make money then their reviews will soon 
+                indicate this.
+              </div>
+        </mat-grid-tile>
+        <mat-grid-tile  [colspan]="4"></mat-grid-tile>
+        <mat-grid-tile  [colspan]="1"></mat-grid-tile>
+        <mat-grid-tile  [colspan]="1"></mat-grid-tile>
+        <mat-grid-tile  [colspan]="4">
+        <div class="store-tbl">
+            You will also notice that on the left-hand side of the menu is a filter bar where you can filter all of 
+            your searches. You may want all scripts from a particular industry that have been on the system for no
+             more than a year and are under a price of $5.00. This enables you to get the right script that you need
+              more effectively and without any fuss plus if you use this filter option effectively you could probably 
+              get some great value scripts that out, they’re in the market that most people wouldn’t be aware of.
+          </div>
+        </mat-grid-tile>
+        <mat-grid-tile  [colspan]="4"></mat-grid-tile>
+        <mat-grid-tile  [colspan]="1"></mat-grid-tile>
+        <mat-grid-tile  [colspan]="1"></mat-grid-tile>
+        <mat-grid-tile  [colspan]="4">
+            <div class="store-tbl">
+                There is a shopping cart that you use and once you have clicked on the purchase icon for the scripts 
+                then it will add to your shopping cart and once you have finished you can click on the cart and perform 
+                the final transaction.
+                <p>
+                Once you have purchased a script it will immediately come up on your current scripts menu where you can use it for cold calling.
+              </p>
+              </div>
+        </mat-grid-tile>
+        <mat-grid-tile  [colspan]="4"></mat-grid-tile>
+        <mat-grid-tile  [colspan]="1"></mat-grid-tile>
+        </mat-grid-list>
 </div>
 
 <div *ngIf = loggedIn>
