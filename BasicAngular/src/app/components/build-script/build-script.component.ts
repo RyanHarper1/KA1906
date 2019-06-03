@@ -51,6 +51,7 @@ export class BuildScriptComponent implements OnInit {
   loggedIn = false;
   tempAnswer: any;
   description: string;
+  savedCount = 0;
   //questionForm: FormGroup;
 
   constructor(public dialog: MatDialog, private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient, private router: Router,private editService: EditServiceService, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) { 
@@ -145,6 +146,7 @@ export class BuildScriptComponent implements OnInit {
 
   }
   nextQuestion(selectedAnswer,num) {
+    this.savedCount = 1;
     this.saved = false;
     this.answer = 1;
     this.texts = '';
