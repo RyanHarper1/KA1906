@@ -3,8 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { AuthService } from 'src/app/auth.service';
-import { MatIconRegistry } from '@angular/material';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-store',
@@ -13,11 +11,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   
 })
 export class StoreComponent implements OnInit {
-  constructor(private Http: HttpClient, private Auth : AuthService, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) { 
-    iconRegistry.addSvgIcon(
-      'cart',
-      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/cart.png'));
-  }
+  constructor(private Http: HttpClient, private Auth : AuthService) { }
   list: any;
   loggedIn = false;
   columns = [ 'scriptName','price', 'uploadDate', 'category', 'rating' ];

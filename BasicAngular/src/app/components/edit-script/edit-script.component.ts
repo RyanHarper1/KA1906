@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { EditServiceService } from 'src/app/edit-service.service';
 import { HttpClient } from '@angular/common/http'
 import { HttpClientModule } from '@angular/common/http';
-import { MatIconRegistry } from '@angular/material';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-edit-script',
@@ -21,38 +19,7 @@ export class EditScriptComponent implements OnInit {
   answer = 0;
   selectedAnswer: any;
   
-  constructor(private editService: EditServiceService, private Http: HttpClient, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) {
-
-      iconRegistry.addSvgIcon(
-        'answer',
-        sanitizer.bypassSecurityTrustResourceUrl('../assets/img/chevron.svg'));
-      iconRegistry.addSvgIcon(
-        'remove',
-        sanitizer.bypassSecurityTrustResourceUrl('../assets/img/red-cross.svg'));
-      iconRegistry.addSvgIcon(
-        'bold',
-        sanitizer.bypassSecurityTrustResourceUrl('../assets/img/bold-solid.svg'));
-      iconRegistry.addSvgIcon(
-        'italic',
-        sanitizer.bypassSecurityTrustResourceUrl('../assets/img/italic-solid.svg'));
-      iconRegistry.addSvgIcon(
-        'underline',
-        sanitizer.bypassSecurityTrustResourceUrl('../assets/img/underline-solid.svg'));
-      iconRegistry.addSvgIcon(
-        'bullet',
-        sanitizer.bypassSecurityTrustResourceUrl('../assets/img/bulletpoint-solid.svg'));
-      iconRegistry.addSvgIcon(
-         'numbering',
-        sanitizer.bypassSecurityTrustResourceUrl('../assets/img/numbering-solid.svg'));
-      iconRegistry.addSvgIcon(
-          'font',
-        sanitizer.bypassSecurityTrustResourceUrl('../assets/img/font-solid.svg'));
-        iconRegistry.addSvgIcon(
-          'add',
-        sanitizer.bypassSecurityTrustResourceUrl('../assets/img/plus-circle-solid.svg'));
-
-
-   }
+  constructor(private editService: EditServiceService, private Http: HttpClient) { }
 
   ngOnInit() {
     this.scriptId = this.editService.getEditScript();
