@@ -246,10 +246,76 @@
 
 
   <mat-tab label="Purchased">
-      <mat-grid-list cols="3" class= "gridList" rowHeight="5:3"  [gutterSize]="'10px'">
-          <mat-grid-tile [colspan]="1" ></mat-grid-tile>
-          <mat-grid-tile [colspan]="1" ></mat-grid-tile>
-          <mat-grid-tile [colspan]="1" ></mat-grid-tile>
+
+      <mat-grid-list cols="3" class= "gridList" rowHeight="5:3" *ngFor="let lo of list"  [gutterSize]="'10px'">
+          <mat-grid-tile [colspan]="1" >
+          <mat-card class="current-card">
+              <mat-card-header class="header-card">
+                  {{lo.scriptName}}
+              </mat-card-header>
+              <mat-card-content class="content-card"> 
+                <mat-card-title class="title-card">
+
+                    <div class="title-div" >Description</div>
+                </mat-card-title>
+                <div class="content-div">
+                    {{lo.description}}
+                </div>
+                <mat-card-title class="title-card">
+                      
+                <div class="title-div" >Category</div>
+                </mat-card-title>
+                    <div class="content-div">
+                    {{lo.category}}
+                  </div>
+                    <mat-card-title class="title-card">
+                       
+                        <div class="title-div" >Sub-Category</div>
+                    </mat-card-title>
+                    <div class="content-div">
+                    {{lo.subcategory}}
+                  </div>
+              </mat-card-content>
+            </mat-card>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="1" >
+              <mat-card class="current-card">       
+                  <mat-card-content class="content-card">
+                      <mat-card-title class="title-card">
+                          Last Edited
+                        </mat-card-title>
+                        <div class="content-div">
+                 {{lo.edited}}
+                      </div>
+                 <mat-card-title class="title-card">
+                    Template
+                  </mat-card-title>
+                  <div class="content-div">
+                 {{lo.templates}}
+                </div>
+                <mat-card-title class="title-card">
+                    Price
+                  </mat-card-title>
+                  <div class="content-div">
+                      {{lo.price}}
+                     </div>
+                </mat-card-content>
+              </mat-card>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" >
+              <mat-card class="btn-card" >
+                  <mat-card-actions>
+                        <button class="crnt-btn" mat-button (click) ="viewScript(li)">View Script</button>
+                      <button class="crnt-btn" mat-button (click)="editScript(li)">
+                  <mat-icon svgIcon="edit"></mat-icon>
+                </button>
+                <button class="del-btn" mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">
+                  <mat-icon svgIcon="delete"></mat-icon>
+                </button>
+              </mat-card-actions>
+              </mat-card>
+          </mat-grid-tile>
 
         </mat-grid-list>
   </mat-tab>

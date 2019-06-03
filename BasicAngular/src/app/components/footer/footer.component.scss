@@ -1,52 +1,19 @@
-/*header {
-    background: #2f353a;
-}
 
-
-ul{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  display: inline;
-}
-
-li{
-  display: inline;
-  float:left;
-}
-
-li a{
-  display: block;
-  text-align: center;
-  padding: 10px 15px;
-  text-decoration: none;
-  font-size: 80%;
-  height:100%
-}
-
-li a:hover:not(.active) {
-  background:gray;
-  box-sizing: border-box;
-}
-.rightNav{
-position: absolute;
-right: 0px;
-}
-*/
 
   .mat-elevation-z15{
   max-height: 40px; 
   min-height: 40px; 
   background-color:#3a4f6e; 
   color:white;
-  position: fixed;
+  position: relative;
   width: 100%;
   bottom: 0;
+  margin-top: 10px;
   }
 
   .mat-toolbar-row.mat-toolbar-row{
     justify-content: center;
+    
   }
 
   // .example-icon {

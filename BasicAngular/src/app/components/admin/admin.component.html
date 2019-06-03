@@ -59,7 +59,7 @@
   <br>
   <br>
   
-  <mat-grid-list cols ="7" rowHeight = "100px">
+  <mat-grid-list cols ="7" rowHeight = "50px">
       <mat-grid-tile [colspan]= "1"> </mat-grid-tile>
       <mat-grid-tile class="table" [colspan]="1">First Name </mat-grid-tile>
       <mat-grid-tile class="table" [colspan]= "1">Last Name </mat-grid-tile>
@@ -68,7 +68,7 @@
       <mat-grid-tile [colspan]= "1"> </mat-grid-tile>
       <mat-grid-tile [colspan]= "1"> </mat-grid-tile>
   </mat-grid-list>
-  <mat-grid-list cols ="7" rowHeight = "100px" *ngFor="let li of list">
+  <mat-grid-list cols ="7" rowHeight = "50px" *ngFor="let li of list">
       <mat-grid-tile [colspan]= "1"> </mat-grid-tile>
       <mat-grid-tile  [colspan]="1">{{li.fName}}</mat-grid-tile>
       <mat-grid-tile [colspan]= "1">{{li.lName}}</mat-grid-tile>
