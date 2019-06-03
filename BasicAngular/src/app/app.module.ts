@@ -28,6 +28,7 @@ import { NgxPayPalModule } from 'ngx-paypal'
 import { AdminComponent } from './components/admin/admin.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ViewScriptComponent } from './components/view-script/view-script.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ViewScriptComponent } from './components/view-script/view-script.compon
     DialogForm,
     AdminComponent,
     ViewScriptComponent,
+    FooterComponent,
   ],
   imports: [
     FormsModule,

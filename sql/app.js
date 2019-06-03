@@ -181,9 +181,12 @@ app.post('/addFirstQuestion', (req, res) => {
                     throw err;
                 } else {
                     console.log(result1);
+                    res.send({ questionId: result.insertId })
                 }
             });
+
         }
+
     });
 });
 
@@ -196,6 +199,29 @@ app.post('/addAnswer', (req, res) => {
     let script = { texts: req.body.texts, questionId: req.body.questionId };
     let sql = 'INSERT INTO answer SET ?';
     console.log("On server side");
+    console.log(script);
+    let query = db.query(sql, script, (err, result) => {
+        if (err) {
+            throw err;
+        } else {
+            console.log("successfully entered");
+
+            reply = {
+                result: 'success', idanswer: result.insertId
+            }
+        }
+        res.send(reply);
+    });
+});
+
+app.post('/editAnswer', (req, res) => {
+
+    let test = req.body;
+    let reply = {};
+    console.log(test);
+    let script = { texts: req.body.texts, questionId: Number(req.body.questionId), nextQuestionId: Number(req.body.nextQuestionId) };
+    let sql = 'INSERT INTO answer SET ?';
+    console.log("Edit Answer on");
     console.log(script);
     let query = db.query(sql, script, (err, result) => {
         if (err) {
@@ -233,7 +259,7 @@ app.post('/delete-script', (req, res) => {
 });
 //Delete cart Item
 app.post('/delete-item', (req, res) => {
-    let cart = { storeID: req.body.storeID, usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, description: req.body.description, rating: req.body.rating, uploadDate: req.body.uploadDate, category: req.body.category};
+    let cart = { storeID: req.body.storeID, usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, description: req.body.description, rating: req.body.rating, uploadDate: req.body.uploadDate, category: req.body.category };
     let sql = 'DELETE FROM cart WHERE cartID  = ' + req.body.cartID;
     console.log("On server side");
     console.log(cart);
@@ -340,7 +366,7 @@ app.post('/get-script', (req, res) => {
 });
 app.post('/get-question', (req, res) => {
     console.log(req.body.questionId);
-    let sql = 'SELECT * FROM question WHERE questionId = ' + req.body.questionId;
+    let sql = 'SELECT * FROM question WHERE questionId = ' + Number(req.body.questionId);
     console.log(sql);
     let query = db.query(sql, (err, result) => {
 
@@ -365,7 +391,7 @@ app.post('/get-answer', (req, res) => {
 
 app.post('/upload-script', (req, res) => {
     let sql = 'INSERT INTO store SET ?';
-    let values = { usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, uploadDate:req.body.uploadDate, question: req.body.question, category: req.body.category, rating: 0, description: req.body.description }
+    let values = { usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, uploadDate: req.body.uploadDate, question: req.body.question, category: req.body.category, rating: 0, description: req.body.description }
     let query = db.query(sql, values, (err, result) => {
         if (err) {
             throw err;
@@ -486,5 +512,24 @@ app.post('/payment-details', (req, res) => {
             }
         }
         res.send(reply);
+    });
+});
+
+app.post('/update-script', (req, res) => {
+    let sql = 'UPDATE question SET texts = "' + req.body.question + '" WHERE questionID = ' + Number(req.body.questionId)
+    let query = db.query(sql, (err, result) => {
+
+        if (err) {
+            throw err;
+        }
+        let ans = 'DELETE FROM answer WHERE questionId = ' + req.body.questionId
+        let query1 = db.query(ans, (err, result1) => {
+
+            if (err) {
+                throw err;
+            }
+
+        });
+        res.send(result);
     });
 });

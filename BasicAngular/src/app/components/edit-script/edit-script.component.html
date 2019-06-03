@@ -43,7 +43,7 @@
                 </div>
             </mat-card-header>
             <mat-card-content> 
-                <textarea [(ngModel)]="answers[0].text" rows="4" cols="40" name="texts"> </textarea>
+                <textarea [(ngModel)]="answers[0].texts" rows="4" cols="40" name="texts"> </textarea>
             </mat-card-content>
         </mat-card>
       </mat-grid-tile>
@@ -60,7 +60,7 @@
               </div>
           </mat-card-header>
           <mat-card-content> 
-              <textarea [(ngModel)]="answers[1].text" rows="4" cols="40" name="texts"> </textarea>
+              <textarea [(ngModel)]="answers[1].texts" rows="4" cols="40" name="texts"> </textarea>
           </mat-card-content>
       </mat-card>
   </mat-grid-tile>
@@ -76,7 +76,7 @@
             </div>
         </mat-card-header>
         <mat-card-content> 
-            <textarea [(ngModel)]="answers[2].text" rows="4" cols="40" name="texts"> </textarea>
+            <textarea [(ngModel)]="answers[2].texts" rows="4" cols="40" name="texts"> </textarea>
         </mat-card-content>
     </mat-card>
   </mat-grid-tile>
@@ -93,7 +93,7 @@
             </div>
           </mat-card-header>
           <mat-card-content> 
-              <textarea [(ngModel)]="answers[3].text" rows="4" cols="40" name="texts"> </textarea>
+              <textarea [(ngModel)]="answers[3].texts" rows="4" cols="40" name="texts"> </textarea>
           </mat-card-content>
       </mat-card>
     </mat-grid-tile>
@@ -109,7 +109,7 @@
             </div>
           </mat-card-header>
           <mat-card-content> 
-              <textarea [(ngModel)]="answers[4].text" rows="4" cols="40" name="texts"> </textarea>
+              <textarea [(ngModel)]="answers[4].texts" rows="4" cols="40" name="texts"> </textarea>
           </mat-card-content>
         </mat-card>
     </mat-grid-tile>
@@ -125,7 +125,7 @@
               </div>
             </mat-card-header>
             <mat-card-content> 
-                <textarea [(ngModel)]="answers[5].text" rows="4" cols="40" name="texts"> </textarea>
+                <textarea [(ngModel)]="answers[5].texts" rows="4" cols="40" name="texts"> </textarea>
             </mat-card-content>
           </mat-card>
      </mat-grid-tile>
@@ -142,7 +142,7 @@
               </div>
             </mat-card-header>
             <mat-card-content> 
-                <textarea [(ngModel)]="answers[6].text" rows="4" cols="40" name="texts"> </textarea>
+                <textarea [(ngModel)]="answers[6].texts" rows="4" cols="40" name="texts"> </textarea>
             </mat-card-content>
           </mat-card>
     </mat-grid-tile>
@@ -157,7 +157,7 @@
             </div>
           </mat-card-header>
           <mat-card-content> 
-              <textarea [(ngModel)]="answers[7].text" rows="4" cols="40" name="texts"> </textarea>
+              <textarea [(ngModel)]="answers[7].texts" rows="4" cols="40" name="texts"> </textarea>
           </mat-card-content>
         </mat-card>
     </mat-grid-tile>
@@ -172,7 +172,7 @@
               </div>
             </mat-card-header>
             <mat-card-content> 
-                <textarea [(ngModel)]="answers[8].text" rows="4" cols="40" name="texts"> </textarea>
+                <textarea [(ngModel)]="answers[8].texts" rows="4" cols="40" name="texts"> </textarea>
             </mat-card-content>
           </mat-card>
     </mat-grid-tile>
@@ -194,7 +194,7 @@
        </div>
        <textarea  [(ngModel)]="question" rows="8" cols="80"></textarea>
        <div class="save-edit-container">
-         <button class="save-btn" mat-button type="submit" value="submit">Save</button>         
+         <button class="save-btn" mat-button (click) ="submit()" value="submit">Save</button>         
        </div>
      </div>
    </mat-grid-tile>
