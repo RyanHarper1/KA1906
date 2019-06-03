@@ -78,14 +78,11 @@
                   <mat-grid-tile [colspan]="4"></mat-grid-tile>
                 <mat-grid-tile  [colspan]="1"></mat-grid-tile>
       </mat-grid-list>
-
-
-
 </div>
-<mat-tab-group *ngIf=loggedIn style="margin-left: 5%; margin-right: 5%;margin-top: 3%">
-<mat-tab label="Saved">
 
-  
+
+<mat-tab-group *ngIf=loggedIn style="margin-left: 5%; margin-right: 5%;margin-top: 3%">
+<mat-tab label="Saved"> 
     <mat-grid-list cols="3" class= "gridList" rowHeight="5:3" *ngFor="let li of list"  [gutterSize]="'10px'">
 
         <mat-grid-tile [colspan]="1" > 
