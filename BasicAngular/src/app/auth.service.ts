@@ -63,9 +63,9 @@ export class AuthService {
     posts.subscribe((response) => {
       this.response = response;
 
-      console.log(this.response);
-      console.log(this.response.scriptId);
-      console.log('Object 1:' + question)
+     // console.log(this.response);
+     // console.log(this.response.scriptId);
+     // console.log('Object 1:' + question)
 
       //insert question
       let quest = this.Http.post<questionData>('http://localhost:3000/addFirstQuestion', { texts: question, scriptId: this.response.scriptId });
@@ -73,10 +73,11 @@ export class AuthService {
         this.returns = {};
         this.response1 = response1;
         this.scriptData1.scriptId = this.response.scriptId;
-        console.log('response1: ' + response1.questionId)
+        console.log('Adding Question');
         this.scriptData1.questionId = response1.questionId;
         //insert answers
         for (let i = 0; i < answers.length; i++) {
+          console.log('Question ID : ' + this.response1.questionId)
           let ans = this.Http.post<questionData>('http://localhost:3000/addAnswer', { texts: answers[i], questionId: response1.questionId });
           ans.subscribe((response2) => {
             this.response = response1
