@@ -12,9 +12,9 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json({ extended: true }));
 
-//Sessions to be added later
-//app.use(session({
-/*name:"lid",
+//sessions to be added later
+app.use(session({
+name:"lid",
 secret: SESSION_SECRET,
 resave: false,
 saveUninitialized: false,
@@ -22,9 +22,9 @@ cookie: {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     maxAge: 1000* 60 * 60 * 24 //1 day
-}*/
-//})
-//);
+}
+})
+);
 
 /**bodyParser.json(options)
  * Parses the text as JSON and exposes the resulting object on req.body.
@@ -219,21 +219,22 @@ app.post('/editAnswer', (req, res) => {
     let test = req.body;
     let reply = {};
     console.log(test);
-    let script = { texts: req.body.texts, questionId: Number(req.body.questionId), nextQuestionId: Number(req.body.nextQuestionId) };
-    let sql = 'INSERT INTO answer SET ?';
-    console.log("Edit Answer on");
+    let script = { texts: req.body.texts, questionId: Number(req.body.questionId), nextQuestionId: req.body.nextQuestionId };
+    let sql = 'INSERT INTO answer (questionId,texts,nextQuestionId) VALUES (' + script.questionId + ',' + script.texts + ',' + script.nextQuestionId + ')';
+    console.log(sql + script);
     console.log(script);
-    let query = db.query(sql, script, (err, result) => {
+    let query = db.query(sql, (err, result) => {
         if (err) {
             throw err;
         } else {
-            console.log("successfully entered");
+            console.log(result);
 
             reply = {
                 result: 'success', idanswer: result.insertId
             }
+            res.send(reply);
         }
-        res.send(reply);
+       
     });
 });
 

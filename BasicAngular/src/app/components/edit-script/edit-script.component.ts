@@ -59,6 +59,13 @@ export class EditScriptComponent implements OnInit {
   }
 
   ngOnInit() {
+    for (let x = 0; x < 9; x++){
+      this.answers[x] = Object;
+      this.answers[x].texts = null
+      console.log('xxxx '  + x)
+    }
+      
+
     this.scriptId = this.editService.getEditScript();
     this.getScript(this.scriptId);
   }
@@ -98,6 +105,7 @@ export class EditScriptComponent implements OnInit {
       alert('Maximum count reached');
     } else {
       this.answer++;
+      
     }
 
   }
@@ -122,17 +130,18 @@ export class EditScriptComponent implements OnInit {
     let update = this.Http.post('http://localhost:3000/update-script', { questionId: this.questionId, question: this.question })
     update.subscribe((result) => {
       console.log(result)
+      console.log('THISGOING TO WORK')
+      for (let j = 0; j < this.answer; j++) {
+        console.log('THIS IS GOING TO WORK: ' + this.answers, this.answers[j].texts)
+  
+        let send = this.Http.post<questionData>('http://localhost:3000/editAnswer', { texts: this.answers[j].texts, questionId: this.questionId, nextQuestionId: this.answers[j].nextQuestionId });
+          send.subscribe((res) => {
+            //console.log('THIS IS WHAT HAS RERTUEND: ' + res.result)
+          });
+  
+      }
       
     });
-    console.log('THISGOING TO WORK')
-    for (let j = 0; j < this.answer; j++) {
-      console.log('THIS IS GOING TO WORK: ' + this.answers, this.answers[j].texts)
 
-      let send = this.Http.post<questionData>('http://localhost:3000/editAnswer', { texts: this.answers[j].texts, questionId: this.questionId, nextQuestionId: this.answers[j].nextQuestionId });
-        send.subscribe((res) => {
-          //console.log('THIS IS WHAT HAS RERTUEND: ' + res.result)
-        });
-
-    }
   }
 }
