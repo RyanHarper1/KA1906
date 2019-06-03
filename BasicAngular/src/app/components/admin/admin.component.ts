@@ -18,7 +18,7 @@ export class AdminComponent implements OnInit {
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/plus-circle-solid.svg'));
     iconRegistry.addSvgIcon(
       'edit',
-      sanitizer.bypassSecurityTrustResourceUrl('../assets/edit-regular.svg'));
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/edit-regular.svg'));
     iconRegistry.addSvgIcon(
       'delete',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/red-cross.svg'));

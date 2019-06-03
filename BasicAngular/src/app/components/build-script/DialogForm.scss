@@ -1,0 +1,23 @@
+.dialog-left >::ng-deep .mat-figure{
+  justify-content: flex-end;
+}
+
+.dialog-right >::ng-deep .mat-figure{
+    justify-content: flex-start;
+  }
+
+  .heading-left{
+      padding-right: 20px;
+  }
+
+  .input-right{
+    padding-left: 20px;
+    // width: 100%;
+}
+
+.save-btn{
+justify-content: center; 
+width: 100%; 
+height: 100%;
+background: orange;
+}

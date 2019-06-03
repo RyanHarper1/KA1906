@@ -202,6 +202,7 @@ export class BuildScriptComponent implements OnInit {
 @Component({
   selector: 'DialogForm',
   templateUrl: 'DialogForm.html',
+  styleUrls: ['./DialogForm.scss']
 })
 export class DialogForm implements OnInit{
   
