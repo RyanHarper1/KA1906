@@ -47,6 +47,13 @@
     float: right;
    }
 
+   ::ng-deep .mat-icon.cart-icon.mat-icon.notranslate.mat-icon-no-color{
+     fill: black;
+   }
+
+   ::ng-deep .mat-drawer-content{
+    background: white;
+   }
 
 
 // /* Remove the navbar's default margin-bottom and rounded borders */

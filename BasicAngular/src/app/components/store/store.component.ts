@@ -15,7 +15,11 @@ import { Router } from '@angular/router';
 
 })
 export class StoreComponent implements OnInit {
-  constructor(private Http: HttpClient, private Auth : AuthService, private cartService: CartService, private router: Router) { }
+  constructor(private Http: HttpClient, private Auth : AuthService, private cartService: CartService, private router: Router, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) { 
+    iconRegistry.addSvgIcon(
+      'cart',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/cart.svg'));
+  }
   list: any;
   store:Array<any>;
   i=0;
