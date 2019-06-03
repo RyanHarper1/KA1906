@@ -2,6 +2,7 @@
     background: #2f353a;
 }
 
+
 ul{
   list-style-type: none;
   margin: 0;
@@ -34,17 +35,30 @@ right: 0px;
 }
 */
 
+  .mat-elevation-z15{
+  max-height: 40px; 
+  min-height: 40px; 
+  background-color:#3a4f6e; 
+  color:white;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  }
+
+  .mat-toolbar-row.mat-toolbar-row{
+    justify-content: center;
+  }
+
+  // .example-icon {
+  //   padding: 0 14px;
+  // }
   
-  .example-icon {
-    padding: 0 14px;
-  }
-  
-  .example-spacer {
-    flex: 1 1 auto;
-  }
-  body {
-    margin: 0;
-  }
+  // .example-spacer {
+  //   flex: 1 1 auto;
+  // }
+  // body {
+  //   margin: 0;
+  // }
 
   .buttons{
       text-align: center;
