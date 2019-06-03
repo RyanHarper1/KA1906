@@ -1,207 +1,345 @@
 <div id="banner">
-    <img class="banner-img" src="/assets/img/build-noshdw.png" width="100%" height="100%">
-    <img class="logo-img" src="/assets/img/Logo.png" alt="logo" width="100%" heght="100%">
-    <div class="title">Build Script</div>
-  </div>
-  
-  <!-- build.jpg -->
-  
-  <div class ="notLogged" *ngIf = !loggedIn>
-  
-    <p>
-      This is where we build scripts
-    </p>
+  <img class="banner-img" src="/assets/img/build-noshdw.png" width="100%" height="100%">
+  <img class="logo-img" src="/assets/img/Logo.png" alt="logo" width="100%" heght="100%">
+  <div class="title">Build Script</div>
+</div>
 
+<!-- build.jpg -->
 
-    
-  </div>
-
- 
-
-  <div class="logged" *ngIf=loggedIn>
-
-     <!--Script details-->
-  <div class="script-details-container">
-      <div class="script-details">Category</div>
-      <input class="input-details"type="text" [(ngModel)] ="category" readonly>
-      <div class="script-details">Script Name</div>
-      <input class="input-details" type="text" [(ngModel)] ="scriptName" readonly>
-  </div>
-  
-    <!--Add answer row-->
-  
-    <mat-grid-list cols="11" rowHeight="100px">
-      <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-      <mat-grid-tile class="add-btn" [colspan]="3"><button mat-button (click)="addAnswer()"><mat-icon svgIcon="add"></mat-icon>Add answer</button> </mat-grid-tile>
-      <mat-grid-tile [colspan]="0"> </mat-grid-tile>
-      <mat-grid-tile [colspan]="3"> </mat-grid-tile>
-      <mat-grid-tile [colspan]="0"> </mat-grid-tile>
-      <mat-grid-tile [colspan]="3"> </mat-grid-tile>
-      <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-    </mat-grid-list>
-
-    <!--Objections-->
-    <mat-grid-list cols="11" rowHeight="1:1.2" [gutterSize]="'10px'">
+<div class="notLogged" *ngIf=!loggedIn>
+  <mat-grid-list cols="10" rowHeight="350px" [gutterSize]="'10px'">
       <mat-grid-tile [colspan]="1"></mat-grid-tile>
-      <mat-grid-tile [colspan]="3">
-          <mat-card class="example-card" *ngIf="answer > 0">
-            <mat-card-header>
-              <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[0],0)"><mat-icon svgIcon="answer"></mat-icon></button> 
-              <div class="answer-title">Answer</div>
-              <div class="remove-answer">
-                  <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
-                </div>
-            </mat-card-header>
-            <mat-card-content> 
-                <textarea [(ngModel)]="answers[0]" rows="4" cols="40" name="texts"> </textarea>
-            </mat-card-content>
-          </mat-card>
-      </mat-grid-tile>
-      <mat-grid-tile [colspan]="0"> </mat-grid-tile>
-      
-      <mat-grid-tile [colspan]="3">
-          <mat-card class="example-card" *ngIf="answer > 1">
-              <mat-card-header>
-                <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[1],1)"><mat-icon svgIcon="answer"></mat-icon></button> 
-                <div class="answer-title">Answer</div>
-                <div class="remove-answer">
-                    <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
-                  </div>
-              </mat-card-header>
-              <mat-card-content> 
-                  <textarea [(ngModel)]="answers[1]" rows="4" cols="40" name="texts"> </textarea>
-              </mat-card-content>
-            </mat-card>
-      </mat-grid-tile>
-      <mat-grid-tile [colspan]="0"> </mat-grid-tile>
-      <mat-grid-tile [colspan]="3">
-
-          <mat-card class="example-card" *ngIf="answer > 2">
-              <mat-card-header>
-                <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[2],2)"><mat-icon svgIcon="answer"></mat-icon></button> 
-                <div class="answer-title">Answer</div>
-                <div class="remove-answer">
-                    <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
-                  </div>
-              </mat-card-header>
-              <mat-card-content> 
-                  <textarea [(ngModel)]="answers[2]" rows="4" cols="40" name="texts"> </textarea>
-              </mat-card-content>
-            </mat-card>
-      </mat-grid-tile>
-      <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-  
-      <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-      <mat-grid-tile [colspan]="3">
-      <mat-card class="example-card" *ngIf="answer > 3">
-          <mat-card-header>
-            <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[3],3)"><mat-icon svgIcon="answer"></mat-icon></button> 
-            <div class="answer-title">Answer</div>
-            <div class="remove-answer">
-                <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
-              </div>
-          </mat-card-header>
-          <mat-card-content> 
-              <textarea [(ngModel)]="answers[3]" rows="4" cols="40" name="texts"> </textarea>
-          </mat-card-content>
-        </mat-card>
-      </mat-grid-tile>
-      <mat-grid-tile [colspan]="3">
-
-          <mat-card class="example-card" *ngIf="answer > 4">
-              <mat-card-header>
-                <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[4],4)"><mat-icon svgIcon="answer"></mat-icon></button> 
-                <div class="answer-title">Answer</div>
-                <div class="remove-answer">
-                    <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
-                  </div>
-              </mat-card-header>
-              <mat-card-content> 
-                  <textarea [(ngModel)]="answers[4]" rows="4" cols="40" name="texts"> </textarea>
-              </mat-card-content>
-            </mat-card>
-      </mat-grid-tile>
-      <mat-grid-tile [colspan]="3">
-          <mat-card class="example-card" *ngIf="answer > 5">
-              <mat-card-header>
-                <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[5],5)"><mat-icon svgIcon="answer"></mat-icon></button> 
-                <div class="answer-title">Answer</div>
-                <div class="remove-answer">
-                    <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
-                  </div>
-              </mat-card-header>
-              <mat-card-content> 
-                  <textarea [(ngModel)]="answers[5]" rows="4" cols="40" name="texts"> </textarea>
-              </mat-card-content>
-            </mat-card>
-      </mat-grid-tile>
-      <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-  
-      <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-      <mat-grid-tile [colspan]="3">
-          <mat-card class="example-card" *ngIf="answer > 6">
-              <mat-card-header>
-                <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[6],6)"><mat-icon svgIcon="answer"></mat-icon></button> 
-                <div class="answer-title">Answer</div>
-                <div class="remove-answer">
-                    <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
-                  </div>
-              </mat-card-header>
-              <mat-card-content> 
-                  <textarea [(ngModel)]="answers[6]" rows="4" cols="40" name="texts"> </textarea>
-              </mat-card-content>
-            </mat-card>
-      </mat-grid-tile>
-      <mat-grid-tile [colspan]="3">
-          <mat-card class="example-card" *ngIf="answer > 7">
-              <mat-card-header>
-                <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[7],7)"><mat-icon svgIcon="answer"></mat-icon></button> 
-                <div class="answer-title">Answer</div>
-                <div class="remove-answer">
-                    <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
-                  </div>
-              </mat-card-header>
-              <mat-card-content> 
-                  <textarea [(ngModel)]="answers[7]" rows="4" cols="40" name="texts"> </textarea>
-              </mat-card-content>
-            </mat-card>
-      </mat-grid-tile>
-      <mat-grid-tile [colspan]="3">
-          <mat-card class="example-card" *ngIf="answer > 8">
-              <mat-card-header>
-                <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[8],8)"><mat-icon svgIcon="answer"></mat-icon></button> 
-                <div class="answer-title">Answer</div>
-                <div class="remove-answer">
-                    <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
-                  </div>
-              </mat-card-header>
-              <mat-card-content> 
-                  <textarea [(ngModel)]="answers[8]" rows="4" cols="40" name="texts"> </textarea>
-              </mat-card-content>
-            </mat-card>
-      </mat-grid-tile>
-      <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-
-      <!--Pitch-->
-       <mat-grid-tile [colspan]="2"> </mat-grid-tile>
-       <mat-grid-tile [colspan]="7" [rowspan] ="3">
-      <div class="boxed-pitch">
-          <div class="pitch-title">PITCH</div>
-          <div class="toolbar-container">
-            <button class="edit-icon" mat-button><mat-icon svgIcon="bold"></mat-icon></button>
-            <button class="edit-icon" mat-button><mat-icon svgIcon="italic"></mat-icon></button>
-            <button class="edit-icon" mat-button><mat-icon svgIcon="underline"></mat-icon></button>
-            <button class="edit-icon" mat-button><mat-icon svgIcon="bullet"></mat-icon></button>
-            <button class="edit-icon" mat-button><mat-icon svgIcon="numbering"></mat-icon></button>
-            <button class="edit-icon" mat-button><mat-icon svgIcon="font"></mat-icon></button>
-          </div>
-          <textarea [(ngModel)]="texts" rows="8" cols="80"></textarea>
-          <div class="save-edit-container">
-            <button class="save-btn" mat-button  mat-button (click)="openDialog()">Save</button>
-          </div>
+      <mat-grid-tile  [colspan]="4">
+        <div class="build-tbl">
+          Being able to build a script from scratch is a very personalised way effectively tailoring your own 
+          responses to the sales call but at the same time not fumbling on the phone if you can’t remember one of 
+          your responses. You may know all the right things to say but saying them and remembering them at the same 
+          time is a very different issue. If you want to be you during the sales call then building your own script is 
+          the way to go. You can make the script as large or as small as you like! When you go into the build scripts 
+          bar a blank template will come up with a pitch box and the option to add as many objections as you like.
         </div>
       </mat-grid-tile>
-      <mat-grid-tile [colspan]="2"> </mat-grid-tile>
-  
+      <mat-grid-tile [colspan]="4">
+        <img class="img" src="/assets/img/build.PNG">
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="1"></mat-grid-tile>
+      <mat-grid-tile [colspan]="1"></mat-grid-tile>
+      <mat-grid-tile [colspan]="4">
+          <div class="build-tbl">
+              You will see that the pitch box has a number of different fonts to choose from as well as bold italics 
+              underline and you can also choose what size text you want the pitch to be. What’s also an impressive 
+              feature is the recording function at the bottom of the pitch box where you can select the icon and record 
+              your voice and you can do this for every pitch. Its very user friendly and just a matter of typing in what 
+              you want and styling the pitch how you like. You can add up to 9 objections for every template and can do so 
+              by clicking the add icon above the pitch box. The objection icons are just a standard text and doesn’t have all 
+              of the other options that the pitch box does.
+            </div>
+        </mat-grid-tile>
+      <mat-grid-tile [colspan]="4"></mat-grid-tile>
+      <mat-grid-tile [colspan]="1"></mat-grid-tile>
+      <mat-grid-tile [colspan]="1"></mat-grid-tile>
+      <mat-grid-tile [colspan]="4">
+          <div class="build-tbl">
+              Once you have typed in your pitch and all of the responses to your pitch you can then save the 
+              template under the save pitch icon. Once you have saved the template you then can click on one of the 
+              objection boxes and it will take you to another template where again you can put in your pitch and 
+              objections. There is a back icon at every new template so you can always go back to the original template 
+              which helps you to navigate through the whole script. Remember to click save pitch at after every new 
+              template otherwise you will lose the new template that you have put in place.
+            </div>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="4"></mat-grid-tile>
+      <mat-grid-tile [colspan]="1"></mat-grid-tile>
+      <mat-grid-tile [colspan]="1"></mat-grid-tile>
+      <mat-grid-tile [colspan]="4">
+          <div class="build-tbl">
+          After you are satisfied with your script you can then go and save the script where it will take you to 
+          another screen and give you the option for a heading which you must have and a description, heading and 
+          sub heading which are optional but highly recommended. Once you have saved your script it then becomes part 
+          of your current scripts and the current script menu then applies.
+          </div>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="4"></mat-grid-tile>
+      <mat-grid-tile [colspan]="1"></mat-grid-tile>
     </mat-grid-list>
-    </div>
+
+</div>
+
+<div *ngIf="loggedIn">
+
+  <!--Script details-->
+  <div class="script-details-container">
+    <div class="script-details">Category</div>
+    <input class="input-details" type="text" [(ngModel)]="category" readonly>
+    <div class="script-details">Script Name</div>
+    <input class="input-details" type="text" [(ngModel)]="scriptName" readonly>
+  </div>
+
+  <!--Add answer row-->
+
+  
+
+  <!--Objections-->
+  <mat-grid-list cols="11" rowHeight="1:1.2" [gutterSize]="'10px'">
+    <mat-grid-tile [colspan]="1"></mat-grid-tile>
+    <mat-grid-tile [colspan]="3">
+      <mat-card class="example-card" *ngIf="answer > 0">
+        <mat-card-header>
+          <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[0],0)">
+            <mat-icon svgIcon="answer"></mat-icon>
+          </button>
+          <div class="answer-title">Answer</div>
+          <div class="remove-answer">
+            <button mat-button (click)="removeAnswer()">
+              <mat-icon svgIcon="remove"></mat-icon>
+            </button>
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <textarea [(ngModel)]="answers[0]" rows="4" cols="40" name="texts"> </textarea>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="0"> </mat-grid-tile>
+    <mat-grid-tile class="add-btn" [colspan]="3" *ngIf="answer==1">
+      <button class="mat-btn" (click)="addAnswer()">
+        <mat-icon svgIcon="add"></mat-icon>
+        <div class="add-answer">Add answer</div>
+      </button> </mat-grid-tile>
+
+
+    <mat-grid-tile [colspan]="3" *ngIf="answer > 1">
+
+      <mat-card class="example-card">
+        <mat-card-header>
+          <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[1],1)">
+            <mat-icon svgIcon="answer"></mat-icon>
+          </button>
+          <div class="answer-title">Answer</div>
+          <div class="remove-answer">
+            <button mat-button (click)="removeAnswer()">
+              <mat-icon svgIcon="remove"></mat-icon>
+            </button>
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <textarea [(ngModel)]="answers[1]" rows="4" cols="40" name="texts"> </textarea>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="0"> </mat-grid-tile>
+    <mat-grid-tile class="add-btn" [colspan]="3" *ngIf="answer==2">
+      <button class="mat-btn" (click)="addAnswer()">
+        <mat-icon svgIcon="add"></mat-icon>
+        <div class="add-answer">Add answer</div>
+      </button> </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="3" *ngIf="answer > 2">
+
+      <mat-card class="example-card" *ngIf="answer > 2">
+        <mat-card-header>
+          <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[2],2)">
+            <mat-icon svgIcon="answer"></mat-icon>
+          </button>
+          <div class="answer-title">Answer</div>
+          <div class="remove-answer">
+            <button mat-button (click)="removeAnswer()">
+              <mat-icon svgIcon="remove"></mat-icon>
+            </button>
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <textarea [(ngModel)]="answers[2]" rows="4" cols="40" name="texts"> </textarea>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" > </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" *ngIf="answer > 2 "> </mat-grid-tile>
+    <mat-grid-tile class="add-btn" [colspan]="3" *ngIf="answer==3">
+      <button class="mat-btn" (click)="addAnswer()">
+        <mat-icon svgIcon="add"></mat-icon>
+        <div class="add-answer">Add answer</div>
+      </button> </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="3" *ngIf="answer > 3">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[3],3)">
+            <mat-icon svgIcon="answer"></mat-icon>
+          </button>
+          <div class="answer-title">Answer</div>
+          <div class="remove-answer">
+            <button mat-button (click)="removeAnswer()">
+              <mat-icon svgIcon="remove"></mat-icon>
+            </button>
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <textarea [(ngModel)]="answers[3]" rows="4" cols="40" name="texts"> </textarea>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile class="add-btn" [colspan]="3" *ngIf="answer==4">
+      <button class="mat-btn" (click)="addAnswer()">
+        <mat-icon svgIcon="add"></mat-icon>
+        <div class="add-answer">Add answer</div>
+      </button> </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="3" *ngIf="answer > 4">
+
+      <mat-card class="example-card">
+        <mat-card-header>
+          <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[4],4)">
+            <mat-icon svgIcon="answer"></mat-icon>
+          </button>
+          <div class="answer-title">Answer</div>
+          <div class="remove-answer">
+            <button mat-button (click)="removeAnswer()">
+              <mat-icon svgIcon="remove"></mat-icon>
+            </button>
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <textarea [(ngModel)]="answers[4]" rows="4" cols="40" name="texts"> </textarea>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile class="add-btn" [colspan]="3" *ngIf="answer==5">
+      <button class="mat-btn" (click)="addAnswer()">
+        <mat-icon svgIcon="add"></mat-icon>
+        <div class="add-answer">Add answer</div>
+      </button> </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="3" *ngIf="answer > 5">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[5],5)">
+            <mat-icon svgIcon="answer"></mat-icon>
+          </button>
+          <div class="answer-title">Answer</div>
+          <div class="remove-answer">
+            <button mat-button (click)="removeAnswer()">
+              <mat-icon svgIcon="remove"></mat-icon>
+            </button>
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <textarea [(ngModel)]="answers[5]" rows="4" cols="40" name="texts"> </textarea>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" *ngIf="answer > 4"> </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1" *ngIf="answer > 5"> </mat-grid-tile>
+    <mat-grid-tile class="add-btn" [colspan]="3" *ngIf="answer==6">
+        <button class="mat-btn" (click)="addAnswer()">
+          <mat-icon svgIcon="add"></mat-icon>
+          <div class="add-answer">Add answer</div>
+        </button> </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="3"*ngIf="answer > 6">
+      <mat-card class="example-card" >
+        <mat-card-header>
+          <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[6],6)">
+            <mat-icon svgIcon="answer"></mat-icon>
+          </button>
+          <div class="answer-title">Answer</div>
+          <div class="remove-answer">
+            <button mat-button (click)="removeAnswer()">
+              <mat-icon svgIcon="remove"></mat-icon>
+            </button>
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <textarea [(ngModel)]="answers[6]" rows="4" cols="40" name="texts"> </textarea>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile class="add-btn" [colspan]="3" *ngIf="answer==7">
+        <button class="mat-btn" (click)="addAnswer()">
+          <mat-icon svgIcon="add"></mat-icon>
+          <div class="add-answer">Add answer</div>
+        </button> </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="3" *ngIf="answer > 7">
+      <mat-card class="example-card" >
+        <mat-card-header>
+          <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[7],7)">
+            <mat-icon svgIcon="answer"></mat-icon>
+          </button>
+          <div class="answer-title">Answer</div>
+          <div class="remove-answer">
+            <button mat-button (click)="removeAnswer()">
+              <mat-icon svgIcon="remove"></mat-icon>
+            </button>
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <textarea [(ngModel)]="answers[7]" rows="4" cols="40" name="texts"> </textarea>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile class="add-btn" [colspan]="3" *ngIf="answer==8">
+        <button class="mat-btn" (click)="addAnswer()">
+          <mat-icon svgIcon="add"></mat-icon>
+          <div class="add-answer">Add answer</div>
+        </button> </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="3" *ngIf="answer > 8">
+      <mat-card class="example-card" >
+        <mat-card-header>
+          <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[8],8)">
+            <mat-icon svgIcon="answer"></mat-icon>
+          </button>
+          <div class="answer-title">Answer</div>
+          <div class="remove-answer">
+            <button mat-button (click)="removeAnswer()">
+              <mat-icon svgIcon="remove"></mat-icon>
+            </button>
+          </div>
+        </mat-card-header>
+        <mat-card-content>
+          <textarea [(ngModel)]="answers[8]" rows="4" cols="40" name="texts"> </textarea>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <!--<mat-grid-tile [colspan]="1"> </mat-grid-tile>-->
+  </mat-grid-list>
+  <mat-grid-list cols="11" rowHeight="1:1.2" [gutterSize]="'10px'">
+    <!--Pitch-->
+    <mat-grid-tile [colspan]="2"> </mat-grid-tile>
+    <mat-grid-tile [colspan]="7" [rowspan]="3">
+      <div class="boxed-pitch">
+        <div class="pitch-title">PITCH</div>
+        <div class="toolbar-container">
+          <button class="edit-icon" mat-button>
+            <mat-icon svgIcon="bold"></mat-icon>
+          </button>
+          <button class="edit-icon" mat-button>
+            <mat-icon svgIcon="italic"></mat-icon>
+          </button>
+          <button class="edit-icon" mat-button>
+            <mat-icon svgIcon="underline"></mat-icon>
+          </button>
+          <button class="edit-icon" mat-button>
+            <mat-icon svgIcon="bullet"></mat-icon>
+          </button>
+          <button class="edit-icon" mat-button>
+            <mat-icon svgIcon="numbering"></mat-icon>
+          </button>
+          <button class="edit-icon" mat-button>
+            <mat-icon svgIcon="font"></mat-icon>
+          </button>
+        </div>
+        <textarea [(ngModel)]="texts" rows="8" cols="80"></textarea>
+        <div class="save-edit-container">
+          <button class="save-btn" mat-button mat-button (click)="openDialog()">Save</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="2"> </mat-grid-tile>
+
+  </mat-grid-list>
+</div>

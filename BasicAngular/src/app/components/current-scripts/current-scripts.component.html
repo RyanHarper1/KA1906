@@ -5,18 +5,84 @@
 </div>
 
 <div *ngIf=!loggedIn>
-  <p>
-  
-    This is where the current script preloggin information goes
-  </p>
-
-
-
+    <mat-grid-list cols="10" rowHeight="480px" [gutterSize]="'10px'">
+        <mat-grid-tile [colspan]="1"></mat-grid-tile>
+        <mat-grid-tile  [colspan]="4">
+            <div class="current-tbl">
+                If you decide to sign up and use the current scripts menu what will appear will be all of your saved scripts along with 
+                scripts that you have bought on the store and scripts that have been shared with you via script share if you haven’t saved 
+                bought or shared anything then you will get a blank screen. If you have saved bought or shared scripts then a menu you come up that 
+                looks something like this.
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="4"></mat-grid-tile>
+      <mat-grid-tile  [colspan]="1"></mat-grid-tile>
+          <mat-grid-tile [colspan]="1"></mat-grid-tile>
+          <mat-grid-tile  [colspan]="4">
+              <div class="current-tbl">
+                  The menu items will appear in chronological order with the most current items at the top of the list. As you can see there 
+                  are 2 different menu styles! The ones that have been bought and the ones that are saved! Scripts that have been shared can either 
+                  be bought or saved scripts. With the saved and the bought scripts, the table has been divided into 2 sections. The first section will show 
+                  the scripts heading and a description if you save a script it is important that you give it a heading but description is an optional item and 
+                  only really necessary if your wanting to upload and sell your script. A description will help sell your script to a potential consumer and if 
+                  they can see something in the description that they can identify with they will be more willing to have a look at it.
+                </div>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="4"></mat-grid-tile>
+        <mat-grid-tile  [colspan]="1"></mat-grid-tile>
+            <mat-grid-tile [colspan]="1"></mat-grid-tile>
+            <mat-grid-tile  [colspan]="4">
+                <div class="current-tbl">
+                    If you can look at the saved scripts in the second section of the table there is category, sub category date saved and how many templates on 
+                    the script. The category is the category of what Industry the script of benefit for? If we use the example script for instance then you would 
+                    say it’s for the recruiting industry which would be broadly classified into human services. The sub category is what type of sales is it for e.g. 
+                    outbound, inbound, business development etc. How many templates is handy so you can gauge how big your script is and the date saved is the date 
+                    that you last edited it. In the top right-hand corner, you can see you have the option to upload the script or Edit the script.
+                  </div>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="4"></mat-grid-tile>
+          <mat-grid-tile  [colspan]="1"></mat-grid-tile>
+              <mat-grid-tile [colspan]="1"></mat-grid-tile>
+              <mat-grid-tile  [colspan]="4">
+                  <div class="current-tbl">
+                      By clicking the editing function, it enables you to go into the script templates themselves and from their you can change your script to whatever 
+                      you want or need it to be. The heading, description, Category and sub category can all be changed via the save as option or save option when editing the script. 
+                  </div>
+              </mat-grid-tile>
+              <mat-grid-tile [colspan]="4"></mat-grid-tile>
+            <mat-grid-tile  [colspan]="1"></mat-grid-tile>
+                <mat-grid-tile [colspan]="1"></mat-grid-tile>
+                <mat-grid-tile  [colspan]="4">
+                    <div class="current-tbl">
+                        If you decide to upload your script for sale this screen should appear. This is so you can upload your script on the Sales Script Market where buyers 
+                        have the option to purchase your script for an allocated price. Note this is why its handy to have a good description and to choose a category and sub 
+                        category plus allocate a realistic price. The market will determine how much your script is worth so if you’re not selling many scripts then you may 
+                        need to adjust the price or if your selling scripts by the hundreds then you might even see fit to raise your price for the script. 
+                      </div>
+                </mat-grid-tile>
+                <mat-grid-tile [colspan]="4"></mat-grid-tile>
+              <mat-grid-tile  [colspan]="1"></mat-grid-tile>
+                  <mat-grid-tile [colspan]="1"></mat-grid-tile>
+                  <mat-grid-tile  [colspan]="4">
+                      <div class="current-tbl">
+                          You will notice with the bought scripts on the second section of the table their will be some additional information such as how many users the script 
+                          has the star rating and the date it was uploaded. Every user when purchasing a script has the option to rate the script after they have used it which 
+                          gets averaged out into a star rating out of 5 stars. If you can see how long a script has been on the market for compared to how many users it has it 
+                          will give you a good indication of how popular a script is and its value in the market. Bought scripts can’t be uploaded again nor can they be edited.
+                          <p>
+                          Your current scripts give you autonomy on what scripts to use and when best to use them and I would highly recommend having a good collection of 
+                          scripts at your disposal a different type of clients may need to have different scripts used on them even if its in the same industry.
+                        </p>
+                        </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile [colspan]="4"></mat-grid-tile>
+                <mat-grid-tile  [colspan]="1"></mat-grid-tile>
+      </mat-grid-list>
 </div>
-<mat-tab-group *ngIf=loggedIn style="margin-left: 5%; margin-right: 5%;margin-top: 3%">
-<mat-tab label="Saved">
 
-  
+
+<mat-tab-group *ngIf=loggedIn style="margin-left: 5%; margin-right: 5%;margin-top: 3%">
+<mat-tab label="Saved"> 
     <mat-grid-list cols="3" class= "gridList" rowHeight="5:3" *ngFor="let li of list"  [gutterSize]="'10px'">
 
         <mat-grid-tile [colspan]="1" > 
@@ -95,6 +161,7 @@
   </mat-tab>
 
   <mat-tab label="Uploaded">
+
       <mat-grid-list cols="3" class= "gridList" rowHeight="5:3" *ngFor="let lo of storelist" [gutterSize]="'10px'">
           
 

@@ -27,3 +27,11 @@
     display: block;
     position: relative;
   } 
+
+  /*Increases card content font to 16pt*/
+  ::ng-deep .mat-card-content.content-card.mat-card-content{
+    display: block;
+    font-size: large;
+    padding: 16px;
+  }
+  

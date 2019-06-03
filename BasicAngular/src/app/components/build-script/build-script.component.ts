@@ -54,6 +54,7 @@ export class BuildScriptComponent implements OnInit {
   loggedIn = false;
   tempAnswer: any;
   description: string;
+  savedCount = 0;
   //questionForm: FormGroup;
   htmlContent = '';
 
@@ -149,6 +150,7 @@ export class BuildScriptComponent implements OnInit {
 
   }
   nextQuestion(selectedAnswer,num) {
+    this.savedCount = 1;
     this.saved = false;
     this.answer = 1;
     this.texts = '';

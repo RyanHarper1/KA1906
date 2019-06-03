@@ -50,12 +50,7 @@ margin-right: auto;
     text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
   }
 
- ::ng-deep .mat-card-content.content-card.mat-card-content{
-    display: block;
-    // line-height: 36px;
-    font-size: large;
-    padding: 16px;
-  }
+ 
 
   .img{
     margin-left: 5px;
@@ -76,30 +71,30 @@ margin-right: auto;
     margin: 10px 0 10px 0;
   }
 
-  // .title-div{
-  //   vertical-align: middle;
-  //   display: inline-block;
-  //   // padding-bottom: 25px;
-  //   // padding-left: 15px;
-
-  // }
-
   .content-div{
     margin: 10px 0 10px 0;
+  }
+
+  .current-tbl{
+    padding: 10px;
+    font-size: 16pt;
   }
 
 .crnt-btn{
    background: #ffffff;
    color: black;
-   box-shadow: 5px 6px 11px 1px rgba(0,0,0,0.94);
+  //  box-shadow: 5px 6px 11px 1px rgba(0,0,0,0.94);
 }
 
 .del-btn{
   background: #ffffff;
   color: red;
-  box-shadow: 5px 6px 11px 1px rgba(0,0,0,0.94);
+  // box-shadow: 5px 6px 11px 1px rgba(0,0,0,0.94);
 }
 
+::ng-deep .mat-icon.mat-icon.notranslate.mat-icon-no-color{
+  margin: 0;
+}
 // .upload-btn{
 //   background: #ffffff;
 //    color: #911c5a;
@@ -108,112 +103,4 @@ margin-right: auto;
 // .edit-btn{
 //   background: #ffffff;
 //    color: #26a96b;
-// }
-
-
-
-
-// body {
-//     background-color: #223458;
-//     }
-//     td {
-//     border-bottom: 1px solid #ddd;
-//     padding: 5px;
-//     }
-//     th {
-//     border-bottom: 1px solid #ddd;
-//     color: white;
-//     background-color: #347AB6;
-//     padding: 8px;
-//     text-align: center;
-//     height: 50px;
-//     width: 40%;
-//     border-radius: 10px;
-//     }
-//     tr:nth-child(even){
-//     background-color: #f2f2f2;
-//     border-radius: 10px;
-//     }
-//     tr:nth-child(odd){
-//     background-color: #f2f2f2;
-//     border-radius: 10px;
-//     }
-//     .center-table {
-//     margin-left: auto;
-//     margin-right: auto;
-//     }
-//     table {
-//     width: 100%;
-//     text-align: center;
-//     float: center;
-//     border-radius: 10px;
-//     }
-//     /* Remove the navbar's default margin-bottom and rounded borders */
-//     .navbar {
-//     margin-bottom: 0;
-//     border-radius: 0;
-//     }
-//     /* Add a gray background color and some padding to the footer */
-//     footer {
-//     background-color: #f2f2f2;
-//     padding: 25px;
-//     }
-//     .dropdown-submenu {
-//     position: relative;
-//     }
-//     .dropdown-submenu>.dropdown-menu {
-//     top: 0;
-//     left: 100%;
-//     margin-top: -6px;
-//     margin-left: -1px;
-//     -webkit-border-radius: 0 6px 6px 6px;
-//     -moz-border-radius: 0 6px 6px;
-//     border-radius: 0 6px 6px 6px;
-//     }
-//     .dropdown-submenu:hover>.dropdown-menu {
-//     display: block;
-//     }
-//     .dropdown-submenu>a:after {
-//     display: block;
-//     content: " ";
-//     float: right;
-//     width: 0;
-//     height: 0;
-//     border-color: transparent;
-//     border-style: solid;
-//     border-width: 5px 0 5px 5px;
-//     border-left-color: #ccc;
-//     margin-top: 5px;
-//     margin-right: -10px;
-//     }
-//     .dropdown-submenu:hover>a:after {
-//     border-left-color: #fff;
-//     }
-//     .dropdown-submenu.pull-left {
-//     float: none;
-//     }
-//     .dropdown-submenu.pull-left>.dropdown-menu {
-//     left: -100%;
-//     margin-left: 10px;
-//     -webkit-border-radius: 6px 0 6px 6px;
-//     -moz-border-radius: 6px 0 6px 6px;
-//     border-radius: 6px 0 6px 6px;
-//     }
-//     #txtbox {
-//     font-size: 10pt;
-//     height: 100px;
-//     width : 300px;
-//     }
-//     #txtbox1 {
-//     font-size: 10pt;
-//     height: 100px;
-//     width : 500px;
-//     }
-//     .buttons{
-//         display:inline-block;
-//     }
-// .currentlist > ::ng-deep figure{
-//   text-align:left;
-//   justify-content: flex-start !important;
- 
 // }

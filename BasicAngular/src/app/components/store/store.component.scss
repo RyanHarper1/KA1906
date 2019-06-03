@@ -12,7 +12,54 @@
 
 /*END BANNER*/
 
+.store-header{
+  display: flex;
+    flex-direction: row;
+    font-size: xx-large;
+    font-weight: 500;
+    font-variant-caps: all-small-caps;
+    border-radius: 10px;
+    color: darkred;
+    background: #FFFFFF;
+    text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.5);
+  }
+  
+  .store-tbl{
+    padding: 10px;
+    font-size: 16pt;
+  }
+  ::ng-deep .mat-card.store-card.mat-card{
+    display: inline-block;
+    padding: 0;
+    position: relative;
+    width: 90%;
+    box-shadow: none;
+  }
 
+  ::ng-deep .mat-card-title.title-card.mat-card-title{
+    margin: 10px 0 10px 0;
+  }
+
+  .content-div{
+    margin: 10px 0 10px 0;
+  }
+
+  .cart-btn{
+      background: #ffffff;
+      
+   }
+  
+   ::ng-deep .mat-card-actions.mat-card-actions{
+    float: right;
+   }
+
+   ::ng-deep .mat-icon.cart-icon.mat-icon.notranslate.mat-icon-no-color{
+     fill: black;
+   }
+
+   ::ng-deep .mat-drawer-content{
+    background: white;
+   }
 
 /* Remove the navbar's default margin-bottom and rounded borders */
 .navbar {
