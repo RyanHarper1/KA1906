@@ -11,6 +11,8 @@ import { EditServiceService } from 'src/app/edit-service.service';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
+
 
 interface DialogData {
   name: string;
@@ -22,6 +24,7 @@ interface scriptData {
   questionId: any; 
   scriptId: any;
 }
+
 
 @Component({
   selector: 'app-build-script',
@@ -52,6 +55,7 @@ export class BuildScriptComponent implements OnInit {
   tempAnswer: any;
   description: string;
   //questionForm: FormGroup;
+  htmlContent = '';
 
   constructor(public dialog: MatDialog, private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient, private router: Router,private editService: EditServiceService, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) { 
    
@@ -237,5 +241,29 @@ export class DialogForm implements OnInit{
  
   }
 
+
+  config: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: '15rem',
+    minHeight: '5rem',
+    placeholder: 'Enter text here...',
+    translate: 'no',
+    customClasses: [
+      {
+        name: "quote",
+        class: "quote",
+      },
+      {
+        name: 'redText',
+        class: 'redText'
+      },
+      {
+        name: "titleText",
+        class: "titleText",
+        tag: "h1",
+      },
+    ]
+  };
 
 }

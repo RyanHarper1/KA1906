@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -20,12 +19,15 @@ import { AuthGuard } from './auth.guard';
 import { ScriptShareComponent } from './components/script-share/script-share.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatRadioModule,  MatCheckboxModule, MatSidenavModule, MatSidenavContent, MatSidenav, MatFormFieldModule, MatInputModule, MatSelectModule, MatMenuModule, MatToolbarModule,MatIconModule, MatTabsModule, MatDialogModule, MatCardModule} from '@angular/material';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditScriptComponent } from './components/edit-script/edit-script.component';
 import { UpdateDetailsComponent } from './components/update-details/update-details.component';
 import { AdminComponent } from './components/admin/admin.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ViewScriptComponent } from './components/view-script/view-script.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import {QuillModule } from 'ngx-quill';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +47,6 @@ import { ViewScriptComponent } from './components/view-script/view-script.compon
     DialogForm,
     AdminComponent,
     ViewScriptComponent,
-
     
     
   ],
@@ -56,9 +57,9 @@ import { ViewScriptComponent } from './components/view-script/view-script.compon
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatButtonModule, 
+    MatButtonModule,
     MatCheckboxModule,
-    MatSidenavModule,     
+    MatSidenavModule,
     MatFormFieldModule,
     MatInputModule ,
     MatSelectModule,
@@ -69,9 +70,9 @@ import { ViewScriptComponent } from './components/view-script/view-script.compon
     MatDialogModule,
     MatRadioModule,
     MatGridListModule,
-    MatCardModule
-
-    
+    MatCardModule,
+    AngularEditorModule,
+    QuillModule
   ],
   exports: [
     MatToolbarModule, MatIconModule, MatMenuModule,
