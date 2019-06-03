@@ -219,11 +219,15 @@ app.post('/editAnswer', (req, res) => {
     let test = req.body;
     let reply = {};
     console.log(test);
+
     let script = { texts: req.body.texts, questionId: Number(req.body.questionId), nextQuestionId: req.body.nextQuestionId };
-    let sql = 'INSERT INTO answer (questionId,texts,nextQuestionId) VALUES (' + script.questionId + ',' + script.texts + ',' + script.nextQuestionId + ')';
+    if (Number(script.nextQuestionId < 1)){
+        script.nextQuestionId = null
+    }
+    let sql = 'INSERT INTO answer SET ?';
     console.log(sql + script);
     console.log(script);
-    let query = db.query(sql, (err, result) => {
+    let query = db.query(sql,script, (err, result) => {
         if (err) {
             throw err;
         } else {
