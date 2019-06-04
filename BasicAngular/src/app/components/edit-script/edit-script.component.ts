@@ -107,7 +107,7 @@ export class EditScriptComponent implements OnInit {
         let ans = this.Http.post('http://localhost:3000/get-answer', { questionId: this.questionId });
         ans.subscribe((response2) => {
           let tempAnswers = response2;
-          for (let i = 0; i < tempAnswers.length; i++) {
+          for (let i = 0; i < (<any>tempAnswers).length; i++) {
             this.answers[i] = tempAnswers[i]
             console.log('answer responses: ' + this.answers[i].texts);
             this.answer++;
@@ -153,12 +153,12 @@ export class EditScriptComponent implements OnInit {
       quest.subscribe((response1) => {
         console.log('response1: ' + response1[0].texts)
         this.question = response1[0].texts;
-
+        this.questionId = response1[0].questionId;
         // get answers
         let ans = this.Http.post('http://localhost:3000/get-answer', { questionId: Number(this.answers[num].nextQuestionId) });
         ans.subscribe((response2) => {
           let tempAnswers = response2;
-          for (let i = 0; i < tempAnswers.length; i++) {
+          for (let i = 0; i < (<any>tempAnswers).length; i++) {
             this.answers[i] = tempAnswers[i]
             console.log('answer responses: ' + this.answers[i].texts);
             this.answer++;
@@ -246,7 +246,7 @@ export class EditScriptComponent implements OnInit {
             ans.subscribe((response2) => {
               let tempAnswers = response2;
               this.answer = 0;
-              for (let i = 0; i < tempAnswers.length; i++) {
+              for (let i = 0; i < (<any>tempAnswers).length; i++) {
                 this.answers[i] = tempAnswers[i]
                 console.log('answer responses: ' + this.answers[i].texts);
                 this.answer++;
@@ -275,7 +275,7 @@ export class EditScriptComponent implements OnInit {
       let ans = this.Http.post('http://localhost:3000/get-answer', { questionId: this.previousAnswers[this.previousAnswerCount - 1] });
       ans.subscribe((response2) => {
         let tempAnswers = response2;
-        for (let i = 0; i < tempAnswers.length; i++) {
+        for (let i = 0; i < (<any>tempAnswers).length; i++) {
           this.answers[i] = tempAnswers[i]
           console.log('answer responses: ' + this.answers[i].texts);
           this.answer++;
