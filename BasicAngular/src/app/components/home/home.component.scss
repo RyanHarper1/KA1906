@@ -36,13 +36,21 @@
     letter-spacing: .2rem;
     font-variant-caps: all-petite-caps;
   }
-  footer {
-    height: 100%;
-    background-color: #ddd;
-    border-top: 1px solid #bbb;
-    text-align: center;
 
+  // footer {
+  //   height: 100%;
+  //   background-color: #ddd;
+  //   border-top: 1px solid #bbb;
+  //   text-align: center;
+
+  // }
+  // #btmFooter {
+  //   align-self: flex-end;
+  // }
+
+  .text{
+    font-size: 16pt;
+    padding: 10px;
   }
-  #btmFooter {
-    align-self: flex-end;
-  }
+
+

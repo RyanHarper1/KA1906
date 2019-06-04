@@ -6,24 +6,32 @@
         <!-- <img class="icon" src="assets/img/Login-icon.png"> -->
     </div>
 
+    <mat-grid-list cols="7" rowHeight = "300px">
+        <mat-grid-tile [colspan]="1" [rowspan]="2"></mat-grid-tile>
+        <mat-grid-tile [colspan]="5" [rowspan]="2">
+            <div class="userDetails">
+                <mat-form-field>
+                    <input matInput placeholder="Email">
+                  </mat-form-field>
+                  <mat-form-field>
+                      <input matInput placeholder="Address">
+                    </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Current Password">
+              </mat-form-field>
+            
+              <mat-form-field>
+                <input matInput placeholder="New Password">
+              </mat-form-field>
+            
+              <mat-form-field>
+                <input matInput placeholder="Confirm Password">
+              </mat-form-field>
+              <button class="update-details-btn" mat-button type ="submit">Submit</button>
+            </div>
+            
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1" [rowspan]="2"></mat-grid-tile>
 
-<div class="userDetails">
-    <mat-form-field>
-        <input matInput placeholder="Email">
-      </mat-form-field>
-      <mat-form-field>
-          <input matInput placeholder="Address">
-        </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Current Password">
-  </mat-form-field>
+    </mat-grid-list>
 
-  <mat-form-field>
-    <input matInput placeholder="New Password">
-  </mat-form-field>
-
-  <mat-form-field>
-    <input matInput placeholder="Confirm Password">
-  </mat-form-field>
-  <button mat-button type ="submit">Submit</button>
-</div>

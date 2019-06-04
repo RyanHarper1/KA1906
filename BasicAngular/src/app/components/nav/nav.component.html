@@ -9,10 +9,11 @@
     <button mat-button [routerLink]="[ '/script-share' ]">Script Share</button>
 
   <span class="example-spacer" ></span>
-  <button mat-button [routerLink]="[ '/cart' ]" *ngIf=loggedIn>Cart</button>
+  <button mat-button [routerLink]="[ '/cart' ]" *ngIf=loggedIn><mat-icon class="cart-icon" svgIcon="cart">Cart</mat-icon></button>
   <button mat-button [matMenuTriggerFor]="menu"*ngIf=loggedIn>Ryan</button>
 <mat-menu #menu="matMenu"> 
     <button mat-menu-item [routerLink] = "['/admin']">admin</button> 
+    <button mat-menu-item [routerLink] = "['/update-details']">Update Details</button>
   <button mat-menu-item (click)="logout()" [routerLink] = "['/home']">Logout</button>
 </mat-menu>
   <button mat-button [routerLink]="[ '/login' ]" *ngIf=!loggedIn>Login</button>

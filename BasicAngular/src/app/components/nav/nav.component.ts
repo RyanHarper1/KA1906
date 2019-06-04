@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth.service';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -10,8 +12,10 @@ import { AuthService } from 'src/app/auth.service';
 
 export class NavComponent implements OnInit {
 
-  constructor(private Auth:AuthService) {
-      
+  constructor(private Auth:AuthService,sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) {
+    iconRegistry.addSvgIcon(
+      'cart',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/cart.svg'));
   }
 
   loggedIn: Boolean;

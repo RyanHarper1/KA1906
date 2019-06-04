@@ -204,27 +204,25 @@ input::placeholder {
   text-align: center;
 }
 
-//   .cta {
-//     background: #7700FF;
-//     border: none;
-//     color: white;
+.bottom-links{
+  flex: 0 0 30px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  text-decoration: none;
+    font-weight: normal;
+    // margin-right: 15px;
+    color: #005EB8;
+}
 
-//     text-transform: uppercase;
-//     border-radius: 4px;
-//     padding: 1em;
-//     cursor: pointer;
-//     font-family: 'Montserrat';
-// }
 
-// .results {
-//     margin-top: 50px;
+#login-pg-vertbar{
+  color: #D8DADA;
+  margin-right: 15px;
+  margin-left: 15px;
+}
 
-//     strong {
-//         display: block;
-//     }
-//     span {
-//         margin-bottom: 20px;
-//         display: block;
-//     }
-// }
   

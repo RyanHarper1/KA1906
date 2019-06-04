@@ -32,8 +32,7 @@
  }
 
 ::ng-deep .mat-radio-group.mat-radio-group{
-  margin-left: 20%;
-  margin-right: 20%;
+  justify-content: space-evenly; 
 }
 
 .plus-icon{
@@ -63,9 +62,13 @@
     justify-content: space-evenly;
     width: 90%;
   }
-  //remove after complete system
-  ::ng-deep mat-grid-tile.mat-grid-tile {
-   border: 1px solid #3a4f6e;
+ 
+  .edit-btn{
+    background: white;
+  }
+
+  .delete-btn{
+    background: white;
   }
 
   .table{

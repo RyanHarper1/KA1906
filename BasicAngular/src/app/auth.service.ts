@@ -122,6 +122,32 @@ export class AuthService {
 
     });
   }
+  submitEditAnswer(questionId, scriptId, answers, question, selectedAnswer) {
+    console.log('It is trying to submit answer')
+    let quest = this.Http.post<questionData>('http://localhost:3000/addQuestion', { texts: question, scriptId: scriptId });
+    quest.subscribe((response1) => {
+      console.log('response1: ' + response1)
+      this.response1 = response1;
+      console.log('response1: ' + response1.questionId)
+      this.scriptData1.questionId = response1.questionId;
+      //insert answers
+      for (let i = 0; i < answers.length; i++) {
+        let ans = this.Http.post<questionData>('http://localhost:3000/addAnswer', { texts: answers[i].texts, questionId: response1.questionId });
+        ans.subscribe((response2) => {
+          this.response = response1
+          console.log('answer responses: ' + response2);
+
+        });
+      }
+      console.log('selected answer: ' + selectedAnswer)
+      let update = this.Http.post('http://localhost:3000/updateAnswer', { nextQuestionId: response1.questionId, questionId: questionId, texts: selectedAnswer });
+      update.subscribe((response2) => {
+
+      });
+      return response1.questionId;
+
+    });
+  }
 
   //User register function
   register(object) {
