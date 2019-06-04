@@ -10,7 +10,7 @@ import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
 })
 export class ScriptShareComponent implements OnInit {
   logged = false;
-  orgId = "";
+  orgId: any;
   list: any;
   list2: any;
   constructor(private auth: AuthService, private Http: HttpClient) { }

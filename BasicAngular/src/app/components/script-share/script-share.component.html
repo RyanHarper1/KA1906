@@ -24,8 +24,8 @@
         </mat-grid-tile>
         <mat-grid-tile [colspan]="1"></mat-grid-tile>
         </mat-grid-list>
-
-    <mat-grid-list cols="5" rowHeight [gutterSize]="'10px'">
+     
+    <mat-grid-list cols="5" rowHeight [gutterSize]="'10px'" *ngIf = "!logged && orgId !=null">
         <mat-grid-tile [colspan]="1" ></mat-grid-tile>
         <mat-grid-tile [colspan]="1" >
 
@@ -440,7 +440,7 @@
       </mat-grid-list>
 </div>
 
-<mat-tab-group *ngIf=logged style="margin-left: 5%; margin-right: 5%;margin-top: 3%">
+<mat-tab-group  *ngIf = "orgId !=null"style="margin-left: 5%; margin-right: 5%;margin-top: 3%">
     <mat-tab label="Saved">
       <mat-grid-list cols="6" rowHeight="300px" *ngFor="let li of list2">
         <mat-grid-tile [colspan]="1"> </mat-grid-tile>
