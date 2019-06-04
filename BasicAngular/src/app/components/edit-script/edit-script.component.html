@@ -5,7 +5,18 @@
 <!--Script details-->
 <div class="script-details-container">
     <div class="script-details">Category</div>
-    <input class="input-details" type="text" [(ngModel)] = "category">
+    <mat-select class="input-details" [(ngModel)]="category">
+      <mat-option value="Hospitality">Hospitality</mat-option>
+      <mat-option value="Trades">Trades</mat-option>
+      <mat-option value="Accounting">Accounting</mat-option>
+      <mat-option value="Health">Health</mat-option>
+      <mat-option value="Sales and Marketing">Sales and Marketing</mat-option>
+      <mat-option value="Management">Management</mat-option>
+      <mat-option value="Manufacturing">Manufacturing</mat-option>
+      <mat-option value="Government">Government</mat-option>
+      <mat-option value="Engineering & Information Technology">Engineering & Information Technology</mat-option>
+      <mat-option value="Banking & Finance">Banking & Finance</mat-option>
+    </mat-select>
     <div class="script-details">Script Name</div>
     <input class="input-details" type="text" [(ngModel)] ="scriptName">
 </div>
