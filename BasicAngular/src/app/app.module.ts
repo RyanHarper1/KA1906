@@ -19,7 +19,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
 import { ScriptShareComponent } from './components/script-share/script-share.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatRadioModule,  MatCheckboxModule, MatSidenavModule, MatSidenavContent, MatSidenav, MatFormFieldModule, MatInputModule, MatSelectModule, MatMenuModule, MatToolbarModule,MatIconModule, MatTabsModule, MatDialogModule} from '@angular/material';
+import {MatButtonModule, MatRadioModule,  MatCheckboxModule, MatSidenavModule, MatSidenavContent, MatSidenav, MatFormFieldModule, MatInputModule, MatSelectModule, MatMenuModule, MatToolbarModule,MatIconModule, MatTabsModule, MatDialogModule, MatSliderModule} from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { EditScriptComponent } from './components/edit-script/edit-script.component';
 import { UpdateDetailsComponent } from './components/update-details/update-details.component';
@@ -28,6 +28,12 @@ import { NgxPayPalModule } from 'ngx-paypal'
 import { AdminComponent } from './components/admin/admin.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ViewScriptComponent } from './components/view-script/view-script.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { CategoryPipe } from './pipes/category.pipe';
+import { MinPricePipe } from './pipes/min-price.pipe';
+import 'hammerjs';
+import { RatingPipe } from './pipes/rating.pipe';
+
 
 @NgModule({
   declarations: [
@@ -47,6 +53,9 @@ import { ViewScriptComponent } from './components/view-script/view-script.compon
     DialogForm,
     AdminComponent,
     ViewScriptComponent,
+    CategoryPipe,
+    MinPricePipe,
+    RatingPipe
   ],
   imports: [
     FormsModule,
@@ -68,7 +77,9 @@ import { ViewScriptComponent } from './components/view-script/view-script.compon
     NgxPayPalModule,
     MatDialogModule,
     MatRadioModule,
-    MatGridListModule
+    MatGridListModule,
+    Ng2SearchPipeModule,
+    MatSliderModule
 
   ],
   exports: [

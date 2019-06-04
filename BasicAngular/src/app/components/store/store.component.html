@@ -4,31 +4,94 @@
   <div class="title">Store</div>
 </div>
 <div *ngIf = !loggedIn>
-<p>
-  This is where the information about store will be
-</p>
 </div>
 
 <mat-drawer-container [hasBackdrop]="false" #mode value="side">
 
   <mat-drawer #drawer [mode]="mode.value">Search<br>
+
      <mat-form-field>
-      <input matInput type = "text" placeholder="Keyword" [(ngModel)]="searchText" class="form-control">
-    </mat-form-field>
+      <input matInput type = "text" placeholder="Keyword" [(ngModel)]="term">
+    </mat-form-field><br />
+
     <mat-form-field>
-      <mat-select placeholder="Select">
-        <mat-option value="option">Option1</mat-option>
-        <mat-option value="option">Option2</mat-option>
-        <mat-option value="option">Option3</mat-option>
+      <mat-select [(ngModel)]="Cat" placeholder="Category">
+        <mat-option value="Information Technology">Information Technology</mat-option>
+        <mat-option value="Advertising">Advertising</mat-option>
+        <mat-option value="Accounting">Accounting</mat-option>
       </mat-select>
-    </mat-form-field>
+    </mat-form-field><br />
+
+<div [(ngModel)]="subCat">
+      <mat-checkbox value="Business Development">Business Development</mat-checkbox><br />
+      <mat-checkbox value="Outbound">Outbound</mat-checkbox><br />
+      <mat-checkbox value="Sales Representative">Sales Representative</mat-checkbox><br />
+      <mat-checkbox value="Inbound">Inbound</mat-checkbox><br />
+      <mat-checkbox value="Telesales">Telesales</mat-checkbox><br />
+      <mat-checkbox value="Sales Management">Sales Management</mat-checkbox><br />
+      <mat-checkbox value="Marketing">Marketing</mat-checkbox><br />
+      <mat-checkbox value="Territory Sales">Territory Sales</mat-checkbox><br />
+      <mat-checkbox value="Account Management">Account Management</mat-checkbox><br />
+      <mat-checkbox value="Area Sales">Area Sales</mat-checkbox><br />
+</div>
+
+Rating:
+  <mat-slider
+      class = "tp-margin"
+      [thumbLabel] = "thumbLabel"
+      [(ngModel)] = "value"
+      min="0"
+      max="5"
+      step="1"
+      tickInterval="auto">
+  </mat-slider><br />
+
+    <mat-form-field>
+          <mat-select placeholder="Price-Min">
+            <mat-option value="option">Any</mat-option>
+            <mat-option value="option">1-5</mat-option>
+            <mat-option value="option">6-10</mat-option>
+            <mat-option value="option">10+</mat-option>
+          </mat-select>
+      </mat-form-field><br />
+
+      <mat-form-field>
+            <mat-select placeholder="Price-Max">
+              <mat-option value="option">Any</mat-option>
+              <mat-option value="option">1-5</mat-option>
+              <mat-option value="option">6-10</mat-option>
+              <mat-option value="option">10+</mat-option>
+            </mat-select>
+      </mat-form-field><br />
+
+      <mat-form-field>
+            <mat-select placeholder="Script Downloads">
+              <mat-option value="option">Any</mat-option>
+              <mat-option value="option">1-5</mat-option>
+              <mat-option value="option">6-10</mat-option>
+              <mat-option value="option">10+</mat-option>
+            </mat-select>
+        </mat-form-field><br />
+
+
+
+        <mat-form-field>
+            <mat-select placeholder="Templates">
+              <mat-option value="option">1-20</mat-option>
+              <mat-option value="option">21-40</mat-option>
+              <mat-option value="option">41-60</mat-option>
+              <mat-option value="option">61-80</mat-option>
+              <mat-option value="option">80+</mat-option>
+            </mat-select>
+        </mat-form-field><br />
+
   </mat-drawer>
 
   <mat-select #mode value="side"></mat-select>
   <mat-drawer-content>
     <button mat-raised-button (click)="drawer.toggle()">Search</button>
     <table>
-      <tr *ngFor="let li of list">
+      <tr *ngFor="let li of list | categoryPipe:Cat | filter:term">
         <td>
           Name: {{li.scriptName}}<br>
           Description: {{li.description}}<br>

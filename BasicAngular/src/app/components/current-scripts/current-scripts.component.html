@@ -18,9 +18,9 @@
       Description: {{li.description}}<br>
       Category: {{li.category}}<br>
       Sub-Category: {{li.subcategory}}
-    </mat-grid-tile> 
+    </mat-grid-tile>
     <mat-grid-tile [colspan]="2">
-      Last Edited: {{li.edited}}<br>
+      Last Edited: {{li.edited | date: 'dd/MM/yyyy'}}<br>
       Template: {{li.templates}}<br>
       <div class="functions" valign="top">
         <button mat-button (click) ="viewScript(li)">View Script</button>

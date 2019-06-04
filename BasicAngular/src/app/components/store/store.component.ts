@@ -6,14 +6,25 @@ import { AuthService } from 'src/app/auth.service';
 import { CartService } from 'src/app/cart.service';
 import { CartComponent } from '../cart/cart.component';
 import { Router } from '@angular/router';
+import{ CategoryPipe } from '../../pipes/category.pipe';
+import{ MinPricePipe } from '../../pipes/min-price.pipe';
+//import {MatDatePickerModule} from '@angular/material/datepicker';
+
+
+
 
 @Component({
   selector: 'app-store',
   templateUrl: './store.component.html',
-  styleUrls: ['./store.component.scss']
+  styleUrls: ['./store.component.scss'],
+  providers: [MinPricePipe, CategoryPipe],
+
 
 })
 export class StoreComponent implements OnInit {
+
+   thumbLabel = true;
+
   constructor(private Http: HttpClient, private Auth : AuthService, private cartService: CartService, private router: Router) { }
   list: any;
   store:Array<any>;

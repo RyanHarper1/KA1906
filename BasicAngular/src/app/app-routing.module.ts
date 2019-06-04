@@ -31,7 +31,7 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
   },
-  
+
   //Only allow access to following components when signed in
   {
     path: 'cart',
@@ -71,19 +71,19 @@ const routes: Routes = [
     {
     path: 'DialogForm',
     component: DialogForm,
-    
+
   },
   {
   path: 'admin',
   component: AdminComponent,
   canActivate: [AuthGuard]
-  
+
 },
 {
   path: 'view-script',
   component: ViewScriptComponent,
   canActivate: [AuthGuard]
-  
+
 }
 ];
 
