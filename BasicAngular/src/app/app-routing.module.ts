@@ -17,7 +17,7 @@ import { EditScriptComponent} from './components/edit-script/edit-script.compone
 import {UpdateDetailsComponent} from './components/update-details/update-details.component'
 import { AdminComponent } from './components/admin/admin.component';
 import { ViewScriptComponent } from './components/view-script/view-script.component';
-import { terms } from './components/footer/footer.component';
+import { terms, contact } from './components/footer/footer.component';
 
 const routes: Routes = [
     {
@@ -81,6 +81,11 @@ const routes: Routes = [
   {
     path: 'terms',
     component: terms,
+    
+  },
+  {
+    path: 'contact',
+    component: contact,
     
   },
   {

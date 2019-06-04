@@ -28,7 +28,7 @@ import { NgxPayPalModule } from 'ngx-paypal'
 import { AdminComponent } from './components/admin/admin.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ViewScriptComponent } from './components/view-script/view-script.component';
-import { FooterComponent, terms } from './components/footer/footer.component';
+import { FooterComponent, terms, contact } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,8 @@ import { FooterComponent, terms } from './components/footer/footer.component';
     ViewScriptComponent,
     FooterComponent,
     terms,
-    privacy
+    privacy,
+    contact
   ],
   imports: [
     FormsModule,
