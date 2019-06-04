@@ -19,6 +19,11 @@ openTerms() {
     width: '700px'
   });
 }
+openContact() {
+  const dialogRef = this.dialog.open(contact, {
+    width: '700px'
+  });
+}
 
 }
 
@@ -36,3 +41,16 @@ constructor(public dialogRef: MatDialogRef<terms>,) {
 
 
 }
+@Component({
+  selector: 'contact',
+  templateUrl: 'contact.html',
+  //styleUrls: ['./terms.scss']
+  })
+  export class contact {
+  
+  constructor(public dialogRef: MatDialogRef<terms>,) {
+  
+  }
+  
+  
+  }
