@@ -32,7 +32,8 @@
     <mat-grid-tile class="add-btn" [colspan]="3">
       <button class="mat-btn" (click)="addAnswer()"><mat-icon svgIcon="add"></mat-icon><div class="add-answer">Add answer</div></button> </mat-grid-tile>
     <mat-grid-tile [colspan]="0"> </mat-grid-tile>
-    <mat-grid-tile [colspan]="3"><button id="bck-btn" mat-button (click)="backQuestion()" *ngIf ="previousAnswerCount > 0 "><mat-icon id="bck-btn-icon" svgIcon="back"></mat-icon>Back</button></mat-grid-tile>
+    <mat-grid-tile [colspan]="3"><button class="bck-btn-icon" mat-button (click)="backQuestion()" *ngIf ="previousAnswerCount > 0 ">
+      <mat-icon class="add" svgIcon="back"></mat-icon><div class="add-answer">Back</div></button></mat-grid-tile>
     <mat-grid-tile [colspan]="0"> </mat-grid-tile>
     <mat-grid-tile [colspan]="3"> </mat-grid-tile>
     <mat-grid-tile [colspan]="1"> </mat-grid-tile>
