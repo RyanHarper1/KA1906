@@ -59,7 +59,7 @@ export class StoreComponent implements OnInit {
     console.log(store);
   }
   viewScript(script){
-    this.viewService.setScript(script.scriptId);
+    this.viewService.setScript(script.scriptID);
     console.log(script);
     this.router.navigate(['view-script']);
   }
