@@ -31,6 +31,10 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
   },
+  {
+    path: '',
+    component: HomeComponent,
+  },
   
   //Only allow access to following components when signed in
   {
