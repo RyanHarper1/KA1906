@@ -8,7 +8,7 @@ export class MinPricePipe implements PipeTransform {
   transform(value: any, args?: any): any {
     let [minPrice] = args;
     return value.filter(list => {
-      return Number(list.price) >= Number(minPrice);
+      return Number(list.price) >= minPrice;
     });
   }
 

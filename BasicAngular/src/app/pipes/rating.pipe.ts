@@ -6,7 +6,12 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class RatingPipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
-    return null;
+   if(args == null){
+     return value;
+    }
+    return value.filter(
+      list => list.rating.toLowerCase().indexOf(args.toLowerCase()) > -1
+   );
   }
 
 }

@@ -8,6 +8,7 @@ import { CartComponent } from '../cart/cart.component';
 import { Router } from '@angular/router';
 import{ CategoryPipe } from '../../pipes/category.pipe';
 import{ MinPricePipe } from '../../pipes/min-price.pipe';
+import{ RatingPipe } from '../../pipes/rating.pipe';
 //import {MatDatePickerModule} from '@angular/material/datepicker';
 
 
@@ -17,7 +18,7 @@ import{ MinPricePipe } from '../../pipes/min-price.pipe';
   selector: 'app-store',
   templateUrl: './store.component.html',
   styleUrls: ['./store.component.scss'],
-  providers: [MinPricePipe, CategoryPipe],
+  providers: [MinPricePipe, CategoryPipe, RatingPipe],
 
 
 })
