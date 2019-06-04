@@ -13,7 +13,7 @@
   <button mat-button [matMenuTriggerFor]="menu"*ngIf=loggedIn>{{Auth.fName}}</button>
 
 <mat-menu #menu="matMenu"> 
-    <button mat-menu-item [routerLink] = "['/admin']">admin</button> 
+    <button mat-menu-item [routerLink] = "['/admin']" *ngIf ="Auth.orgId != null">admin</button> 
     <button mat-menu-item [routerLink] = "['/update-details']">Update Details</button>
   <button mat-menu-item (click)="logout()" [routerLink] = "['/home']">Logout</button>
 </mat-menu>
