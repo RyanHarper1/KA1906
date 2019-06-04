@@ -46,9 +46,13 @@
 
   .cart-btn{
       background: #ffffff;
-      
    }
   
+   .crnt-btn{
+    background: #ffffff;
+    color: black;
+   //  box-shadow: 5px 6px 11px 1px rgba(0,0,0,0.94);
+ }
    ::ng-deep .mat-card-actions.mat-card-actions{
     float: right;
    }
