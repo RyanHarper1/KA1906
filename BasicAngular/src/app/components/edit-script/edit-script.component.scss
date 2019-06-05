@@ -39,13 +39,10 @@
 
   .add-btn >::ng-deep .mat-figure{
     justify-content: center;
-  
-
   }
 
 /*Override styling for Add new button icon*/
 ::ng-deep mat-icon.mat-icon.notranslate.mat-icon-no-color{
-  
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -64,11 +61,11 @@
   background: #3a4f6e;
 }
 
-::ng-deep div.mat-card-header-text{
-  margin-left: 1px;
-  margin-top: 23px;
-  margin-bottom: 23px;
-}
+// ::ng-deep div.mat-card-header-text{
+//   margin-left: 1px;
+//   margin-top: 23px;
+//   margin-bottom: 23px;
+// }
 
 ::ng-deep .mat-card.edit-card.mat-card{
   display: inline-block;
@@ -207,4 +204,3 @@ textarea {
     letter-spacing: 2pt;
   }
 
-  

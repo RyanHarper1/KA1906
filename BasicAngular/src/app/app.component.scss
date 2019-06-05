@@ -34,5 +34,9 @@
     font-size: large;
     padding: 16px;
   }
+
+  ::ng-deep div.mat-card-header-text{
+    margin: 0;
+  }
   
   

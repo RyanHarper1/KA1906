@@ -47,10 +47,10 @@ margin-left: 10px;
   }
 
 /*Override styling for Add new button icon*/
-::ng-deep mat-icon.mat-icon.notranslate.mat-icon-no-color{
-  //  color: white;
-   margin-right: 10px;
-}
+// ::ng-deep mat-icon.mat-icon.notranslate.mat-icon-no-color{
+//   //  color: white;
+//    margin-right: 10px;
+// }
 
 
 ::ng-deep .mat-grid-list.mat-grid-list{
@@ -63,12 +63,6 @@ margin-left: 10px;
   display: flex;
   flex-direction: row;
   background: #3a4f6e;
-}
-
-::ng-deep div.mat-card-header-text{
-  margin-left: 1px;
-  margin-top: 23px;
-  margin-bottom: 23px;
 }
 
 ::ng-deep .mat-card.example-card.mat-card{
