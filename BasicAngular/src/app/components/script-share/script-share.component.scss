@@ -126,5 +126,119 @@
   .price-bill-container{
     text-align: center;
   }
+
+  .users{
+    font-size: 20pt;
+    font-variant-caps: all-petite-caps;
+    font-weight: bolder;
+  }
   
-  
+  /*Styling for mat tab e.g. saved, uploaded, purchased for share script*/
+  .gridList{
+    // box-shadow: 5px 10px 8px #b9b9b3;
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}
+
+  .current-card{
+    // background: white;
+    color: black;
+  }
+  ::ng-deep .mat-card.current-card.mat-card{
+    // display: inline-block;
+    padding: 0;
+    position: relative;
+    width: 90%;
+    box-shadow: none;
+  }
+
+  ::ng-deep .mat-card-header.header-card.mat-card-header{
+    display: flex;
+    flex-direction: row;
+    font-size: xx-large;
+    font-weight: 500;
+    // background: #091c3a;
+    // color: white;
+    font-variant-caps: all-small-caps;
+    border-radius: 10px;
+    // box-shadow: 5px 6px 11px 1px rgba(0,0,0,0.94);
+    color: darkred;
+    background: #FFFFFF;
+    text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
+   
+  }
+
+ 
+
+  ::ng-deep .mat-card-title.title-card.mat-card-title{
+    margin: 10px 0 10px 0;
+    text-align: center;
+  }
+
+  .content-div{
+    margin: 10px 0 10px 0;
+    text-align: center;
+  }
+
+  .current-tbl{
+    padding: 10px;
+    font-size: 16pt;
+  }
+  .btn-card{
+    box-shadow: none;
+    width: 100%;
+    margin: 0;
+  }
+
+
+
+.mat-icon#crnt-icon.mat-icon.notranslate.mat-icon-no-color{
+  margin: 0;
+}
+
+.mat-card-actions.mat-card-actions-current.mat-card-actions{
+  margin: 0;
+  padding: 0;
+}
+
+
+.mat-card-actions .mat-button:first-child, .mat-card-actions .mat-raised-button:first-child{
+  margin: 0;
+width: 130px;
+}
+
+.mat-card>.mat-card-actions:last-child{
+  margin: 0;
+  padding: 0;
+}
+
+.crnt-btn{
+     color: white;
+   display: block;
+  //  margin-right: 3px;
+   font-size: 16pt;
+   box-shadow: 5px 6px 11px 1px rgba(0,0,0,0.94);
+   font-variant-caps: all-petite-caps;
+    letter-spacing: 2pt;
+}
+
+// .btn-icon{
+//   fill: red;
+// }
+
+.crnt-icon{
+  display: block;
+  justify-content: center;
+  fill: white;
+  width: 80%;
+  margin: auto;
+}
+
+
+.del-btn{
+  // background: #ffffff;
+  color: red;
+  display: block;
+  font-size: 16pt;
+  // box-shadow: 5px 6px 11px 1px rgba(0,0,0,0.94);
+}
+

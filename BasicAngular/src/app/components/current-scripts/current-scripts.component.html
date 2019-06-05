@@ -209,7 +209,7 @@
   </mat-tab>
 
   <mat-tab label="Uploaded">
-    <mat-grid-list cols="16" class= "gridList" rowHeight="120px" *ngFor="let lo of storelist" [gutterSize]="'5px'">
+    <mat-grid-list cols="17" class= "gridList" rowHeight="120px" *ngFor="let lo of storelist" [gutterSize]="'5px'">
       <mat-grid-tile [colspan]="2">
         <mat-card class="current-card">
             <mat-card-header class="header-card">
@@ -256,6 +256,19 @@
               </mat-card-content>
               </mat-card>
           </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="2" >
+              <mat-card class="current-card">
+                <mat-card-content class="content-card">
+                    <mat-card-title class="title-card">
+                        <div class="title-div" >Price</div>
+                    </mat-card-title>
+                    <div class="content-div">
+                    {{lo.price}}
+                  </div>
+                </mat-card-content>
+                </mat-card>
+            </mat-grid-tile>
 
         <mat-grid-tile [colspan]="2" >
             <mat-card class="current-card">       
@@ -335,7 +348,7 @@
 
 
   <mat-tab label="Purchased">
-    <mat-grid-list cols="16" class= "gridList" rowHeight="120px" *ngFor="let lo of storelist" [gutterSize]="'5px'">
+    <mat-grid-list cols="17" class= "gridList" rowHeight="120px" *ngFor="let lo of storelist" [gutterSize]="'5px'">
         <mat-grid-tile [colspan]="2">
           <mat-card class="current-card">
               <mat-card-header class="header-card">
@@ -382,6 +395,19 @@
                 </mat-card-content>
                 </mat-card>
             </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="2" >
+                <mat-card class="current-card">
+                  <mat-card-content class="content-card">
+                      <mat-card-title class="title-card">
+                          <div class="title-div" >Price</div>
+                      </mat-card-title>
+                      <div class="content-div">
+                      {{lo.price}}
+                    </div>
+                  </mat-card-content>
+                  </mat-card>
+              </mat-grid-tile>
   
           <mat-grid-tile [colspan]="2" >
               <mat-card class="current-card">       
