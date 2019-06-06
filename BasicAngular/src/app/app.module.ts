@@ -28,6 +28,7 @@ import { NgxPayPalModule } from 'ngx-paypal'
 import { AdminComponent } from './components/admin/admin.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ViewScriptComponent } from './components/view-script/view-script.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -68,8 +69,8 @@ import { ViewScriptComponent } from './components/view-script/view-script.compon
     NgxPayPalModule,
     MatDialogModule,
     MatRadioModule,
-    MatGridListModule
-
+    MatGridListModule,
+    FlexLayoutModule
   ],
   exports: [
     MatToolbarModule, MatIconModule, MatMenuModule,

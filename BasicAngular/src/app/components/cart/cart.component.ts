@@ -105,14 +105,11 @@ export class CartComponent implements OnInit {
       this.list=response;
       console.log(response)
       this.router.navigate(['/cart']);
->>>>>>> parent of 76660b7b... undo merge from master
+
     });
     console.log(cart);
   }
 
-<<<<<<< HEAD
-
-=======
     paypalConfig = {
       env: 'sandbox',
       client: {
@@ -188,5 +185,5 @@ if (val == this.router.url) {
   };
  }
 }
->>>>>>> parent of 76660b7b... undo merge from master
+
 }
