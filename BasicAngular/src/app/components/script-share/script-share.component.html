@@ -7,7 +7,7 @@
 </div>
 
 
-    <mat-grid-list cols="6" rowHeight ="400px" *ngIf="!logged && orgId !=null" [gutterSize]="'10px'">
+    <!-- <mat-grid-list cols="6" rowHeight ="400px" *ngIf="!logged && orgId !=null" [gutterSize]="'10px'">
         <mat-grid-tile [colspan]="1" ></mat-grid-tile>
         <mat-grid-tile [colspan]="2" >
           <img src="../assets/videoplaceholder.jpg" 
@@ -227,9 +227,9 @@
         </mat-grid-tile>
         <mat-grid-tile [colspan]="1"></mat-grid-tile>
     
-      </mat-grid-list>
+      </mat-grid-list> -->
 
-      <mat-grid-list cols="6" rowHeight ="400px" *ngIf="logged && orgId !=null" [gutterSize]="'10px'">
+      <mat-grid-list cols="6" rowHeight ="400px" *ngIf="orgId ==null" [gutterSize]="'10px'">
           <mat-grid-tile [colspan]="1" ></mat-grid-tile>
           <mat-grid-tile [colspan]="2" >
             <img src="../assets/videoplaceholder.jpg" 
@@ -248,7 +248,7 @@
           <mat-grid-tile [colspan]="1"></mat-grid-tile>
           </mat-grid-list>
 
-      <mat-grid-list cols="5" rowHeight="50px" [gutterSize]="'10px'"  *ngIf="logged && orgId !=null">
+      <mat-grid-list cols="5" rowHeight="50px" [gutterSize]="'10px'"  *ngIf="orgId ==null">
           <mat-grid-tile [colspan]="1" ></mat-grid-tile>
           <mat-grid-tile [colspan]="1" ><div class="users">1-20 Users</div> </mat-grid-tile>
           <mat-grid-tile [colspan]="1" ><div class="users">20-100 Users</div></mat-grid-tile>
@@ -256,7 +256,7 @@
           <mat-grid-tile [colspan]="1" ></mat-grid-tile>
       </mat-grid-list>
   
-  <mat-grid-list cols="5" rowHeight="300px" *ngIf="logged && orgId !=null" [gutterSize]="'10px'">
+  <mat-grid-list cols="5" rowHeight="300px" *ngIf="orgId ==null" [gutterSize]="'10px'">
           <mat-grid-tile [colspan]="1" ></mat-grid-tile>
           <mat-grid-tile [colspan]="1" >
             <mat-card class="script-share-card">
