@@ -28,12 +28,16 @@ import { AdminComponent } from './components/admin/admin.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ViewScriptComponent } from './components/view-script/view-script.component';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { FooterComponent, terms, contact } from './components/footer/footer.component';
 import { NgxEditorModule } from 'ngx-editor';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 
 
+=======
+import { FooterComponent } from './components/footer/footer.component';
+>>>>>>> parent of 6628a2df... Merge branch 'master' into jlee
 =======
 import { FooterComponent } from './components/footer/footer.component';
 >>>>>>> parent of 6628a2df... Merge branch 'master' into jlee
