@@ -71,6 +71,12 @@ export class EditScriptComponent implements OnInit {
     iconRegistry.addSvgIcon(
       'add',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/plus-circle-solid.svg'));
+    iconRegistry.addSvgIcon(
+      'save',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/save-regular.svg'));
+    iconRegistry.addSvgIcon(
+      'back',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/back-btn.svg'));
 
 
   }

@@ -56,7 +56,7 @@
   
   </mat-grid-tile>
     
-  <mat-grid-tile [colspan]="3">
+  <mat-grid-tile [colspan]="3" *ngIf="answer > 1">
     <mat-card class="example-card" *ngIf="answer > 1">
         <mat-card-header>
           <div class="next-answer"><button mat-button (click)="nextQuestion(answer[1],1)" *ngIf="answers[1].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
@@ -68,7 +68,7 @@
       </mat-card>
   </mat-grid-tile>
   
-  <mat-grid-tile [colspan]="3">
+  <mat-grid-tile [colspan]="3" *ngIf="answer > 2">
     <mat-card class="example-card" *ngIf="answer > 2">
         <mat-card-header>
           <div class="next-answer"><button mat-button (click)="nextQuestion(answer[2],2)" *ngIf="answers[2].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
@@ -80,10 +80,10 @@
       </mat-card>
   </mat-grid-tile>
 
-  <mat-grid-tile [colspan]="1"></mat-grid-tile>
+  <mat-grid-tile [colspan]="1"*ngIf="answer > 3"></mat-grid-tile>
 
-  <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-  <mat-grid-tile [colspan]="3">
+  <mat-grid-tile [colspan]="1"*ngIf="answer > 3"> </mat-grid-tile>
+  <mat-grid-tile [colspan]="3" *ngIf="answer > 3">
       <mat-card class="example-card" *ngIf="answer > 3">
           <mat-card-header>
             <div class="next-answer"><button mat-button (click)="nextQuestion(answer[3],3)" *ngIf="answers[3].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
@@ -95,7 +95,7 @@
         </mat-card>
   </mat-grid-tile>
   
-  <mat-grid-tile [colspan]="3">
+  <mat-grid-tile [colspan]="3" *ngIf="answer > 4">
       <mat-card class="example-card" *ngIf="answer > 4">
           <mat-card-header>
             <div class="next-answer"><button mat-button (click)="nextQuestion(answer[4],4)" *ngIf="answers[4].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
@@ -107,7 +107,7 @@
         </mat-card>
   </mat-grid-tile>
 
-  <mat-grid-tile [colspan]="3">
+  <mat-grid-tile [colspan]="3" *ngIf="answer > 5">
       <mat-card class="example-card" *ngIf="answer > 5">
           <mat-card-header>
             <div class="next-answer"><button mat-button (click)="nextQuestion(answer[5],5)" *ngIf="answers[5].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
@@ -119,9 +119,9 @@
         </mat-card>
   </mat-grid-tile>
 
-  <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-  <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-  <mat-grid-tile [colspan]="3">
+  <mat-grid-tile [colspan]="1"*ngIf="answer > 6"> </mat-grid-tile>
+  <mat-grid-tile [colspan]="1"*ngIf="answer > 6"> </mat-grid-tile>
+  <mat-grid-tile [colspan]="3" *ngIf="answer > 6">
       <mat-card class="example-card" *ngIf="answer > 6">
           <mat-card-header>
             <div class="next-answer"><button mat-button (click)="nextQuestion(answer[6],6)" *ngIf="answers[6].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
@@ -133,7 +133,7 @@
         </mat-card>
   </mat-grid-tile>
 
-  <mat-grid-tile [colspan]="3">
+  <mat-grid-tile [colspan]="3"*ngIf="answer > 7">
       <mat-card class="example-card" *ngIf="answer > 7">
           <mat-card-header>
             <div class="next-answer"><button mat-button (click)="nextQuestion(answer[7],7)" *ngIf="answers[7].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
@@ -145,7 +145,7 @@
         </mat-card>
   </mat-grid-tile>
 
-  <mat-grid-tile [colspan]="3">
+  <mat-grid-tile [colspan]="3" *ngIf="answer > 8">
       <mat-card class="example-card" *ngIf="answer > 8">
       <mat-card-header>
         <div class="next-answer"><button mat-button (click)="nextQuestion(answer[8],8)" *ngIf="answers[8].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
@@ -156,8 +156,9 @@
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="1"> </mat-grid-tile>
 
+</mat-grid-list>
+<mat-grid-list cols="11" rowHeight="1:1.2" [gutterSize]="'10px'">
 <!--Pitch-->
 <mat-grid-tile [colspan]="2"> </mat-grid-tile>
 <mat-grid-tile [colspan]="7" [rowspan] ="3">

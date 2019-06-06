@@ -7,6 +7,7 @@ import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { CartService } from 'src/app/cart.service';
 import { Router } from '@angular/router';
+import { ViewScriptService } from 'src/app/view-script.service';
 
 @Component({
   selector: 'app-store',
@@ -15,7 +16,7 @@ import { Router } from '@angular/router';
 
 })
 export class StoreComponent implements OnInit {
-  constructor(private Http: HttpClient, private Auth : AuthService, private cartService: CartService, private router: Router, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) { 
+  constructor(private viewService: ViewScriptService,private Http: HttpClient, private Auth : AuthService, private cartService: CartService, private router: Router, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) { 
     iconRegistry.addSvgIcon(
       'cart',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/cart.svg'));
@@ -56,6 +57,11 @@ export class StoreComponent implements OnInit {
       this.router.navigate(['/store']);
     });
     console.log(store);
+  }
+  viewScript(script){
+    this.viewService.setScript(script.scriptID);
+    console.log(script);
+    this.router.navigate(['view-script']);
   }
 
 }

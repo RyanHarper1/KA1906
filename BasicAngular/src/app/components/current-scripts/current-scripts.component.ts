@@ -28,13 +28,16 @@ export class CurrentScriptsComponent implements OnInit {
 
     iconRegistry.addSvgIcon(
       'upload',
-      sanitizer.bypassSecurityTrustResourceUrl('../assets/upload-solid.svg'));
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/upload-solid.svg'));
     iconRegistry.addSvgIcon(
       'edit',
-      sanitizer.bypassSecurityTrustResourceUrl('../assets/edit-regular.svg'));
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/edit-regular.svg'));
     iconRegistry.addSvgIcon(
       'delete',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/times-solid.svg'));
+      iconRegistry.addSvgIcon(
+      'view',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/eye-regular.svg'));
       
 
 
