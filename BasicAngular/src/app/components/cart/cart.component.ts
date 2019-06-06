@@ -56,7 +56,7 @@ export class CartComponent implements OnInit {
   }
 
   addToPayment(cart){
-    let add = this.Http.post('http://localhost:3000/payment-details', {storeID: cart.storeID, usersID: this.Auth.getId, scriptID: cart.scriptID, scriptName: cart.scriptName, price: this.getTotal,
+    let add = this.Http.post('http://localhost:3000/payment-details', {storeID: cart.storeID, usersID: this.Auth.getId, scriptID: cart.scriptID, scriptName: cart.scriptName, price: cart.price,
                   description: cart.description, rating: cart.rating, uploadDate: cart.uploadDate, category: cart.category});
     add.subscribe((response) => {
 
@@ -85,7 +85,9 @@ export class CartComponent implements OnInit {
       },
       onAuthorize: (data, actions) => {
         return actions.payment.execute().then((payment) => {
-          this.addToPayment(this.list);
+          for(let i=0; i<this.list.length; i++){
+            this.addToPayment(this.list[i]);
+          }
           console.log('Transaction completed ' + payment.invoice_number);
           this.clearCart(this.list.usersID);
         })
