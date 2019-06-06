@@ -5,9 +5,6 @@ import { AuthService } from 'src/app/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { getDefaultService } from 'selenium-webdriver/chrome';
-import { privacy } from '../login/login.component';
-import { MatDialog } from '@angular/material';
-import { terms } from '../footer/footer.component';
 
 @Component({
   selector: 'app-register',
@@ -24,9 +21,8 @@ export class RegisterComponent implements OnInit {
   success = false;
   response: Object;
   registerForm: FormGroup;
-//  dialog: any;
 
-  constructor(private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient,public dialog: MatDialog) {
+  constructor(private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient) {
 
   }
 
@@ -35,7 +31,7 @@ export class RegisterComponent implements OnInit {
     console.log("yes");
     console.log(this.registerForm.value)
 
-    this.submitted = true;
+      this.submitted = true;
     if (this.registerForm.invalid) {
       return;
     }
@@ -55,17 +51,4 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-  openPrivacy() {
-    const dialogRef1 = this.dialog.open(privacy, {
-      width: '700px'
-    });
-  }
-  openTerms() {
-    const dialogRef = this.dialog.open(terms, {
-      width: '700px'
-    });
-  }
 }
-
-
-

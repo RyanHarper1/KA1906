@@ -16,12 +16,19 @@ margin-right: auto;
     box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
 }
 
+  
+
+  .btn-card{
+    margin: 16px;
+    box-shadow: none;
+  }
+
   .current-card{
     // background: white;
     color: black;
   }
   ::ng-deep .mat-card.current-card.mat-card{
-    // display: inline-block;
+    display: inline-block;
     padding: 0;
     position: relative;
     width: 90%;
@@ -45,78 +52,55 @@ margin-right: auto;
 
  
 
+  .img{
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 0;
+    width: 5%;
+    height: 5%;
+    max-height: 7%;
+    max-width: 7%;
+  }
+
+  ::ng-deep img.img.mat-card-image{
+    // margin: 5px;
+    display: inline;
+  }
+
   ::ng-deep .mat-card-title.title-card.mat-card-title{
     margin: 10px 0 10px 0;
-    text-align: center;
   }
 
   .content-div{
     margin: 10px 0 10px 0;
-    text-align: center;
   }
 
   .current-tbl{
     padding: 10px;
     font-size: 16pt;
   }
-  .btn-card{
-    box-shadow: none;
-    width: 100%;
-    margin: 0;
-  }
-
-
-
-.mat-icon#crnt-icon.mat-icon.notranslate.mat-icon-no-color{
-  margin-bottom: 5px;
-}
-
-.mat-card-actions.mat-card-actions-current.mat-card-actions{
-  margin: 0;
-  padding: 0;
-}
-
-
-.mat-card-actions .mat-button:first-child, .mat-card-actions .mat-raised-button:first-child{
-  margin: 0;
-width: 130px;
-}
-
-.mat-card>.mat-card-actions:last-child{
-  margin: 0;
-  padding: 0;
-}
 
 .crnt-btn{
-     color: white;
-   display: block;
-  //  margin-right: 3px;
-   font-size: 16pt;
-   box-shadow: 5px 6px 11px 1px rgba(0,0,0,0.94);
-   font-variant-caps: all-petite-caps;
-    letter-spacing: 2pt;
+   background: #ffffff;
+   color: black;
+  //  box-shadow: 5px 6px 11px 1px rgba(0,0,0,0.94);
 }
-
-// .btn-icon{
-//   fill: red;
-// }
-
-.crnt-icon{
-  display: block;
-  justify-content: center;
-  fill: white;
-  width: 80%;
-  margin: auto;
-}
-
 
 .del-btn{
-  // background: #ffffff;
+  background: #ffffff;
   color: red;
-  display: block;
-  font-size: 16pt;
   // box-shadow: 5px 6px 11px 1px rgba(0,0,0,0.94);
 }
 
+::ng-deep .mat-icon.mat-icon.notranslate.mat-icon-no-color{
+  margin: 0;
+}
+// .upload-btn{
+//   background: #ffffff;
+//    color: #911c5a;
+// }
 
-
+// .edit-btn{
+//   background: #ffffff;
+//    color: #26a96b;
+// }

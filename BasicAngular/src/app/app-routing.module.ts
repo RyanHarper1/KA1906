@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { LoginComponent, privacy } from './components/login/login.component';
+import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 
@@ -17,7 +17,6 @@ import { EditScriptComponent} from './components/edit-script/edit-script.compone
 import {UpdateDetailsComponent} from './components/update-details/update-details.component'
 import { AdminComponent } from './components/admin/admin.component';
 import { ViewScriptComponent } from './components/view-script/view-script.component';
-import { terms, contact } from './components/footer/footer.component';
 
 const routes: Routes = [
     {
@@ -76,21 +75,6 @@ const routes: Routes = [
     {
     path: 'DialogForm',
     component: DialogForm,
-    
-  },
-  {
-    path: 'terms',
-    component: terms,
-    
-  },
-  {
-    path: 'contact',
-    component: contact,
-    
-  },
-  {
-    path: 'privacy',
-    component: privacy,
     
   },
   {

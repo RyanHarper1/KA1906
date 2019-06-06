@@ -95,7 +95,7 @@
         </td>
       </tr>
 
-    <mat-grid-list  class= "gridList" cols="10" rowHeight="1:1.2" [gutterSize]="'10px'" *ngFor="let li of list">
+    </table>
 
     <mat-grid-tile [colspan]="1"> </mat-grid-tile>
     <mat-grid-tile  [colspan]="4">
@@ -115,9 +115,7 @@
     </mat-grid-tile>
         <mat-grid-tile  [colspan]="4">
         <mat-card class="store-card">
-          <mat-card-actions class="store-btns">
-            <button class="crnt-btn" mat-button (click) ="viewScript(li)">View Script</button>
-            <button class="cart-btn" (click) = "addToCart(li)" mat-button>
+          <mat-card-actions><button class="cart-btn" (click) = "addToCart(li)" mat-button>
               <mat-icon class="cart-icon" svgIcon="cart"></mat-icon></button> 
           </mat-card-actions>
               <mat-card-content class="content-card">
