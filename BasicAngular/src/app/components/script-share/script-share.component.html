@@ -7,7 +7,7 @@
 </div>
 
 
-    <mat-grid-list cols="6" rowHeight ="400px" *ngIf=!logged [gutterSize]="'10px'">
+    <mat-grid-list cols="6" rowHeight ="400px" *ngIf="!logged && orgId !=null" [gutterSize]="'10px'">
         <mat-grid-tile [colspan]="1" ></mat-grid-tile>
         <mat-grid-tile [colspan]="2" >
           <img src="../assets/videoplaceholder.jpg" 
@@ -24,7 +24,7 @@
         </mat-grid-tile>
         <mat-grid-tile [colspan]="1"></mat-grid-tile>
         </mat-grid-list>
-        <!-- *ngIf="!logged && orgId !=null" -->
+
     <mat-grid-list cols="5" rowHeight="50px" [gutterSize]="'10px'"  *ngIf="!logged && orgId !=null">
         <mat-grid-tile [colspan]="1" ></mat-grid-tile>
         <mat-grid-tile [colspan]="1" ><div class="users">1-20 Users</div> </mat-grid-tile>
@@ -34,7 +34,7 @@
     </mat-grid-list>
 
 
-<mat-grid-list cols="5" rowHeight="300px" [gutterSize]="'10px'" *ngIf="!logged">
+<mat-grid-list cols="5" rowHeight="300px" [gutterSize]="'10px'" *ngIf="!logged && orgId !=null">
         <mat-grid-tile [colspan]="1" ></mat-grid-tile>
         <mat-grid-tile [colspan]="1" >
           <mat-card class="script-share-card">
@@ -229,225 +229,230 @@
     
       </mat-grid-list>
 
+      <mat-grid-list cols="6" rowHeight ="400px" *ngIf="logged && orgId !=null" [gutterSize]="'10px'">
+          <mat-grid-tile [colspan]="1" ></mat-grid-tile>
+          <mat-grid-tile [colspan]="2" >
+            <img src="../assets/videoplaceholder.jpg" 
+              style="float: left; width: 640px; height:350px; margin-left:2%; margin-top:2%">
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="2">
+            <div class="share-script-description">  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+              laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+              officia deserunt mollit anim id est laborum.
+            
+          </div>
+          </mat-grid-tile>
 
+          <mat-grid-tile [colspan]="1"></mat-grid-tile>
+          </mat-grid-list>
 
+      <mat-grid-list cols="5" rowHeight="50px" [gutterSize]="'10px'"  *ngIf="logged && orgId !=null">
+          <mat-grid-tile [colspan]="1" ></mat-grid-tile>
+          <mat-grid-tile [colspan]="1" ><div class="users">1-20 Users</div> </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" ><div class="users">20-100 Users</div></mat-grid-tile>
+          <mat-grid-tile [colspan]="1" ><div class="users">100+ Users</div></mat-grid-tile>
+          <mat-grid-tile [colspan]="1" ></mat-grid-tile>
+      </mat-grid-list>
+  
+  <mat-grid-list cols="5" rowHeight="300px" *ngIf="logged && orgId !=null" [gutterSize]="'10px'">
+          <mat-grid-tile [colspan]="1" ></mat-grid-tile>
+          <mat-grid-tile [colspan]="1" >
+            <mat-card class="script-share-card">
+              <mat-card-header class="share-script-header-cards">
+                <div class="monthly">Monthly</div>
+              </mat-card-header>
+              <mat-card-title>
+                <div class="price-bill-container">
+               <div class="price">$40</div><div class="month">/ month</div>
+               <div class="billed-monthly">Billed Monthly</div>
+              </div>
+            </mat-card-title>
+               <mat-card-actions class="subscribe-actions">
+                 <div class="subscribe-btn">
+                  <button mat-button>Subscribe</button>
+                 </div>
+               </mat-card-actions>
+            </mat-card>
+          </mat-grid-tile>
+  
+          <mat-grid-tile [colspan]="1" >
+            <mat-card class="script-share-card">
+              <mat-card-header class="share-script-header-cards">
+                <div class="monthly">
+                Monthly
+              </div>
+              </mat-card-header>
+              <mat-card-title>
+                <div class="price-bill-container">
+               <div class="price">$80</div><div class="month">/ month</div>
+               <div class="billed-monthly">Billed Monthly</div>
+              </div>
+            </mat-card-title>
+               <mat-card-actions class="subscribe-actions">
+                 <div class="subscribe-btn">
+                  <button mat-button>Subscribe</button>
+                 </div>
+               </mat-card-actions>
+            </mat-card>
+          </mat-grid-tile>
+  
+          <mat-grid-tile [colspan]="1" >
+              <mat-card class="script-share-card">
+                  <mat-card-header class="share-script-header-cards">
+                    <div class="monthly">
+                    Monthly
+                  </div>
+                  </mat-card-header>
+                  <mat-card-title>
+                    <div class="price-bill-container">
+                   <div class="price">$160</div><div class="month">/ month</div>
+                   <div class="billed-monthly">Billed Monthly</div>
+                  </div>
+                </mat-card-title>
+                   <mat-card-actions class="subscribe-actions">
+                     <div class="subscribe-btn">
+                      <button mat-button>Subscribe</button>
+                     </div>
+                   </mat-card-actions>
+                </mat-card>
+          </mat-grid-tile>
+  
+          <mat-grid-tile [colspan]="1" ></mat-grid-tile>
+          <mat-grid-tile [colspan]="1" ></mat-grid-tile>
+  
+          <mat-grid-tile [colspan]="1" >
+              <mat-card class="script-share-card">
+                  <mat-card-header class="share-script-header-cards">
+                    <div class="monthly">
+                    Quarterly
+                  </div>
+                  </mat-card-header>
+                  <mat-card-title>
+                    <div class="price-bill-container">
+                   <div class="price">$160</div><div class="month">/ quarter</div>
+                   <div class="billed-monthly">Billed Quarterly</div>
+                  </div>
+                </mat-card-title>
+                   <mat-card-actions class="subscribe-actions">
+                     <div class="subscribe-btn">
+                      <button mat-button>Subscribe</button>
+                     </div>
+                   </mat-card-actions>
+                </mat-card>
+          </mat-grid-tile>
+  
+          <mat-grid-tile [colspan]="1" >
+              <mat-card class="script-share-card">
+                  <mat-card-header class="share-script-header-cards">
+                    <div class="monthly">
+                    Quarterly
+                  </div>
+                  </mat-card-header>
+                  <mat-card-title>
+                    <div class="price-bill-container">
+                   <div class="price">$320</div><div class="month">/ quarter</div>
+                   <div class="billed-monthly">Billed Quarterly</div>
+                  </div>
+                </mat-card-title>
+                   <mat-card-actions class="subscribe-actions">
+                     <div class="subscribe-btn">
+                      <button mat-button>Subscribe</button>
+                     </div>
+                   </mat-card-actions>
+                </mat-card>
+          </mat-grid-tile>
+  
+          <mat-grid-tile [colspan]="1" >
+              <mat-card class="script-share-card">
+                  <mat-card-header class="share-script-header-cards">
+                    <div class="monthly">
+                    Quarterly
+                  </div>
+                  </mat-card-header>
+                  <mat-card-title>
+                    <div class="price-bill-container">
+                   <div class="price">$640</div><div class="month">/ quarter</div>
+                   <div class="billed-monthly">Billed Quarterly</div>
+                  </div>
+                </mat-card-title>
+                   <mat-card-actions class="subscribe-actions">
+                     <div class="subscribe-btn">
+                      <button mat-button>Subscribe</button>
+                     </div>
+                   </mat-card-actions>
+                </mat-card>
+          </mat-grid-tile>
+  
+          <mat-grid-tile [colspan]="1" ></mat-grid-tile>
+          <mat-grid-tile [colspan]="1" ></mat-grid-tile>
+          <mat-grid-tile [colspan]="1" >
+            <mat-card class="script-share-card">
+                  <mat-card-header class="share-script-header-cards">
+                    <div class="monthly">
+                    Yearly
+                  </div>
+                  </mat-card-header>
+                  <mat-card-title>
+                    <div class="price-bill-container">
+                   <div class="price">$480</div><div class="month">/ year</div>
+                   <div class="billed-monthly">Billed Yearly</div>
+                  </div>
+                </mat-card-title>
+                   <mat-card-actions class="subscribe-actions">
+                     <div class="subscribe-btn">
+                      <button mat-button>Subscribe</button>
+                     </div>
+                   </mat-card-actions>
+                </mat-card>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" >
+              <mat-card class="script-share-card">
+                  <mat-card-header class="share-script-header-cards">
+                    <div class="monthly">
+                    Yearly
+                  </div>
+                  </mat-card-header>
+                  <mat-card-title>
+                    <div class="price-bill-container">
+                   <div class="price">$960</div><div class="month">/ year</div>
+                   <div class="billed-monthly">Billed Yearly</div>
+                  </div>
+                </mat-card-title>
+                   <mat-card-actions class="subscribe-actions">
+                     <div class="subscribe-btn">
+                      <button mat-button>Subscribe</button>
+                     </div>
+                   </mat-card-actions>
+                </mat-card>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" >
+              <mat-card class="script-share-card">
+                  <mat-card-header class="share-script-header-cards">
+                    <div class="monthly">
+                    Yearly
+                  </div>
+                  </mat-card-header>
+                  <mat-card-title>
+                    <div class="price-bill-container">
+                   <div class="price">$1920</div><div class="month">/ year</div>
+                   <div class="billed-monthly">Billed Yearly</div>
+                  </div>
+                </mat-card-title>
+                   <mat-card-actions class="subscribe-actions">
+                     <div class="subscribe-btn">
+                      <button mat-button>Subscribe</button>
+                     </div>
+                   </mat-card-actions>
+                </mat-card>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1"></mat-grid-tile>
       
-<!-- <div *ngIf="orgId == NULL ">
-    <mat-grid-list cols="5" rowHeight ="300px" *ngIf ="logged" [gutterSize]="'10px'">
-        <mat-grid-tile [colspan]="1" ></mat-grid-tile>
-        <mat-grid-tile [colspan]="2" >
-          <img src="../assets/videoplaceholder.jpg" 
-            style="float: left; width: 640px; height:350px; margin-left:2%; margin-top:2%">
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="2">
-          <div class="share-script-description">  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia deserunt mollit anim id est laborum.
-          
-        </div>
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="1"></mat-grid-tile>
         </mat-grid-list>
+ 
 
-    <mat-grid-list cols="5" rowHeight [gutterSize]="'10px'">
-        <mat-grid-tile [colspan]="1" ></mat-grid-tile>
-        <mat-grid-tile [colspan]="1" >
-          <mat-card class="script-share-card">
-            <mat-card-header class="share-script-header-cards">
-              <div class="monthly">Monthly</div>
-            </mat-card-header>
-            <mat-card-title>
-              <div class="price-bill-container">
-             <div class="price">$40</div><div class="month">/ month</div>
-             <div class="billed-monthly">Billed Monthly</div>
-            </div>
-          </mat-card-title>
-             <mat-card-actions class="subscribe-actions">
-               <div class="subscribe-btn">
-                <button mat-button>Subscribe</button>
-               </div>
-             </mat-card-actions>
-          </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile [colspan]="1" >
-          <mat-card class="script-share-card">
-            <mat-card-header class="share-script-header-cards">
-              <div class="monthly">
-              Monthly
-            </div>
-            </mat-card-header>
-            <mat-card-title>
-              <div class="price-bill-container">
-             <div class="price">$80</div><div class="month">/ month</div>
-             <div class="billed-monthly">Billed Monthly</div>
-            </div>
-          </mat-card-title>
-             <mat-card-actions class="subscribe-actions">
-               <div class="subscribe-btn">
-                <button mat-button>Subscribe</button>
-               </div>
-             </mat-card-actions>
-          </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile [colspan]="1" >
-            <mat-card class="script-share-card">
-                <mat-card-header class="share-script-header-cards">
-                  <div class="monthly">
-                  Monthly
-                </div>
-                </mat-card-header>
-                <mat-card-title>
-                  <div class="price-bill-container">
-                 <div class="price">$160</div><div class="month">/ month</div>
-                 <div class="billed-monthly">Billed Monthly</div>
-                </div>
-              </mat-card-title>
-                 <mat-card-actions class="subscribe-actions">
-                   <div class="subscribe-btn">
-                    <button mat-button>Subscribe</button>
-                   </div>
-                 </mat-card-actions>
-              </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile [colspan]="1" ></mat-grid-tile>
-        <mat-grid-tile [colspan]="1" ></mat-grid-tile>
-
-        <mat-grid-tile [colspan]="1" >
-            <mat-card class="script-share-card">
-                <mat-card-header class="share-script-header-cards">
-                  <div class="monthly">
-                  Quarterly
-                </div>
-                </mat-card-header>
-                <mat-card-title>
-                  <div class="price-bill-container">
-                 <div class="price">$160</div><div class="month">/ quarter</div>
-                 <div class="billed-monthly">Billed Quarterly</div>
-                </div>
-              </mat-card-title>
-                 <mat-card-actions class="subscribe-actions">
-                   <div class="subscribe-btn">
-                    <button mat-button>Subscribe</button>
-                   </div>
-                 </mat-card-actions>
-              </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile [colspan]="1" >
-            <mat-card class="script-share-card">
-                <mat-card-header class="share-script-header-cards">
-                  <div class="monthly">
-                  Quarterly
-                </div>
-                </mat-card-header>
-                <mat-card-title>
-                  <div class="price-bill-container">
-                 <div class="price">$320</div><div class="month">/ quarter</div>
-                 <div class="billed-monthly">Billed Quarterly</div>
-                </div>
-              </mat-card-title>
-                 <mat-card-actions class="subscribe-actions">
-                   <div class="subscribe-btn">
-                    <button mat-button>Subscribe</button>
-                   </div>
-                 </mat-card-actions>
-              </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile [colspan]="1" >
-            <mat-card class="script-share-card">
-                <mat-card-header class="share-script-header-cards">
-                  <div class="monthly">
-                  Quarterly
-                </div>
-                </mat-card-header>
-                <mat-card-title>
-                  <div class="price-bill-container">
-                 <div class="price">$640</div><div class="month">/ quarter</div>
-                 <div class="billed-monthly">Billed Quarterly</div>
-                </div>
-              </mat-card-title>
-                 <mat-card-actions class="subscribe-actions">
-                   <div class="subscribe-btn">
-                    <button mat-button>Subscribe</button>
-                   </div>
-                 </mat-card-actions>
-              </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile [colspan]="1" ></mat-grid-tile>
-        <mat-grid-tile [colspan]="1" ></mat-grid-tile>
-        <mat-grid-tile [colspan]="1" >
-          <mat-card class="script-share-card">
-                <mat-card-header class="share-script-header-cards">
-                  <div class="monthly">
-                  Yearly
-                </div>
-                </mat-card-header>
-                <mat-card-title>
-                  <div class="price-bill-container">
-                 <div class="price">$480</div><div class="month">/ year</div>
-                 <div class="billed-monthly">Billed Yearly</div>
-                </div>
-              </mat-card-title>
-                 <mat-card-actions class="subscribe-actions">
-                   <div class="subscribe-btn">
-                    <button mat-button>Subscribe</button>
-                   </div>
-                 </mat-card-actions>
-              </mat-card>
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="1" >
-            <mat-card class="script-share-card">
-                <mat-card-header class="share-script-header-cards">
-                  <div class="monthly">
-                  Yearly
-                </div>
-                </mat-card-header>
-                <mat-card-title>
-                  <div class="price-bill-container">
-                 <div class="price">$960</div><div class="month">/ year</div>
-                 <div class="billed-monthly">Billed Yearly</div>
-                </div>
-              </mat-card-title>
-                 <mat-card-actions class="subscribe-actions">
-                   <div class="subscribe-btn">
-                    <button mat-button>Subscribe</button>
-                   </div>
-                 </mat-card-actions>
-              </mat-card>
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="1" >
-            <mat-card class="script-share-card">
-                <mat-card-header class="share-script-header-cards">
-                  <div class="monthly">
-                  Yearly
-                </div>
-                </mat-card-header>
-                <mat-card-title>
-                  <div class="price-bill-container">
-                 <div class="price">$1920</div><div class="month">/ year</div>
-                 <div class="billed-monthly">Billed Yearly</div>
-                </div>
-              </mat-card-title>
-                 <mat-card-actions class="subscribe-actions">
-                   <div class="subscribe-btn">
-                    <button mat-button>Subscribe</button>
-                   </div>
-                 </mat-card-actions>
-              </mat-card>
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="1"></mat-grid-tile>
-    
-      </mat-grid-list>
-</div> -->
-
-<mat-tab-group  *ngIf = "orgId !=null"style="margin-left: 5%; margin-right: 5%;margin-top: 3%">
+<mat-tab-group  *ngIf = "orgId !=null" style="margin-left: 5%; margin-right: 5%;margin-top: 3%">
     <mat-tab label="Saved">
         <mat-grid-list cols="16" class= "gridList" rowHeight="120px" *ngFor="let li of list"  [gutterSize]="'5px'">
             <mat-grid-tile [colspan]="2">
