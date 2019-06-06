@@ -24,8 +24,13 @@
     "@angular/router": "~7.2.0",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "FortAwesome/Font-Awesome": "*",
     "angular-star-rating": "^4.0.0-beta.3",
+=======
+    "@kolkov/angular-editor": "^0.14.5",
+    "@weareunite/unisys-angular-core": "^2.1.6",
+>>>>>>> parent of 6628a2df... Merge branch 'master' into jlee
 =======
     "@kolkov/angular-editor": "^0.14.5",
     "@weareunite/unisys-angular-core": "^2.1.6",
