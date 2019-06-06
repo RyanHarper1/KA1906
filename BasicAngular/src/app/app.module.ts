@@ -2,10 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent, privacy } from './components/login/login.component';
+import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
-import { NavComponent} from './components/nav/nav.component';
+import { NavComponent } from './components/nav/nav.component';
 import { ReactiveFormsModule} from '@angular/forms';
 import { BuildScriptComponent, DialogForm } from './components/build-script/build-script.component';
 import { ExampleScriptComponent } from './components/example-script/example-script.component';
@@ -27,10 +27,7 @@ import { NgxPayPalModule } from 'ngx-paypal'
 import { AdminComponent } from './components/admin/admin.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ViewScriptComponent } from './components/view-script/view-script.component';
-import { FooterComponent, terms, contact } from './components/footer/footer.component';
-
-
-
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -51,9 +48,6 @@ import { FooterComponent, terms, contact } from './components/footer/footer.comp
     AdminComponent,
     ViewScriptComponent,
     FooterComponent,
-    terms,
-    privacy,
-    contact,
   ],
   imports: [
     FormsModule,
@@ -80,7 +74,7 @@ import { FooterComponent, terms, contact } from './components/footer/footer.comp
 
   ],
   exports: [
-    MatToolbarModule, MatIconModule, MatMenuModule,privacy
+    MatToolbarModule, MatIconModule, MatMenuModule,
   ],
   providers: [AuthGuard, AuthService,ViewScriptComponent],
   bootstrap: [AppComponent]
