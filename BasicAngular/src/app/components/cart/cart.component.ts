@@ -7,6 +7,8 @@ import { CartService } from 'src/app/cart.service';
 import { Router } from '@angular/router';
 import { NgxPayPalModule } from 'ngx-paypal';
 import {IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 
@@ -19,7 +21,11 @@ declare let paypal: any;//Paypal Test
 })
 
 export class CartComponent implements OnInit {
-  constructor(private Http: HttpClient, private Auth : AuthService, private router: Router) { }
+  constructor(private Http: HttpClient, private Auth : AuthService, private router: Router, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) {
+    iconRegistry.addSvgIcon(
+      'delete',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/times-solid.svg'));
+   }
   list: any;
   loggedIn = false;
   columns = [ 'scriptName','price', 'uploadDate', 'category', 'rating' ];
