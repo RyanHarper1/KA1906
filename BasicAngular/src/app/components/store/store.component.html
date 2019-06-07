@@ -84,10 +84,107 @@
   <mat-drawer-content>
     <button mat-raised-button (click)="drawer.toggle()">Search</button>
 
-    <mat-grid-list  class= "gridList" cols="10" rowHeight="1:1.2" [gutterSize]="'10px'" *ngFor="let li of list">
+    <mat-grid-list  class= "gridList" cols="16" rowHeight="1:1.2" [gutterSize]="'10px'" *ngFor="let li of list">
 
-    <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-    <mat-grid-tile  [colspan]="4">
+    <mat-grid-tile [colspan]="2"> 
+        <mat-card class="store-card">
+            <mat-card-header class="store-header">{{li.scriptName}}</mat-card-header>
+            <mat-card-title class="title-card">Description</mat-card-title>
+            <mat-card-content class="content-card">
+                <div class="content-div">
+                    {{li.description}} 
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="2">
+        <mat-card class="store-card">
+            <mat-card-title class="title-card">Category</mat-card-title>
+            <mat-card-content class="content-card">
+                <div class="content-div">
+                    {{li.category}} 
+                </div>
+            </mat-card-content>
+        </mat-card>  
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="2"> 
+        <mat-card class="store-card">
+            <mat-card-title class="title-card">Sub-Category</mat-card-title>
+            <mat-card-content class="content-card">
+                <div class="content-div">
+                    {{li.subcategory}} 
+                </div>
+            </mat-card-content>
+        </mat-card>  
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="2">
+        <mat-card class="store-card">
+            <mat-card-title class="title-card">Last Edited</mat-card-title>
+            <mat-card-content class="content-card">
+                <div class="content-div">
+                    {{li.edited}} 
+                </div>
+            </mat-card-content>
+        </mat-card>   
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1">
+        <mat-card class="store-card">
+            <mat-card-title class="title-card">Unit Price</mat-card-title>
+            <mat-card-content class="content-card">
+                <div class="content-div">
+                    {{li.price}} 
+                </div>
+            </mat-card-content>
+        </mat-card>   
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="2">
+        <mat-card class="store-card">
+            <mat-card-title class="title-card">Template</mat-card-title>
+            <mat-card-content class="content-card">
+                <div class="content-div">
+                    {{li.templates}} 
+                </div>
+            </mat-card-content>
+        </mat-card>   
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="2">
+        <mat-card class="store-card">
+            <mat-card-title class="title-card">Reviews</mat-card-title>
+            <mat-card-content class="content-card">
+          
+            </mat-card-content>
+        </mat-card>  
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="2">
+        <mat-card class="store-card">
+            <mat-card-title class="title-card">Rating</mat-card-title>
+            <mat-card-content class="content-card">
+                
+            </mat-card-content>
+        </mat-card>  
+    </mat-grid-tile>
+
+    
+    <mat-grid-tile [colspan]="1">
+        <mat-card class="store-card">
+            <mat-card-actions class="store-btns">
+              <button class="crnt-btn" mat-button (click) ="viewScript(li)">View Script</button>
+              <button class="cart-btn" (click) = "addToCart(li)" mat-button>
+                <mat-icon class="cart-icon" svgIcon="cart"></mat-icon></button> 
+            </mat-card-actions>
+        </mat-card>  
+    </mat-grid-tile>
+
+
+
+    <!-- <mat-grid-tile  [colspan]="4">
         <mat-card class="store-card">
           <mat-card-header class="store-header">{{li.scriptName}}</mat-card-header>
           <mat-card-content class="content-card">
@@ -102,6 +199,7 @@
               </mat-card-content>
           </mat-card>
     </mat-grid-tile>
+
         <mat-grid-tile  [colspan]="4">
         <mat-card class="store-card">
           <mat-card-actions class="store-btns">
@@ -126,7 +224,7 @@
 
             </mat-card>
         </mat-grid-tile>
-        <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+        <mat-grid-tile [colspan]="1"> </mat-grid-tile> -->
     </mat-grid-list>
     
   </mat-drawer-content>

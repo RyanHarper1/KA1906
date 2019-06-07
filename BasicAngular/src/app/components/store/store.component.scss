@@ -22,6 +22,8 @@
     color: darkred;
     background: #FFFFFF;
     text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    text-align: center;
   }
   
   .store-tbl{
@@ -34,12 +36,13 @@
     box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
 }
 
-  ::ng-deep .mat-card.store-card.mat-card{
-    display: inline-block;
+.store-card{
+    display: flex;
     padding: 0;
     position: relative;
     width: 90%;
     box-shadow: none;
+    justify-content: center;
   }
 
   ::ng-deep .mat-card-title.title-card.mat-card-title{
