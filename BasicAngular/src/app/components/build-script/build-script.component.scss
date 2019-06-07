@@ -46,12 +46,6 @@ margin-left: 10px;
     justify-content: left;
   }
 
-/*Override styling for Add new button icon*/
-::ng-deep mat-icon.mat-icon.notranslate.mat-icon-no-color{
-  //  color: white;
-   margin-right: 10px;
-}
-
 
 ::ng-deep .mat-grid-list.mat-grid-list{
   margin: 20px;
@@ -63,12 +57,6 @@ margin-left: 10px;
   display: flex;
   flex-direction: row;
   background: #3a4f6e;
-}
-
-::ng-deep div.mat-card-header-text{
-  margin-left: 1px;
-  margin-top: 23px;
-  margin-bottom: 23px;
 }
 
 ::ng-deep .mat-card.example-card.mat-card{
@@ -117,12 +105,13 @@ margin-left: 10px;
       font-weight: 500;
       font-variant-caps: all-petite-caps;
       letter-spacing: 2pt;
+      margin-top: 20px;
   }
 
 .answer-title{
   display: inline-block;
   margin: 20px auto;
-  font-size: 20px;
+  font-size: 18pt;
   vertical-align: middle;
   color: white;
   position: relative;
@@ -196,8 +185,9 @@ textarea {
   .save-btn{
     background: orange;
     color: white;
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    width: 120px;
+    height: 60px;
+    font-size: 18pt;
+    font-variant-caps: all-petite-caps;
+    letter-spacing: 2pt;
   }

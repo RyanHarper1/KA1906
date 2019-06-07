@@ -75,11 +75,6 @@
   background: #3a4f6e;
 }
 
-::ng-deep div.mat-card-header-text{
-  margin-left: 1px;
-  margin-top: 23px;
-  margin-bottom: 23px;
-}
   
 ::ng-deep .mat-card.example-card.mat-card{
   display: inline-block;
@@ -92,7 +87,7 @@
  .answer-title{
   display: inline-block;
   margin: 20px auto;
-  font-size: 20px;
+  font-size: 18pt;
   vertical-align: middle;
   color: white;
   position: relative;

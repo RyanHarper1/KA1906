@@ -30,6 +30,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { ViewScriptComponent } from './components/view-script/view-script.component';
 import { FooterComponent, terms, contact } from './components/footer/footer.component';
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +54,7 @@ import { FooterComponent, terms, contact } from './components/footer/footer.comp
     FooterComponent,
     terms,
     privacy,
-    contact
+    contact,
   ],
   imports: [
     FormsModule,
