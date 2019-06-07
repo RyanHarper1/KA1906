@@ -173,12 +173,13 @@ textarea {
 }
 
 .toolbar-container{
-  background: #3a4f6e;
   text-align: center;
-  margin: 10px;
+  // margin: 10px;
   justify-items: stretch;
   display: flex;
   justify-content: space-around;
+  background: white;
+  
 }
 
  :ng-deep .edit-icon.mat-button{
@@ -220,3 +221,13 @@ textarea {
     /* border: 1px solid #ddd; */
     border-top: transparent;
   }
+
+  .toolbar-container{
+    
+    height: 200px;
+    min-height: 200px;
+    max-height: 200px;
+  }
+  // .ngx-toolbar[_ngcontent-c14]{
+
+  // }
