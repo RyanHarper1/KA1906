@@ -28,6 +28,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ViewScriptComponent } from './components/view-script/view-script.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { NgxEditorModule } from 'ngx-editor';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 @NgModule({
   declarations: [
@@ -70,7 +72,9 @@ import { FooterComponent } from './components/footer/footer.component';
     MatDialogModule,
     MatRadioModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    NgxEditorModule,
+    TooltipModule.forRoot()
 
   ],
   exports: [

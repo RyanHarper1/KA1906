@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularWaitBarrier } from 'blocking-proxy/built/lib/angular_wait_barrier';
 import { AuthService } from 'src/app/auth.service';
@@ -29,7 +29,8 @@ interface scriptData {
 @Component({
   selector: 'app-build-script',
   templateUrl: './build-script.component.html',
-  styleUrls: ['./build-script.component.scss']
+  styleUrls: ['./build-script.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class BuildScriptComponent implements OnInit {
   scriptName: string;
@@ -56,6 +57,16 @@ export class BuildScriptComponent implements OnInit {
   description: string;
   savedCount = 0;
   //questionForm: FormGroup;
+
+  editorConfig = {
+    editable: true,
+    spellcheck: false,
+    height: '10rem',
+    minHeight: '5rem',
+    placeholder: 'Type something. Test the Editor... ヽ(^。^)丿',
+    translate: 'no'
+  };
+
   htmlContent = '';
 
   constructor(public dialog: MatDialog, private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient, private router: Router,private editService: EditServiceService, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) { 

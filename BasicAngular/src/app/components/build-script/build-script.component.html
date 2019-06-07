@@ -7,7 +7,6 @@
 <!-- build.jpg -->
 
 <div class="notLogged" *ngIf=!loggedIn>
-  
   <mat-grid-list cols="10" rowHeight="350px" [gutterSize]="'10px'">
       <mat-grid-tile [colspan]="1"></mat-grid-tile>
       <mat-grid-tile  [colspan]="4">
@@ -315,7 +314,8 @@
       <div class="boxed-pitch">
         <div class="pitch-title">PITCH</div>
         <div class="toolbar-container">
-            <button class="edit-icon" mat-button>
+            <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="htmlContent"></app-ngx-editor>
+            <!-- <button class="edit-icon" mat-button>
             <mat-icon svgIcon="bold"></mat-icon>
           </button>
           <button class="edit-icon" mat-button>
@@ -332,9 +332,9 @@
           </button>
           <button class="edit-icon" mat-button>
             <mat-icon svgIcon="font"></mat-icon>
-          </button>
+          </button> -->
         </div>
-        <textarea [(ngModel)]="texts" placeholder="Insert pitch here..." rows="8" cols="80"></textarea>
+        <!-- <textarea [(ngModel)]="texts" placeholder="Insert pitch here..." rows="8" cols="80"></textarea> -->
         <div class="save-edit-container">
           <button class="save-btn" mat-button mat-button (click)="openDialog()">Save</button>
         </div>
