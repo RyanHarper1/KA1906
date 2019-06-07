@@ -41,7 +41,8 @@ export class EditScriptComponent implements OnInit {
   scriptData1 = {} as scriptData;
   tempAnswer: any;
   response1: any;
-  loadedScript= false;
+  loadedScript = false;
+  tempQuestionId: any;
   constructor(private editService: EditServiceService, private Http: HttpClient, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, private Auth: AuthService) {
 
     iconRegistry.addSvgIcon(
@@ -102,7 +103,8 @@ export class EditScriptComponent implements OnInit {
       quest.subscribe((response1) => {
         console.log('response1: ' + response1[0].texts)
         this.question = response1[0].texts;
-
+        this.questionId = response1[0].questionId;
+        
         //get answers
         let ans = this.Http.post('http://localhost:3000/get-answer', { questionId: this.questionId });
         ans.subscribe((response2) => {
@@ -111,7 +113,7 @@ export class EditScriptComponent implements OnInit {
             this.answers[i] = tempAnswers[i]
             console.log('answer responses: ' + this.answers[i].texts);
             this.answer++;
-            
+
           }
           this.loadedScript = true;
         });
@@ -171,8 +173,12 @@ export class EditScriptComponent implements OnInit {
     else {
       this.loadedScript = false;
       console.log('no next question linked')
-      this.questionId = Number(this.answers[num].questionId)
       this.previousAnswers[this.previousAnswerCount] = Number(this.questionId);
+      this.tempQuestionId = this.questionId;
+      this.questionId = null;
+      
+  
+      
       this.previousAnswerCount++;
       for (let i = 0; i < 9; i++) {
         this.answers[i] = { texts: "", questionId: "", nextQuestionId: null, idanswer: "" }
@@ -187,30 +193,9 @@ export class EditScriptComponent implements OnInit {
 
   }
   submit() {
-    if (this.loadedScript) {
 
 
-      let update = this.Http.post('http://localhost:3000/update-script', { questionId: this.questionId, question: this.question })
-      update.subscribe((result) => {
-        console.log(result)
-        console.log('THISGOING TO WORK')
-        for (let j = 0; j < this.answer; j++) {
-          if (this.answers[j].texts != "") {
-            console.log('THIS IS GOING TO WORK: ' + this.answers, this.answers[j].texts)
-
-            let send = this.Http.post<questionData>('http://localhost:3000/editAnswer', { texts: this.answers[j].texts, questionId: this.questionId, nextQuestionId: this.answers[j].nextQuestionId });
-            send.subscribe((res) => {
-              //console.log('THIS IS WHAT HAS RERTUEND: ' + res.result)
-            });
-
-          }
-        }
-      });
-
-
-    }
-    else {
-
+    if (this.questionId == null) {
       console.log('ques: ' + this.questionId + 'scri' + this.scriptId)
       //let sql = this.Auth.submitEditAnswer(this.questionId, this.scriptId, this.answers, this.question, this.tempAnswer)
       console.log('It is trying to submit answer')
@@ -233,7 +218,7 @@ export class EditScriptComponent implements OnInit {
           }
         }
         console.log('selected answer: ' + this.tempAnswer)
-        let update = this.Http.post('http://localhost:3000/updateAnswer', { nextQuestionId: response1.questionId, questionId: this.questionId, texts: this.tempAnswer });
+        let update = this.Http.post('http://localhost:3000/updateAnswer', { nextQuestionId: response1.questionId, questionId: this.tempQuestionId, texts: this.tempAnswer });
         update.subscribe((response2) => {
           this.questionId = response1.questionId
           let quest = this.Http.post('http://localhost:3000/get-question', { questionId: this.questionId });
@@ -261,7 +246,99 @@ export class EditScriptComponent implements OnInit {
       });
       //this.saved = true;
 
+    } else {
+      let update = this.Http.post('http://localhost:3000/update-script', { questionId: this.questionId, question: this.question })
+      update.subscribe((result) => {
+        console.log(result)
+        console.log('THISGOING TO WORK')
+        for (let j = 0; j < this.answer; j++) {
+          if (this.answers[j].texts != "") {
+            console.log('THIS IS GOING TO WORK: ' + this.answers, this.answers[j].texts)
+
+            let send = this.Http.post<questionData>('http://localhost:3000/editAnswer', { texts: this.answers[j].texts, questionId: this.questionId, nextQuestionId: this.answers[j].nextQuestionId });
+            send.subscribe((res) => {
+              //console.log('THIS IS WHAT HAS RERTUEND: ' + res.result)
+            });
+
+          }
+        }
+      });
     }
+    // if (this.loadedScript) {
+
+
+    //   let update = this.Http.post('http://localhost:3000/update-script', { questionId: this.questionId, question: this.question })
+    //   update.subscribe((result) => {
+    //     console.log(result)
+    //     console.log('THISGOING TO WORK')
+    //     for (let j = 0; j < this.answer; j++) {
+    //       if (this.answers[j].texts != "") {
+    //         console.log('THIS IS GOING TO WORK: ' + this.answers, this.answers[j].texts)
+
+    //         let send = this.Http.post<questionData>('http://localhost:3000/editAnswer', { texts: this.answers[j].texts, questionId: this.questionId, nextQuestionId: this.answers[j].nextQuestionId });
+    //         send.subscribe((res) => {
+    //           //console.log('THIS IS WHAT HAS RERTUEND: ' + res.result)
+    //         });
+
+    //       }
+    //     }
+    //   });
+
+
+    // }
+    // else {
+
+    //   console.log('ques: ' + this.questionId + 'scri' + this.scriptId)
+    //   //let sql = this.Auth.submitEditAnswer(this.questionId, this.scriptId, this.answers, this.question, this.tempAnswer)
+    //   console.log('It is trying to submit answer')
+    //   let request = this.Http.post<questionData>('http://localhost:3000/addQuestion', { texts: this.question, scriptId: this.scriptId });
+    //   request.subscribe((response1) => {
+    //     console.log('response1: ' + response1)
+    //     this.response1 = response1;
+    //     console.log('response1: ' + response1.questionId)
+    //     this.scriptData1.questionId = response1.questionId;
+
+    //     //insert answers
+    //     for (let i = 0; i < this.answers.length; i++) {
+    //       if (this.answers[i].texts != "") {
+    //         let ans = this.Http.post<questionData>('http://localhost:3000/addAnswer', { texts: this.answers[i].texts, questionId: response1.questionId });
+    //         ans.subscribe((response2) => {
+    //           this.response = response1
+    //           console.log('answer responses: ' + response2);
+
+    //         });
+    //       }
+    //     }
+    //     console.log('selected answer: ' + this.tempAnswer)
+    //     let update = this.Http.post('http://localhost:3000/updateAnswer', { nextQuestionId: response1.questionId, questionId: this.questionId, texts: this.tempAnswer });
+    //     update.subscribe((response2) => {
+    //       this.questionId = response1.questionId
+    //       let quest = this.Http.post('http://localhost:3000/get-question', { questionId: this.questionId });
+    //       quest.subscribe((response1) => {
+    //         console.log('response1: ' + response1[0].texts)
+    //         this.question = response1[0].texts;
+
+    //         //get answers
+    //         let ans = this.Http.post('http://localhost:3000/get-answer', { questionId: this.questionId });
+    //         ans.subscribe((response2) => {
+    //           let tempAnswers = response2;
+    //           this.answer = 0;
+    //           for (let i = 0; i < (<any>tempAnswers).length; i++) {
+    //             this.answers[i] = tempAnswers[i]
+    //             console.log('answer responses: ' + this.answers[i].texts);
+    //             this.answer++;
+    //           }
+    //           this.loadedScript = true;
+
+    //         });
+    //       });
+    //     });
+
+
+    //   });
+    //   //this.saved = true;
+
+    // }
   }
 
   backQuestion() {
@@ -270,7 +347,7 @@ export class EditScriptComponent implements OnInit {
     quest.subscribe((response1) => {
       console.log('response1: ' + response1[0].texts)
       this.question = response1[0].texts;
-
+      this.questionId = response1[0].questionId;
       // get answers
       let ans = this.Http.post('http://localhost:3000/get-answer', { questionId: this.previousAnswers[this.previousAnswerCount - 1] });
       ans.subscribe((response2) => {
