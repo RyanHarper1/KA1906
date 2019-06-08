@@ -30,6 +30,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { ViewScriptComponent } from './components/view-script/view-script.component';
 import { FooterComponent, terms, contact } from './components/footer/footer.component';
 import { ScriptShareSubscribeComponent } from './components/script-share-subscribe/script-share-subscribe.component';
+import {MatStepperModule} from '@angular/material/stepper';
+
 
 @NgModule({
   declarations: [
@@ -76,7 +78,8 @@ import { ScriptShareSubscribeComponent } from './components/script-share-subscri
     MatDialogModule,
     MatRadioModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
+    MatStepperModule
 
   ],
   exports: [

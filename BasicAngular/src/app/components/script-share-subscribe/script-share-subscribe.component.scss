@@ -1,23 +1,146 @@
-.banner-img{
-    object-fit: cover;
-    object-position: 50% 35%;
-    }
-    
-    
+
+.bckgrnd-img{
+  width: 100%;
+  background: url("/assets/img/script-share-subscribe.png") no-repeat;
+  background-size: cover;
+  text-align: center;
+  opacity: 0.8;
+}
+
   .title{
     top: 35%;
-    color: #223458;
+    color: white;
     text-shadow: #fef7f1 1px 0 10px;
+    font-size: 30px;
+    }
+  
+    .sales-script{
+      position: absolute;
+      top: 55%;
+      margin-left: auto;
+      text-align: center;
+      width: 100%;
+      margin-right: auto;
+      color: white;
+      font-size: 50px;
+      font-weight: normal;
+      font-family: Helvetica, sans-serif;
+      -webkit-font-kerning: normal;
+      font-kerning: normal;
+      letter-spacing: .2rem;
+      font-variant-caps: all-petite-caps;
     }
   
     .icon{
       position: absolute;
       display: block;
-      height: 180px;
+      height: 130px;
       width: 100%;
       object-fit: contain;
+      margin: auto;
+      // margin-left: auto;
+      // margin-right: auto;
+      // margin-top: auto;
+      // margin-bottom: auto;
+      // top: -5%;
+    }
+    /*END BANNER*/
+    .heading-inbox{
+      margin: auto;
+      margin-top: -20%;
+      text-align: center;
+      padding: 10px;
+      font-weight: bold;
+      font-size: 18px;
+      color:white;
+      vertical-align: middle;
+      font-variant-caps: all-petite-caps;
+      font-family: Helvetica, sans-serif;
+  }
+
+ ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-label {
+    color: white;
+  }
+
+  ::ng-deep .mat-step-header .mat-step-label.mat-step-label-active{
+    color: white;
+  }
+
+  ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline{
+    background-color: ghostwhite;
+    opacity: 0.3;
+  }
+    #form-area{
+      // margin-top: 50px;
       margin-left: auto;
       margin-right: auto;
-      top: -5%;
+      margin-bottom: 100px;
+      // height:  700px auto;
+      width: 500px;
+      // transform: translate(-50%, -50%);
+      box-sizing: border-box;
+      background: rgba(0,0,0,.5);
+      // border: 5px solid rgb(34, 52, 88);
+      // box-shadow: 5px 10px 8px #b9b9b3;
+      border-radius: 10px;
+      vertical-align: middle;
+      font-family: Helvetica, sans-serif;
+  }
+  .bkgrnd{
+      position: relative;
+      border-radius: 5px 5px 0 0;
+      -o-object-fit: contain;
+      object-fit: contain;
+      padding: 0;
+      left: 0;
+      width: 100%;
+  
+  }
+
+.form-field{
+  display: block;
+  margin-left: 20px;
+  margin-right: 20px;;
+}
+
+  
+
+  .checkbox-container{
+    justify-content: center;
+    display: flex;
+    margin-bottom: 20px;
+    color: white;
+    font-style: italic;
+  }
+
+  .next-btn{
+    text-align: center;
+    margin-bottom: 20px;
+    background: none;
+  }
+  
+  // label {
+  //     display: inline-block;
+  //     margin-left: auto;
+  //     margin-right: auto;
+  //     color: white;
+  //     font-family: Arial, Verdana;
+  //     margin-top: 15px;
+  //     margin-bottom: 10px
+  //     }
+      
+
+  
+  
+ 
+  
+    
+    #login-pg-vertbar{
+      color: #D8DADA;
+      margin-right: 15px;
+      margin-left: 15px;
     }
+
+
+
   

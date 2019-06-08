@@ -1,5 +1,87 @@
-<div id="banner">
-  <img class="banner-img" src="/assets/img/script-share-subscribe.png" width="100%" height="100%">
-  <img class="logo-img" src="/assets/img/Logo.png" alt="logo" width="100%">
-  <div class="title">Current Script</div>
+<div class="bckgrnd-img">
+
+<mat-grid-list cols=5 rowHeight="200px">
+  <mat-grid-tile [colspan]="1"><img class="icon" src="/assets/img/WhiteLogo.png" alt="logo"  width="100%"></mat-grid-tile>
+  <mat-grid-tile [colspan]="3">
+      <div class="title">Subscribe to</div>
+      <div class="sales-script">Script Share</div>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1"></mat-grid-tile>
+</mat-grid-list>
+
+  <mat-horizontal-stepper style="background: none" [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <mat-grid-list cols=5 rowHeight="1000px">
+        <mat-grid-tile [colspan]="1"></mat-grid-tile>
+        <mat-grid-tile [colspan]="3">
+            <form [formGroup]="firstFormGroup">
+                <div id="form-area">
+                    <div class="heading-inbox"><h1>Register here</h1></div>
+                <ng-template matStepLabel>Register your company</ng-template>
+                <mat-form-field class="form-field">
+                    <input class="form-input" matInput placeholder="First name" formControlName="firstCtrl" required>
+                </mat-form-field>
+                <mat-form-field class="form-field">
+                    <input class="form-input" matInput placeholder="Last name" formControlName="firstCtrl" required>
+                </mat-form-field>
+                <mat-form-field class="form-field">
+                    <input class="form-input" matInput placeholder="Company name" formControlName="firstCtrl" required>
+                </mat-form-field>
+                <mat-form-field class="form-field">
+                    <input class="form-input" matInput placeholder="Email Address" formControlName="firstCtrl" required>
+                </mat-form-field>
+                <mat-form-field class="form-field">
+                    <input class="form-input" matInput placeholder="Contact Number" formControlName="firstCtrl" required>
+                </mat-form-field>
+                <mat-form-field class="form-field">
+                    <input class="form-input" matInput placeholder="ABN" formControlName="firstCtrl" required>
+                </mat-form-field>
+                <mat-form-field class="form-field">
+                    <input class="form-input" matInput placeholder="Company Address" formControlName="firstCtrl" required>
+                </mat-form-field>
+                <mat-form-field class="form-field">
+                    <input class="form-input" matInput placeholder="Password" formControlName="firstCtrl" required>
+                </mat-form-field>
+                <mat-form-field class="form-field">
+                    <input class="form-input" matInput placeholder="Category" formControlName="firstCtrl" required>
+                </mat-form-field>
+                <div class="checkbox-container">
+               <mat-checkbox type="checkbox" formControlName="firstCtrl" required>I agree to <a href="#">Sales Script terms and conditions</a></mat-checkbox>
+                </div>
+        
+               <div class="next-btn"><button class="next-btn" mat-button matStepperNext><mat-icon svgIcon="next"></mat-icon></button></div> 
+              </div>
+              
+              </form>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1"></mat-grid-tile>
+      </mat-grid-list>
+      
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Confirm Plan</ng-template>
+        <mat-form-field>
+
+
+
+
+          
+          <input matInput placeholder="Address" formControlName="secondCtrl" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Make Payment</ng-template>
+      You are now done.
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
 </div>
