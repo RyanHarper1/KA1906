@@ -96,12 +96,14 @@
   }
 
 .form-field{
-  display: block;
+  display: inline-block;
   margin-left: 20px;
   margin-right: 20px;
 }
 
-  
+  .form-input, .div.mat-select-value{
+    color: white;
+  }
 
   .checkbox-container{
     justify-content: center;
