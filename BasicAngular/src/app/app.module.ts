@@ -31,6 +31,8 @@ import { ViewScriptComponent } from './components/view-script/view-script.compon
 import { FooterComponent, terms, contact } from './components/footer/footer.component';
 import { ScriptShareSubscribeComponent } from './components/script-share-subscribe/script-share-subscribe.component';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatTableModule} from '@angular/material/table';
+
 
 
 @NgModule({
@@ -79,7 +81,8 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatRadioModule,
     MatGridListModule,
     MatCardModule,
-    MatStepperModule
+    MatStepperModule,
+    MatTableModule
 
   ],
   exports: [
