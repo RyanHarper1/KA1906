@@ -30,6 +30,7 @@ export class EditScriptComponent implements OnInit {
   scriptId: any;
   scriptName: any;
   response: any
+  subcategory: any;
   category: any;
   questionId: any;
   question: any;
@@ -100,8 +101,10 @@ export class EditScriptComponent implements OnInit {
       console.log('response to this is: ' + response)
       this.response = response;
       this.category = response[0].category;
+      this.subcategory = response[0].subcategory;
       this.scriptName = response[0].scriptName;
       this.questionId = response[0].firstQuestionId;
+
 
 
       //get question
