@@ -77,7 +77,26 @@
 
   <!--Add answer row-->
 
-  
+ <!--Add answer button-->
+<mat-grid-list cols="11" rowHeight="100px">
+  <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+  <mat-grid-tile class="add-btn" [colspan]="3">
+    <button class="mat-btn" (click)="addAnswer()">
+      <mat-icon svgIcon="add"></mat-icon><div class="add-answer">Add answer</div>
+    </button>
+  </mat-grid-tile>
+  <mat-grid-tile class="add-btn" [colspan]="3">
+    <button class="mat-btn" mat-button (click)="backQuestion()" *ngIf ="previousAnswerCount > 0 ">
+    <mat-icon svgIcon="back"></mat-icon><div class="add-answer">Back</div>
+  </button>
+</mat-grid-tile>
+<mat-grid-tile class="add-btn" [colspan]="3">
+    <button class="mat-btn" mat-button (click) ="openDialog()" value="submit">
+        <mat-icon svgIcon="save"></mat-icon><div class="add-answer">Save All</div>
+    </button>  
+</mat-grid-tile>
+<mat-grid-tile [colspan]="1"> </mat-grid-tile>
+</mat-grid-list>
 
   <!--Objections-->
   <mat-grid-list cols="11" rowHeight="1:1.2" [gutterSize]="'10px'">
@@ -88,6 +107,7 @@
           <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[0],0)">
             <mat-icon svgIcon="answer"></mat-icon>
           </button>
+          <button mat-button (click) = "openDialog()" *ngIf="isSubmited()"><mat-icon class="save-icon" svgIcon="save"></mat-icon></button>  
           <div class="answer-title">Answer</div>
           <div class="remove-answer">
             <button mat-button (click)="removeAnswer()">
@@ -96,7 +116,7 @@
           </div>
         </mat-card-header>
         <mat-card-content>
-          <textarea [(ngModel)]="answers[0]" rows="4" cols="40" name="texts"> </textarea>
+          <textarea [(ngModel)]="answers[0].texts" rows="4" cols="40" name="texts"> </textarea>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
@@ -115,6 +135,7 @@
           <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[1],1)">
             <mat-icon svgIcon="answer"></mat-icon>
           </button>
+          <button mat-button (click) = "openDialog()" *ngIf="isSubmited()"><mat-icon class="save-icon" svgIcon="save"></mat-icon></button>  
           <div class="answer-title">Answer</div>
           <div class="remove-answer">
             <button mat-button (click)="removeAnswer()">
@@ -123,7 +144,7 @@
           </div>
         </mat-card-header>
         <mat-card-content>
-          <textarea [(ngModel)]="answers[1]" rows="4" cols="40" name="texts"> </textarea>
+          <textarea [(ngModel)]="answers[1].texts" rows="4" cols="40" name="texts"> </textarea>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
@@ -141,6 +162,7 @@
           <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[2],2)">
             <mat-icon svgIcon="answer"></mat-icon>
           </button>
+          <button mat-button (click) = "openDialog()" *ngIf="isSubmited()"><mat-icon class="save-icon" svgIcon="save"></mat-icon></button>  
           <div class="answer-title">Answer</div>
           <div class="remove-answer">
             <button mat-button (click)="removeAnswer()">
@@ -149,7 +171,7 @@
           </div>
         </mat-card-header>
         <mat-card-content>
-          <textarea [(ngModel)]="answers[2]" rows="4" cols="40" name="texts"> </textarea>
+          <textarea [(ngModel)]="answers[2].texts" rows="4" cols="40" name="texts"> </textarea>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
@@ -168,6 +190,7 @@
           <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[3],3)">
             <mat-icon svgIcon="answer"></mat-icon>
           </button>
+          <button mat-button (click) = "openDialog()" *ngIf="isSubmited()"><mat-icon class="save-icon" svgIcon="save"></mat-icon></button>  
           <div class="answer-title">Answer</div>
           <div class="remove-answer">
             <button mat-button (click)="removeAnswer()">
@@ -176,7 +199,7 @@
           </div>
         </mat-card-header>
         <mat-card-content>
-          <textarea [(ngModel)]="answers[3]" rows="4" cols="40" name="texts"> </textarea>
+          <textarea [(ngModel)]="answers[3].texts" rows="4" cols="40" name="texts"> </textarea>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
@@ -193,6 +216,7 @@
           <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[4],4)">
             <mat-icon svgIcon="answer"></mat-icon>
           </button>
+          <button mat-button (click) = "openDialog()" *ngIf="isSubmited()"><mat-icon class="save-icon" svgIcon="save"></mat-icon></button>  
           <div class="answer-title">Answer</div>
           <div class="remove-answer">
             <button mat-button (click)="removeAnswer()">
@@ -201,7 +225,7 @@
           </div>
         </mat-card-header>
         <mat-card-content>
-          <textarea [(ngModel)]="answers[4]" rows="4" cols="40" name="texts"> </textarea>
+          <textarea [(ngModel)]="answers[4].texts" rows="4" cols="40" name="texts"> </textarea>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
@@ -218,6 +242,7 @@
           <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[5],5)">
             <mat-icon svgIcon="answer"></mat-icon>
           </button>
+          <button mat-button (click) = "openDialog()" *ngIf="isSubmited()"><mat-icon class="save-icon" svgIcon="save"></mat-icon></button>  
           <div class="answer-title">Answer</div>
           <div class="remove-answer">
             <button mat-button (click)="removeAnswer()">
@@ -226,7 +251,7 @@
           </div>
         </mat-card-header>
         <mat-card-content>
-          <textarea [(ngModel)]="answers[5]" rows="4" cols="40" name="texts"> </textarea>
+          <textarea [(ngModel)]="answers[5].texts" rows="4" cols="40" name="texts"> </textarea>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
@@ -245,6 +270,7 @@
           <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[6],6)">
             <mat-icon svgIcon="answer"></mat-icon>
           </button>
+          <button mat-button (click) = "openDialog()" *ngIf="isSubmited()"><mat-icon class="save-icon" svgIcon="save"></mat-icon></button>  
           <div class="answer-title">Answer</div>
           <div class="remove-answer">
             <button mat-button (click)="removeAnswer()">
@@ -253,7 +279,7 @@
           </div>
         </mat-card-header>
         <mat-card-content>
-          <textarea [(ngModel)]="answers[6]" rows="4" cols="40" name="texts"> </textarea>
+          <textarea [(ngModel)]="answers[6].texts" rows="4" cols="40" name="texts"> </textarea>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
@@ -269,6 +295,7 @@
           <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[7],7)">
             <mat-icon svgIcon="answer"></mat-icon>
           </button>
+          <button mat-button (click) = "openDialog()" *ngIf="isSubmited()"><mat-icon class="save-icon" svgIcon="save"></mat-icon></button>  
           <div class="answer-title">Answer</div>
           <div class="remove-answer">
             <button mat-button (click)="removeAnswer()">
@@ -277,7 +304,7 @@
           </div>
         </mat-card-header>
         <mat-card-content>
-          <textarea [(ngModel)]="answers[7]" rows="4" cols="40" name="texts"> </textarea>
+          <textarea [(ngModel)]="answers[7].texts" rows="4" cols="40" name="texts"> </textarea>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
@@ -293,6 +320,7 @@
           <button mat-button *ngIf="isSubmited()" (click)="nextQuestion(answer[8],8)">
             <mat-icon svgIcon="answer"></mat-icon>
           </button>
+          <button mat-button (click) = "openDialog()" *ngIf="isSubmited()"><mat-icon class="save-icon" svgIcon="save"></mat-icon></button>  
           <div class="answer-title">Answer</div>
           <div class="remove-answer">
             <button mat-button (click)="removeAnswer()">
@@ -301,7 +329,7 @@
           </div>
         </mat-card-header>
         <mat-card-content>
-          <textarea [(ngModel)]="answers[8]" rows="4" cols="40" name="texts"> </textarea>
+          <textarea [(ngModel)]="answers[8].texts" rows="4" cols="40" name="texts"> </textarea>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

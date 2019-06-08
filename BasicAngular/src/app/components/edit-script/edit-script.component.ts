@@ -146,6 +146,7 @@ export class EditScriptComponent implements OnInit {
   }
 
   nextQuestion(object, num) {
+    
     this.tempAnswer = this.answers[num].texts;
     console.log('temp answer ' + this.tempAnswer)
     if (this.answers[num].nextQuestionId != null) {
@@ -166,6 +167,9 @@ export class EditScriptComponent implements OnInit {
         let ans = this.Http.post('http://localhost:3000/get-answer', { questionId: Number(this.answers[num].nextQuestionId) });
         ans.subscribe((response2) => {
           let tempAnswers = response2;
+          for (let i = 0; i < 9; i++) {
+            this.answers[i] = { texts: "", questionId: "", nextQuestionId: null, idanswer: "" }
+          }
           for (let i = 0; i < (<any>tempAnswers).length; i++) {
             this.answers[i] = tempAnswers[i]
             console.log('answer responses: ' + this.answers[i].texts);
@@ -358,6 +362,9 @@ export class EditScriptComponent implements OnInit {
       let ans = this.Http.post('http://localhost:3000/get-answer', { questionId: this.previousAnswers[this.previousAnswerCount - 1] });
       ans.subscribe((response2) => {
         let tempAnswers = response2;
+        for (let i = 0; i < 9; i++) {
+          this.answers[i] = { texts: "", questionId: "", nextQuestionId: null, idanswer: "" }
+        }
         for (let i = 0; i < (<any>tempAnswers).length; i++) {
           this.answers[i] = tempAnswers[i]
           console.log('answer responses: ' + this.answers[i].texts);
