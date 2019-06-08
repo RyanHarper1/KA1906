@@ -541,3 +541,24 @@ app.post('/update-script', (req, res) => {
         res.send(result);
     });
 });
+app.post('/updateDetails', (req, res) => {
+
+    let hash = crypto.createHash('sha512').update(req.body.password).digest('hex');
+    let hash1 = crypto.createHash('sha512').update(req.body.password).digest('hex');
+
+    let sql = "SELECT * FROM users WHERE id = '" + req.body.id + "'AND password = '" +  hash + "'"
+    console.log(sql)
+    let query = db.query(sql, (err, result) => {
+        console.log(result)
+        if (err) {
+            throw err;
+        }
+        if (result[0] !=null){
+            let sql1 = 'UPDATE users SET email = "' + req.body.email + '", password = "' + hash1
+            res.send({result:'Successfully updated'})
+        }else{
+            res.send({result: 'password is incorrect'})
+        }
+       
+    });
+});
