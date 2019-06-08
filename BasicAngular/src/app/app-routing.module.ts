@@ -18,6 +18,7 @@ import {UpdateDetailsComponent} from './components/update-details/update-details
 import { AdminComponent } from './components/admin/admin.component';
 import { ViewScriptComponent } from './components/view-script/view-script.component';
 import { terms, contact } from './components/footer/footer.component';
+import { ScriptShareSubscribeComponent } from './components/script-share-subscribe/script-share-subscribe.component';
 
 const routes: Routes = [
     {
@@ -93,6 +94,11 @@ const routes: Routes = [
     component: privacy,
     
   },
+  {
+  path: 'subscribe',
+  component: ScriptShareSubscribeComponent,
+  
+},
   {
   path: 'admin',
   component: AdminComponent,
