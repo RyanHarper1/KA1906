@@ -66,7 +66,7 @@
         </mat-card>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="1"></mat-grid-tile>
-  
+    <mat-grid-tile [colspan]="1" *ngIf="answer > 3"></mat-grid-tile>
     <mat-grid-tile [colspan]="3"*ngIf="answer > 3">
         <mat-card class="view-card" *ngIf="answer > 3">
             <mat-card-header>
