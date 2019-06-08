@@ -42,6 +42,7 @@ export class AuthService {
   orgId = null;
   blank = "";
   returns: object;
+  address:any;
   scriptData1 = {} as scriptData;
   @Output() change: EventEmitter<boolean> = new EventEmitter();
 
@@ -179,6 +180,7 @@ export class AuthService {
     this.email = object.email;
     this.fName = object.fName;
     this.lName = object.lName;
+    this.address = object.address;
     this.username = String(object.username);
     this.orgId = object.orgId;
 
