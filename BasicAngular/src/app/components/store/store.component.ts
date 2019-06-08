@@ -20,6 +20,9 @@ export class StoreComponent implements OnInit {
     iconRegistry.addSvgIcon(
       'cart',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/cart.svg'));
+      iconRegistry.addSvgIcon(
+        'view',
+        sanitizer.bypassSecurityTrustResourceUrl('../assets/img/eye-regular.svg'));
   }
   list: any;
   store:Array<any>;

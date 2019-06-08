@@ -84,7 +84,7 @@
   <mat-drawer-content>
     <button mat-raised-button (click)="drawer.toggle()">Search</button>
 
-    <mat-grid-list  class= "gridList" cols="16" rowHeight="1:1.2" [gutterSize]="'10px'" *ngFor="let li of list">
+    <mat-grid-list  class= "gridList" cols="17" rowHeight="1:1.2" [gutterSize]="'10px'" *ngFor="let li of list">
 
     <mat-grid-tile [colspan]="2"> 
         <mat-card class="store-card">
@@ -173,14 +173,38 @@
 
     
     <mat-grid-tile [colspan]="1">
-        <mat-card class="store-card">
+        <mat-card class="btn-card" >
+            <mat-card-actions>
+              <button class="crnt-btn" mat-button (click) ="viewScript(li)">View
+                  <div class="crnt-icon">
+                  <mat-icon id="crnt-icon" svgIcon="view"></mat-icon>
+                  </div>
+              </button>
+        </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1">
+        <mat-card class="btn-card" >
+            <mat-card-actions>
+              <button class="crnt-btn" mat-button (click) = "addToCart(li)">Add
+                  <div class="crnt-icon">
+                  <mat-icon id="crnt-icon" svgIcon="cart"></mat-icon>
+                  </div>
+              </button>
+        </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+
+
+        <!-- <mat-card class="store-card">
             <mat-card-actions class="store-btns">
               <button class="crnt-btn" mat-button (click) ="viewScript(li)">View Script</button>
               <button class="cart-btn" (click) = "addToCart(li)" mat-button>
                 <mat-icon class="cart-icon" svgIcon="cart"></mat-icon></button> 
             </mat-card-actions>
         </mat-card>  
-    </mat-grid-tile>
+    </mat-grid-tile> -->
 
 
 
