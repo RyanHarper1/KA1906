@@ -29,9 +29,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ViewScriptComponent } from './components/view-script/view-script.component';
 import { FooterComponent, terms, contact } from './components/footer/footer.component';
-
-
-
+import { ScriptShareSubscribeComponent } from './components/script-share-subscribe/script-share-subscribe.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +53,7 @@ import { FooterComponent, terms, contact } from './components/footer/footer.comp
     terms,
     privacy,
     contact,
+    ScriptShareSubscribeComponent
   ],
   imports: [
     FormsModule,

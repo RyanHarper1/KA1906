@@ -78,12 +78,15 @@ export class AuthService {
         //insert answers
         for (let i = 0; i < answers.length; i++) {
           console.log('Question ID : ' + this.response1.questionId)
-          let ans = this.Http.post<questionData>('http://localhost:3000/addAnswer', { texts: answers[i], questionId: response1.questionId });
-          ans.subscribe((response2) => {
-            this.response = response1
-            console.log('answer responses: ' + response2);
-
-          });
+          if (answers[i].texts != ""){
+            let ans = this.Http.post<questionData>('http://localhost:3000/addAnswer', { texts: answers[i].texts, questionId: response1.questionId });
+            ans.subscribe((response2) => {
+              this.response = response1
+              console.log('answer responses: ' + response2);
+  
+            });
+          }
+       
         }
 
 
