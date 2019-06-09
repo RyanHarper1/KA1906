@@ -76,8 +76,8 @@ margin-right: auto;
 
 
 .mat-card-actions .mat-button:first-child, .mat-card-actions .mat-raised-button:first-child{
-  margin: 0;
-width: 130px;
+  margin: auto;
+width: 100%;
 }
 
 .mat-card>.mat-card-actions:last-child{
@@ -103,7 +103,7 @@ width: 130px;
   display: block;
   justify-content: center;
   fill: white;
-  width: 80%;
+  width: 50%;
   margin: auto;
 }
 
