@@ -32,6 +32,7 @@ import { FooterComponent, terms, contact } from './components/footer/footer.comp
 import { ScriptShareSubscribeComponent } from './components/script-share-subscribe/script-share-subscribe.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatTableModule} from '@angular/material/table';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
@@ -82,7 +83,8 @@ import {MatTableModule} from '@angular/material/table';
     MatGridListModule,
     MatCardModule,
     MatStepperModule,
-    MatTableModule
+    MatTableModule,
+    FlexLayoutModule
 
   ],
   exports: [
