@@ -4,7 +4,7 @@
   <div class="title">Store</div>
 </div>
 <div *ngIf = !loggedIn>
-    <mat-grid-list cols="10" rowHeight="480px" [gutterSize]="'10px'">
+    <mat-grid-list cols="10" rowHeight="fit" style="height: 400px" [gutterSize]="'10px'">
         <mat-grid-tile [colspan]="1"></mat-grid-tile>
         <mat-grid-tile  [colspan]="4">
             <div class="store-tbl">
