@@ -324,7 +324,7 @@ export class BuildScriptComponent implements OnInit {
         let update = this.Http.post('http://localhost:3000/update-script', { questionId: this.questionId, question: this.texts })
         update.subscribe((result) => {
           console.log(result)
-          console.log('THISGOING TO WORK')
+          console.log('THIS IS GOING TO WORK')
           for (let j = 0; j < this.answer; j++) {
             if (this.answers[j].texts != "") {
               console.log('THIS IS GOING TO WORK: ' + this.answers, this.answers[j].texts)

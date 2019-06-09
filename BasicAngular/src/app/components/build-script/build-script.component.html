@@ -80,11 +80,11 @@
  <!--Add answer button-->
 <mat-grid-list cols="11" rowHeight="100px">
   <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-  <mat-grid-tile class="add-btn" [colspan]="3">
+  <!-- <mat-grid-tile class="add-btn" [colspan]="3">
     <button class="mat-btn" (click)="addAnswer()">
       <mat-icon svgIcon="add"></mat-icon><div class="add-answer">Add answer</div>
     </button>
-  </mat-grid-tile>
+  </mat-grid-tile> -->
   <mat-grid-tile class="add-btn" [colspan]="3">
     <button class="mat-btn" mat-button (click)="backQuestion()" *ngIf ="previousAnswerCount > 0 ">
     <mat-icon svgIcon="back"></mat-icon><div class="add-answer">Back</div>
@@ -95,6 +95,7 @@
         <mat-icon svgIcon="save"></mat-icon><div class="add-answer">Save All</div>
     </button>  
 </mat-grid-tile>
+<mat-grid-tile [colspan]="3"> </mat-grid-tile>
 <mat-grid-tile [colspan]="1"> </mat-grid-tile>
 </mat-grid-list>
 
