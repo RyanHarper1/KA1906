@@ -32,7 +32,6 @@ import { FooterComponent, terms, contact } from './components/footer/footer.comp
 import { ScriptShareSubscribeComponent } from './components/script-share-subscribe/script-share-subscribe.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatTableModule} from '@angular/material/table';
-import { NgxEditorModule } from 'ngx-editor';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 
@@ -85,7 +84,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatCardModule,
     MatStepperModule,
     MatTableModule,
-    NgxEditorModule,
     FlexLayoutModule
 
   ],
