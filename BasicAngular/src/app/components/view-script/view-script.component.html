@@ -165,7 +165,7 @@
   <mat-grid-tile [colspan]="7" [rowspan] ="3">
       <div class="boxed-pitch">
         <div class="pitch-title">Pitch</div>
-        <app-ngx-editor [(ngModel)]="question" rows="8" cols="80" readonly [placeholder]="'Enter text here...'" height="200px" [spellcheck]="true" [(ngModel)]="htmlContent"></app-ngx-editor>
+        <app-ngx-editor class="toolbar-editor" [config]="editorConfig"  [(ngModel)]="question" rows="8" cols="80" readonly [placeholder]="'Enter text here...'" height="200px" [spellcheck]="true" [(ngModel)]="htmlContent"></app-ngx-editor>
         <!-- <button class="edit-icon" mat-button>
         <textarea [(ngModel)]="question" rows="8" cols="80" readonly></textarea>
        

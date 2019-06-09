@@ -11,6 +11,7 @@ import { EditServiceService } from 'src/app/edit-service.service';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
+import { PopoverConfig } from 'ngx-bootstrap';
 
 
 
@@ -38,7 +39,8 @@ interface questionData {
   selector: 'app-build-script',
   templateUrl: './build-script.component.html',
   styleUrls: ['./build-script.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  providers: [PopoverConfig]
 })
 export class BuildScriptComponent implements OnInit {
   scriptName: string;
@@ -75,6 +77,27 @@ export class BuildScriptComponent implements OnInit {
   tempQuestionId: any;
   //questionForm: FormGroup;
 
+  title = 'ngx-editor';
+  editorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: '100px',
+    minHeight: '100px',
+    translate: 'yes',
+    enableToolbar: true,
+    showToolbar: true,
+    placeholder: 'Enter text here...',
+    toolbar: [
+      ["bold", "italic", "underline", "strikeThrough", "superscript", "subscript"],
+      ["fontName", "fontSize", "color"],
+      ["justifyLeft", "justifyCenter", "justifyRight", "justifyFull", "indent", "outdent"],
+      ["cut", "copy", "delete", "removeFormat", "undo", "redo"],
+      ["paragraph", "blockquote", "removeBlockquote", "horizontalLine", "orderedList", "unorderedList"]
+  ]
+  };
+
+  htmlContent = '';
+
   constructor(public dialog: MatDialog, private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient, private router: Router, private editService: EditServiceService, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) {
 
     iconRegistry.addSvgIcon(
@@ -83,15 +106,6 @@ export class BuildScriptComponent implements OnInit {
     iconRegistry.addSvgIcon(
       'remove',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/red-cross.svg'));
-    // iconRegistry.addSvgIcon(
-    //   'record',
-    //  sanitizer.bypassSecurityTrustResourceUrl('../assets/img/microphone-solid.svg'));
-    // iconRegistry.addSvgIcon(
-    //   'pause',
-    //   sanitizer.bypassSecurityTrustResourceUrl('../assets/img/pause-solid.svg'));
-    // iconRegistry.addSvgIcon(
-    //   'stop',
-    //   sanitizer.bypassSecurityTrustResourceUrl('../assets/img/stop-solid.svg'));
     iconRegistry.addSvgIcon(
       'bold',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/bold-solid.svg'));

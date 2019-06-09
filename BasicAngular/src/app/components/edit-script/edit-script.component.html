@@ -232,7 +232,7 @@
   <mat-grid-tile [colspan]="7" [rowspan] ="3">
  <div class="boxed-pitch">
      <div class="pitch-title">pitch</div>
-     <div class="toolbar-container">
+     <!-- <div class="toolbar-container">
        <button class="edit-icon" mat-button><mat-icon svgIcon="bold"></mat-icon></button>
        <button class="edit-icon" mat-button><mat-icon svgIcon="italic"></mat-icon></button>
        <button class="edit-icon" mat-button><mat-icon svgIcon="underline"></mat-icon></button>
@@ -240,7 +240,8 @@
        <button class="edit-icon" mat-button><mat-icon svgIcon="numbering"></mat-icon></button>
        <button class="edit-icon" mat-button><mat-icon svgIcon="font"></mat-icon></button>
      </div>
-     <textarea  [(ngModel)]="question" rows="8" cols="80"></textarea>
+     <textarea  [(ngModel)]="question" rows="8" cols="80"></textarea> -->
+     <app-ngx-editor class="toolbar-editor" [config]="editorConfig" [(ngModel)]="question" rows="8" cols="80" readonly [placeholder]="'Enter text here...'" height="200px" [spellcheck]="true" [(ngModel)]="htmlContent"></app-ngx-editor>
      <div class="save-edit-container">
        <button class="save-btn" mat-button (click) ="submit()" value="submit"><div class="save-text-btn">Save</div></button>         
      </div>

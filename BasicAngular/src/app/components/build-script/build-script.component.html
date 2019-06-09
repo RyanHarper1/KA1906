@@ -6,11 +6,9 @@
 
 <!-- build.jpg -->
 
-<div class="notLogged" *ngIf=!loggedIn>
-  <mat-grid-list cols="10" rowHeight="350px" [gutterSize]="'10px'">
-      <mat-grid-tile [colspan]="1"></mat-grid-tile>
-      <mat-grid-tile  [colspan]="4">
-        <div class="build-tbl">
+<div class="notLogged" *ngIf=!loggedIn>]
+      <div fxLayout="row" fxLayoutAlign="space-evenly center" > 
+        <div class="build-tbl-left">
           Being able to build a script from scratch is a very personalised way effectively tailoring your own 
           responses to the sales call but at the same time not fumbling on the phone if you can’t remember one of 
           your responses. You may know all the right things to say but saying them and remembering them at the same 
@@ -18,14 +16,12 @@
           the way to go. You can make the script as large or as small as you like! When you go into the build scripts 
           bar a blank template will come up with a pitch box and the option to add as many objections as you like.
         </div>
-      </mat-grid-tile>
-      <mat-grid-tile [colspan]="4">
-        <img class="img" src="/assets/img/build.PNG">
-      </mat-grid-tile>
-      <mat-grid-tile [colspan]="1"></mat-grid-tile>
-      <mat-grid-tile [colspan]="1"></mat-grid-tile>
-      <mat-grid-tile [colspan]="4">
-          <div class="build-tbl">
+        <img class="imgr" src="/assets/img/build.PNG">
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="space-evenly center" > 
+          <img class="imgl" src="/assets/img/build.PNG">
+          <div class="build-tbl-right">
               You will see that the pitch box has a number of different fonts to choose from as well as bold italics 
               underline and you can also choose what size text you want the pitch to be. What’s also an impressive 
               feature is the recording function at the bottom of the pitch box where you can select the icon and record 
@@ -34,12 +30,10 @@
               by clicking the add icon above the pitch box. The objection icons are just a standard text and doesn’t have all 
               of the other options that the pitch box does.
             </div>
-        </mat-grid-tile>
-      <mat-grid-tile [colspan]="4"></mat-grid-tile>
-      <mat-grid-tile [colspan]="1"></mat-grid-tile>
-      <mat-grid-tile [colspan]="1"></mat-grid-tile>
-      <mat-grid-tile [colspan]="4">
-          <div class="build-tbl">
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="space-evenly center" > 
+          <div class="build-tbl-left">
               Once you have typed in your pitch and all of the responses to your pitch you can then save the 
               template under the save pitch icon. Once you have saved the template you then can click on one of the 
               objection boxes and it will take you to another template where again you can put in your pitch and 
@@ -47,21 +41,19 @@
               which helps you to navigate through the whole script. Remember to click save pitch at after every new 
               template otherwise you will lose the new template that you have put in place.
             </div>
-      </mat-grid-tile>
-      <mat-grid-tile [colspan]="4"></mat-grid-tile>
-      <mat-grid-tile [colspan]="1"></mat-grid-tile>
-      <mat-grid-tile [colspan]="1"></mat-grid-tile>
-      <mat-grid-tile [colspan]="4">
-          <div class="build-tbl">
+            <img class="imgr" src="/assets/img/build.PNG">
+            </div>
+          
+            <div fxLayout="row" fxLayoutAlign="space-evenly center" > 
+                <img class="imgl" src="/assets/img/build.PNG">
+          <div class="build-tbl-right">
           After you are satisfied with your script you can then go and save the script where it will take you to 
           another screen and give you the option for a heading which you must have and a description, heading and 
           sub heading which are optional but highly recommended. Once you have saved your script it then becomes part 
           of your current scripts and the current script menu then applies.
           </div>
-      </mat-grid-tile>
-      <mat-grid-tile [colspan]="4"></mat-grid-tile>
-      <mat-grid-tile [colspan]="1"></mat-grid-tile>
-    </mat-grid-list>
+          </div>
+         
 
 </div>
 
@@ -342,7 +334,7 @@
     <mat-grid-tile [colspan]="7" [rowspan]="3">
       <div class="boxed-pitch">
         <div class="pitch-title">PITCH</div>
-        <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="htmlContent"></app-ngx-editor>
+        <app-ngx-editor class="toolbar-editor" [config]="editorConfig" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="htmlContent" [(ngModel)]="texts"></app-ngx-editor>
         <!-- <div class="toolbar-container">
           <button class="edit-icon" mat-button>
             <mat-icon svgIcon="bold"></mat-icon>
@@ -363,7 +355,7 @@
             <mat-icon svgIcon="font"></mat-icon>
           </button>
         </div> -->
-        <textarea [(ngModel)]="texts" placeholder="Insert pitch here..." rows="8" cols="80"></textarea>
+        <!-- <textarea [(ngModel)]="texts" placeholder="Insert pitch here..." rows="8" cols="80"></textarea> -->
         <div class="save-edit-container">
           <button class="save-btn" mat-button mat-button (click)="openDialog()">Save</button>
         </div>

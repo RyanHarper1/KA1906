@@ -10,6 +10,36 @@ margin-right: auto;
   top: 35%;
   }
 
+  .imgr{
+    opacity: 0.5;
+    height: 40%;
+    width: 40%;
+    padding-right: 250px;
+    padding-top: 20px;
+  }
+  .imgr:hover, .imgl:hover, {
+    opacity: 1.0;
+  }
+
+  .imgl{
+    opacity: 0.5;
+    height: 40%;
+    width: 40%;
+    padding-left: 250px;
+    padding-top: 20px;
+  }
+  .current-tbl-left{
+    font-size: 16pt;
+    padding-left: 250px;
+    padding-right: 20px;
+    padding-top: 20px;
+  }
+  .current-tbl-right{
+    font-size: 16pt;
+    padding-right: 250px;
+    padding-left: 20px;
+    padding-top: 20px;
+  }
   .gridList{
     box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
 }
@@ -52,10 +82,7 @@ margin-right: auto;
     text-align: center;
   }
 
-  .current-tbl{
-    padding: 10px;
-    font-size: 16pt;
-  }
+  
   .btn-card{
     box-shadow: none;
     width: 100%;

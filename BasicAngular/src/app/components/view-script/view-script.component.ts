@@ -23,6 +23,27 @@ export class ViewScriptComponent implements OnInit  {
   previousAnswerCount = 0;
   loaded = false;
   
+  title = 'ngx-editor';
+  editorConfig = {
+    editable: false,
+    spellcheck: true,
+    background: 'white',
+    height: '150px',
+    minHeight: '150px',
+    translate: 'yes',
+    enableToolbar: false,
+    showToolbar: false,
+    placeholder: 'Enter text here...',
+  //   toolbar: [
+  //     ["bold", "italic", "underline", "strikeThrough", "superscript", "subscript"],
+  //     ["fontName", "fontSize", "color"],
+  //     ["justifyLeft", "justifyCenter", "justifyRight", "justifyFull", "indent", "outdent"],
+  //     ["cut", "copy", "delete", "removeFormat", "undo", "redo"],
+  //     ["paragraph", "blockquote", "removeBlockquote", "horizontalLine", "orderedList", "unorderedList"]
+  // ]
+  };
+
+  htmlContent = '';
 
   constructor(private view: ViewScriptService, private Http: HttpClient) { }
   

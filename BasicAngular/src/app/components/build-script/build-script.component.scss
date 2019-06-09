@@ -30,6 +30,8 @@
 }
 /*END SCRIPT DETAILS*/
 
+
+
 .next-answer{
   top: 0;
   padding: 0;
@@ -67,19 +69,35 @@ margin-left: 10px;
   width: 90%;
 }
 
-.build-tbl{
-  padding: 10px;
-  font-size: 16pt;
+.imgr{
+  opacity: 0.5;
+  height: 40%;
+  width: 40%;
+  padding-right: 250px;
+  padding-top: 20px;
+}
+.imgr:hover, .imgl:hover, {
+  opacity: 1.0;
 }
 
-.img{
-  // margin-left: 5px;
-  // margin-right: 5px;
-  // margin-bottom: 0;
-  width: 90%;
-  height: 90%;
-  max-height: 98%;
-  max-width: 198%;
+.imgl{
+  opacity: 0.5;
+  height: 40%;
+  width: 40%;
+  padding-left: 250px;
+  padding-top: 20px;
+}
+.build-tbl-left{
+  font-size: 16pt;
+  padding-left: 250px;
+  padding-right: 20px;
+  padding-top: 20px;
+}
+.build-tbl-right{
+  font-size: 16pt;
+  padding-right: 250px;
+  padding-left: 20px;
+  padding-top: 20px;
 }
 
 .mat-btn {
@@ -161,18 +179,40 @@ textarea {
   padding: 10px;
 }
 
-.toolbar-container{
-  background: #3a4f6e;
-  text-align: center;
-  margin: 10px;
-  justify-items: stretch;
-  display: flex;
-  justify-content: space-around;
-}
+// .toolbar-container{
+//   background: #3a4f6e;
+//   text-align: center;
+//   margin: 10px;
+//   justify-items: stretch;
+//   display: flex;
+//   justify-content: space-around;
+// }
 
  :ng-deep .edit-icon.mat-button{
   justify-content: space-between;
 }
+
+.toolbar-editor{
+  justify-content: space-around;
+  background: white;
+
+}
+
+:host app-ngx-editor /deep/ .ngx-editor[_ngcontent-c11], .ngx-wrapper[_ngcontent-c11], .ngx-editor-textarea[_ngcontent-c11], {
+  min-height: 100px;
+  border: 1px solid #ddd;
+  background-color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 2;
+  position: relative;
+}
+
+// .ngx-editor-textarea{
+//   min-height: 100px;
+// }
+
+
 
 
 
