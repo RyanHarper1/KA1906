@@ -67,7 +67,7 @@ openTerms() {
 @Component({
   selector: 'privacy',
   templateUrl: '../footer/privacy.html',
-  //styleUrls: ['./privacy.scss']
+  styleUrls: ['../footer/terms.scss']
   })
   export class privacy {
   

@@ -59,7 +59,7 @@
                       </mat-select>
                 </mat-form-field>
                 <div class="checkbox-container">
-               <mat-checkbox type="checkbox" formControlName="firstCtrl" required>I agree to <a href="#">Script Share terms and conditions</a></mat-checkbox>
+               <mat-checkbox type="checkbox" formControlName="firstCtrl" required>I agree to <a (click) = "openPrivacy()">Script Share terms and conditions</a></mat-checkbox>
                </div>
                <button class="reset-btn" mat-button (click)="stepper.reset()">Reset</button>
                </div>
@@ -279,6 +279,7 @@
           <mat-card-title>Total</mat-card-title>
           <mat-card-content>$30.00</mat-card-content>
           <mat-card-actions> <button mat-button>Checkout</button><div id="paypal-checkout-btn"></div></mat-card-actions>
+          <button class = "buttons" mat-button (click) ="openTerms()">Terms and Conditions</button> 
         </mat-card>
       </mat-grid-tile>
       <mat-grid-tile [colspan]="1"></mat-grid-tile>

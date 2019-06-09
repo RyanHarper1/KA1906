@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
+import { MatDialogRef, MatDialog } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-script-share-subscribe',
@@ -18,7 +20,7 @@ export class ScriptShareSubscribeComponent implements OnInit {
   displayedColumns: string[] = ['itemno', 'itemname', 'amount' ];
   dataSource = ELEMENT_DATA;
 
-  constructor(private _formBuilder: FormBuilder, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) { 
+  constructor(private _formBuilder: FormBuilder, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry,public dialog: MatDialog, private router: Router) { 
     iconRegistry.addSvgIcon(
       'right',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/chevron-right-solid.svg'));
@@ -34,8 +36,16 @@ export class ScriptShareSubscribeComponent implements OnInit {
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
     });
+    }
+
+    openPrivacy() {
+      const dialogRef1 = this.dialog.open(privacy, {
+        width: '700px'
+      });
+    }
   }
-  }
+  
+  
 
   export interface SummarySubscription {
     itemno: number;
@@ -54,3 +64,15 @@ export class ScriptShareSubscribeComponent implements OnInit {
   ];
 
 
+  @Component({
+    selector: 'privacy',
+    templateUrl: '../footer/privacy.html',
+    styleUrls: ['../footer/terms.scss']
+    })
+    export class privacy {
+    
+    
+    constructor(public dialogRef: MatDialogRef<privacy>) {
+    
+    }
+    }
