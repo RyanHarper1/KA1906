@@ -1,112 +1,47 @@
 <div id="banner">
-  <img class="banner-img" src="/assets/img/cart-banner.png" width="100%" height="100%">
-  <img class="logo-img" src="/assets/img/Logo.png" alt="logo" width="100%" heght="100%">
-  <div class="title">Cart</div>
-</div>
-
-<!-- <mat-drawer-container [hasBackdrop]="false" #mode value="side">
-
-
-  <mat-drawer #drawer [mode]="mode.value">Search<br>
-     <mat-form-field>
-      <input matInput placeholder="Keyword">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-select placeholder="Select">
-        <mat-option value="option">Option1</mat-option>
-        <mat-option value="option">Option2</mat-option>
-        <mat-option value="option">Option3</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </mat-drawer>
-
-  <mat-select #mode value="side"></mat-select>
-  <mat-drawer-content> -->
-
-  <mat-grid-list class="heading-grid-list" cols="9" rowHeight="50px">
-    <mat-grid-tile [colspan]="1"></mat-grid-tile>
-    <mat-grid-tile [colspan]="2"><mat-card class="cart-card"><mat-card-title>Name</mat-card-title></mat-card></mat-grid-tile>
-    <mat-grid-tile [colspan]="2"><mat-card class="cart-card"><mat-card-title>Category</mat-card-title></mat-card></mat-grid-tile>
-    <mat-grid-tile [colspan]="2"><mat-card class="cart-card"><mat-card-title>Unit Price</mat-card-title></mat-card></mat-grid-tile>
-    <mat-grid-tile [colspan]="1"><button mat-button class="clear-all-btn" (click)="clearCart()">Clear All</button></mat-grid-tile>
-    <mat-grid-tile [colspan]="1"></mat-grid-tile>
-  </mat-grid-list>
-
-  <mat-grid-list class="grid-tile" *ngFor="let li of list" cols="9" rowHeight="50px">
+    <img class="banner-img" src="/assets/img/cart-banner.png" width="100%" height="100%">
+    <img class="logo-img" src="/assets/img/Logo.png" alt="logo" width="100%" heght="100%">
+    <div class="title">Cart</div>
+  </div>
+  
+    <mat-grid-list class="heading-grid-list" cols="9" rowHeight="50px">
       <mat-grid-tile [colspan]="1"></mat-grid-tile>
-      <mat-grid-tile [colspan]="2"><mat-card class="cart-card"><mat-card-content> {{li.scriptName}}</mat-card-content></mat-card></mat-grid-tile>
-      <mat-grid-tile [colspan]="2"><mat-card class="cart-card"><mat-card-content>{{li.category}}</mat-card-content></mat-card></mat-grid-tile>
-      <mat-grid-tile [colspan]="2"><mat-card class="cart-card"><mat-card-content>${{li.price.toFixed(2)}}</mat-card-content></mat-card></mat-grid-tile>
-      <mat-grid-tile [colspan]="1">
-        <button mat-button class="delete-btn" (click)="deleteCart(li)" [routerLink]="[ '/cart' ]">
-          <div class="del-btn">
-          <mat-icon svgIcon="delete"></mat-icon>
-        </div>
-          </button>
-      </mat-grid-tile>
+      <mat-grid-tile [colspan]="2"><mat-card class="cart-card"><mat-card-title>Name</mat-card-title></mat-card></mat-grid-tile>
+      <mat-grid-tile [colspan]="2"><mat-card class="cart-card"><mat-card-title>Category</mat-card-title></mat-card></mat-grid-tile>
+      <mat-grid-tile [colspan]="2"><mat-card class="cart-card"><mat-card-title>Unit Price</mat-card-title></mat-card></mat-grid-tile>
+      <mat-grid-tile [colspan]="1"><button mat-button class="clear-all-btn" (click)="clearCart()">Clear All</button></mat-grid-tile>
       <mat-grid-tile [colspan]="1"></mat-grid-tile>
-  </mat-grid-list>
-
-  <mat-grid-list class="total-grid-tile" cols="9" rowHeight="50px">
-      <mat-grid-tile [colspan]="1"></mat-grid-tile>
-      <mat-grid-tile [colspan]="2"></mat-grid-tile>
-      <mat-grid-tile [colspan]="2"></mat-grid-tile>
-      <mat-grid-tile class="grid-border" [colspan]="2"><div class="total">Total: ${{ getTotal() }}</div></mat-grid-tile>
-      <mat-grid-tile [colspan]="1"></mat-grid-tile>
-      <mat-grid-tile [colspan]="1"></mat-grid-tile>
-  </mat-grid-list>
-
-  <mat-grid-list cols="9" rowHeight="50px">
-      <mat-grid-tile [colspan]="1"></mat-grid-tile>
-      <mat-grid-tile [colspan]="2"></mat-grid-tile>
-      <mat-grid-tile [colspan]="2"></mat-grid-tile>
-      <mat-grid-tile [colspan]="2"><div id="paypal-checkout-btn"></div></mat-grid-tile>
-      <mat-grid-tile [colspan]="1"></mat-grid-tile>
-      <mat-grid-tile [colspan]="1"></mat-grid-tile>
-  </mat-grid-list>
-
-    <!-- <table>
-      <th>
-        Name
-      </th>
-      <th>
-        Category
-      </th>
-      <th>
-        Price
-      </th>
-      <th>
-
-      </th>
-     
-
-      <tr *ngFor="let li of list">
-        <td>
-          {{li.scriptName}}
-        </td>
-        <td>
-          {{li.category}}
-        </td>
-        <td>
-          ${{li.price.toFixed(2)}}
-        </td>
-        <td>
-          <button mat-button (click)="deleteCart(li)" [routerLink]="[ '/cart' ]">Delete</button>
-        </td>
-      </tr>
-
-      <tr>
-        <td></td>
-        <td><button mat-button (click)="clearCart()">clear</button></td>
-        <td><h5>Total: ${{ getTotal() }}</h5></td>
-        <td>
-          <div id="paypal-checkout-btn"></div> -->
-          <!--<ngx-paypal [config]="payPalConfig"></ngx-paypal>-->
-        <!-- </td>
-      </tr>
-
-    </table>
-
-
-  </mat-drawer-content>
-</mat-drawer-container> -->
+    </mat-grid-list>
+  
+    <mat-grid-list class="grid-tile" *ngFor="let li of list" cols="9" rowHeight="50px">
+        <mat-grid-tile [colspan]="1"></mat-grid-tile>
+        <mat-grid-tile [colspan]="2"><mat-card class="cart-card"><mat-card-content> {{li.scriptName}}</mat-card-content></mat-card></mat-grid-tile>
+        <mat-grid-tile [colspan]="2"><mat-card class="cart-card"><mat-card-content>{{li.category}}</mat-card-content></mat-card></mat-grid-tile>
+        <mat-grid-tile [colspan]="2"><mat-card class="cart-card"><mat-card-content>${{li.price.toFixed(2)}}</mat-card-content></mat-card></mat-grid-tile>
+        <mat-grid-tile [colspan]="1">
+          <button mat-button class="delete-btn" (click)="deleteCart(li)" [routerLink]="[ '/cart' ]">
+            <div class="del-btn">
+            <mat-icon svgIcon="delete"></mat-icon>
+          </div>
+            </button>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1"></mat-grid-tile>
+    </mat-grid-list>
+  
+    <mat-grid-list class="total-grid-tile" cols="9" rowHeight="50px">
+        <mat-grid-tile [colspan]="1"></mat-grid-tile>
+        <mat-grid-tile [colspan]="2"></mat-grid-tile>
+        <mat-grid-tile [colspan]="2"></mat-grid-tile>
+        <mat-grid-tile class="grid-border" [colspan]="2"><div class="total">Total: ${{ getTotal() }}</div></mat-grid-tile>
+        <mat-grid-tile [colspan]="1"></mat-grid-tile>
+        <mat-grid-tile [colspan]="1"></mat-grid-tile>
+    </mat-grid-list>
+  
+    <mat-grid-list cols="9" rowHeight="50px">
+        <mat-grid-tile [colspan]="1"></mat-grid-tile>
+        <mat-grid-tile [colspan]="2"></mat-grid-tile>
+        <mat-grid-tile [colspan]="2"></mat-grid-tile>
+        <mat-grid-tile [colspan]="2"><div id="paypal-checkout-btn"></div></mat-grid-tile>
+        <mat-grid-tile [colspan]="1"></mat-grid-tile>
+        <mat-grid-tile [colspan]="1"></mat-grid-tile>
+    </mat-grid-list>

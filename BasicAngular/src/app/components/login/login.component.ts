@@ -51,3 +51,17 @@ export class LoginComponent implements OnInit {
 
  }
 }
+@Component({
+  selector: 'privacy',
+  templateUrl: '../footer/privacy.html',
+  styleUrls: ['../footer/terms.scss']
+  })
+  export class privacy {
+  
+  
+  constructor(public dialogRef: MatDialogRef<privacy>) {
+  
+  }
+  
+  
+  }

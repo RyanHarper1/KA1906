@@ -11,7 +11,6 @@ margin-right: auto;
   }
 
   .gridList{
-    // box-shadow: 5px 10px 8px #b9b9b3;
     box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
 }
 
@@ -42,8 +41,6 @@ margin-right: auto;
     text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
    
   }
-
- 
 
   ::ng-deep .mat-card-title.title-card.mat-card-title{
     margin: 10px 0 10px 0;

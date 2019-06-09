@@ -17,6 +17,8 @@ import { EditScriptComponent} from './components/edit-script/edit-script.compone
 import {UpdateDetailsComponent} from './components/update-details/update-details.component'
 import { AdminComponent } from './components/admin/admin.component';
 import { ViewScriptComponent } from './components/view-script/view-script.component';
+import { terms, contact } from './components/footer/footer.component';
+import { ScriptShareSubscribeComponent } from './components/script-share-subscribe/script-share-subscribe.component';
 
 const routes: Routes = [
     {
@@ -77,6 +79,26 @@ const routes: Routes = [
     component: DialogForm,
     
   },
+  {
+    path: 'terms',
+    component: terms,
+    
+  },
+  {
+    path: 'contact',
+    component: contact,
+    
+  },
+  {
+    path: 'privacy',
+    component: privacy,
+    
+  },
+  {
+  path: 'subscribe',
+  component: ScriptShareSubscribeComponent,
+  
+},
   {
   path: 'admin',
   component: AdminComponent,

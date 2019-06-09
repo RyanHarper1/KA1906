@@ -13,3 +13,33 @@ export class FooterComponent implements OnInit {
   }
 
 }
+
+
+
+
+@Component({
+selector: 'terms',
+templateUrl: 'terms.html',
+styleUrls: ['./terms.scss']
+})
+export class terms {
+
+constructor(public dialogRef: MatDialogRef<terms>,) {
+
+}
+
+
+}
+@Component({
+  selector: 'contact',
+  templateUrl: 'contact.html',
+  styleUrls: ['./terms.scss']
+  })
+  export class contact {
+  
+  constructor(public dialogRef: MatDialogRef<terms>,) {
+  
+  }
+  
+  
+  }

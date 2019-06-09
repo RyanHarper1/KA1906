@@ -4,9 +4,9 @@ const cors = require('cors');
 const http = require('http');
 const session = require('express-session');
 var bodyParser = require('body-parser');
-
+const crypto = require('crypto');
 // create application/json parser
-
+const secret = 'pmiafidc36d'
 const SESSION_SECRET = "topsecretstuff4323"
 const app = express();
 app.use(cors());
@@ -51,11 +51,13 @@ app.on('error', function (err) {
 
 //Register users
 app.post('/addusers', (req, res) => {
-
+    let hash = crypto.createHash('sha512').update(req.body.password).digest('hex');
+    
+    
     let test = req.body;
     let reply = {};
     console.log(test);
-    let user = { username: req.body.username, fName: req.body.fName, lName: req.body.lName, email: req.body.email, password: req.body.password };
+    let user = { fName: req.body.fName, lName: req.body.lName, email: req.body.email, password: hash };
     let sql = 'INSERT INTO users SET ?';
     console.log("On server side");
     console.log(user);
@@ -88,7 +90,8 @@ app.post('/login', (req, res) => {
         }
 
         if (result.length > 0) {
-            if (result[0].password == req.body.password) {
+            let hash = crypto.createHash('sha512').update(req.body.password).digest('hex');
+            if (result[0].password == hash) {
                 console.log("Authenticated");
                 //req.session.user = result.id;
                 res.send({ result: 'true', id: result[0].id, fName: result[0].fName, lName: result[0].lName, email: result[0].email, username: result[0].username, orgId: result[0].orgId })
@@ -536,5 +539,26 @@ app.post('/update-script', (req, res) => {
 
         });
         res.send(result);
+    });
+});
+app.post('/updateDetails', (req, res) => {
+
+    let hash = crypto.createHash('sha512').update(req.body.password).digest('hex');
+    let hash1 = crypto.createHash('sha512').update(req.body.password).digest('hex');
+
+    let sql = "SELECT * FROM users WHERE id = '" + req.body.id + "'AND password = '" +  hash + "'"
+    console.log(sql)
+    let query = db.query(sql, (err, result) => {
+        console.log(result)
+        if (err) {
+            throw err;
+        }
+        if (result[0] !=null){
+            let sql1 = 'UPDATE users SET email = "' + req.body.email + '", password = "' + hash1
+            res.send({result:'Successfully updated'})
+        }else{
+            res.send({result: 'password is incorrect'})
+        }
+       
     });
 });

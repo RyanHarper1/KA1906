@@ -21,30 +21,41 @@ export class RegisterComponent implements OnInit {
   success = false;
   response: Object;
   registerForm: FormGroup;
+  password: any;
 
-  constructor(private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient) {
+  //  dialog: any;
+
+  constructor(private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient, public dialog: MatDialog) {
 
   }
 
   onSubmit(AuthService) {
 
-    console.log("yes");
-    console.log(this.registerForm.value)
+    if (this.registerForm.value.password != this.registerForm.value.confirmPass) {
+      alert('Passwords do not match')
+    } else {
+
+
+      console.log("yes");
+      console.log(this.registerForm.value)
 
       this.submitted = true;
-    if (this.registerForm.invalid) {
-      return;
-    }
+      if (this.registerForm.invalid) {
+        console.log('invalid')
+        return;
+      } else {
 
-    this.Auth.register(this.registerForm);
-    this.success = true;
+        this.Auth.register(this.registerForm);
+        this.success = true;
+      }
+    }
   }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       fName: ['', Validators.required],
       lName: ['', Validators.required],
-      username: ['', Validators.required],
+      //username: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
       confirmPass: ['', Validators.required]
