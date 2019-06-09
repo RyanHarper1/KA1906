@@ -26,15 +26,35 @@
     margin-bottom: 10px;
   }
   
-  .store-tbl{
-    padding: 50px 320px 20px 320px;
-    font-size: 16pt;
-    // grid-column: span 2;
-  }
-
-  .img{
+  .imgr{
+    opacity: 0.5;
     height: 40%;
     width: 40%;
+    padding-right: 250px;
+    padding-top: 20px;
+  }
+  .imgr:hover, .imgl:hover, {
+    opacity: 1.0;
+  }
+
+  .imgl{
+    opacity: 0.5;
+    height: 40%;
+    width: 40%;
+    padding-left: 250px;
+    padding-top: 20px;
+  }
+  .store-tbl-left{
+    font-size: 16pt;
+    padding-left: 250px;
+    padding-right: 20px;
+    padding-top: 20px;
+  }
+  .store-tbl-right{
+    font-size: 16pt;
+    padding-right: 250px;
+    padding-left: 20px;
+    padding-top: 20px;
   }
   
   .gridList{
