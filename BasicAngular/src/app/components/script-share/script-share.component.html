@@ -19,6 +19,8 @@
           </div>
           </mat-grid-tile>
 
+          <mat-grid-tile [colspan]="1"></mat-grid-tile>
+          </mat-grid-list>
 
           <mat-grid-list cols="5" rowHeight="50px" [gutterSize]="'10px'"  *ngIf="orgId ==null">
               <mat-grid-tile [colspan]="1" ></mat-grid-tile>
@@ -228,251 +230,273 @@
           <mat-grid-tile [colspan]="1"></mat-grid-tile>
       
         </mat-grid-list>
+ 
 
-    <mat-grid-list cols="5" rowHeight [gutterSize]="'10px'">
-        <mat-grid-tile [colspan]="1" ></mat-grid-tile>
-        <mat-grid-tile [colspan]="1" >
-
-          <mat-card class="script-share-card">
-            <mat-card-header class="share-script-header-cards">
-              <div class="monthly">Monthly</div>
-            </mat-card-header>
-            <mat-card-title>
-              <div class="price-bill-container">
-             <div class="price">$140</div><div class="month">/ month</div>
-             <div class="billed-monthly">Billed Monthly</div>
-            </div>
-          </mat-card-title>
-             <mat-card-actions class="subscribe-actions">
-               <div class="subscribe-btn">
-                <button mat-button>Subscribe</button>
-               </div>
-             </mat-card-actions>
-          </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile [colspan]="1" >
-          <mat-card class="script-share-card">
-            <mat-card-header class="share-script-header-cards">
-              <div class="monthly">
-              Monthly
-            </div>
-            </mat-card-header>
-            <mat-card-title>
-              <div class="price-bill-container">
-             <div class="price">$140</div><div class="month">/ month</div>
-             <div class="billed-monthly">Billed Monthly</div>
-            </div>
-          </mat-card-title>
-             <mat-card-actions class="subscribe-actions">
-               <div class="subscribe-btn">
-                <button mat-button>Subscribe</button>
-               </div>
-             </mat-card-actions>
-          </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile [colspan]="1" >
-            <mat-card class="script-share-card">
-                <mat-card-header class="share-script-header-cards">
-                  <div class="monthly">
-                  Monthly
-                </div>
-                </mat-card-header>
-                <mat-card-title>
-                  <div class="price-bill-container">
-                 <div class="price">$140</div><div class="month">/ month</div>
-                 <div class="billed-monthly">Billed Monthly</div>
-                </div>
-              </mat-card-title>
-                 <mat-card-actions class="subscribe-actions">
-                   <div class="subscribe-btn">
-                    <button mat-button>Subscribe</button>
-                   </div>
-                 </mat-card-actions>
-              </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile [colspan]="1" ></mat-grid-tile>
-        <mat-grid-tile [colspan]="1" ></mat-grid-tile>
-
-        <mat-grid-tile [colspan]="1" >
-            <mat-card class="script-share-card">
-                <mat-card-header class="share-script-header-cards">
-                  <div class="monthly">
-                  Quarterly
-                </div>
-                </mat-card-header>
-                <mat-card-title>
-                  <div class="price-bill-container">
-                 <div class="price">$400</div><div class="month">/ month</div>
-                 <div class="billed-monthly">Billed Quarterly</div>
-                </div>
-              </mat-card-title>
-                 <mat-card-actions class="subscribe-actions">
-                   <div class="subscribe-btn">
-                    <button mat-button>Subscribe</button>
-                   </div>
-                 </mat-card-actions>
-              </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile [colspan]="1" >
-            <mat-card class="script-share-card">
-                <mat-card-header class="share-script-header-cards">
-                  <div class="monthly">
-                  Quarterly
-                </div>
-                </mat-card-header>
-                <mat-card-title>
-                  <div class="price-bill-container">
-                 <div class="price">$400</div><div class="month">/ month</div>
-                 <div class="billed-monthly">Billed Quarterly</div>
-                </div>
-              </mat-card-title>
-                 <mat-card-actions class="subscribe-actions">
-                   <div class="subscribe-btn">
-                    <button mat-button>Subscribe</button>
-                   </div>
-                 </mat-card-actions>
-              </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile [colspan]="1" >
-            <mat-card class="script-share-card">
-                <mat-card-header class="share-script-header-cards">
-                  <div class="monthly">
-                  Quarterly
-                </div>
-                </mat-card-header>
-                <mat-card-title>
-                  <div class="price-bill-container">
-                 <div class="price">$400</div><div class="month">/ month</div>
-                 <div class="billed-monthly">Billed Quarterly</div>
-                </div>
-              </mat-card-title>
-                 <mat-card-actions class="subscribe-actions">
-                   <div class="subscribe-btn">
-                    <button mat-button>Subscribe</button>
-                   </div>
-                 </mat-card-actions>
-              </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile [colspan]="1" ></mat-grid-tile>
-        <mat-grid-tile [colspan]="1" ></mat-grid-tile>
-        <mat-grid-tile [colspan]="1" >
-          <mat-card class="script-share-card">
-                <mat-card-header class="share-script-header-cards">
-                  <div class="monthly">
-                  Yearly
-                </div>
-                </mat-card-header>
-                <mat-card-title>
-                  <div class="price-bill-container">
-                 <div class="price">$1400</div><div class="month">/ month</div>
-                 <div class="billed-monthly">Billed Yearly</div>
-                </div>
-              </mat-card-title>
-                 <mat-card-actions class="subscribe-actions">
-                   <div class="subscribe-btn">
-                    <button mat-button>Subscribe</button>
-                   </div>
-                 </mat-card-actions>
-              </mat-card>
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="1" >
-            <mat-card class="script-share-card">
-                <mat-card-header class="share-script-header-cards">
-                  <div class="monthly">
-                  Yearly
-                </div>
-                </mat-card-header>
-                <mat-card-title>
-                  <div class="price-bill-container">
-                 <div class="price">$1400</div><div class="month">/ month</div>
-                 <div class="billed-monthly">Billed Yearly</div>
-                </div>
-              </mat-card-title>
-                 <mat-card-actions class="subscribe-actions">
-                   <div class="subscribe-btn">
-                    <button mat-button>Subscribe</button>
-                   </div>
-                 </mat-card-actions>
-              </mat-card>
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="1" >
-            <mat-card class="script-share-card">
-                <mat-card-header class="share-script-header-cards">
-                  <div class="monthly">
-                  Yearly
-                </div>
-                </mat-card-header>
-                <mat-card-title>
-                  <div class="price-bill-container">
-                 <div class="price">$1400</div><div class="month">/ month</div>
-                 <div class="billed-monthly">Billed Yearly</div>
-                </div>
-              </mat-card-title>
-                 <mat-card-actions class="subscribe-actions">
-                   <div class="subscribe-btn">
-                    <button mat-button>Subscribe</button>
-                   </div>
-                 </mat-card-actions>
-              </mat-card>
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="1"></mat-grid-tile>
-    
-      </mat-grid-list>
-</div>
-
-<mat-tab-group *ngIf=logged style="margin-left: 5%; margin-right: 5%;margin-top: 3%">
+<mat-tab-group  *ngIf = "orgId !=null" style="margin-left: 5%; margin-right: 5%;margin-top: 3%">
     <mat-tab label="Saved">
-      <mat-grid-list cols="6" rowHeight="300px" *ngFor="let li of list2">
-        <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-        <mat-grid-tile [colspan]="2">
-          Name: {{li.scriptName}}<br>
-          Description: {{li.description}}<br>
-          Category: {{li.category}}<br>
-          Sub-Category: {{li.subcategory}}
-        </mat-grid-tile> 
-        <mat-grid-tile [colspan]="2">
-          Last Edited: {{li.edited}}<br>
-          Template: {{li.templates}}<br>
-          <div class="functions" align="right" valign="top">
-                 <button mat-button (click)="editScript(li)">
-              <mat-icon svgIcon="edit"></mat-icon>
-            </button>
-            <button mat-button (click)='uploadScript(li)'>
-              <mat-icon svgIcon="upload"></mat-icon>
-            </button>
-            <button mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">
-              <mat-icon svgIcon="delete"></mat-icon>
-            </button>
-          </div>
+        <mat-grid-list cols="16" class= "gridList" rowHeight="120px" *ngFor="let li of list"  [gutterSize]="'5px'">
+            <mat-grid-tile [colspan]="2">
+              <mat-card class="current-card">
+                  <mat-card-header class="header-card">
+                      {{li.scriptName}}
+                  </mat-card-header>
+              </mat-card>
+            </mat-grid-tile>
+      
+              <mat-grid-tile [colspan]="2" > 
+                  <mat-card class="current-card">
+                      <mat-card-content class="content-card"> 
+                        <mat-card-title class="title-card">
+                             <div class="title-div" >Description</div>
+                        </mat-card-title>
+                        <div class="content-div">
+                            {{li.description}}
+                          </div>
+                      </mat-card-content>
+                    </mat-card>
+              </mat-grid-tile>
+      
+              <mat-grid-tile [colspan]="2" >
+                <mat-card class="current-card">
+                  <mat-card-content class="content-card">
+                      <mat-card-title class="title-card">
+                          <div class="title-div" >Category</div>
+                      </mat-card-title>
+                      <div class="content-div">
+                      {{li.category}}
+                    </div>
+                  </mat-card-content>
+                  </mat-card>
+              </mat-grid-tile>
+      
+              <mat-grid-tile [colspan]="2" >
+                  <mat-card class="current-card">
+                    <mat-card-content class="content-card">
+                        <mat-card-title class="title-card">
+                            <div class="title-div" >Sub-Category</div>
+                        </mat-card-title>
+                        <div class="content-div">
+                        {{li.subcategory}}
+                      </div>
+                    </mat-card-content>
+                    </mat-card>
+                </mat-grid-tile>
+      
+              <mat-grid-tile [colspan]="2" >
+                  <mat-card class="current-card">       
+                      <mat-card-content class="content-card">
+                          <mat-card-title class="title-card">
+                              Last Edited
+                            </mat-card-title>
+                            <div class="content-div">
+                     {{li.edited}}
+                          </div>
+                    </mat-card-content>
+                  </mat-card>
+                  </mat-grid-tile>
+                  
+                  <mat-grid-tile [colspan]="2" >
+                      <mat-card class="current-card">
+                        <mat-card-content class="content-card">
+                            <mat-card-title class="title-card">
+                                Template
+                              </mat-card-title>
+                              <div class="content-div">
+                             {{li.templates}}
+                            </div>
+                        </mat-card-content>
+                        </mat-card>
+                    </mat-grid-tile>
+               
+      
+              <mat-grid-tile [colspan]="1" >
+                <mat-card class="btn-card" >
+                    <mat-card-actions>
+                      <button class="crnt-btn" mat-button (click) ="viewScript(li)">View
+                          <div class="crnt-icon">
+                          <mat-icon id="crnt-icon" svgIcon="view"></mat-icon>
+                          </div>
+                      </button>
+                </mat-card-actions>
+                </mat-card>
+              </mat-grid-tile>
+      
+          <mat-grid-tile [colspan]="1">
+            <mat-card class="btn-card">
+              <mat-card-actions class="mat-card-actions-current">
+                  <button class="crnt-btn" mat-button (click)="editScript(li)">Edit
+                    <div class="crnt-icon">
+                      <mat-icon id="btn-icon" svgIcon="edit"></mat-icon>
+                    </div>
+                  </button>
+              </mat-card-actions>
+            </mat-card>
+          </mat-grid-tile>
+      
+          <mat-grid-tile [colspan]="1">
+              <mat-card class="btn-card">
+                <mat-card-actions class="mat-card-actions-current">
+                  <button class="crnt-btn" mat-button (click)='uploadScript(li)'>Upload
+                      <div class="crbt-icon">
+                      <mat-icon id="btn-icon" svgIcon="upload"></mat-icon>
+                      </div>
+                  </button>
+                </mat-card-actions>
+              </mat-card>
+            </mat-grid-tile>
+            
+            <mat-grid-tile [colspan]="1">
+                <mat-card class="btn-card">
+                  <mat-card-actions class="mat-card-actions-current">
+                    <button class="crnt-btn" mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">Remove
+                      <div class="del-btn">
+                      <mat-icon id="btn-icon" svgIcon="delete"></mat-icon>
+                    </div>
+                    </button>
+                  </mat-card-actions>
+                </mat-card>
+              </mat-grid-tile>
+          </mat-grid-list>
+    </mat-tab>
+
+    <mat-tab label="Uploaded">
+      <mat-grid-list cols="16" class= "gridList" rowHeight="120px" *ngFor="let lo of storelist" [gutterSize]="'5px'">
+      <mat-grid-tile [colspan]="2">
+        <mat-card class="current-card">
+            <mat-card-header class="header-card">
+                {{lo.scriptName}}
+            </mat-card-header>
+        </mat-card>
+      </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="2" > 
+            <mat-card class="current-card">
+                <mat-card-content class="content-card"> 
+                  <mat-card-title class="title-card">
+                        <div class="title-div" >Description</div>
+                  </mat-card-title>
+                  <div class="content-div">
+                      {{lo.description}}
+                    </div>
+                </mat-card-content>
+              </mat-card>
         </mat-grid-tile>
-        <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-    
+
+        <mat-grid-tile [colspan]="2" >
+          <mat-card class="current-card">
+            <mat-card-content class="content-card">
+                <mat-card-title class="title-card">
+                    <div class="title-div" >Category</div>
+                </mat-card-title>
+                <div class="content-div">
+                {{lo.category}}
+              </div>
+            </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="2" >
+            <mat-card class="current-card">
+              <mat-card-content class="content-card">
+                  <mat-card-title class="title-card">
+                      <div class="title-div" >Sub-Category</div>
+                  </mat-card-title>
+                  <div class="content-div">
+                  {{lo.subcategory}}
+                </div>
+              </mat-card-content>
+              </mat-card>
+          </mat-grid-tile>
+
+          <mat-grid-tile [colspan]="2" >
+              <mat-card class="current-card">
+                <mat-card-content class="content-card">
+                    <mat-card-title class="title-card">
+                        <div class="title-div" >Price</div>
+                    </mat-card-title>
+                    <div class="content-div">
+                    {{lo.price}}
+                  </div>
+                </mat-card-content>
+                </mat-card>
+            </mat-grid-tile>
+
+        <mat-grid-tile [colspan]="2" >
+            <mat-card class="current-card">       
+                <mat-card-content class="content-card">
+                    <mat-card-title class="title-card">
+                        Last Edited
+                      </mat-card-title>
+                      <div class="content-div">
+                {{lo.edited}}
+                    </div>
+              </mat-card-content>
+            </mat-card>
+            </mat-grid-tile>
+            
+            <mat-grid-tile [colspan]="2" >
+                <mat-card class="current-card">
+                  <mat-card-content class="content-card">
+                      <mat-card-title class="title-card">
+                          Template
+                        </mat-card-title>
+                        <div class="content-div">
+                        {{lo.templates}}
+                      </div>
+                  </mat-card-content>
+                  </mat-card>
+              </mat-grid-tile>
+          
+        <mat-grid-tile [colspan]="1" >
+          <mat-card class="btn-card" >
+              <mat-card-actions>
+                <button class="crnt-btn" mat-button (click) ="viewScript(li)">View
+                    <div class="crnt-icon">
+                    <mat-icon id="crnt-icon" svgIcon="view"></mat-icon>
+                    </div>
+                </button>
+          </mat-card-actions>
+          </mat-card>
+        </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="1">
+      <mat-card class="btn-card">
+        <mat-card-actions class="mat-card-actions-current">
+            <button class="crnt-btn" mat-button (click)="editScript(li)">Edit
+              <div class="crnt-icon">
+                <mat-icon id="btn-icon" svgIcon="edit"></mat-icon>
+              </div>
+            </button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+
+    <!-- <mat-grid-tile [colspan]="1">
+        <mat-card class="btn-card">
+          <mat-card-actions class="mat-card-actions-current">
+            <button class="crnt-btn" mat-button (click)='uploadScript(li)'>Upload
+                <div class="crbt-icon">
+                <mat-icon id="btn-icon" svgIcon="upload"></mat-icon>
+                </div>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile> -->
+      
+      <mat-grid-tile [colspan]="1">
+          <mat-card class="btn-card">
+            <mat-card-actions class="mat-card-actions-current">
+              <button class="crnt-btn" mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">Remove
+                <div class="del-btn">
+                <mat-icon id="btn-icon" svgIcon="delete"></mat-icon>
+              </div>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </mat-grid-tile>
     </mat-grid-list>
     </mat-tab>
-    <mat-tab label="Uploaded">
-      <table>
-    
-        <tr *ngFor="let lo of storelist">
-          <td>
-            Name: {{lo.scriptName}}<br>
-            Description: {{lo.description}}<br>
-            Category: {{lo.category}}<br>
-            Sub-Category: {{lo.subcategory}}
-            Price: {{lo.price}}
-          </td>
-          <td>
-            Last Edited: {{lo.edited}}<br>
-            Template: {{lo.templates}}<br>
-          </td>
-        </tr>
-      </table>
-    </mat-tab>
+
     <mat-tab label="Purchased">
     </mat-tab>
     </mat-tab-group>

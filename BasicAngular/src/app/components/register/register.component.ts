@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
 
   //  dialog: any;
 
-  constructor(private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient, public dialog: MatDialog) {
+  constructor(private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient) {
 
   }
 

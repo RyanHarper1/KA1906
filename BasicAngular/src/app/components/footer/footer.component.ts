@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef, MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-footer',
@@ -7,14 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
   }
 
+
+openTerms() {
+  const dialogRef = this.dialog.open(terms, {
+    width: '700px'
+  });
+}
+openContact() {
+  const dialogRef = this.dialog.open(contact, {
+    width: '700px'
+  });
 }
 
-
+}
 
 
 @Component({

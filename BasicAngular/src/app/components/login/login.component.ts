@@ -4,6 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientModule} from '@angular/common/http';
 import { AuthService } from 'src/app/auth.service';
 import { Router } from '@angular/router';
+import { MatDialogRef, MatDialog } from '@angular/material';
+import { terms } from '../footer/footer.component';
+
 
 @Component({
   selector: 'app-login',
@@ -18,7 +21,7 @@ export class LoginComponent implements OnInit {
   result: any;
 
 
-  constructor(private formBuilder: FormBuilder,  private Auth: AuthService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder,  private Auth: AuthService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.logInForm = this.formBuilder.group({
@@ -50,6 +53,16 @@ export class LoginComponent implements OnInit {
 
 
  }
+ openPrivacy() {
+  const dialogRef1 = this.dialog.open(privacy, {
+    width: '700px'
+  });
+}
+openTerms() {
+  const dialogRef = this.dialog.open(terms, {
+    width: '700px'
+  });
+}
 }
 @Component({
   selector: 'privacy',

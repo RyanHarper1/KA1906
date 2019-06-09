@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent, privacy } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
-import { NavComponent } from './components/nav/nav.component';
+import { NavComponent} from './components/nav/nav.component';
 import { ReactiveFormsModule} from '@angular/forms';
 import { BuildScriptComponent, DialogForm } from './components/build-script/build-script.component';
 import { ExampleScriptComponent } from './components/example-script/example-script.component';
@@ -19,7 +20,7 @@ import { AuthGuard } from './auth.guard';
 import { ScriptShareComponent } from './components/script-share/script-share.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatRadioModule,  MatCheckboxModule, MatSidenavModule, MatSidenavContent, MatSidenav, MatFormFieldModule, MatInputModule, MatSelectModule, MatMenuModule, MatToolbarModule,MatIconModule, MatTabsModule, MatDialogModule, MatCardModule} from '@angular/material';
-import { FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { EditScriptComponent } from './components/edit-script/edit-script.component';
 import { UpdateDetailsComponent } from './components/update-details/update-details.component';
 import { CartService } from './cart.service';
@@ -31,6 +32,7 @@ import { FooterComponent, terms, contact } from './components/footer/footer.comp
 import { ScriptShareSubscribeComponent } from './components/script-share-subscribe/script-share-subscribe.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatTableModule} from '@angular/material/table';
+import { NgxEditorModule } from 'ngx-editor';
 
 
 
@@ -81,11 +83,12 @@ import {MatTableModule} from '@angular/material/table';
     MatGridListModule,
     MatCardModule,
     MatStepperModule,
-    MatTableModule
+    MatTableModule,
+    NgxEditorModule
 
   ],
   exports: [
-    MatToolbarModule, MatIconModule, MatMenuModule,
+    MatToolbarModule, MatIconModule, MatMenuModule,privacy
   ],
   providers: [AuthGuard, AuthService,ViewScriptComponent],
   bootstrap: [AppComponent]
