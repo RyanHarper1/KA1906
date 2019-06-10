@@ -81,39 +81,26 @@
 <mat-tab-group *ngIf=loggedIn style="margin-left: 5%; margin-right: 5%;margin-top: 3%">
 
 <mat-tab label="Saved"> 
-    <mat-grid-list cols="16" class= "gridList"  *ngFor="let li of list"  [gutterSize]="'5px'">
+   
+      <table width="100%" cellspacing="10" >
+        <tr>
+          <th>Script Name</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Sub-Category</th>
+          <th>Last Edited</th>
+          <th>Template</th>
+         
+        </tr>
 
-      <div fxLayout="row" fxLayoutAlign="space-between center" > 
-        <mat-card class="current-card">
-            <mat-card-header class="header-card">{{li.scriptName}}</mat-card-header>
-        </mat-card>
-    
-        <mat-card class="current-card">
-              <mat-card-title class="title-card"><div class="title-div" >Description</div></mat-card-title>
-              <mat-card-content class="content-card"><div class="content-div"> {{li.description}}</div></mat-card-content>
-          </mat-card>
-          
-          <mat-card class="current-card">
-                <mat-card-title class="title-card"><div class="title-div" >Category</div></mat-card-title>
-                <mat-card-content class="content-card"><div class="content-div">{{li.category}}</div></mat-card-content>
-          </mat-card>
-            
-          <mat-card class="current-card">
-                  <mat-card-title class="title-card"><div class="title-div" >Sub-Category</div></mat-card-title>
-                  <mat-card-content class="content-card"><div class="content-div">{{li.subcategory}}</div></mat-card-content>
-              </mat-card>
-          
-          <mat-card class="current-card">  
-                  <mat-card-title class="title-card">Last Edited</mat-card-title>
-                  <mat-card-content class="content-card"><div class="content-div">{{li.edited}} </div></mat-card-content>
-          </mat-card>
-
-          <mat-card class="current-card">
-                <mat-card-title class="title-card">Template</mat-card-title>
-                <mat-card-content class="content-card"><div class="content-div">{{li.templates}}</div></mat-card-content>
-            </mat-card>
-
-          <mat-card class="btn-card" >
+        <tr *ngFor="let li of list">
+          <td>{{li.scriptName}}</td>
+          <td>{{li.description}}</td>
+          <td>{{li.category}}</td>
+          <td>{{li.subcategory}}</td>
+          <td>{{li.edited}}</td>
+          <td>{{li.template}}</td>
+          <td><mat-card class="btn-card" >
               <mat-card-actions>
                 <button class="crnt-btn" mat-button (click) ="viewScript(li)">View
                     <div class="crnt-icon">
@@ -122,211 +109,144 @@
                 </button>
           </mat-card-actions>
           </mat-card>
-
-      <mat-card class="btn-card">
-        <mat-card-actions class="mat-card-actions-current">
-            <button class="crnt-btn" mat-button (click)="editScript(li)">Edit
-              <div class="crnt-icon">
-                <mat-icon id="btn-icon" svgIcon="edit"></mat-icon>
-              </div>
-            </button>
-        </mat-card-actions>
-      </mat-card>
-
-        <mat-card class="btn-card">
-          <mat-card-actions class="mat-card-actions-current">
-            <button class="crnt-btn" mat-button (click)='uploadScript(li)'>Upload
-                <div class="crnt-icon">
-                <mat-icon id="btn-icon" svgIcon="upload"></mat-icon>
-                </div>
-            </button>
-          </mat-card-actions>
-        </mat-card>
-
-          <mat-card class="btn-card">
-            <mat-card-actions class="mat-card-actions-current">
-              <button class="crnt-btn" mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">Remove
-                <div class="del-btn">
-                <mat-icon id="btn-icon" svgIcon="delete"></mat-icon>
-              </div>
-              </button>
-            </mat-card-actions>
-          </mat-card>
-          </div>
-    </mat-grid-list>
+        </td>
+          <td>
+            <mat-card class="btn-card">
+                <mat-card-actions class="mat-card-actions-current">
+                    <button class="crnt-btn" mat-button (click)="editScript(li)">Edit
+                      <div class="crnt-icon">
+                        <mat-icon id="btn-icon" svgIcon="edit"></mat-icon>
+                      </div>
+                    </button>
+                </mat-card-actions>
+              </mat-card>
+          </td>
+          <td>
+            <mat-card class="btn-card">
+                <mat-card-actions class="mat-card-actions-current">
+                  <button class="crnt-btn" mat-button (click)='uploadScript(li)'>Upload
+                      <div class="crnt-icon">
+                      <mat-icon id="btn-icon" svgIcon="upload"></mat-icon>
+                      </div>
+                  </button>
+                </mat-card-actions>
+              </mat-card>
+          </td>
+          <td>
+            <mat-card class="btn-card">
+                <mat-card-actions class="mat-card-actions-current">
+                  <button class="crnt-btn" mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">Remove
+                    <div class="del-btn">
+                    <mat-icon id="btn-icon" svgIcon="delete"></mat-icon>
+                  </div>
+                  </button>
+                </mat-card-actions>
+              </mat-card>
+          </td>
+          </tr>
+        </table> 
+    
   </mat-tab>
 
   <mat-tab label="Uploaded">
-    <mat-grid-list cols="18" class= "gridList" rowHeight="250px" *ngFor="let lo of storelist" [gutterSize]="'5px'">
-        <div fxLayout="row" fxLayoutAlign="space-between center" > 
-        <mat-card class="current-card">
-            <mat-card-header class="header-card">{{lo.scriptName}}</mat-card-header>
-        </mat-card>
-    
-        <mat-card class="current-card">
-              <mat-card-title class="title-card"><div class="title-div" >Description</div></mat-card-title>
-              <mat-card-content class="content-card"><div class="content-div"> {{lo.description}}</div></mat-card-content>
-          </mat-card>
-          
-          <mat-card class="current-card">
-                <mat-card-title class="title-card"><div class="title-div" >Category</div></mat-card-title>
-                <mat-card-content class="content-card"><div class="content-div">{{lo.category}}</div></mat-card-content>
-          </mat-card>
-            
-          <mat-card class="current-card">
-                  <mat-card-title class="title-card"><div class="title-div" >Sub-Category</div></mat-card-title>
-                  <mat-card-content class="content-card"><div class="content-div">{{lo.subcategory}}</div></mat-card-content>
-              </mat-card>
+  
+    <table width="100%" cellspacing="10" >
+        <tr>
+          <th>Script Name</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Sub-Category</th>
+          <th>Price</th>
+          <th>Last Edited</th>
+          <th>Template</th>
+          <th>Review</th>
+          <th>Rating</th>
+        </tr>
 
-          <mat-card class="current-card">
-              <mat-card-title class="title-card"><div class="title-div" >Unit Price</div></mat-card-title>
-              <mat-card-content class="content-card"><div class="content-div">{{lo.price}}</div></mat-card-content>
-          </mat-card>
-          
-          <mat-card class="current-card">  
-                  <mat-card-title class="title-card">Last Edited</mat-card-title>
-                  <mat-card-content class="content-card"><div class="content-div">{{lo.edited}} </div></mat-card-content>
-          </mat-card>
-
-          <mat-card class="current-card">
-                <mat-card-title class="title-card">Template</mat-card-title>
-                <mat-card-content class="content-card"><div class="content-div">{{lo.templates}}</div></mat-card-content>
-            </mat-card>
-
-            <mat-card class="current-card">
-                <mat-card-title class="title-card"><div class="title-div" >Review</div></mat-card-title>
-                <mat-card-content class="content-card"><div class="content-div">this is a review. i like reviews.</div></mat-card-content>
-            </mat-card>
-
-            <mat-card class="current-card">
-                <mat-card-title class="title-card"><div class="title-div" >Rating</div></mat-card-title>
-                <mat-card-content class="content-card"><div class="content-div">i rate you so much</div></mat-card-content>
-            </mat-card>
-
-          <mat-card class="btn-card" >
+        <tr *ngFor="let lo of list">
+          <td>{{lo.scriptName}}</td>
+          <td>{{lo.description}}</td>
+          <td>{{lo.category}}</td>
+          <td>{{lo.subcategory}}</td>
+          <td>{{lo.price}}</td>
+          <td>{{lo.edited}}</td>
+          <td>{{lo.template}}</td>
+          <td>this is a review</td>
+          <td>5 stars</td>
+          <td><mat-card class="btn-card" >
               <mat-card-actions>
-                <button class="crnt-btn" mat-button (click) ="viewScript(lo)">View
+                <button class="crnt-btn" mat-button (click) ="viewScript(li)">View
                     <div class="crnt-icon">
                     <mat-icon id="crnt-icon" svgIcon="view"></mat-icon>
                     </div>
                 </button>
           </mat-card-actions>
           </mat-card>
-
-      <mat-card class="btn-card">
-        <mat-card-actions class="mat-card-actions-current">
-            <button class="crnt-btn" mat-button (click)="editScript(lo)">Edit
-              <div class="crnt-icon">
-                <mat-icon id="btn-icon" svgIcon="edit"></mat-icon>
-              </div>
-            </button>
-        </mat-card-actions>
-      </mat-card>
-
-      <mat-card class="btn-card">
-            <mat-card-actions class="mat-card-actions-current">
-              <button class="crnt-btn" mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">Remove
-                <div class="del-btn">
-                <mat-icon id="btn-icon" svgIcon="delete"></mat-icon>
-              </div>
-              </button>
-            </mat-card-actions>
-          </mat-card>
-        </div>
-    </mat-grid-list>
+        </td>
+          <td>
+            <mat-card class="btn-card">
+                <mat-card-actions class="mat-card-actions-current">
+                    <button class="crnt-btn" mat-button (click)="editScript(li)">Edit
+                      <div class="crnt-icon">
+                        <mat-icon id="btn-icon" svgIcon="edit"></mat-icon>
+                      </div>
+                    </button>
+                </mat-card-actions>
+              </mat-card>
+          </td>
+          <td>
+            <mat-card class="btn-card">
+                <mat-card-actions class="mat-card-actions-current">
+                  <button class="crnt-btn" mat-button (click)='uploadScript(li)'>Upload
+                      <div class="crnt-icon">
+                      <mat-icon id="btn-icon" svgIcon="upload"></mat-icon>
+                      </div>
+                  </button>
+                </mat-card-actions>
+              </mat-card>
+          </td>
+          <td>
+            <mat-card class="btn-card">
+                <mat-card-actions class="mat-card-actions-current">
+                  <button class="crnt-btn" mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">Remove
+                    <div class="del-btn">
+                    <mat-icon id="btn-icon" svgIcon="delete"></mat-icon>
+                  </div>
+                  </button>
+                </mat-card-actions>
+              </mat-card>
+          </td>
+          </tr>
+        </table> 
 </mat-tab>
 
 
   <mat-tab label="Purchased">
-    <mat-grid-list cols="17" class= "gridList" rowHeight="120px" *ngFor="let lo of storelist" [gutterSize]="'5px'">
-        <mat-grid-tile [colspan]="2">
-          <mat-card class="current-card">
-              <mat-card-header class="header-card">
-                  {{lo.scriptName}}
-              </mat-card-header>
-          </mat-card>
-        </mat-grid-tile>
+    
+      <table width="100%" cellspacing="10" >
+          <tr>
+            <th>Script Name</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Sub-Category</th>
+            <th>Price</th>
+            <th>Last Edited</th>
+            <th>Template</th>
+            <th>Review</th>
+            <th>Rating</th>
+          </tr>
   
-          <mat-grid-tile [colspan]="2" > 
-              <mat-card class="current-card">
-                  <mat-card-content class="content-card"> 
-                    <mat-card-title class="title-card">
-                          <div class="title-div" >Description</div>
-                    </mat-card-title>
-                    <div class="content-div">
-                        {{lo.description}}
-                      </div>
-                  </mat-card-content>
-                </mat-card>
-          </mat-grid-tile>
-  
-          <mat-grid-tile [colspan]="2" >
-            <mat-card class="current-card">
-              <mat-card-content class="content-card">
-                  <mat-card-title class="title-card">
-                      <div class="title-div" >Category</div>
-                  </mat-card-title>
-                  <div class="content-div">
-                  {{lo.category}}
-                </div>
-              </mat-card-content>
-              </mat-card>
-          </mat-grid-tile>
-  
-          <mat-grid-tile [colspan]="2" >
-              <mat-card class="current-card">
-                <mat-card-content class="content-card">
-                    <mat-card-title class="title-card">
-                        <div class="title-div" >Sub-Category</div>
-                    </mat-card-title>
-                    <div class="content-div">
-                    {{lo.subcategory}}
-                  </div>
-                </mat-card-content>
-                </mat-card>
-            </mat-grid-tile>
-
-            <mat-grid-tile [colspan]="2" >
-                <mat-card class="current-card">
-                  <mat-card-content class="content-card">
-                      <mat-card-title class="title-card">
-                          <div class="title-div" >Price</div>
-                      </mat-card-title>
-                      <div class="content-div">
-                      {{lo.price}}
-                    </div>
-                  </mat-card-content>
-                  </mat-card>
-              </mat-grid-tile>
-  
-          <mat-grid-tile [colspan]="2" >
-              <mat-card class="current-card">       
-                  <mat-card-content class="content-card">
-                      <mat-card-title class="title-card">
-                          Last Edited
-                        </mat-card-title>
-                        <div class="content-div">
-                  {{lo.edited}}
-                      </div>
-                </mat-card-content>
-              </mat-card>
-              </mat-grid-tile>
-              
-              <mat-grid-tile [colspan]="2" >
-                  <mat-card class="current-card">
-                    <mat-card-content class="content-card">
-                        <mat-card-title class="title-card">
-                            Template
-                          </mat-card-title>
-                          <div class="content-div">
-                          {{lo.templates}}
-                        </div>
-                    </mat-card-content>
-                    </mat-card>
-                </mat-grid-tile>
-            
-          <mat-grid-tile [colspan]="1" >
-            <mat-card class="btn-card" >
+          <tr *ngFor="let lo of list">
+            <td>{{lo.scriptName}}</td>
+            <td>{{lo.description}}</td>
+            <td>{{lo.category}}</td>
+            <td>{{lo.subcategory}}</td>
+            <td>{{lo.price}}</td>
+            <td>{{lo.edited}}</td>
+            <td>{{lo.template}}</td>
+            <td>this is a review</td>
+            <td>5 stars</td>
+            <td><mat-card class="btn-card" >
                 <mat-card-actions>
                   <button class="crnt-btn" mat-button (click) ="viewScript(li)">View
                       <div class="crnt-icon">
@@ -335,43 +255,31 @@
                   </button>
             </mat-card-actions>
             </mat-card>
-          </mat-grid-tile>
-  
-      <mat-grid-tile [colspan]="1">
-        <mat-card class="btn-card">
-          <mat-card-actions class="mat-card-actions-current">
-              <button class="crnt-btn" mat-button (click)="editScript(li)">Edit
-                <div class="crnt-icon">
-                  <mat-icon id="btn-icon" svgIcon="edit"></mat-icon>
-                </div>
-              </button>
-          </mat-card-actions>
-        </mat-card>
-      </mat-grid-tile>
-  
-      <!-- <mat-grid-tile [colspan]="1">
-          <mat-card class="btn-card">
-            <mat-card-actions class="mat-card-actions-current">
-              <button class="crnt-btn" mat-button (click)='uploadScript(li)'>Upload
-                  <div class="crbt-icon">
-                  <mat-icon id="btn-icon" svgIcon="upload"></mat-icon>
-                  </div>
-              </button>
-            </mat-card-actions>
-          </mat-card>
-        </mat-grid-tile> -->
-        
-        <mat-grid-tile [colspan]="1">
-            <mat-card class="btn-card">
-              <mat-card-actions class="mat-card-actions-current">
-                <button class="crnt-btn" mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">Remove
-                  <div class="del-btn">
-                  <mat-icon id="btn-icon" svgIcon="delete"></mat-icon>
-                </div>
-                </button>
-              </mat-card-actions>
-            </mat-card>
-          </mat-grid-tile>
-      </mat-grid-list>
-  </mat-tab>
+          </td>
+            <td>
+              <mat-card class="btn-card">
+                  <mat-card-actions class="mat-card-actions-current">
+                      <button class="crnt-btn" mat-button (click)="editScript(li)">Edit
+                        <div class="crnt-icon">
+                          <mat-icon id="btn-icon" svgIcon="edit"></mat-icon>
+                        </div>
+                      </button>
+                  </mat-card-actions>
+                </mat-card>
+            </td>
+            <td>
+              <mat-card class="btn-card">
+                  <mat-card-actions class="mat-card-actions-current">
+                    <button class="crnt-btn" mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">Remove
+                      <div class="del-btn">
+                      <mat-icon id="btn-icon" svgIcon="delete"></mat-icon>
+                    </div>
+                    </button>
+                  </mat-card-actions>
+                </mat-card>
+            </td>
+            </tr>
+          </table> 
+ 
+    </mat-tab>
 </mat-tab-group>

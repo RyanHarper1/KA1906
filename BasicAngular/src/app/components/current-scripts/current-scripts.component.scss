@@ -46,6 +46,35 @@ margin-right: auto;
     box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
 }
 
+th{
+  justify-content: space-evenly;
+  justify-items: center;
+  // border: 1px solid black;
+  background: #ad9999b0;
+  color: white;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}
+
+td{
+// height: 50px;
+// border: 1px solid black;
+text-align: center;
+}
+
+tr{
+  height: 50px;
+// border: 1px solid black;
+text-align: center;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}
+
+tr:hover{
+  // opacity: 1.0;
+  background: whitesmoke;
+}
+
+
+
   .current-card{
     color: black;
     display: flex;
@@ -88,8 +117,12 @@ margin-right: auto;
   
   .btn-card{
     box-shadow: none;
-    width: 90px;
-    margin: 0;
+    width: 85px;
+    margin-left: auto;
+    margin-right: auto;
+    background: none;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 
 
