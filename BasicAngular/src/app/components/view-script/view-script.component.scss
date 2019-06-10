@@ -35,6 +35,40 @@
     }
   
   /*END SCRIPT DETAILS*/
+
+  /*****************BUTTON ROW***************/
+  .add-btn >::ng-deep .mat-figure{
+    justify-content: center;
+  }
+
+  .mat-btn {
+    height:90%;
+    width: 90%;
+    margin: 10px;
+    background: #3a4f6e;
+    color: white;
+    cursor: pointer;
+    outline: 0;
+    border: none;
+    display: inline-block;
+    white-space: nowrap;
+    text-align: center;
+    min-width: 64px;
+    padding: 0 16px;
+    border-radius: 5px;
+    overflow: visible;
+  }
+
+  .add-answer{
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      font-variant-caps: all-petite-caps;
+      letter-spacing: 2pt;
+      line-height: 0;
+      margin-top: 20px;
+  }
+  /*****************BUTTON ROW***************/
   
     .next-answer{
       top: 0;
@@ -59,9 +93,7 @@
       float: right;
     }
     
-    .mat-button{
-      vertical-align: top;
-    }
+    
 
     ::ng-deep .mat-card.view-card.mat-card{
       display: inline-block;

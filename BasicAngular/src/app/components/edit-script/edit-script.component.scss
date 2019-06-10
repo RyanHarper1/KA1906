@@ -181,14 +181,14 @@ textarea {
   padding: 10px;
 }
 
-.toolbar-container{
-  background: #3a4f6e;
-  text-align: center;
-  margin: 10px;
-  justify-items: stretch;
-  display: flex;
-  justify-content: space-around;
-}
+// .toolbar-container{
+//   background: #3a4f6e;
+//   text-align: center;
+//   margin: 10px;
+//   justify-items: stretch;
+//   display: flex;
+//   justify-content: space-around;
+// }
 
  :ng-deep .edit-icon.mat-button{
   justify-content: space-between;
@@ -196,7 +196,7 @@ textarea {
 
   .save-edit-container{
     text-align: center;
-    margin: 10px;
+    margin: 5px;
     padding: 5px;
   }
 
