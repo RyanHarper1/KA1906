@@ -65,6 +65,7 @@
  
   .edit-btn{
     background: white;
+    fill: orange;
   }
 
   .delete-btn{
@@ -76,7 +77,8 @@ background: #e2e2e0;
 }
 
  #edit-icon{
-   fill: orange;
+   fill: orange !important;
+  //  color: orange;
 
  }
 
