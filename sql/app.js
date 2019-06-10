@@ -14,15 +14,15 @@ app.use(bodyParser.json({ extended: true }));
 
 //sessions to be added later
 app.use(session({
-name:"lid",
-secret: SESSION_SECRET,
-resave: false,
-saveUninitialized: false,
-cookie: {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    maxAge: 1000* 60 * 60 * 24 //1 day
-}
+    name: "lid",
+    secret: SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        maxAge: 1000 * 60 * 60 * 24 //1 day
+    }
 })
 );
 
@@ -52,8 +52,8 @@ app.on('error', function (err) {
 //Register users
 app.post('/addusers', (req, res) => {
     let hash = crypto.createHash('sha512').update(req.body.password).digest('hex');
-    
-    
+
+
     let test = req.body;
     let reply = {};
     console.log(test);
@@ -224,13 +224,13 @@ app.post('/editAnswer', (req, res) => {
     console.log(test);
 
     let script = { texts: req.body.texts, questionId: Number(req.body.questionId), nextQuestionId: req.body.nextQuestionId };
-    if (Number(script.nextQuestionId < 1)){
+    if (Number(script.nextQuestionId < 1)) {
         script.nextQuestionId = null
     }
     let sql = 'INSERT INTO answer SET ?';
     console.log(sql + script);
     console.log(script);
-    let query = db.query(sql,script, (err, result) => {
+    let query = db.query(sql, script, (err, result) => {
         if (err) {
             throw err;
         } else {
@@ -241,7 +241,7 @@ app.post('/editAnswer', (req, res) => {
             }
             res.send(reply);
         }
-       
+
     });
 });
 
@@ -398,14 +398,37 @@ app.post('/get-answer', (req, res) => {
 });
 
 app.post('/upload-script', (req, res) => {
-    let sql = 'INSERT INTO store SET ?';
-    let values = { usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, uploadDate: req.body.uploadDate, question: req.body.question, category: req.body.category, rating: 0, description: req.body.description }
-    let query = db.query(sql, values, (err, result) => {
-        if (err) {
-            throw err;
+    let check = "SELECT * FROM store WHERE scriptID = " + req.body.scriptID
+    let execute = db.query(check, (err, result) => {
+        if (result == null) {
+            console.log('No current entries')
+            let sql = 'INSERT INTO store SET ?';
+            let values = { usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, uploadDate: req.body.uploadDate, question: req.body.question, category: req.body.category, rating: 0, description: req.body.description }
+            let query = db.query(sql, values, (err, result) => {
+                if (err) {
+                    throw err;
+                }
+                res.send(result);
+            });
+        } else {
+            console.log('Entry exists. Removing then reuploading')
+            let query2 = "DELETE FROM store WHERE scriptID = " + req.body.scriptID
+            let execute2 = db.query(query2, (err, result) => {
+                let sql = 'INSERT INTO store SET ?';
+                let values = { usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, uploadDate: req.body.uploadDate, question: req.body.question, category: req.body.category, rating: 0, description: req.body.description }
+                let query3 = db.query(sql, values, (err, result) => {
+                    if (err) {
+                        throw err;
+                    }
+                    res.send(result);
+                });
+            });
         }
-        res.send(result);
+
     });
+
+
+
 });
 
 app.post('/uploaded', (req, res) => {
@@ -546,19 +569,19 @@ app.post('/updateDetails', (req, res) => {
     let hash = crypto.createHash('sha512').update(req.body.password).digest('hex');
     let hash1 = crypto.createHash('sha512').update(req.body.password).digest('hex');
 
-    let sql = "SELECT * FROM users WHERE id = '" + req.body.id + "'AND password = '" +  hash + "'"
+    let sql = "SELECT * FROM users WHERE id = '" + req.body.id + "'AND password = '" + hash + "'"
     console.log(sql)
     let query = db.query(sql, (err, result) => {
         console.log(result)
         if (err) {
             throw err;
         }
-        if (result[0] !=null){
+        if (result[0] != null) {
             let sql1 = 'UPDATE users SET email = "' + req.body.email + '", password = "' + hash1
-            res.send({result:'Successfully updated'})
-        }else{
-            res.send({result: 'password is incorrect'})
+            res.send({ result: 'Successfully updated' })
+        } else {
+            res.send({ result: 'password is incorrect' })
         }
-       
+
     });
 });
