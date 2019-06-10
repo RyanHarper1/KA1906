@@ -1,16 +1,16 @@
 <mat-toolbar class ="mat-elevation-z15" style ="max-height: 50px; min-height: 50px; background-color:#3a4f6e; color:white;">
 <mat-toolbar-row >
   <img class="scroll-logo" src= "/assets/img/Scroll-Logo.png" height="100%">
-    <button mat-button [routerLink]="[ '/home' ]">Home</button>
-    <button mat-button [routerLink]="[ '/example-script' ]">Example Scripts</button>
-    <button mat-button [routerLink]="[ '/build-script' ]">Build Scripts</button>
-    <button mat-button [routerLink]="[ '/current-script' ]">Current Scripts</button>
-    <button mat-button [routerLink]="[ '/store' ]">Store</button>
-    <button mat-button [routerLink]="[ '/script-share' ]">Script Share</button>
+    <button class="nav-btn" mat-button [routerLink]="[ '/home' ]">Home</button>
+    <button class="nav-btn" mat-button [routerLink]="[ '/example-script' ]">Example Scripts</button>
+    <button class="nav-btn" mat-button [routerLink]="[ '/build-script' ]">Build Scripts</button>
+    <button class="nav-btn" mat-button [routerLink]="[ '/current-script' ]">Current Scripts</button>
+    <button class="nav-btn" mat-button [routerLink]="[ '/store' ]">Store</button>
+    <button class="nav-btn" mat-button [routerLink]="[ '/script-share' ]">Script Share</button>
 
   <span class="example-spacer" ></span>
-  <button mat-button [routerLink]="[ '/cart' ]" *ngIf=loggedIn><mat-icon class="cart-icon" svgIcon="cart">Cart</mat-icon></button>
-  <button mat-button [matMenuTriggerFor]="menu"*ngIf=loggedIn>{{Auth.fName}}</button>
+  <button class="nav-btn" mat-button [routerLink]="[ '/cart' ]" *ngIf=loggedIn><mat-icon class="cart-icon" svgIcon="cart">Cart</mat-icon></button>
+  <button class="nav-btn" mat-button [matMenuTriggerFor]="menu"*ngIf=loggedIn>{{Auth.fName}}</button>
 
 <mat-menu #menu="matMenu"> 
     <button mat-menu-item [routerLink] = "['/admin']" *ngIf ="Auth.orgId != null">admin</button> 
