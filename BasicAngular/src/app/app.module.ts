@@ -35,6 +35,7 @@ import {MatTableModule} from '@angular/material/table';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxEditorModule } from 'ngx-editor';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { StarRatingModule } from 'angular-star-rating';
 
 
 @NgModule({
@@ -87,7 +88,8 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
     MatTableModule,
     FlexLayoutModule,
     NgxEditorModule,
-    TooltipModule
+    TooltipModule.forRoot(),
+    StarRatingModule.forRoot()
 
   ],
   exports: [
