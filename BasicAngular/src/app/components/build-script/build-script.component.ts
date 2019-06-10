@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularWaitBarrier } from 'blocking-proxy/built/lib/angular_wait_barrier';
 import { AuthService } from 'src/app/auth.service';
@@ -11,6 +11,7 @@ import { EditServiceService } from 'src/app/edit-service.service';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
+import { PopoverConfig } from 'ngx-bootstrap';
 
 interface DialogData {
   name: string;
@@ -35,7 +36,9 @@ interface questionData {
 @Component({
   selector: 'app-build-script',
   templateUrl: './build-script.component.html',
-  styleUrls: ['./build-script.component.scss']
+  styleUrls: ['./build-script.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  providers: [PopoverConfig]
 })
 export class BuildScriptComponent implements OnInit {
   scriptName: string;
@@ -71,6 +74,27 @@ export class BuildScriptComponent implements OnInit {
   loadedScript = false;
   tempQuestionId: any;
   //questionForm: FormGroup;
+
+  title = 'ngx-editor';
+  editorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: '100px',
+    minHeight: '100px',
+    translate: 'yes',
+    enableToolbar: true,
+    showToolbar: true,
+    placeholder: 'Enter text here...',
+    toolbar: [
+      ["bold", "italic", "underline", "strikeThrough", "superscript", "subscript"],
+      ["fontName", "fontSize", "color"],
+      ["justifyLeft", "justifyCenter", "justifyRight", "justifyFull", "indent", "outdent"],
+      ["cut", "copy", "delete", "removeFormat", "undo", "redo"],
+      ["paragraph", "blockquote", "removeBlockquote", "horizontalLine", "orderedList", "unorderedList"]
+  ]
+  };
+
+  htmlContent = '';
 
   constructor(public dialog: MatDialog, private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient, private router: Router, private editService: EditServiceService, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) {
 

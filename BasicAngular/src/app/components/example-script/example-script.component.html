@@ -165,7 +165,8 @@
 <mat-grid-tile [colspan]="7" [rowspan] ="3">
     <div class="boxed-pitch">
       <div class="pitch-title">Pitch</div>
-      <textarea [(ngModel)]="question" rows="8" cols="80" readonly></textarea>
+      <app-ngx-editor class="toolbar-editor" [config]="editorConfig" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="htmlContent" [(ngModel)]="question" ></app-ngx-editor>
+      <!-- <textarea [(ngModel)]="question" rows="8" cols="80" readonly></textarea> -->
     </div>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="2"> </mat-grid-tile>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { EditServiceService } from 'src/app/edit-service.service';
 import { HttpClient } from '@angular/common/http'
 import { HttpClientModule } from '@angular/common/http';
@@ -24,7 +24,8 @@ interface scriptData {
 @Component({
   selector: 'app-edit-script',
   templateUrl: './edit-script.component.html',
-  styleUrls: ['./edit-script.component.scss']
+  styleUrls: ['./edit-script.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class EditScriptComponent implements OnInit {
   scriptId: any;
@@ -44,6 +45,29 @@ export class EditScriptComponent implements OnInit {
   response1: any;
   loadedScript = false;
   tempQuestionId: any;
+
+  title = 'ngx-editor';
+  editorConfig = {
+    editable: true,
+    spellcheck: true,
+    background: 'white',
+    height: '150px',
+    minHeight: '150px',
+    translate: 'yes',
+    enableToolbar: true,
+    showToolbar: true,
+    placeholder: 'Enter text here...',
+    toolbar: [
+      ["bold", "italic", "underline", "strikeThrough", "superscript", "subscript"],
+      ["fontName", "fontSize", "color"],
+      ["justifyLeft", "justifyCenter", "justifyRight", "justifyFull", "indent", "outdent"],
+      ["cut", "copy", "delete", "removeFormat", "undo", "redo"],
+      ["paragraph", "blockquote", "removeBlockquote", "horizontalLine", "orderedList", "unorderedList"]
+  ]
+  };
+
+  htmlContent = '';
+
   constructor(private editService: EditServiceService, private Http: HttpClient, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, private Auth: AuthService) {
 
     iconRegistry.addSvgIcon(
