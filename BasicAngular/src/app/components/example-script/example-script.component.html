@@ -54,7 +54,7 @@
         <div class="answer-title">Answer</div>
       </mat-card-header>
       <mat-card-content> 
-          <textarea [(ngModel)]="answers[1].texts" rows="4" cols="40" name="texts" readonly></textarea>
+          <textarea [(ngModel)]="answers[0].texts" rows="4" cols="40" name="texts" readonly></textarea>
       </mat-card-content>
     </mat-card>
   
@@ -168,7 +168,7 @@
 <mat-grid-tile [colspan]="7" [rowspan] ="3">
     <div class="boxed-pitch">
       <div class="pitch-title">Pitch</div>
-      <app-ngx-editor class="toolbar-editor" [config]="editorConfig" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="htmlContent" [(ngModel)]="question" ></app-ngx-editor>
+      <app-ngx-editor class="toolbar-editor" [config]="editorConfig" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="question" ></app-ngx-editor>
       <!-- <textarea [(ngModel)]="question" rows="8" cols="80" readonly></textarea> -->
     </div>
   </mat-grid-tile>

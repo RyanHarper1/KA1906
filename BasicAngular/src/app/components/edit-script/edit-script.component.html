@@ -233,7 +233,7 @@
     <mat-grid-tile [colspan]="7" [rowspan] ="3">
    <div class="boxed-pitch">
        <div class="pitch-title">pitch</div>
-       <app-ngx-editor class="toolbar-editor" [config]="editorConfig" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="htmlContent" [(ngModel)]="question"></app-ngx-editor>
+       <app-ngx-editor class="toolbar-editor" [config]="editorConfig" [placeholder]="'Enter text here...'" [spellcheck]="true"  [(ngModel)]="question"></app-ngx-editor>
       
        <div class="save-edit-container">
          <button class="save-btn" mat-button (click) ="submit()" value="submit"><div class="save-text-btn">Save</div></button>         

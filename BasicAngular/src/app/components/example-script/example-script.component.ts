@@ -88,7 +88,7 @@ export class ExampleScriptComponent implements OnInit {
 
   ngOnInit() {
       this.previousAnswers = []
-    let query = this.Http.post('http://localhost:3000/get-script', {scriptId: 61});
+    let query = this.Http.post('http://localhost:3000/get-script', {scriptId: 357});
     query.subscribe((response)=>{
       console.log('response to this is: ' + response)
       this.response=response;
