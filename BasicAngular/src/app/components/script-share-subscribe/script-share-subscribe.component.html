@@ -1,6 +1,6 @@
 <div class="bckgrnd-img">
 
-<mat-grid-list cols=5 rowHeight="200px">
+<mat-grid-list cols=5 rowHeight="500px">
   <mat-grid-tile [colspan]="1"><img class="icon" src="/assets/img/WhiteLogo.png" alt="logo"  width="100%"></mat-grid-tile>
   <mat-grid-tile [colspan]="3">
       <div class="title">Subscribe to</div>
@@ -240,7 +240,7 @@
 
     <mat-step>
       <ng-template matStepLabel>Make Payment</ng-template>
-      <mat-grid-list cols=5 rowHeight="400px">
+      <mat-grid-list cols=5 rowHeight="600px">
         <mat-grid-tile [colspan]="1"><div class="next-btn"><button class="next-btn" mat-button matStepperPrevious><mat-icon class="right-left-icon" svgIcon="left"></mat-icon></button></div> 
         </mat-grid-tile>
         <mat-grid-tile [colspan]="3">
@@ -272,7 +272,7 @@
         </mat-grid-tile>
       </mat-grid-list>
 
-      <mat-grid-list cols=5 rowHeight="200px">
+      <mat-grid-list cols=5 rowHeight="300px">
         <mat-grid-tile [colspan]="1"></mat-grid-tile>
         <mat-grid-tile [colspan]="3">
       <mat-card class="total-column">
@@ -284,6 +284,14 @@
       </mat-grid-tile>
       <mat-grid-tile [colspan]="1"></mat-grid-tile>
       </mat-grid-list>
+
+<!--Filler for bottom-->
+      <mat-grid-list cols=5 rowHeight="100px">
+        <mat-grid-tile [colspan]="1"></mat-grid-tile>
+        <mat-grid-tile [colspan]="3"></mat-grid-tile>
+        <mat-grid-tile [colspan]="1"></mat-grid-tile>
+      </mat-grid-list>
+
     </mat-step>
   </mat-horizontal-stepper>
 </div>
