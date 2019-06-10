@@ -3,7 +3,11 @@
   
   object-fit: cover;
   object-position: 50% 20%;
-  // background: #e6e6e6;
+  opacity: 0.5;
+  }
+
+  .banner-img:hover {
+    opacity: 1.0;
   }
   
   .title{
@@ -22,17 +26,54 @@
     color: white;
   }
 
+  .icon{
+    fill: white;
+    position: absolute;
+    height: 80px;
+    width: 100%;
+    object-fit: contain;
+    margin-left: auto;
+    margin-right:auto;
+    top: 10%;
+  }
+
 .userDetails {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-right: auto; margin-left: auto; margin-top:2%;
   width: 80%;
+  box-sizing: border-box;
+  background: rgba(0,0,0,.5);
+  padding: 40px;
+  box-shadow: 5px 10px 8px #b9b9b3;
+  border-radius: 10px;
+  vertical-align: middle;
+  font-family: Helvetica, sans-serif;
+}
+
+.mat-input-element,
+ .mat-form-field-underline,
+ .mat-form-field-underline.ng-tns-c12-4.ng-star-inserted{
+  color: white;
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline,
+.mat-form-field-underline ng-tns-c12-1 ng-star-inserted{
+  color: white;
 }
 
 .update-details-btn{
-  width: 50%;
+  font-size: 16pt;
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
   height: 50px;
   margin-left: auto;
   margin-right: auto;
+  background: white;
+  color: #3a4f6e;
+  font-variant-caps: all-petite-caps;
+  letter-spacing: 3pt;
+  font-weight: 800;
 }
