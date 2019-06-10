@@ -49,27 +49,40 @@ margin-right: auto;
 th{
   justify-content: space-evenly;
   justify-items: center;
-  // border: 1px solid black;
+  font-variant-caps: all-petite-caps;
+  letter-spacing: 2pt;
+  font-size: 16pt;
   background: #ad9999b0;
   color: white;
   box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
 }
 
+td:nth-child(1) {  
+  font-variant-caps: all-petite-caps;
+  letter-spacing: 2pt;
+  font-size: 18pt;
+  font-weight: bold;
+  background: #c6b9b940;
+  border-radius: 4px;
+}
+
+td:nth-child(n) {  
+  font-variant-caps: all-petite-caps;
+  letter-spacing: 1pt;
+}
+
+
 td{
-// height: 50px;
-// border: 1px solid black;
 text-align: center;
 }
 
 tr{
   height: 50px;
-// border: 1px solid black;
 text-align: center;
   box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
 }
 
 tr:hover{
-  // opacity: 1.0;
   background: whitesmoke;
 }
 
@@ -83,36 +96,34 @@ tr:hover{
     align-content: flex-start;
     width: 200px;
   }
-  ::ng-deep .mat-card.current-card.mat-card{
-    padding: 0;
-    position: relative;
-    // width: 90%;
-    box-shadow: none;
-    color: black;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    width: 200px;
-
-  }
+  // ::ng-deep .mat-card.current-card.mat-card{
+  //   padding: 0;
+  //   position: relative;
+  //   box-shadow: none;
+  //   color: black;
+  //   display: flex;
+  //   flex-direction: column;
+  //   flex-wrap: wrap;
+  //   align-content: flex-start;
+  //   width: 200px;
+  // }
   
-  .title-card{
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    padding: 10px;
-    margin: 0;
-  }
+  // .title-card{
+  //   display: flex;
+  //   text-align: center;
+  //   justify-content: center;
+  //   padding: 10px;
+  //   margin: 0;
+  // }
 
-  .content-div, .content-card{
-    margin: 10px 0 10px 0;
-    text-align: center;
-    flex-direction: column;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
+  // .content-div, .content-card{
+  //   margin: 10px 0 10px 0;
+  //   text-align: center;
+  //   flex-direction: column;
+  //   display: flex;
+  //   flex-wrap: wrap;
+  //   justify-content: space-between;
+  // }
 
   
   .btn-card{
