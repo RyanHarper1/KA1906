@@ -34,7 +34,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatTableModule} from '@angular/material/table';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxEditorModule } from 'ngx-editor';
-
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 
 @NgModule({
@@ -86,7 +86,8 @@ import { NgxEditorModule } from 'ngx-editor';
     MatStepperModule,
     MatTableModule,
     FlexLayoutModule,
-    NgxEditorModule
+    NgxEditorModule,
+    TooltipModule
 
   ],
   exports: [

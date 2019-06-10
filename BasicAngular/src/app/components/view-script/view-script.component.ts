@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ViewScriptService } from 'src/app/view-script.service';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 @Component({
@@ -22,7 +24,6 @@ export class ViewScriptComponent implements OnInit  {
   previousAnswers: any[] ;
   previousAnswerCount = 0;
   loaded = false;
-  
   title = 'ngx-editor';
   editorConfig = {
     editable: false,
@@ -44,8 +45,15 @@ export class ViewScriptComponent implements OnInit  {
   };
 
   htmlContent = '';
-
-  constructor(private view: ViewScriptService, private Http: HttpClient) { }
+  
+  constructor(private view: ViewScriptService, private Http: HttpClient, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) { 
+    iconRegistry.addSvgIcon(
+      'back',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/back-btn.svg'));
+    iconRegistry.addSvgIcon(
+      'answer',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/chevron.svg'));
+  }
   
   ngOnInit() {
     this.scriptId = this.view.scriptId;

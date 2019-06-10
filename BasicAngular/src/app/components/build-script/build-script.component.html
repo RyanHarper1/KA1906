@@ -330,27 +330,6 @@
       <div class="boxed-pitch">
         <div class="pitch-title">PITCH</div>
         <app-ngx-editor class="toolbar-editor" [config]="editorConfig" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="htmlContent" [(ngModel)]="texts"></app-ngx-editor>
-        <!-- <div class="toolbar-container">
-          <button class="edit-icon" mat-button>
-            <mat-icon svgIcon="bold"></mat-icon>
-          </button>
-          <button class="edit-icon" mat-button>
-            <mat-icon svgIcon="italic"></mat-icon>
-          </button>
-          <button class="edit-icon" mat-button>
-            <mat-icon svgIcon="underline"></mat-icon>
-          </button>
-          <button class="edit-icon" mat-button>
-            <mat-icon svgIcon="bullet"></mat-icon>
-          </button>
-          <button class="edit-icon" mat-button>
-            <mat-icon svgIcon="numbering"></mat-icon>
-          </button>
-          <button class="edit-icon" mat-button>
-            <mat-icon svgIcon="font"></mat-icon>
-          </button>
-        </div> -->
-        <!-- <textarea [(ngModel)]="texts" placeholder="Insert pitch here..." rows="8" cols="80"></textarea> -->
         <div class="save-edit-container">
           <button class="save-btn" mat-button mat-button (click)="openDialog()">Save</button>
         </div>

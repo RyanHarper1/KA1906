@@ -13,8 +13,6 @@ import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { PopoverConfig } from 'ngx-bootstrap';
 
-
-
 interface DialogData {
   name: string;
   category: string;

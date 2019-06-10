@@ -28,7 +28,6 @@ export class ExampleScriptComponent implements OnInit {
   editorConfig = {
     editable: false,
     spellcheck: true,
-    background: 'white',
     height: '150px',
     minHeight: '150px',
     translate: 'yes',

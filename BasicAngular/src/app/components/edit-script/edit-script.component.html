@@ -224,22 +224,36 @@
               <textarea [(ngModel)]="answers[8].texts" rows="4" cols="40" name="texts"> </textarea>
           </mat-card-content>
         </mat-card>
-  </mat-grid-tile>
-    <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="0"></mat-grid-tile>
+    <mat-grid-tile [colspan]="3">
+        <mat-card class="edit-card" *ngIf="answer > 8">
+            <mat-card-header>
+              <button mat-button (click)="nextQuestion(answer[8],8)"><mat-icon svgIcon="answer"></mat-icon></button> 
+              <button mat-button (click) = "submit()"><mat-icon class="save-icon" svgIcon="save"></mat-icon></button>  
+              <div class="answer-title">Answer</div>
+              <div class="remove-answer">
+                  <button mat-button (click)="removeAnswer()"><mat-icon svgIcon="remove"></mat-icon></button>
+              </div>
+            </mat-card-header>
+            <mat-card-content> 
+                <textarea [(ngModel)]="answers[8].texts" rows="4" cols="40" name="texts"> </textarea>
+            </mat-card-content>
+          </mat-card>
+    </mat-grid-tile>
+      <mat-grid-tile [colspan]="1"> </mat-grid-tile>
 
 
-  <!--pitch fixed and working-->
-  <mat-grid-tile [colspan]="2"> </mat-grid-tile>
-  <mat-grid-tile [colspan]="7" [rowspan] ="3">
- <div class="boxed-pitch">
-     <div class="pitch-title">pitch</div>
-     <!-- <div class="toolbar-container">
-       <button class="edit-icon" mat-button><mat-icon svgIcon="bold"></mat-icon></button>
-       <button class="edit-icon" mat-button><mat-icon svgIcon="italic"></mat-icon></button>
-       <button class="edit-icon" mat-button><mat-icon svgIcon="underline"></mat-icon></button>
-       <button class="edit-icon" mat-button><mat-icon svgIcon="bullet"></mat-icon></button>
-       <button class="edit-icon" mat-button><mat-icon svgIcon="numbering"></mat-icon></button>
-       <button class="edit-icon" mat-button><mat-icon svgIcon="font"></mat-icon></button>
+    <!--pitch fixed and working-->
+    <mat-grid-tile [colspan]="2"> </mat-grid-tile>
+    <mat-grid-tile [colspan]="7" [rowspan] ="3">
+   <div class="boxed-pitch">
+       <div class="pitch-title">pitch</div>
+       <app-ngx-editor class="toolbar-editor" [config]="editorConfig" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="htmlContent" [(ngModel)]="question"></app-ngx-editor>
+      
+       <div class="save-edit-container">
+         <button class="save-btn" mat-button (click) ="submit()" value="submit"><div class="save-text-btn">Save</div></button>         
+       </div>
      </div>
      <textarea  [(ngModel)]="question" rows="8" cols="80"></textarea> -->
      <app-ngx-editor class="toolbar-editor" [config]="editorConfig" [(ngModel)]="question" rows="8" cols="80" readonly [placeholder]="'Enter text here...'" height="200px" [spellcheck]="true" [(ngModel)]="htmlContent"></app-ngx-editor>
