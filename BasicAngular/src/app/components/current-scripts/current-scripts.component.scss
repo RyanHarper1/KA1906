@@ -11,6 +11,7 @@ margin-right: auto;
   top: 35%;
   }
 
+  /*******************TABLE STYLING*******************/
   .imgr{
     opacity: 0.5;
     height: 40%;
@@ -42,9 +43,6 @@ margin-right: auto;
     padding-left: 20px;
     padding-top: 20px;
   }
-  .gridList{
-    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
-}
 
 th{
   justify-content: space-evenly;
@@ -55,6 +53,7 @@ th{
   background: #ad9999b0;
   color: white;
   box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+ 
 }
 
 td:nth-child(1) {  
@@ -74,76 +73,26 @@ td:nth-child(n) {
 
 td{
 text-align: center;
+table-layout: fixed;
+  width: 500px;
 }
 
 tr{
-  height: 50px;
-text-align: center;
+  height: 100px;
+  text-align: center;
   box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+ 
 }
 
 tr:hover{
-  background: whitesmoke;
-}
+  background: whitesmoke;}
 
-
-
-  .current-card{
-    color: black;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    width: 200px;
-  }
-  // ::ng-deep .mat-card.current-card.mat-card{
-  //   padding: 0;
-  //   position: relative;
-  //   box-shadow: none;
-  //   color: black;
-  //   display: flex;
-  //   flex-direction: column;
-  //   flex-wrap: wrap;
-  //   align-content: flex-start;
-  //   width: 200px;
-  // }
+  /*******************TABLE STYLING*******************/
   
-  // .title-card{
-  //   display: flex;
-  //   text-align: center;
-  //   justify-content: center;
-  //   padding: 10px;
-  //   margin: 0;
-  // }
-
-  // .content-div, .content-card{
-  //   margin: 10px 0 10px 0;
-  //   text-align: center;
-  //   flex-direction: column;
-  //   display: flex;
-  //   flex-wrap: wrap;
-  //   justify-content: space-between;
-  // }
-
-  
-  .btn-card{
-    box-shadow: none;
-    width: 85px;
-    margin-left: auto;
-    margin-right: auto;
-    background: none;
-    margin-top: auto;
-    margin-bottom: auto;
-  }
-
-
-
-.mat-icon#crnt-icon.mat-icon.notranslate.mat-icon-no-color{
-  margin-bottom: 5px;
-}
 
 .mat-card-actions.mat-card-actions-current.mat-card-actions,
-.mat-card>.mat-card-actions:last-child{
+.mat-card>.mat-card-actions:last-child,
+.mat-icon notranslate mat-icon-no-color{
   margin: 0;
   padding: 0;
 }
@@ -151,33 +100,83 @@ tr:hover{
 
 .mat-card-actions .mat-button:first-child, .mat-card-actions .mat-raised-button:first-child{
   margin: auto;
-width: 100%;
+  width: 100%;
 }
 
+/**********************************BUTTON EFFECTS**********************************/
+.btn-group {		
+  position: relative;	
+  display: inline-block;
+  // border: 2px solid #252525;
+  // float: right;
+  width: 450px;
+}
 
-.crnt-btn{
-  color: white;
-  display: block;
-  font-size: 14pt;
-  box-shadow: 5px 6px 11px 1px rgba(0,0,0,0.94);
+.btn-v, .btn-e, .btn-u, .btn-d {
+  width: 90px;
+  height: 60px;
+  font-size: 12pt;
+  background: #3a4f6e;
+	color: white;
+	letter-spacing: 1pt;
   font-variant-caps: all-petite-caps;
   letter-spacing: 2pt;
+	transition: all 100ms cubic-bezier(0.77, 0, 0.175, 1);	
+	cursor: pointer;
+  user-select: none;
+  border: 1px solid;
 }
 
-.crnt-icon{
-  display: block;
-  justify-content: center;
-  fill: white;
-  width: 50%;
-  margin: auto;
+.btn-e:hover{
+  // opacity: 0.5;
+  background: orange;
 }
 
+.btn-v:hover{
+  // opacity: 0.5;
+  background: green;
+}
 
-.del-btn{
+.btn-u:hover{
+  // opacity: 0.5;
+  background: purple;
+}
+
+.btn-d:hover{
+  // opacity: 0.5;
+  background: brown;
+}
+ 
+
+#crnt-icon{
+  display: block !important;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  width: 20px;
+  height: 20px;
+}
+
+#delete-icon {
+  display: block !important;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20px;
+  height: 20px;
   color: red;
-  display: block;
-  font-size: 16pt;
 }
+
+
+/**********************************BUTTON EFFECTS**********************************/
+
+
+
+
+
+
+
+
+
 
 
 

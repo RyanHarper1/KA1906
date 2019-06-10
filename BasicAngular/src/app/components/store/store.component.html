@@ -63,7 +63,7 @@
   <mat-drawer-content>
     <button mat-raised-button (click)="drawer.toggle()">Search</button>
 
-    <mat-grid-list  class= "gridList" cols="17" rowHeight="1:1.2" [gutterSize]="'10px'" *ngFor="let li of list">
+    <!-- <mat-grid-list  class= "gridList" cols="17" rowHeight="1:1.2" [gutterSize]="'10px'" *ngFor="let li of list">
 
         <div fxLayout="row" fxLayoutAlign="space-evenly center" >  
             <mat-card class="store-card">
@@ -146,7 +146,55 @@
                 </mat-card-actions>
                 </mat-card>
         </div>
-</mat-grid-list>
+</mat-grid-list> -->
+
+
+<table width="100%" cellspacing="10" >
+        <tr>
+          <th>Script Name</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Sub-Category</th>
+          <th>Price</th>
+          <th>Last Edited</th>
+          <th>Template</th>
+          <th>Reviews</th>
+          <th>Rating</th>
+        </tr>
+
+        <tr *ngFor="let li of list">
+          <td>{{li.scriptName}}</td>
+          <td>{{li.description}}</td>
+          <td>{{li.category}}</td>
+          <td>{{li.subcategory}}</td>
+          <td>{{li.price}}</td>
+          <td>{{li.edited}}</td>
+          <td>{{li.template}}</td>
+          <td>this is a review</td>
+          <td>5 Stars</td>
+          <td><mat-card class="btn-card" >
+              <mat-card-actions>
+                <button class="view-btn" mat-button (click) ="viewScript(li)">View
+                    <div class="crnt-icon">
+                    <mat-icon id="crnt-icon" svgIcon="view"></mat-icon>
+                    </div>
+                </button>
+          </mat-card-actions>
+          </mat-card>
+        </td>
+        <td>
+            <mat-card class="btn-card" >
+                <mat-card-actions>
+                        <button class="add-btn" mat-button (click) = "addToCart(li)">Add
+                            <div class="crnt-icon">
+                            <mat-icon id="crnt-icon" svgIcon="cart"></mat-icon>
+                            </div>
+                        </button>
+                </mat-card-actions>
+            </mat-card>
+          </td>
+          </tr>
+        </table> 
     
   </mat-drawer-content>
 </mat-drawer-container>
