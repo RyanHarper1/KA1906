@@ -175,22 +175,16 @@ textarea {
   font-size: 20px;
   box-sizing: border-box;
   padding: 10px;
+  font-family: sans-serif;
 }
 
-// .toolbar-container{
-//   background: #3a4f6e;
-//   text-align: center;
-//   margin: 10px;
-//   justify-items: stretch;
-//   display: flex;
-//   justify-content: space-around;
-// }
+  textarea::first-letter{
+    text-transform: uppercase;
+  }
 
  :ng-deep .edit-icon.mat-button{
   justify-content: space-between;
 }
-
-
 
   .save-edit-container{
     text-align: center;

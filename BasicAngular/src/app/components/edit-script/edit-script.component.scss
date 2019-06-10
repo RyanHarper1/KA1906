@@ -174,7 +174,13 @@ textarea {
   font-size: 20px;
   box-sizing: border-box;
   padding: 10px;
+  font-family: sans-serif;
 }
+
+textarea::first-letter{
+  text-transform: uppercase;
+}
+
 
 
  :ng-deep .edit-icon.mat-button{
@@ -191,7 +197,7 @@ textarea {
     background: orange;
     color: white;
     width: 120px;
-    height: 60px;
+    height: 50px;
     font-size: 18pt;
     font-variant-caps: all-petite-caps;
     letter-spacing: 2pt;
