@@ -1,6 +1,6 @@
-::ng-deep mat-grid-tile.mat-grid-tile {
-    border: 1px solid #3a4f6e;
-   }
+// ::ng-deep mat-grid-tile.mat-grid-tile {
+//     border: 1px solid #3a4f6e;
+//    }
 
   :host ::ng-deep .ngx-editor, 
   .ngx-editor-textarea{
@@ -63,23 +63,13 @@
   ::ng-deep div.mat-card-header-text{
     margin: 0;
   }
-  
-/*Override mat-card-header styling*/
-  // ::ng-deep .mat-card-header.header-card.mat-card-header{
-  //   display: flex;
-  //   flex-direction: row;
-  //   font-size: xx-large;
-  //   font-weight: 500;
-  //   font-variant-caps: all-small-caps;
-  //   border-radius: 10px;
-  //   color: darkred;
-  //   background: #FFFFFF;
-  //   text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.5);
-  //   justify-content: center;
-  //   text-align: center;
-  //   margin-bottom: 10px;
-  //   padding-left: 10px;
-   
-  // }
+
+  ::ng-deep .mat-card{
+    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+    display: block;
+    position: relative;
+    padding: 0; 
+    border-radius: 4px;
+  }
   
   

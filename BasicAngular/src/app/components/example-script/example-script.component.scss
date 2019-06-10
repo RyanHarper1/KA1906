@@ -14,18 +14,19 @@
  /*START SCRIPT DETAILS*/
 
 .input-details{
-  display: inline-block;
+  display: flex;
   border: none;
   font-size: 14pt;
+  margin-right: 300px;
 }
 
 .script-details{
-  display: flex;
+  display: inline;
   font-weight: bold;
   padding-left: 1em;
   padding-right: 1em;
   font-size: 14pt;
-  text-align: right;
+  margin-left: 60px;
 }
 
 /*END SCRIPT DETAILS*/
