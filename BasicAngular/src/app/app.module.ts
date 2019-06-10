@@ -33,6 +33,7 @@ import { ScriptShareSubscribeComponent } from './components/script-share-subscri
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatTableModule} from '@angular/material/table';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgxEditorModule } from 'ngx-editor';
 
 
 
@@ -84,7 +85,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatCardModule,
     MatStepperModule,
     MatTableModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    NgxEditorModule
 
   ],
   exports: [
