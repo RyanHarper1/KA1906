@@ -84,7 +84,7 @@
           <td>{{li.edited}}</td>
           <td>{{li.template}}</td>
           <td>this is a review</td>
-          <td>5 Stars</td>
+          <td><star-rating [starType]="'icon'" [rating]="2.63"></star-rating></td>
           <td>
             <div class="btn-group">
                 <button class="btn-v" (click) ="viewScript(li)">VIEW<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>

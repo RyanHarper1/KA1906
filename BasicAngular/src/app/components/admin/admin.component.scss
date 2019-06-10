@@ -27,12 +27,18 @@
   margin-right: auto;
 
 }
+
+.radio-group{
+  margin-left: auto;
+  margin-right: auto;
+}
 #radio{
   margin-right: 10px;
  }
 
 ::ng-deep .mat-radio-group.mat-radio-group{
   justify-content: space-evenly; 
+  display: flex;
 }
 
 .plus-icon{
@@ -40,10 +46,11 @@
   margin-right: 10px;
 }
 
-#new-usr-bttn{
+#new-usr-btn{
   color: white;
   background: #3a4f6e;
   margin-left: 5%;
+  padding: 10px;
 }
 
 /*Override styling for claa new-user-tile*/
@@ -63,9 +70,9 @@
     width: 90%;
   }
  
-  .edit-btn{
+  .edit-btn, #edit-icon{
     background: white;
-    fill: orange;
+    color: orange;
   }
 
   .delete-btn{
@@ -76,11 +83,6 @@
 background: #e2e2e0;
 }
 
- #edit-icon{
-   fill: orange !important;
-  //  color: orange;
-
- }
 
  #delete-icon{
    fill: red;

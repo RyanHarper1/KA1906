@@ -14,7 +14,7 @@
 <mat-grid-list cols="5" rowHeight="100px">
   <mat-grid-tile [colspan]="1"> </mat-grid-tile>
   <mat-grid-tile class="new-user-tile" [colspan]="1">
-      <button mat-button id="new-usr-bttn"><mat-icon class="plus-icon" svgIcon="add"></mat-icon>New User</button></mat-grid-tile>
+      <button mat-button id="new-usr-btn"><mat-icon class="plus-icon" svgIcon="add"></mat-icon>New User</button></mat-grid-tile>
   <mat-grid-tile id="new-user-tile" [colspan]="1"> </mat-grid-tile>
   <mat-grid-tile id="new-user-tile" [colspan]="1"> </mat-grid-tile>
   <mat-grid-tile [colspan]="1"> </mat-grid-tile>
@@ -47,7 +47,7 @@
   <mat-grid-tile [colspan]="1">
       <div class ="userDetails">
           <div class="perm-title">Permission</div>
-      <mat-radio-group aria-label="User type">
+      <mat-radio-group class="radio-group" aria-label="User type">
           <mat-radio-button id="radio" value="1">User</mat-radio-button>
           <mat-radio-button id="radio" value="2">Supervisor</mat-radio-button>
           <mat-radio-button id="radio" value="3">Admin</mat-radio-button>

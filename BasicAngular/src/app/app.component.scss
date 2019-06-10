@@ -1,15 +1,13 @@
 ::ng-deep mat-grid-tile.mat-grid-tile {
     border: 1px solid #3a4f6e;
    }
-   :host ::ng-deep .ngx-editor[_ngcontent-c11] .ngx-wrapper[_ngcontent-c11] .ngx-editor-textarea[_ngcontent-c11],
-   .ngx-editor[_ngcontent-c26] .ngx-wrapper[_ngcontent-c26] .ngx-editor-textarea[_ngcontent-c26]{
+
+  :host ::ng-deep .ngx-editor, 
+  .ngx-editor-textarea{
     background-color: #f1f1f1 !important;
   }
 
-  :host ::ng-deep .ngx-editor-grippie[_ngcontent-c14],
-  .ngx-editor-grippie[_ngcontent-c17],
-  .ngx-editor-grippie[_ngcontent-c17] svg[_ngcontent-c17],
-  .ngx-editor-grippie[_ngcontent-c29] svg[_ngcontent-c29]{
+  :host ::ng-deep .ngx-editor-grippie{
     height: 9px !important;
     background-color: #f1f1f1 !important;
     position: absolute !important;
@@ -18,7 +16,16 @@
     border: 1px solid #ddd !important;
     border-top: transparent !important;
   }
-
+:host ::ng-deep .ngx-toolbar{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #f5f5f5;
+  font-size: 14pt;
+  padding: .2rem .2rem 0;
+  border: 1px solid #ddd;
+  justify-content: center;
+}
+  
    /*Override styling for mat-grid angular material*/
 ::ng-deep mat-grid-tile.mat-grid-tile .mat-figure {
     width: 100%;

@@ -19,26 +19,29 @@
     <mat-grid-tile [colspan]="1"> </mat-grid-tile>
   </mat-grid-list>
 
-<!--Script details-->
-<div *ngIf = "loaded"> 
-<div class="script-details-container">
-  <div class="script-details">Category</div>
-    <input class="input-details"type="text" [(ngModel)] ="category" readonly>
-  <div class="script-details">Script Name</div>
-    <input class="input-details" type="text" [(ngModel)] ="scriptName" readonly>
-  </div>
+  <!--Script details-->
+  <div *ngIf = "loaded"> 
+    <mat-grid-list class="gridList" cols="8" rowHeight="70px">
+          <mat-grid-tile [colspan]="1"></mat-grid-tile>
+          <mat-grid-tile class="script-detail-grid-tile" [colspan]="1"><div class="script-details">Script Name</div></mat-grid-tile>
+          <mat-grid-tile class="edit-script-grid-tile" [colspan]="2"><input class="input-details" type="text" [(ngModel)] ="scriptName" readonly></mat-grid-tile>
+          <mat-grid-tile class="script-detail-grid-tile" [colspan]="1"><div class="script-details">Category</div></mat-grid-tile>
+          <mat-grid-tile class="edit-script-grid-tile" [colspan]="2"><input class="input-details" type="text" [(ngModel)] ="category" readonly ></mat-grid-tile>
+          <mat-grid-tile class="edit-script-grid-tile" [colspan]="1"></mat-grid-tile>
+      </mat-grid-list>
 
 <!--Back button row-->
-
-  <mat-grid-list cols="11" rowHeight="50px">
-    <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-    <mat-grid-tile class="bck-btn-container" [colspan]="3">
-    <button id="bck-btn" mat-button (click)="backQuestion()" *ngIf ="previousAnswerCount > 0 "><mat-icon id="bck-btn-icon" svgIcon="back"></mat-icon>Back</button>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="3"></mat-grid-tile>
-    <mat-grid-tile [colspan]="3"></mat-grid-tile>
-    <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-  </mat-grid-list>
+      <mat-grid-list cols="11" rowHeight="100px">
+        <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+        <mat-grid-tile class="add-btn" [colspan]="3">
+            <button class="mat-btn" mat-button (click)="backQuestion()" *ngIf ="previousAnswerCount > 0 ">
+                    <mat-icon svgIcon="back"></mat-icon><div class="add-answer">Back</div>
+            </button>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="3"> </mat-grid-tile>
+        <mat-grid-tile [colspan]="3"> </mat-grid-tile>
+        <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+    </mat-grid-list>
 
   <!--Objections-->
 
