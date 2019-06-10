@@ -1,5 +1,5 @@
 
-/*BEGIN BANNER*/
+/*****************BANNER START*****************/
 .banner-img {
   width: 500px;
   object-fit: contain;
@@ -9,9 +9,9 @@
   .title {
   top: 40%;
   }
+/*****************BANNER END*****************/
 
-/*END BANNER*/
-  
+/*****************NOT LOGGED IN DISPLAY START*****************/
   .imgr{
     opacity: 0.5;
     height: 40%;
@@ -44,7 +44,12 @@
     padding-top: 20px;
   }
 
+  /*****************NOT LOGGED IN DISPLAY END*****************/
+
+  /*****************TABLE STYLING START*****************/
+  
   th{
+    height: 20px;
     justify-content: space-evenly;
     justify-items: center;
     font-variant-caps: all-petite-caps;
@@ -53,8 +58,7 @@
     background: #edc317;
     color: white;
     box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
-    table-layout: fixed;
-    width: 500px;
+   
   }
   
   td:nth-child(1) {  
@@ -64,64 +68,87 @@
     font-weight: bold;
     background: #c6b9b940;
     border-radius: 4px;
+    padding: 3px;
+    text-align: center;
+    table-layout: fixed;
+    width: 500px;
+    word-wrap: break-word
   }
   
   td:nth-child(n) {  
     font-variant-caps: all-petite-caps;
     letter-spacing: 1pt;
+    text-align: center;
+    table-layout: fixed;
+    width: 500px;
+    word-wrap: break-word
   }
-  
-  
-  td{
-  text-align: center;
-  word-wrap:break-word;
-  padding: 10px;
-  }
-  
-  tr{
+
+  .tr-header{
     height: 50px;
-  text-align: center;
+  }
+  tr{
+    height: 100px;
+    text-align: center;
     box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
   }
   
   tr:hover{
-    background: whitesmoke;
+    background: whitesmoke;}
+
+/*****************TABLE STYLING END*****************/
+
+ /*****************BUTTON EFFECTS START*****************/
+
+   .btn-group {		
+    position: relative;	
+    display: inline-block;
+    width: 80px;
+    border: 1px solid black;
+    margin: auto;
+  }
+  
+  .btn-v, .btn-a{
+    width: 60px;
+    height: 50px;
+    padding: 3px;
+    font-size: 12pt;
+    background: #3a4f6e;
+    color: white;
+    font-variant-caps: all-petite-caps;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    box-shadow: 0 8px 6px -6px black;
+    border: 1px solid white;
+    border: none;
+    
   }
 
-  .cart-btn{
-      background: #ffffff;
-   }
-
-.btn-card{
-  box-shadow: none;
-  background: none;
-  margin: auto;
-}
- .view-btn, .add-btn{
-    box-shadow: none;
-    width: 85px;
-    margin: auto;
-    background: none;
-    background: #3a4f6e;
-    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
-}
-
-.add-btn:hover{
-  opacity: 0.5;
-  background: green;
-}
-
-.view-btn:hover{
-  opacity: 0.5;
-  background: orange;
-}
-
-.crnt-icon{
-  display: block;
-  justify-content: center;
-  fill: white;
-  width: 80%;
-  margin: auto;
+  
+  .btn-a:hover{
+    background: #ff7459;
+  }
+  
+  .btn-v:hover{
+    background: green;
+  }
+  
+  
+#crnt-icon{
+  display: block !important;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  width: 20px;
+  height: 20px; display: block !important;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  width: 20px;
+  height: 20px;
 }
 
    ::ng-deep .mat-icon.cart-icon.mat-icon.notranslate.mat-icon-no-color{
@@ -132,7 +159,7 @@
     background: white;
    }
 
-
+  /*****************BUTTON EFFECTS END*****************/
 
  
 

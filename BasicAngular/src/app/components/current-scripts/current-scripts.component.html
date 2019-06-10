@@ -83,14 +83,13 @@
 <mat-tab label="Saved"> 
    
       <table width="100%" cellspacing="10" >
-        <tr>
+        <tr class="tr-header">
           <th>Script Name</th>
           <th>Description</th>
           <th>Category</th>
           <th>Sub-Category</th>
           <th>Last Edited</th>
           <th>Template</th>
-         
         </tr>
 
         <tr *ngFor="let li of list">
@@ -102,67 +101,19 @@
           <td>{{li.template}}</td>
           <td>
               <div class="btn-group">
-                <button class="btn-v">view<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>
-                <button class="btn-e">edit<mat-icon id="crnt-icon" svgIcon="edit"></mat-icon> </button>
-                <button class="btn-u">upload<mat-icon id="crnt-icon" svgIcon="upload"></mat-icon> </button>
-                <button class="btn-d">remove<mat-icon id="delete-icon" svgIcon="delete"></mat-icon> </button>
+                <button class="btn-v" (click) ="viewScript(li)">view<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>
+                <button class="btn-e" (click)="editScript(li)">edit<mat-icon id="crnt-icon" svgIcon="edit"></mat-icon> </button>
+                <button class="btn-u" (click)='uploadScript(li)'>upload<mat-icon id="crnt-icon" svgIcon="upload"></mat-icon> </button>
+                <button class="btn-d" (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">remove<mat-icon id="delete-icon" svgIcon="delete"></mat-icon></button>
               </div>
           </td>
-
-
-<!--           
-          <td><mat-card class="btn-card" >
-              <mat-card-actions>
-                <button class="crnt-btn" mat-button (click) ="viewScript(li)">View
-                    <div class="crnt-icon">
-                    <mat-icon id="crnt-icon" svgIcon="view"></mat-icon>
-                    </div>
-                </button>
-          </mat-card-actions>
-          </mat-card>
-        </td>
-          <td>
-            <mat-card class="btn-card">
-                <mat-card-actions class="mat-card-actions-current">
-                    <button class="edit-btn" mat-button (click)="editScript(li)">Edit
-                      <div class="crnt-icon">
-                        <mat-icon id="btn-icon" svgIcon="edit"></mat-icon>
-                      </div>
-                    </button>
-                </mat-card-actions>
-              </mat-card>
-          </td>
-          <td>
-            <mat-card class="btn-card">
-                <mat-card-actions class="mat-card-actions-current">
-                  <button class="upload-btn" mat-button (click)='uploadScript(li)'>Upload
-                      <div class="crnt-icon">
-                      <mat-icon id="btn-icon" svgIcon="upload"></mat-icon>
-                      </div>
-                  </button>
-                </mat-card-actions>
-              </mat-card>
-          </td>
-          <td>
-            <mat-card class="btn-card">
-                <mat-card-actions class="mat-card-actions-current">
-                  <button class="remove-btn" mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">Remove
-                    <div class="del-btn">
-                    <mat-icon id="btn-icon" svgIcon="delete"></mat-icon>
-                  </div>
-                  </button>
-                </mat-card-actions>
-              </mat-card>
-          </td> -->
-          </tr>
-        </table> 
-    
-  </mat-tab>
+        </table>
+        </mat-tab>
 
   <mat-tab label="Uploaded">
   
     <table width="100%" cellspacing="10" >
-        <tr>
+        <tr class="tr-header">
           <th>Script Name</th>
           <th>Description</th>
           <th>Category</th>
@@ -184,49 +135,14 @@
           <td>{{lo.template}}</td>
           <td>this is a review</td>
           <td>5 stars</td>
-          <td><mat-card class="btn-card" >
-              <mat-card-actions>
-                <button class="crnt-btn" mat-button (click) ="viewScript(li)">View
-                    <div class="crnt-icon">
-                    <mat-icon id="crnt-icon" svgIcon="view"></mat-icon>
-                    </div>
-                </button>
-          </mat-card-actions>
-          </mat-card>
+          <td>
+            <div class="btn-group-special">
+            <button class="btn-v" (click) ="viewScript(li)">view<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>
+            <button class="btn-e" (click)="editScript(li)">edit<mat-icon id="crnt-icon" svgIcon="edit"></mat-icon> </button>
+            <!-- <button class="btn-u" (click)='uploadScript(li)'>upload<mat-icon id="crnt-icon" svgIcon="upload"></mat-icon> </button> -->
+            <button class="btn-d" (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">remove<mat-icon id="delete-icon" svgIcon="delete"></mat-icon></button>
+            </div>
         </td>
-          <td>
-            <mat-card class="btn-card">
-                <mat-card-actions class="mat-card-actions-current">
-                    <button class="crnt-btn" mat-button (click)="editScript(li)">Edit
-                      <div class="crnt-icon">
-                        <mat-icon id="btn-icon" svgIcon="edit"></mat-icon>
-                      </div>
-                    </button>
-                </mat-card-actions>
-              </mat-card>
-          </td>
-          <td>
-            <mat-card class="btn-card">
-                <mat-card-actions class="mat-card-actions-current">
-                  <button class="crnt-btn" mat-button (click)='uploadScript(li)'>Upload
-                      <div class="crnt-icon">
-                      <mat-icon id="btn-icon" svgIcon="upload"></mat-icon>
-                      </div>
-                  </button>
-                </mat-card-actions>
-              </mat-card>
-          </td>
-          <td>
-            <mat-card class="btn-card">
-                <mat-card-actions class="mat-card-actions-current">
-                  <button class="crnt-btn" mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">Remove
-                    <div class="del-btn">
-                    <mat-icon id="btn-icon" svgIcon="delete"></mat-icon>
-                  </div>
-                  </button>
-                </mat-card-actions>
-              </mat-card>
-          </td>
           </tr>
         </table> 
 </mat-tab>
@@ -235,7 +151,7 @@
   <mat-tab label="Purchased">
     
       <table width="100%" cellspacing="10" >
-          <tr>
+          <tr class="tr-header">
             <th>Script Name</th>
             <th>Description</th>
             <th>Category</th>
@@ -257,39 +173,13 @@
             <td>{{lo.template}}</td>
             <td>this is a review</td>
             <td>5 stars</td>
-            <td><mat-card class="btn-card" >
-                <mat-card-actions>
-                  <button class="crnt-btn" mat-button (click) ="viewScript(li)">View
-                      <div class="crnt-icon">
-                      <mat-icon id="crnt-icon" svgIcon="view"></mat-icon>
-                      </div>
-                  </button>
-            </mat-card-actions>
-            </mat-card>
-          </td>
             <td>
-              <mat-card class="btn-card">
-                  <mat-card-actions class="mat-card-actions-current">
-                      <button class="crnt-btn" mat-button (click)="editScript(li)">Edit
-                        <div class="crnt-icon">
-                          <mat-icon id="crnt-icon" svgIcon="edit"></mat-icon>
-                        </div>
-                      </button>
-                  </mat-card-actions>
-                </mat-card>
+              <div class="btn-group-special">
+                <button class="btn-v" (click) ="viewScript(li)">VIEW<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>
+                <button class="btn-e" (click)="editScript(li)">EDIT<mat-icon id="crnt-icon" svgIcon="edit"></mat-icon> </button>
+                <button class="btn-d" (click)="deleteScript(li)" [routerLink]="[ '/current-script']">REMOVE<mat-icon id="delete-icon" svgIcon="delete"></mat-icon></button>
+              </div>
             </td>
-            <td>
-              <mat-card class="btn-card">
-                  <mat-card-actions class="mat-card-actions-current">
-                    <button class="crnt-btn" mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">Remove
-                      <div class="del-btn">
-                      <mat-icon id="btn-icon" svgIcon="delete"></mat-icon>
-                    </div>
-                    </button>
-                  </mat-card-actions>
-                </mat-card>
-            </td>
-            </tr>
           </table> 
  
     </mat-tab>

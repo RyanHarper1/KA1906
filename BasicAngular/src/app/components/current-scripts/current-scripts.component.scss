@@ -11,7 +11,7 @@ margin-right: auto;
   top: 35%;
   }
 
-  /*******************TABLE STYLING*******************/
+  
   .imgr{
     opacity: 0.5;
     height: 40%;
@@ -43,8 +43,11 @@ margin-right: auto;
     padding-left: 20px;
     padding-top: 20px;
   }
+  
+/*******************TABLE STYLING*******************/
 
 th{
+  height: 20px;
   justify-content: space-evenly;
   justify-items: center;
   font-variant-caps: all-petite-caps;
@@ -76,12 +79,13 @@ text-align: center;
 table-layout: fixed;
   width: 500px;
 }
-
+.tr-header{
+  height: 50px;
+}
 tr{
   height: 100px;
   text-align: center;
   box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
- 
 }
 
 tr:hover{
@@ -89,7 +93,7 @@ tr:hover{
 
   /*******************TABLE STYLING*******************/
   
-
+/**********************************BUTTON EFFECTS**********************************/
 .mat-card-actions.mat-card-actions-current.mat-card-actions,
 .mat-card>.mat-card-actions:last-child,
 .mat-icon notranslate mat-icon-no-color{
@@ -103,47 +107,55 @@ tr:hover{
   width: 100%;
 }
 
-/**********************************BUTTON EFFECTS**********************************/
+.btn-group-special {		
+  position: relative;	
+  display: inline-block;
+  width: 100px;
+  border: 1px solid black;
+  margin: auto;
+}
+
 .btn-group {		
   position: relative;	
   display: inline-block;
-  // border: 2px solid #252525;
-  // float: right;
-  width: 450px;
+  width: 250px;
+  border: 1px solid black;
+  margin: auto;
 }
 
 .btn-v, .btn-e, .btn-u, .btn-d {
-  width: 90px;
-  height: 60px;
-  font-size: 12pt;
+  width: 60px;
+  height: 50px;
+  padding: 3px;
+  font-size: 10pt;
   background: #3a4f6e;
-	color: white;
-	letter-spacing: 1pt;
+  color: white;
   font-variant-caps: all-petite-caps;
-  letter-spacing: 2pt;
-	transition: all 100ms cubic-bezier(0.77, 0, 0.175, 1);	
-	cursor: pointer;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
-  border: 1px solid;
+  box-shadow: 0 8px 6px -6px black;
+  border: 1px solid white;
+  border: none;
+  
 }
 
+
 .btn-e:hover{
-  // opacity: 0.5;
   background: orange;
 }
 
 .btn-v:hover{
-  // opacity: 0.5;
   background: green;
 }
 
 .btn-u:hover{
-  // opacity: 0.5;
   background: purple;
 }
 
 .btn-d:hover{
-  // opacity: 0.5;
   background: brown;
 }
  
@@ -165,8 +177,6 @@ tr:hover{
   height: 20px;
   color: red;
 }
-
-
 /**********************************BUTTON EFFECTS**********************************/
 
 
