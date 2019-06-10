@@ -10,14 +10,14 @@
 </mat-grid-list>
 
   <mat-horizontal-stepper style="background: none" [linear]="isLinear" #stepper>
-     
+
     <mat-step [stepControl]="firstFormGroup">
         <ng-template matStepLabel>Register company</ng-template>
       <mat-grid-list cols=5 rowHeight="1000px">
           <form [formGroup]="firstFormGroup">
         <mat-grid-tile [colspan]="1"></mat-grid-tile>
         <mat-grid-tile [colspan]="3">
-            
+
                 <div id="form-area">
                     <div class="heading-inbox"><h1>Register here</h1></div>
                 <mat-form-field class="form-field">
@@ -63,14 +63,14 @@
                </div>
                <button class="reset-btn" mat-button (click)="stepper.reset()">Reset</button>
                </div>
-               
+
         </mat-grid-tile>
         <mat-grid-tile [colspan]="1">
-            <div class="next-btn"><button class="next-btn" mat-button matStepperNext><mat-icon class="right-left-icon" svgIcon="right"></mat-icon></button></div>  
+            <div class="next-btn"><button class="next-btn" mat-button matStepperNext><mat-icon class="right-left-icon" svgIcon="right"></mat-icon></button></div>
         </mat-grid-tile>
       </form>
       </mat-grid-list>
-      
+
     </mat-step>
 
     <mat-step [stepControl]="secondFormGroup">
@@ -79,13 +79,13 @@
             <form [formGroup]="secondFormGroup">
                 <mat-radio-group matInput formControlName="secondCtrl" required class="radio-group">
             <mat-grid-tile [colspan]="1">
-                <div class="next-btn"><button class="next-btn" mat-button matStepperPrevious><mat-icon class="right-left-icon" svgIcon="left"></mat-icon></button></div>  
+                <div class="next-btn"><button class="next-btn" mat-button matStepperPrevious><mat-icon class="right-left-icon" svgIcon="left"></mat-icon></button></div>
             </mat-grid-tile>
             <mat-grid-tile [colspan]="6">
-                
+
                       <div class="twenty-users">
                           <label class="radio-group-label">1-20 Users</label>
-                          <mat-radio-button class="radio-button" [value]="season">
+                          <mat-radio-button value="40" class="radio-button" (change)="radioChangeHandler($event)">
                             <mat-card class="script-share-card">
                                 <mat-card-header class="share-script-header-cards">
                                   <div class="monthly">Monthly</div>
@@ -96,11 +96,11 @@
                                  <div class="billed-monthly">Billed Monthly</div>
                                 </div>
                               </mat-card-title>
-                                 
+
                               </mat-card>
                         </mat-radio-button>
                         <br><br>
-                        <mat-radio-button class="radio-button" [value]="season">
+                        <mat-radio-button value="160" class="radio-button" (change)="radioChangeHandler($event)">
                             <mat-card class="script-share-card">
                                 <mat-card-header class="share-script-header-cards">
                                   <div class="monthly">Quarterly</div>
@@ -111,12 +111,12 @@
                                  <div class="billed-monthly">Billed Quarterly</div>
                                 </div>
                               </mat-card-title>
-                                 
+
                               </mat-card>
                         </mat-radio-button>
 
                         <br><br>
-                        <mat-radio-button class="radio-button" [value]="season">
+                        <mat-radio-button value="480" class="radio-button" (change)="radioChangeHandler($event)">
                             <mat-card class="script-share-card">
                                 <mat-card-header class="share-script-header-cards">
                                   <div class="monthly">Yearly</div>
@@ -127,14 +127,14 @@
                                  <div class="billed-monthly">Billed Yearly</div>
                                 </div>
                               </mat-card-title>
-                                 
+
                               </mat-card>
                         </mat-radio-button>
                       </div>
-                 
+
                   <div class="hundy-users">
                     <label class="radio-group-label"> 20-100 Users </label>
-                    <mat-radio-button class="radio-button" [value]="season">
+                    <mat-radio-button value="80" class="radio-button" (change)="radioChangeHandler($event)">
                       <mat-card class="script-share-card">
                           <mat-card-header class="share-script-header-cards">
                             <div class="monthly">Monthly</div>
@@ -145,11 +145,11 @@
                            <div class="billed-monthly">Billed Monthly</div>
                           </div>
               </mat-card-title>
-                           
+
                         </mat-card>
                   </mat-radio-button>
                   <br><br>
-                  <mat-radio-button class="radio-button" [value]="season">
+                  <mat-radio-button value="320" class="radio-button" (change)="radioChangeHandler($event)">
                       <mat-card class="script-share-card">
                           <mat-card-header class="share-script-header-cards">
                             <div class="monthly">Quarterly</div>
@@ -160,11 +160,11 @@
                            <div class="billed-monthly">Billed Quarterly</div>
                           </div>
                         </mat-card-title>
-                           
+
                         </mat-card>
                   </mat-radio-button>
                   <br><br>
-                  <mat-radio-button class="radio-button" [value]="season">
+                  <mat-radio-button value="960" class="radio-button" (change)="radioChangeHandler($event)">
                       <mat-card class="script-share-card">
                           <mat-card-header class="share-script-header-cards">
                             <div class="monthly">Yearly</div>
@@ -178,10 +178,10 @@
                         </mat-card>
                   </mat-radio-button>
                 </div>
-                
+
                   <div class="hundy-plus-users">
                   <label class="radio-group-label"> 100+ Users </label>
-                    <mat-radio-button class="radio-button" [value]="season">
+                    <mat-radio-button value="160" class="radio-button" (change)="radioChangeHandler($event)">
                       <mat-card class="script-share-card">
                           <mat-card-header class="share-script-header-cards">
                             <div class="monthly">Monthly</div>
@@ -192,11 +192,11 @@
                            <div class="billed-monthly">Billed Monthly</div>
                           </div>
                         </mat-card-title>
-                           
+
                         </mat-card>
-                  </mat-radio-button> 
+                  </mat-radio-button>
                     <br><br>
-                  <mat-radio-button class="radio-button" [value]="season">
+                  <mat-radio-button value="640" class="radio-button" (change)="radioChangeHandler($event)">
                       <mat-card class="script-share-card">
                           <mat-card-header class="share-script-header-cards">
                             <div class="monthly">Quarterly</div>
@@ -207,12 +207,12 @@
                            <div class="billed-monthly">Billed Quarterly</div>
                           </div>
                         </mat-card-title>
-                           
+
                         </mat-card>
                   </mat-radio-button>
 
                   <br><br>
-                  <mat-radio-button class="radio-button" [value]="season">
+                  <mat-radio-button value="1920" class="radio-button" [value]="season" (change)="radioChangeHandler($event)">
                       <mat-card class="script-share-card">
                           <mat-card-header class="share-script-header-cards">
                             <div class="monthly">Yearly</div>
@@ -225,23 +225,23 @@
                         </mat-card-title>
                         </mat-card>
                   </mat-radio-button>
-                </div>  
+                </div>
 
             </mat-grid-tile>
-          
+
             <mat-grid-tile [colspan]="1">
-               <div class="next-btn"><button class="next-btn" mat-button matStepperNext><mat-icon class="right-left-icon" svgIcon="right"></mat-icon></button></div>  
+               <div class="next-btn"><button class="next-btn" mat-button matStepperNext><mat-icon class="right-left-icon" svgIcon="right"></mat-icon></button></div>
             </mat-grid-tile>
             </mat-radio-group>
           </form>
           </mat-grid-list>
-    
+
     </mat-step>
 
     <mat-step>
       <ng-template matStepLabel>Make Payment</ng-template>
       <mat-grid-list cols=5 rowHeight="400px">
-        <mat-grid-tile [colspan]="1"><div class="next-btn"><button class="next-btn" mat-button matStepperPrevious><mat-icon class="right-left-icon" svgIcon="left"></mat-icon></button></div> 
+        <mat-grid-tile [colspan]="1"><div class="next-btn"><button class="next-btn" mat-button matStepperPrevious><mat-icon class="right-left-icon" svgIcon="left"></mat-icon></button></div>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="3">
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -251,13 +251,13 @@
                   <th class="header-cell" mat-header-cell *matHeaderCellDef> No. </th>
                   <td class="cell" mat-cell *matCellDef="let element"> {{element.itemno}} </td>
                 </ng-container>
-              
+
                 <!-- Description Column -->
                 <ng-container matColumnDef="itemname">
                   <th class="header-cell" mat-header-cell *matHeaderCellDef> Description </th>
                   <td class="cell" mat-cell *matCellDef="let element"> {{element.itemname}} </td>
                 </ng-container>
-              
+
                 <!-- Amount Column -->
                 <ng-container matColumnDef="amount">
                   <th class="header-cell" mat-header-cell *matHeaderCellDef> Amount </th>
@@ -268,7 +268,7 @@
               </table>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="1">
-           
+
         </mat-grid-tile>
       </mat-grid-list>
 
@@ -277,9 +277,9 @@
         <mat-grid-tile [colspan]="3">
       <mat-card class="total-column">
           <mat-card-title>Total</mat-card-title>
-          <mat-card-content>$30.00</mat-card-content>
-          <mat-card-actions> <button mat-button>Checkout</button><div id="paypal-checkout-btn"></div></mat-card-actions>
-          <button class = "buttons" mat-button (click) ="openTerms()">Terms and Conditions</button> 
+          <mat-card-content>{{ payPrice }}</mat-card-content>
+          <mat-card-actions><div id="paypal-checkout-btn"></div></mat-card-actions>
+          <button class = "buttons" mat-button (click) ="openTerms()">Terms and Conditions</button>
         </mat-card>
       </mat-grid-tile>
       <mat-grid-tile [colspan]="1"></mat-grid-tile>
