@@ -8,6 +8,7 @@ import { EditServiceService } from 'src/app/edit-service.service';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ViewScriptService } from 'src/app/view-script.service';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 
 @Component({
@@ -24,7 +25,7 @@ export class CurrentScriptsComponent implements OnInit {
   columns = ['scriptName', 'category'];
   username: String;
   loggedIn = false;
-  constructor(sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, private Http: HttpClient, private Auth: AuthService, private router: Router, private editService: EditServiceService, private viewService: ViewScriptService) {
+  constructor(public dialog: MatDialog, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, private Http: HttpClient, private Auth: AuthService, private router: Router, private editService: EditServiceService, private viewService: ViewScriptService) {
 
     iconRegistry.addSvgIcon(
       'upload',
@@ -35,10 +36,10 @@ export class CurrentScriptsComponent implements OnInit {
     iconRegistry.addSvgIcon(
       'delete',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/times-solid.svg'));
-      iconRegistry.addSvgIcon(
+    iconRegistry.addSvgIcon(
       'view',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/eye-regular.svg'));
-      
+
 
 
 
@@ -98,23 +99,57 @@ export class CurrentScriptsComponent implements OnInit {
 
   }
   uploadScript(script) {
-    console.log('first question' + script.firstQuestionId)
-   // let dateFormat = require('dateformat');
-    let now = new Date();
-   // let date = String(dateFormat(now, "dd/mm/yyyy"));
-    let upload = this.Http.post('http://localhost:3000/upload-script', { usersID: this.Auth.id, scriptID: script.scriptId, uploadDate: now ,scriptName: script.scriptName, price: 5, category: script.category, question: Number(script.firstQuestionId), description: script.description });
-    upload.subscribe((response) => {
-      console.log(response)
-      this.ngOnInit();
+    const dialogRef = this.dialog.open(uploadForm, {
+      width: '700px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result != null) {
+        console.log('first question' + script.firstQuestionId)
+        // let dateFormat = require('dateformat');
+        let now = new Date();
+        // let date = String(dateFormat(now, "dd/mm/yyyy"));
+        let upload = this.Http.post('http://localhost:3000/upload-script', { usersID: this.Auth.id, scriptID: script.scriptId, uploadDate: now, scriptName: script.scriptName, price: result, category: script.category, question: Number(script.firstQuestionId), description: script.description });
+        upload.subscribe((response) => {
+          console.log(response)
+          this.ngOnInit();
+        });
+      }
+
     });
 
 
+
   }
-  viewScript(script){
+  viewScript(script) {
     this.viewService.setScript(script.scriptId);
     console.log(script);
     this.router.navigate(['view-script']);
   }
 
+}
+
+@Component({
+  selector: 'uploadForm',
+  templateUrl: 'uploadForm.html',
+  // styleUrls: ['./uploadForm.scss']
+})
+export class uploadForm implements OnInit {
+  price: any;
+  constructor(public dialogRef: MatDialogRef<uploadForm>) {
+    //dialogRef.disableClose = true;
+  }
+  ngOnInit() {
+
+  }
+  submit() {
+    if (this.price < 1.5 || this.price == null) {
+      alert('Minimum price is $1.50. Please enter a higher amount')
+    } else {
+
+      this.dialogRef.close(this.price)
+    }
+
+  }
 
 }
