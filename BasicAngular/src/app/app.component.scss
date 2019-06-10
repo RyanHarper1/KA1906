@@ -10,13 +10,13 @@
   .ngx-editor-grippie[_ngcontent-c17],
   .ngx-editor-grippie[_ngcontent-c17] svg[_ngcontent-c17],
   .ngx-editor-grippie[_ngcontent-c29] svg[_ngcontent-c29]{
-    height: 9px;
+    height: 9px !important;
     background-color: #f1f1f1 !important;
     position: absolute !important;
-    text-align: center;
-    cursor: s-resize;
-    border: 1px solid #ddd;
-    border-top: transparent;
+    text-align: center !important;
+    cursor: s-resize !important;
+    border: 1px solid #ddd !important;
+    border-top: transparent !important;
   }
 
    /*Override styling for mat-grid angular material*/
