@@ -8,12 +8,12 @@
   
   <!--Script details-->
   <div *ngIf = "loaded"> 
-  <mat-grid-list class="gridList" cols="8" rowHeight="100px">
+  <mat-grid-list class="gridList" cols="6" rowHeight="100px">
         <mat-grid-tile [colspan]="1"></mat-grid-tile>
         <mat-grid-tile class="script-detail-grid-tile" [colspan]="1"><div class="script-details">Script Name</div></mat-grid-tile>
-        <mat-grid-tile class="edit-script-grid-tile" [colspan]="2"><input class="input-details" type="text" [(ngModel)] ="scriptName" readonly></mat-grid-tile>
+        <mat-grid-tile class="edit-script-grid-tile" [colspan]="1"><input class="input-details" type="text" [(ngModel)] ="scriptName" readonly></mat-grid-tile>
         <mat-grid-tile class="script-detail-grid-tile" [colspan]="1"><div class="script-details">Category</div></mat-grid-tile>
-        <mat-grid-tile class="edit-script-grid-tile" [colspan]="2"><input class="input-details" type="text" [(ngModel)] ="category" readonly ></mat-grid-tile>
+        <mat-grid-tile class="edit-script-grid-tile" [colspan]="1"><input class="input-details" type="text" [(ngModel)] ="category" readonly ></mat-grid-tile>
         <mat-grid-tile class="edit-script-grid-tile" [colspan]="1"></mat-grid-tile>
     </mat-grid-list>
 
@@ -33,7 +33,7 @@
 
   <!--Objections-->
   
-  <mat-grid-list cols="11" rowHeight="1:1">
+  <mat-grid-list cols="11" rowHeight="1:1.2" [gutterSize]="'10px'">
     <mat-grid-tile [colspan]="1"> </mat-grid-tile>
 
     <mat-grid-tile [colspan]="3" *ngIf="answer > 0">

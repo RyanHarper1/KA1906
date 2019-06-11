@@ -209,39 +209,17 @@ textarea::first-letter{
     background: white;
   
   }
-  .ngx-editor[_ngcontent-c11] .ngx-wrapper[_ngcontent-c11] .ngx-editor-textarea[_ngcontent-c11]{
-    min-height: 100px;
-    border: 1px solid #ddd;
-    background-color: white;
-    overflow-x: hidden;
-    overflow-y: auto;
-    z-index: 2;
-    position: relative;
-  }
-
-  .ngx-editor-textarea{
-    background-color: white;
-    min-height: 100px;
-  }
-  
-  // .ngx-editor-grippie{
-  //   height: 9px;
-  //   /* background-color: #f1f1f1; */
-  //   /* position: relative; */
-  //   /* text-align: center; */
-  //   /* cursor: s-resize; */
-  //   /* border: 1px solid #ddd; */
-  //   border-top: transparent;
+  // .ngx-editor[_ngcontent-c11] .ngx-wrapper[_ngcontent-c11] .ngx-editor-textarea[_ngcontent-c11]{
+  //   min-height: 100px;
+  //   border: 1px solid #ddd;
+  //   background-color: white;
+  //   overflow-x: hidden;
+  //   overflow-y: auto;
+  //   z-index: 2;
+  //   position: relative;
   // }
 
-  // .toolbar-container{
-  //   text-align: center;
-  //   // margin: 10px;
-  //   justify-items: stretch;
-  //   display: flex;
-  //   justify-content: space-around;
-  //   background: white;
-  //   height: 200px;
-  //   min-height: 200px;
-  //   max-height: 200px;
+  // .ngx-editor-textarea{
+  //   background-color: white;
+  //   min-height: 100px;
   // }
