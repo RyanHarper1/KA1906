@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth.service';
 import {FormControl, Validators, FormGroup, FormBuilder} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-update-details',
@@ -17,7 +18,7 @@ export class UpdateDetailsComponent implements OnInit {
 submitted = false;
 errormessage: any;
  
-  constructor(private Auth:AuthService,private formBuilder: FormBuilder,private Http: HttpClient) { }
+  constructor(private snackBar: MatSnackBar,private Auth:AuthService,private formBuilder: FormBuilder,private Http: HttpClient) { }
 
   ngOnInit() {
    
@@ -31,16 +32,16 @@ errormessage: any;
   }
   submit(){
     if( this.email.valid && this.curPass.valid && this.newPass.valid && this.confirmPass.valid ){
-      alert('valid')
+    
       this.submitted = true;
       let post = this.Http.post<any>('http://localhost:3000/updateDetails',{id: this.Auth.id, email: this.email.value, password: this.curPass.value, newPass: this.confirmPass.value})
       post.subscribe((response) => {
         this.errormessage = response.result
+        let snackBarRef = this.snackBar.open(this.errormessage);
+      
       })
     }
   }
-  getErrorMessage1() {
-    return this.errormessage
-  }
+ 
 
 }
