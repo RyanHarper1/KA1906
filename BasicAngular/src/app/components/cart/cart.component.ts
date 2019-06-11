@@ -53,7 +53,7 @@ export class CartComponent implements OnInit {
 //Paypal Test
   addScript: boolean = false;
 
-  clearCart(cart){
+  clearCart(){
     let del = this.Http.post('http://localhost:3000/clear-cart', {usersID: this.Auth.getId});
     del.subscribe((response) => {
 
@@ -61,7 +61,7 @@ export class CartComponent implements OnInit {
       console.log(response)
       this.ngOnInit();
     });
-    console.log(cart);
+    // console.log(cart);
   }
 
   addToPayment(cart){
@@ -96,7 +96,7 @@ export class CartComponent implements OnInit {
         return actions.payment.execute().then((payment) => {
           this.addToPayment(this.list);
           console.log('Transaction completed ' + payment.invoice_number);
-          this.clearCart(this.list.usersID);
+          this.clearCart();
           this.confirmation();
           this.router.navigate(['current-scripts']);
         })

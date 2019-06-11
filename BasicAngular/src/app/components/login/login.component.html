@@ -12,7 +12,8 @@
     <img class="bkgrnd" src="assets/img/bkgrndlogin-17.png">
     <div class="heading-inbox"><h1>User login</h1></div>
 
-    <form [formGroup]="logInForm" (ngSubmit)="onSubmit()">
+    <!-- <form [formGroup]="logInForm" (ngSubmit)="onSubmit()" > -->
+    <form [formGroup]="logInForm"  >
       
       <label class="required">*</label> <label> Email</label>
 
@@ -42,7 +43,8 @@
           <!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
         </div>
 
-      <input type="submit" value="Login">
+        <input type="Submit" value="Login" (click) ="onSubmit()">
+
 
       <div class="bottom-links">
         <a  (click) = "openPrivacy()">Privacy Policy</a>
@@ -53,9 +55,5 @@
       
 
       
-    <div *ngFor ="let post of posts | async">
-      {{post | json}}
-      </div>
-
     </form>
     </div></div>

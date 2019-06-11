@@ -12,7 +12,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 export class NavComponent implements OnInit {
 
-  constructor(private Auth:AuthService,sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) {
+  constructor(public Auth:AuthService,sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) {
     iconRegistry.addSvgIcon(
       'cart',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/cart.svg'));

@@ -12,10 +12,10 @@
     <img class="bkgrnd" src="assets/img/bkgrndlogin-17.png">
     <div class="heading-inbox">
       <h1>Sign up here</h1></div>
-<div *ngIf="response"><p>Hello: {{response.name}}</p></div>
 
 
-<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+<!-- <form [formGroup]="registerForm" (ngSubmit)="onSubmit()"> -->
+<form [formGroup]="registerForm" >
 
   <label class="required">*</label> <label>First Name</label>
   <div *ngIf="submitted && registerForm.controls.fName.errors" id="error-container">
@@ -69,7 +69,7 @@
         <label class="tandc">I agree to Sales Script terms and conditions</label>
      </label>
 
-  <input type="Submit" value="Register">
+  <input type="Submit" value="Register" (click) ="onSubmit()">
 
   <div class="bottom-links">
       <a (click) = "openPrivacy()">Privacy Policy</a>
@@ -78,7 +78,5 @@
   </div>
 
 </form>
-<div *ngFor ="let post of posts | async">
-  {{post | json}}
-  </div>
+
   </div></div>

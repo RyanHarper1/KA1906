@@ -42,6 +42,7 @@ import { MinPricePipe } from './pipes/min-price.pipe';
 import { SubCategoryPipe } from './pipes/sub-category.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { confirm} from './components/cart/cart.component';
+import { StorePipe } from './components/store/store.pipe';
 
 
 @NgModule({
@@ -74,7 +75,8 @@ import { confirm} from './components/cart/cart.component';
     SubCategoryPipe,
     confirm,
     scriptprivacy,
-    confirmDelete
+    confirmDelete,
+    StorePipe
 
   ],
   imports: [
