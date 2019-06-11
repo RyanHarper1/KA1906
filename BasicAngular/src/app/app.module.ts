@@ -24,7 +24,7 @@ import { FormsModule } from '@angular/forms';
 import { EditScriptComponent } from './components/edit-script/edit-script.component';
 import { UpdateDetailsComponent } from './components/update-details/update-details.component';
 import { CartService } from './cart.service';
-import { NgxPayPalModule } from 'ngx-paypal'
+import { NgxPayPalModule } from 'ngx-paypal';
 import { AdminComponent } from './components/admin/admin.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ViewScriptComponent } from './components/view-script/view-script.component';
