@@ -84,7 +84,7 @@
           <th>Category</th>
           <th>Sub-Category</th>
           <th>Last Edited</th>
-          <th>Template</th>
+          <!-- <th>Template</th> -->
         </tr>
 
         <tr *ngFor="let li of list">
@@ -93,7 +93,7 @@
           <td>{{li.category}}</td>
           <td>{{li.subcategory}}</td>
           <td>{{li.edited}}</td>
-          <td>{{li.template}}</td>
+          <!-- <td>{{li.template}}</td> -->
           <td>
               <div class="btn-group">
                 <button class="btn-v" (click) ="viewScript(li)">view<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>
@@ -116,9 +116,9 @@
           <th>Sub-Category</th>
           <th>Price</th>
           <th>Last Edited</th>
-          <th>Template</th>
+          <!-- <th>Template</th>
           <th>Review</th>
-          <th>Rating</th>
+          <th>Rating</th> -->
         </tr>
 
         <tr *ngFor="let lo of storelist">
@@ -128,9 +128,9 @@
           <td>{{lo.subCategory}}</td>
           <td>{{lo.price}}</td>
           <td>{{lo.edited}}</td>
-          <td>{{lo.template}}</td>
+          <!-- <td>{{lo.template}}</td>
           <td>this is a review</td>
-          <td><star-rating [starType]="'icon'" [rating]="2.63"></star-rating></td>
+          <td><star-rating [starType]="'icon'" [rating]="2.63"></star-rating></td> -->
           <td>
             <div class="btn-group-special">
             <button class="btn-v" (click) ="viewUploadedScript(lo)">view<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>
@@ -152,9 +152,9 @@
             <th>Sub-Category</th>
             <th>Price</th>
             <th>Uploaded</th>
-            <th>Template</th>
+            <!-- <th>Template</th>
             <th>Review</th>
-            <th>Rating</th>
+            <th>Rating</th> -->
           </tr>
   
           <tr *ngFor="let lp of purchasedList">
@@ -164,9 +164,9 @@
             <td>{{lp.subcategory}}</td>
             <td>{{lp.price}}</td>
             <td>{{lp.uploadDate}}</td>
-            <td>{{lp.template}}</td>
+            <!-- <td>{{lp.template}}</td>
             <td><button class="review-btn">Write Review</button>This is a review</td>
-            <td><star-rating [starType]="'icon'" [rating]="2.63"></star-rating></td>
+            <td><star-rating [starType]="'icon'" [rating]="2.63"></star-rating></td> -->
             <td>
               <div class="btn-group-special">
                 <button class="btn-v" (click) ="sharePurchasedScript(lp)" *ngIf ="Auth.orgId !=null">Share<mat-icon id="crnt-icon" ></mat-icon> </button>

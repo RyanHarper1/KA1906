@@ -134,9 +134,9 @@
             <th>Sub-Category</th>
             <th>Price</th>
             <th>Last Edited</th>
-            <th>Template</th>
-            <th>Reviews</th>
-            <th>Rating</th>
+            <!-- <th>Template</th> -->
+            <!-- <th>Reviews</th>
+            <th>Rating</th>-->
           </tr>
   
           <tr *ngFor="let li of list | categoryPipe:Cat | filter:term">
@@ -145,10 +145,10 @@
             <td>{{li.category}}</td>
             <td>{{li.subCategory}}</td>
             <td>{{li.price}}</td>
-            <td>{{li.edited}}</td>
-            <td>{{li.template}}</td>
-            <td>this is a review</td>
-            <td><star-rating [starType]="'icon'" [rating]="2.63"></star-rating></td>
+            <td>{{li.uploadDate}}</td>
+            <!-- <td>{{li.template}}</td> -->
+            <!-- <td>this is a review</td> -->
+            <!-- <td><star-rating [starType]="'icon'" [rating]="2.63"></star-rating></td> -->
             <td>
               <div class="btn-group">
                   <button class="btn-v" (click) ="viewScript(li)">VIEW<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>
