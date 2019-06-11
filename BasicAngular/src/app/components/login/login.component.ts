@@ -45,7 +45,6 @@ export class LoginComponent implements OnInit {
     console.log('result is: ' + data.result);
     this.result = data.message;
     if ( data.result == 'true'){
-      console.log(data.admin)
       this.Auth.userDetails(data);
       this.router.navigate(['home']);
       this.Auth.setLoggedIn(true);
