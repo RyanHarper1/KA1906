@@ -25,11 +25,11 @@ import { EditScriptComponent } from './components/edit-script/edit-script.compon
 import { UpdateDetailsComponent } from './components/update-details/update-details.component';
 import { CartService } from './cart.service';
 import { NgxPayPalModule } from 'ngx-paypal'
-import { AdminComponent } from './components/admin/admin.component';
+import { AdminComponent, confirmDelete } from './components/admin/admin.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ViewScriptComponent } from './components/view-script/view-script.component';
 import { FooterComponent, terms, contact } from './components/footer/footer.component';
-import { ScriptShareSubscribeComponent } from './components/script-share-subscribe/script-share-subscribe.component';
+import { ScriptShareSubscribeComponent, scriptprivacy } from './components/script-share-subscribe/script-share-subscribe.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatTableModule} from '@angular/material/table';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -72,7 +72,9 @@ import { confirm} from './components/cart/cart.component';
     CategoryPipe,
     MinPricePipe,
     SubCategoryPipe,
-    confirm
+    confirm,
+    scriptprivacy,
+    confirmDelete
 
   ],
   imports: [

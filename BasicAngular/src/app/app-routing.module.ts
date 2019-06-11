@@ -15,11 +15,11 @@ import { AuthGuard } from './auth.guard';
 import { ScriptShareComponent} from './components/script-share/script-share.component'
 import { EditScriptComponent} from './components/edit-script/edit-script.component'
 import {UpdateDetailsComponent} from './components/update-details/update-details.component'
-import { AdminComponent } from './components/admin/admin.component';
+import { AdminComponent, confirmDelete } from './components/admin/admin.component';
 import { ViewScriptComponent } from './components/view-script/view-script.component';
 import { terms, contact } from './components/footer/footer.component';
 import { confirm} from './components/cart/cart.component'
-import { ScriptShareSubscribeComponent } from './components/script-share-subscribe/script-share-subscribe.component';
+import { ScriptShareSubscribeComponent, scriptprivacy } from './components/script-share-subscribe/script-share-subscribe.component';
 
 const routes: Routes = [
     {
@@ -39,8 +39,16 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
+    path: 'scriptprivacy',
+    component: scriptprivacy,
+  },
+  {
     path: '',
     component: HomeComponent,
+  },
+  {
+    path: 'confirmDelete',
+    component: confirmDelete,
   },
 
   //Only allow access to following components when signed in

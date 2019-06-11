@@ -43,6 +43,7 @@ export class AuthService {
   blank = "";
   returns: object;
   address:any;
+  admin:any;
   scriptData1 = {} as scriptData;
   @Output() change: EventEmitter<boolean> = new EventEmitter();
 
@@ -196,6 +197,7 @@ export class AuthService {
     this.address = object.address;
     this.username = String(object.username);
     this.orgId = object.orgId;
+    this.admin = object.admin;
 
     console.log(this.username);
   }
@@ -214,6 +216,7 @@ export class AuthService {
     this.id = '';
     this.username = '';
     this.orgId = null;
+    this.admin = null;
     console.log('blah');
   }
 

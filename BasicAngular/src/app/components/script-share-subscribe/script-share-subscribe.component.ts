@@ -73,7 +73,7 @@ radioChangeHandler(event: any){
     }
 
     openPrivacy() {
-      const dialogRef1 = this.dialog.open(privacy, {
+      const dialogRef1 = this.dialog.open(scriptprivacy, {
         width: '700px'
       });
     }
@@ -161,14 +161,14 @@ radioChangeHandler(event: any){
 
 
   @Component({
-    selector: 'privacy',
-    templateUrl: '../footer/privacy.html',
-    styleUrls: ['../footer/terms.scss']
+    selector: 'scriptprivacy',
+    templateUrl: '../script-share-subscribe/script-privacy.html',
+    styleUrls: ['../script-share-subscribe/script-privacy.scss']
     })
-    export class privacy {
+    export class scriptprivacy {
 
 
-    constructor(public dialogRef: MatDialogRef<privacy>) {
+    constructor(public dialogRef: MatDialogRef<scriptprivacy>) {
 
     }
     }

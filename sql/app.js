@@ -75,6 +75,31 @@ app.post('/addusers', (req, res) => {
     });
 
 });
+app.post('/newOrgUser', (req, res) => {
+    let hash = crypto.createHash('sha512').update(req.body.password).digest('hex');
+
+
+    let test = req.body;
+    let reply = {};
+    console.log(test);
+    let user = { fName: req.body.fName, lName: req.body.lName, email: req.body.email, password: hash,orgId:req.body.orgId,admin:req.body.admin };
+    let sql = 'INSERT INTO users SET ?';
+    console.log("On server side");
+    console.log(user);
+    let query = db.query(sql, user, (err, result) => {
+        if (err) {
+            throw err;
+        } else {
+            console.log("successfully entered");
+
+            reply = {
+                result: 'success', name: req.body.username, fName: req.body.fName, lName: req.body.lName, email: req.body.email
+            }
+        }
+        res.send(reply);
+    });
+
+});
 
 //check login
 app.post('/login', (req, res) => {
@@ -94,7 +119,7 @@ app.post('/login', (req, res) => {
             if (result[0].password == hash) {
                 console.log("Authenticated");
                 //req.session.user = result.id;
-                res.send({ result: 'true', id: result[0].id, fName: result[0].fName, lName: result[0].lName, email: result[0].email, username: result[0].username, orgId: result[0].orgId })
+                res.send({ result: 'true', id: result[0].id, fName: result[0].fName, lName: result[0].lName, email: result[0].email, username: result[0].username, orgId: result[0].orgId ,admin:result[0].admin})
             } else {
                 console.log("incorrect");
                 res.send({ result: 'false', message: 'Username or password incorrect' })
@@ -152,6 +177,26 @@ app.post('/updatescripttime', (req, res) => {
         }
         res.send(reply);
     });
+});
+
+
+app.post('/updateOrgUser', (req, res) => {
+
+    let sql = 'UPDATE users SET admin = "' + req.body.admin + '" WHERE id = ' + req.body.id
+
+   console.log(sql);
+   let query = db.query(sql, (err, result) => {
+       if (err) {
+           throw err;
+       } else {
+           console.log("successfully entered");
+
+           reply = {
+               result: 'success', scriptId: result.insertId
+           }
+       }
+       res.send(reply);
+   });
 });
 
 
@@ -305,7 +350,7 @@ app.post('/delete-script', (req, res) => {
 
 app.post('/deleteOrgScript', (req, res) => {
    let sql = 'DELETE FROM orgScripts WHERE scriptId  = ' + req.body.scriptId;
-    console.log("On server side");
+    console.log(sql);
 
     let query = db.query(sql, (err, result) => {
         if (err) {
@@ -320,6 +365,23 @@ app.post('/deleteOrgScript', (req, res) => {
         res.send(reply);
     });
 });
+app.post('/deleteOrgUser', (req, res) => {
+    let sql = 'DELETE FROM users WHERE id  = ' + req.body.id;
+     console.log(sql);
+ 
+     let query = db.query(sql, (err, result) => {
+         if (err) {
+             throw err;
+         } else {
+             console.log("successfully deleted");
+ 
+             reply = {
+                 result: 'success'
+             }
+         }
+         res.send(reply);
+     });
+ });
 
 app.post('/deleteUploadedScript', (req, res) => {
     let script = { texts: req.body.texts, questionId: req.body.questionId };
