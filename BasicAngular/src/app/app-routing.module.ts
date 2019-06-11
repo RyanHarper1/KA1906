@@ -19,7 +19,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { ViewScriptComponent } from './components/view-script/view-script.component';
 import { terms, contact } from './components/footer/footer.component';
 import { confirm} from './components/cart/cart.component'
-import { ScriptShareSubscribeComponent } from './components/script-share-subscribe/script-share-subscribe.component';
+import { ScriptShareSubscribeComponent, scriptprivacy } from './components/script-share-subscribe/script-share-subscribe.component';
 
 const routes: Routes = [
     {
@@ -37,6 +37,10 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+  },
+  {
+    path: 'scriptprivacy',
+    component: scriptprivacy,
   },
   {
     path: '',
