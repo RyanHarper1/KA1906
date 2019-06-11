@@ -77,4 +77,8 @@ export class StoreComponent implements OnInit {
     this.router.navigate(['view-script']);
   }
 
+  clearfilter(script){
+
+  }
+
 }

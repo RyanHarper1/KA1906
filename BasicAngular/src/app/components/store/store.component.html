@@ -43,7 +43,7 @@
 </div>
 
 <div *ngIf = loggedIn>
-    
+
   <mat-drawer-container [hasBackdrop]="false" #mode value="top" >
 
     <mat-drawer #drawer [mode]="mode.value" class="search-drawer">
@@ -55,6 +55,7 @@
 
       <mat-form-field class="filter" >
         <mat-select [(ngModel)]="Cat" placeholder="Category">
+          <mat-option value="">ALL</mat-option>
           <mat-option value="Trades">Trades</mat-option>
           <mat-option value="Accounting">Accounting</mat-option>
           <mat-option value="Health">Health</mat-option>
@@ -67,18 +68,21 @@
         </mat-select>
       </mat-form-field><br />
 
-  <div [(ngModel)]="subCat" class="filter" >
-        <mat-checkbox value="Business Development">Business Development</mat-checkbox><br />
-        <mat-checkbox value="Outbound">Outbound</mat-checkbox><br />
-        <mat-checkbox value="Sales Representative">Sales Representative</mat-checkbox><br />
-        <mat-checkbox value="Inbound">Inbound</mat-checkbox><br />
-        <mat-checkbox value="Telesales">Telesales</mat-checkbox><br />
-        <mat-checkbox value="Sales Management">Sales Management</mat-checkbox><br />
-        <mat-checkbox value="Marketing">Marketing</mat-checkbox><br />
-        <mat-checkbox value="Territory Sales">Territory Sales</mat-checkbox><br />
-        <mat-checkbox value="Account Management">Account Management</mat-checkbox><br />
-        <mat-checkbox value="Area Sales">Area Sales</mat-checkbox><br />
-  </div>
+<mat-form-field class="filter" >
+  <mat-select [(ngModel)]="subCat" placeholder="Sub-Category">
+        <mat-option value="">ALL</mat-option>
+        <mat-option value="Business Development">Business Development</mat-option>
+        <mat-option value="Outbound">Outbound</mat-option>
+        <mat-option value="Sales Representative">Sales Representative</mat-option>
+        <mat-option value="Inbound">Inbound</mat-option>
+        <mat-option value="Telesales">Telesales</mat-option>
+        <mat-option value="Sales Management">Sales Management</mat-option>
+        <mat-option value="Marketing">Marketing</mat-option>
+        <mat-option value="Territory Sales">Territory Sales</mat-option>
+        <mat-option value="Account Management">Account Management</mat-option>
+        <mat-option value="Area Sales">Area Sales</mat-option>
+      </mat-select>
+  </mat-form-field>
 
       <mat-form-field class="filter">
             <mat-select placeholder="Price-Min" [(ngModel)]="min">
@@ -138,7 +142,7 @@
             <th>Reviews</th>
             <th>Rating</th>
           </tr>
-  
+
           <tr *ngFor="let li of list | categoryPipe:Cat | filter:term">
             <td>{{li.scriptName}}</td>
             <td>{{li.description}}</td>
