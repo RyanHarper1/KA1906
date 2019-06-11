@@ -36,6 +36,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxEditorModule } from 'ngx-editor';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { StarRatingModule } from 'angular-star-rating';
+import { RatingPipe } from './pipes/rating.pipe';
+import { CategoryPipe } from './pipes/category.pipe';
+import { MinPricePipe } from './pipes/min-price.pipe';
+import { SubCategoryPipe } from './pipes/sub-category.pipe';
 
 @NgModule({
   declarations: [
@@ -61,6 +65,10 @@ import { StarRatingModule } from 'angular-star-rating';
     contact,
     ScriptShareSubscribeComponent,
     uploadForm,
+    RatingPipe,
+    CategoryPipe,
+    MinPricePipe,
+    SubCategoryPipe,
   ],
   imports: [
     FormsModule,
