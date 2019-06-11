@@ -46,7 +46,8 @@
     
   <mat-drawer-container [hasBackdrop]="false" #mode value="top">
 
-    <mat-drawer #drawer [mode]="mode.value" class="search-drawer"><br>
+    <mat-drawer #drawer [mode]="mode.value" class="search-drawer">
+      <button mat-raised-button class="clear-btn"><mat-icon class="clear-icon" svgIcon="clear"></mat-icon>Clear filter</button>
 <div class="search-container">
        <mat-form-field class="filter">
         <input matInput type = "text" placeholder="Keyword" [(ngModel)]="term">
@@ -123,7 +124,7 @@
 
     <mat-select #mode value="side"></mat-select>
     <mat-drawer-content class="drawer-content">
-      <button class="search-btn" mat-raised-button (click)="drawer.toggle()">Search</button>
+      <button class="search-btn" mat-raised-button (click)="drawer.toggle()"><mat-icon class="search-icon" svgIcon="search"></mat-icon> Search</button>
 
       <table width="100%" cellspacing="10" >
           <tr class="tr-header">
