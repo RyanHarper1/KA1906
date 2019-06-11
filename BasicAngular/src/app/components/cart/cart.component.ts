@@ -9,6 +9,7 @@ import { NgxPayPalModule } from 'ngx-paypal';
 import {IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 
 
@@ -17,11 +18,16 @@ declare let paypal: any;//Paypal Test
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  styleUrls: ['./cart.component.scss'],
+})
+
+@Component({
+  selector: 'confirm',
+  templateUrl: 'confirm.html'
 })
 
 export class CartComponent implements OnInit {
-  constructor(private Http: HttpClient, private Auth : AuthService, private router: Router, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) {
+  constructor(private Http: HttpClient, private Auth : AuthService, private router: Router, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, public dialog: MatDialog) {
     iconRegistry.addSvgIcon(
       'delete',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/times-solid.svg'));
@@ -94,6 +100,8 @@ export class CartComponent implements OnInit {
           this.addToPayment(this.list);
           console.log('Transaction completed ' + payment.invoice_number);
           this.clearCart(this.list.usersID);
+          this.confirmation();
+          this.router.navigate(['/../current-scripts']);
         })
       }
     };
@@ -139,12 +147,27 @@ getTotal(): number {
   return total;
 }
 
-load(val) {
-if (val == this.router.url) {
-  //this.spinnerService.show();
-  this.router.routeReuseStrategy.shouldReuseRoute = function () {
-    return false;
-  };
- }
+  load(val) {
+  if (val == this.router.url) {
+    //this.spinnerService.show();
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
+   }
+  }
+
+  confirmation() {
+    const dialogRef = this.dialog.open(confirm, {
+      width: '700px'
+    });
+  }
+
 }
+
+export class confirm implements OnInit {
+  price: any;
+  constructor(public dialogRef: MatDialogRef<confirm>) {
+
+  }
+  ngOnInit() {}
 }
