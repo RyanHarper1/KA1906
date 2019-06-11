@@ -14,7 +14,7 @@
 <mat-grid-list cols="5" rowHeight="100px">
   <mat-grid-tile [colspan]="1"> </mat-grid-tile>
   <mat-grid-tile class="new-user-tile" [colspan]="1">
-      <button mat-button id="new-usr-btn"><mat-icon class="plus-icon" svgIcon="add"></mat-icon>New User</button></mat-grid-tile>
+      <button mat-button id="new-usr-btn" (click) = "addUser()"><mat-icon class="plus-icon" svgIcon="add" ></mat-icon>New User</button></mat-grid-tile>
   <mat-grid-tile id="new-user-tile" [colspan]="1"> </mat-grid-tile>
   <mat-grid-tile id="new-user-tile" [colspan]="1"> </mat-grid-tile>
   <mat-grid-tile [colspan]="1"> </mat-grid-tile>
@@ -25,10 +25,10 @@
   <mat-grid-tile [colspan]="1">
       <div class ="userDetails">
           <mat-form-field id="form">
-            <input matInput placeholder="First Name">
+            <input matInput placeholder="First Name" [(ngModel)] = "fName">
           </mat-form-field>
           <mat-form-field id="form">
-              <input matInput placeholder="Last Name">
+              <input matInput placeholder="Last Name" [(ngModel)] = "lName">
           </mat-form-field>
         </div>
     </mat-grid-tile>
@@ -36,10 +36,10 @@
   <mat-grid-tile [colspan]="1"> 
       <div class ="userDetails">
       <mat-form-field id="form">
-          <input matInput placeholder="Email">
+          <input matInput placeholder="Email" [(ngModel)] = "email">
       </mat-form-field>
       <mat-form-field id="form">
-          <input matInput placeholder="Password">
+          <input matInput placeholder="Password" [(ngModel)] = "password">
       </mat-form-field>
     </div>
   </mat-grid-tile>
@@ -47,9 +47,9 @@
   <mat-grid-tile [colspan]="1">
       <div class ="userDetails">
           <div class="perm-title">Permission</div>
-      <mat-radio-group class="radio-group" aria-label="User type">
+      <mat-radio-group class="radio-group" [(ngModel)] = "userType"aria-label="User type">
           <mat-radio-button id="radio" value="1">User</mat-radio-button>
-          <mat-radio-button id="radio" value="2">Admin</mat-radio-button>
+          <mat-radio-button id="radio1" value="2">Admin</mat-radio-button>
       </mat-radio-group>
       </div>
   </mat-grid-tile>
@@ -73,12 +73,12 @@
       <mat-grid-tile  [colspan]="1">{{li.fName}}</mat-grid-tile>
       <mat-grid-tile [colspan]= "1">{{li.lName}}</mat-grid-tile>
       <mat-grid-tile  [colspan]="1">{{li.email}}</mat-grid-tile>
-      <mat-grid-tile [colspan]= "1"></mat-grid-tile>
+      <mat-grid-tile [colspan]= "1">{{li.admin}}</mat-grid-tile>
       <mat-grid-tile [colspan]= "1"> 
-        <button class="edit-btn" mat-button (click)="editScript(li)">
+        <button class="edit-btn" mat-button (click)="editUser(li)">
           <mat-icon id="edit-icon" svgIcon="edit"></mat-icon>
         </button>
-        <button class="delete-btn" mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">
+        <button class="delete-btn" mat-button (click)="deleteUser(li)" >
         <mat-icon id="delete-icon" svgIcon="delete"></mat-icon>
       </button>
     </mat-grid-tile>

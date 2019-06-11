@@ -25,7 +25,7 @@ import { EditScriptComponent } from './components/edit-script/edit-script.compon
 import { UpdateDetailsComponent } from './components/update-details/update-details.component';
 import { CartService } from './cart.service';
 import { NgxPayPalModule } from 'ngx-paypal'
-import { AdminComponent } from './components/admin/admin.component';
+import { AdminComponent, confirmDelete } from './components/admin/admin.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ViewScriptComponent } from './components/view-script/view-script.component';
 import { FooterComponent, terms, contact } from './components/footer/footer.component';
@@ -73,7 +73,8 @@ import { confirm} from './components/cart/cart.component';
     MinPricePipe,
     SubCategoryPipe,
     confirm,
-    scriptprivacy
+    scriptprivacy,
+    confirmDelete
 
   ],
   imports: [

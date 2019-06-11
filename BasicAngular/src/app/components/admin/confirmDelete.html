@@ -1,0 +1,5 @@
+<mat-grid-list cols="2" rowHeight= "60px">
+    <mat-grid-tile [colspan]= "2"><h3>Are you sure you wish to delete?</h3></mat-grid-tile>
+    <mat-grid-tile><button mat-button (click) = "closeDialog('yes')">Yes</button></mat-grid-tile>
+    <mat-grid-tile><button mat-button (click) = "closeDialog('no')">Cancel</button></mat-grid-tile>
+</mat-grid-list>

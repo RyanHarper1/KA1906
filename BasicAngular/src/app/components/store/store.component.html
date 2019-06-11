@@ -44,7 +44,7 @@
 
 <div *ngIf = loggedIn>
     
-  <mat-drawer-container [hasBackdrop]="false" #mode value="top">
+  <mat-drawer-container [hasBackdrop]="false" #mode value="top" >
 
     <mat-drawer #drawer [mode]="mode.value" class="search-drawer">
       <button mat-raised-button class="clear-btn"><mat-icon class="clear-icon" svgIcon="clear"></mat-icon>Clear filter</button>
