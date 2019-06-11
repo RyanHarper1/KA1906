@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 
 export class ScriptShareSubscribeComponent implements OnInit {
   isLinear = false;
+  test:any;
   checked = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;

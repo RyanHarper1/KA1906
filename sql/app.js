@@ -135,6 +135,25 @@ app.post('/addscript', (req, res) => {
     });
 });
 
+app.post('/updatescripttime', (req, res) => {
+
+     let sql = 'UPDATE script SET edited = curdate() WHERE scriptId = ' + req.body.scriptId
+
+    console.log(sql);
+    let query = db.query(sql, (err, result) => {
+        if (err) {
+            throw err;
+        } else {
+            console.log("successfully entered");
+
+            reply = {
+                result: 'success', scriptId: result.insertId
+            }
+        }
+        res.send(reply);
+    });
+});
+
 
 
 //addscript questions/pitches
