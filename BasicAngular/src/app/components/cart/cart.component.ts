@@ -21,10 +21,7 @@ declare let paypal: any;//Paypal Test
   styleUrls: ['./cart.component.scss'],
 })
 
-@Component({
-  selector: 'confirm',
-  templateUrl: 'confirm.html'
-})
+
 
 export class CartComponent implements OnInit {
   constructor(private Http: HttpClient, private Auth : AuthService, private router: Router, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, public dialog: MatDialog) {
@@ -101,7 +98,7 @@ export class CartComponent implements OnInit {
           console.log('Transaction completed ' + payment.invoice_number);
           this.clearCart(this.list.usersID);
           this.confirmation();
-          this.router.navigate(['/../current-scripts']);
+          this.router.navigate(['current-scripts']);
         })
       }
     };
@@ -163,7 +160,10 @@ getTotal(): number {
   }
 
 }
-
+@Component({
+  selector: 'confirm',
+  templateUrl: 'confirm.html'
+})
 export class confirm implements OnInit {
   price: any;
   constructor(public dialogRef: MatDialogRef<confirm>) {

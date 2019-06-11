@@ -41,6 +41,7 @@ import { CategoryPipe } from './pipes/category.pipe';
 import { MinPricePipe } from './pipes/min-price.pipe';
 import { SubCategoryPipe } from './pipes/sub-category.pipe';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { confirm} from './components/cart/cart.component';
 
 
 @NgModule({
@@ -71,6 +72,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     CategoryPipe,
     MinPricePipe,
     SubCategoryPipe,
+    confirm
+
   ],
   imports: [
     FormsModule,
