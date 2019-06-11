@@ -105,6 +105,16 @@ export class CurrentScriptsComponent implements OnInit {
 
 
   }
+  deleteUploadedScript(script) {
+    let del = this.Http.post('http://localhost:3000/deleteUploadedScript', { scriptId: script.scriptID });
+    del.subscribe((response) => {
+
+      this.ngOnInit()
+    });
+    console.log(script);
+
+
+  }
   uploadScript(script) {
     const dialogRef = this.dialog.open(uploadForm, {
       width: '700px'
@@ -116,7 +126,7 @@ export class CurrentScriptsComponent implements OnInit {
         // let dateFormat = require('dateformat');
         let now = new Date();
         // let date = String(dateFormat(now, "dd/mm/yyyy"));
-        let upload = this.Http.post('http://localhost:3000/upload-script', { usersID: this.Auth.id, scriptID: script.scriptId, uploadDate: now, scriptName: script.scriptName, price: result, category: script.category, question: Number(script.firstQuestionId), description: script.description });
+        let upload = this.Http.post('http://localhost:3000/upload-script', { usersID: this.Auth.id, scriptID: script.scriptId, uploadDate: now, scriptName: script.scriptName, price: result, category: script.category, question: Number(script.firstQuestionId), description: script.description , subCategory: script.subcategory});
         upload.subscribe((response) => {
           console.log(response)
           this.ngOnInit();

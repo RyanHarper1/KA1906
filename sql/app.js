@@ -265,6 +265,25 @@ app.post('/delete-script', (req, res) => {
         res.send(reply);
     });
 });
+
+app.post('/deleteUploadedScript', (req, res) => {
+    let script = { texts: req.body.texts, questionId: req.body.questionId };
+    let sql = 'DELETE FROM store WHERE scriptID  = ' + req.body.scriptId;
+    console.log("On server side");
+    console.log(sql);
+    let query = db.query(sql, (err, result) => {
+        if (err) {
+            throw err;
+        } else {
+            console.log("successfully deleted");
+
+            reply = {
+                result: 'success'
+            }
+        }
+        res.send(reply);
+    });
+});
 //Delete cart Item
 app.post('/delete-item', (req, res) => {
     let cart = { storeID: req.body.storeID, usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, description: req.body.description, rating: req.body.rating, uploadDate: req.body.uploadDate, category: req.body.category };
@@ -413,7 +432,7 @@ app.post('/upload-script', (req, res) => {
         if (result == null) {
             console.log('No current entries')
             let sql = 'INSERT INTO store SET ?';
-            let values = { usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, uploadDate: req.body.uploadDate, question: req.body.question, category: req.body.category, rating: 0, description: req.body.description }
+            let values = { usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, uploadDate: req.body.uploadDate, question: req.body.question, category: req.body.category, rating: 0, description: req.body.description, subCategory: req.body.subCategory }
             let query = db.query(sql, values, (err, result) => {
                 if (err) {
                     throw err;
@@ -425,7 +444,7 @@ app.post('/upload-script', (req, res) => {
             let query2 = "DELETE FROM store WHERE scriptID = " + req.body.scriptID
             let execute2 = db.query(query2, (err, result) => {
                 let sql = 'INSERT INTO store SET ?';
-                let values = { usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, uploadDate: req.body.uploadDate, question: req.body.question, category: req.body.category, rating: 0, description: req.body.description }
+                let values = { usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, uploadDate: req.body.uploadDate, question: req.body.question, category: req.body.category, rating: 0, description: req.body.description, subCategory:req.body.subCategory }
                 let query3 = db.query(sql, values, (err, result) => {
                     if (err) {
                         throw err;
