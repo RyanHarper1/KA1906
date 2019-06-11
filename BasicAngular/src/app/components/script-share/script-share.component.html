@@ -244,13 +244,13 @@
                       <th>Template</th>
                     </tr>
             
-                    <tr *ngFor="let li of list">
-                      <td>{{li.scriptName}}</td>
-                      <td>{{li.description}}</td>
-                      <td>{{li.category}}</td>
-                      <td>{{li.subcategory}}</td>
-                      <td>{{li.edited}}</td>
-                      <td>{{li.template}}</td>
+                    <tr *ngFor="let ln of list2">
+                      <td>{{ln?.scriptName}}</td>
+                      <td>{{ln?.description}}</td>
+                      <td>{{ln?.category}}</td>
+                      <td>{{ln?.subcategory}}</td>
+                      <td>{{ln?.edited}}</td>
+                      <td>{{ln?.template}}</td>
                       <td>
                           <div class="btn-group">
                             <button class="btn-v" (click) ="viewScript(li)">view<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>

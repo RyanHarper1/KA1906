@@ -32,7 +32,7 @@ export class ScriptShareComponent implements OnInit {
 
   ngOnInit() {
     this.list = {}
-    
+    this.list2 =[]
     this.logged = this.auth.loggedIn;
     this.orgId = this.auth.orgId;
     console.log(this.orgId)
@@ -41,10 +41,11 @@ export class ScriptShareComponent implements OnInit {
       scripts.subscribe((response) => {
         this.list = response;
         for (let i = 0; i < this.list.length;i++){
+          console.log(this.list[i].scriptId)
           let get = this.Http.post('http://localhost:3000/get-script', {scriptId: this.list[i].scriptId});
           get.subscribe((response1) => {
-            this.list2 = response1;
-            console.log('test: ' + this.list2[i].scriptName)
+            this.list2[i] = response1[0];
+            console.log(this.list2[i])
           
         });
       }

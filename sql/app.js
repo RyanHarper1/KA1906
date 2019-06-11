@@ -531,7 +531,18 @@ app.post('/get-orgscripts', (req, res) => {
     });
 
 });
+app.post('/sharescript', (req, res) => {
+    let sql = 'INSERT INTO orgScripts SET ?'
+    let script = {scriptId:req.body.scriptId, orgId: req.body.orgId}
+    let query = db.query(sql,script, (err, result) => {
+        if (err) {
+            throw err;
+        }
+        console.log(result);
+        res.send(result);
+    });
 
+});
 
 app.listen('3000', () => {
     console.log('server started on port 3000');

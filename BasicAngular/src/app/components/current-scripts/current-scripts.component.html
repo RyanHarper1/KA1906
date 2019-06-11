@@ -99,6 +99,7 @@
                 <button class="btn-v" (click) ="viewScript(li)">view<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>
                 <button class="btn-e" (click)="editScript(li)">edit<mat-icon id="crnt-icon" svgIcon="edit"></mat-icon> </button>
                 <button class="btn-u" (click)='uploadScript(li)'>upload<mat-icon id="crnt-icon" svgIcon="upload"></mat-icon> </button>
+                <button class="btn-v" (click) ="shareScript(li)" *ngIf ="Auth.orgId !=null">Share<mat-icon id="crnt-icon" ></mat-icon> </button>
                 <button class="btn-d" (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">remove<mat-icon id="delete-icon" svgIcon="delete"></mat-icon></button>
               </div>
           </td>
@@ -168,6 +169,7 @@
             <td><star-rating [starType]="'icon'" [rating]="2.63"></star-rating></td>
             <td>
               <div class="btn-group-special">
+                <button class="btn-v" (click) ="sharePurchasedScript(lp)" *ngIf ="Auth.orgId !=null">Share<mat-icon id="crnt-icon" ></mat-icon> </button>
                 <button class="btn-v" (click) ="viewUploadedScript(lp)">VIEW<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>
              </div>
             </td>

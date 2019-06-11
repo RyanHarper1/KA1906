@@ -9,7 +9,7 @@ import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ViewScriptService } from 'src/app/view-script.service';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-
+import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-current-scripts',
@@ -25,8 +25,8 @@ export class CurrentScriptsComponent implements OnInit {
   columns = ['scriptName', 'category'];
   username: String;
   loggedIn = false;
-  purchasedList:any;
-  constructor(public dialog: MatDialog, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, private Http: HttpClient, private Auth: AuthService, private router: Router, private editService: EditServiceService, private viewService: ViewScriptService) {
+  purchasedList: any;
+  constructor(private snackBar: MatSnackBar, private dialog: MatDialog, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, private Http: HttpClient, private Auth: AuthService, private router: Router, private editService: EditServiceService, private viewService: ViewScriptService) {
 
     iconRegistry.addSvgIcon(
       'upload',
@@ -95,14 +95,30 @@ export class CurrentScriptsComponent implements OnInit {
     this.router.navigate(['edit-script']);
 
   }
+  shareScript(script) {
+    console.log('sharing')
+    let share = this.Http.post('http://localhost:3000/sharescript', { scriptId: script.scriptId, orgId: this.Auth.orgId })
+    share.subscribe((result) => {
+      let snackBarRef = this.snackBar.open('Successfully Shared');
+    });
+  }
+  sharePurchasedScript(script) {
+    console.log('sharing')
+    let share = this.Http.post('http://localhost:3000/sharescript', { scriptId: script.scriptID, orgId: this.Auth.orgId })
+    share.subscribe((result) => {
+      let snackBarRef = this.snackBar.open('Successfully Shared');
+    });
+  }
   deleteScript(script) {
     let del = this.Http.post('http://localhost:3000/delete-script', { scriptId: script.scriptId });
     del.subscribe((response) => {
 
       this.ngOnInit()
+      let snackBarRef = this.snackBar.open('Successfully Deleted');
     });
     console.log(script);
-
+    let temp = {scriptID: script.scriptId}
+    this.deleteUploadedScript(temp)
 
   }
   deleteUploadedScript(script) {
@@ -110,6 +126,7 @@ export class CurrentScriptsComponent implements OnInit {
     del.subscribe((response) => {
 
       this.ngOnInit()
+      let snackBarRef = this.snackBar.open('Successfully Deleted');
     });
     console.log(script);
 
@@ -126,10 +143,11 @@ export class CurrentScriptsComponent implements OnInit {
         // let dateFormat = require('dateformat');
         let now = new Date();
         // let date = String(dateFormat(now, "dd/mm/yyyy"));
-        let upload = this.Http.post('http://localhost:3000/upload-script', { usersID: this.Auth.id, scriptID: script.scriptId, uploadDate: now, scriptName: script.scriptName, price: result, category: script.category, question: Number(script.firstQuestionId), description: script.description , subCategory: script.subcategory});
+        let upload = this.Http.post('http://localhost:3000/upload-script', { usersID: this.Auth.id, scriptID: script.scriptId, uploadDate: now, scriptName: script.scriptName, price: result, category: script.category, question: Number(script.firstQuestionId), description: script.description, subCategory: script.subcategory });
         upload.subscribe((response) => {
           console.log(response)
           this.ngOnInit();
+          let snackBarRef = this.snackBar.open('Successfully Uploaded');
         });
       }
 
