@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
-import { MatIconRegistry } from '@angular/material';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-script-share',
@@ -12,23 +10,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class ScriptShareComponent implements OnInit {
   logged = false;
-  orgId: any;
+  orgId = "";
   list: any;
   list2: any;
-  constructor(private auth: AuthService, private Http: HttpClient,sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) {
-    iconRegistry.addSvgIcon(
-      'upload',
-      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/upload-solid.svg'));
-    iconRegistry.addSvgIcon(
-      'edit',
-      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/edit-regular.svg'));
-    iconRegistry.addSvgIcon(
-      'delete',
-      sanitizer.bypassSecurityTrustResourceUrl('../assets/times-solid.svg'));
-      iconRegistry.addSvgIcon(
-      'view',
-      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/eye-regular.svg'));
-   }
+  constructor(private auth: AuthService, private Http: HttpClient) { }
 
   ngOnInit() {
     this.list = {}

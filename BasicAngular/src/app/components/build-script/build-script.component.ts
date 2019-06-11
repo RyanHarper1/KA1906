@@ -104,15 +104,6 @@ export class BuildScriptComponent implements OnInit {
     iconRegistry.addSvgIcon(
       'remove',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/red-cross.svg'));
-    // iconRegistry.addSvgIcon(
-    //   'record',
-    //  sanitizer.bypassSecurityTrustResourceUrl('../assets/img/microphone-solid.svg'));
-    // iconRegistry.addSvgIcon(
-    //   'pause',
-    //   sanitizer.bypassSecurityTrustResourceUrl('../assets/img/pause-solid.svg'));
-    // iconRegistry.addSvgIcon(
-    //   'stop',
-    //   sanitizer.bypassSecurityTrustResourceUrl('../assets/img/stop-solid.svg'));
     iconRegistry.addSvgIcon(
       'bold',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/bold-solid.svg'));
@@ -433,5 +424,7 @@ export class DialogForm implements OnInit {
 
   }
 
+
+  
 
 }

@@ -69,7 +69,9 @@
     height: 230px;
   }
   
-
+  ::ng-deep .div.mat-card-header-text{
+    margin: 0;
+  }
   .mat-card-header-text{
     // margin-left: auto;
     // margin-right: auto;
@@ -97,7 +99,9 @@
     
   }
   
- 
+  .div.mat-card-header-text{
+    margin: 0;
+  }
   .monthly{
     text-align: center;
     margin-left: auto;
@@ -122,17 +126,10 @@
   .mat-card-actions.subscribe-actions.mat-card-actions{
     padding: 8px 0;
     text-align: center;
-    float: none;
   }
 
   .price-bill-container{
     text-align: center;
-  }
-
-  .users{
-    font-size: 20pt;
-    font-variant-caps: all-petite-caps;
-    font-weight: bolder;
   }
   
   /*Styling for mat tab e.g. saved, uploaded, purchased for share script*/

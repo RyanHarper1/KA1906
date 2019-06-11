@@ -1,40 +1,62 @@
-
 /*START BANNER*/
 .banner-img{
-    object-fit: contain;
-    object-position: right;
-    }
-  
-    .title{
-      top: 35%;
-    }
-  
-  /*END BANNER*/
-  
-  /*START SCRIPT DETAILS*/
-    // .script-details-container{
-    //   text-align: center;
-    //   margin-left: auto;
-    //   margin-right: auto;
-    //   margin-top: 50px;
-    //   margin-bottom: 50px;
-    // }
-  
-    .input-details{
-      display: flex;
-      border: none;
-      font-size: 14pt;
-      margin-right: 300px;
-    }
-  
-    .script-details{
-      display: inline;
-      font-weight: bold;
-      padding-left: 1em;
-      padding-right: 1em;
-      font-size: 14pt;
-      margin-left: 60px;
-    }
+  object-fit: contain;
+  object-position: right;
+  }
+
+  .title{
+    top: 35%;
+  }
+
+/*END BANNER*/
+
+/*START SCRIPT DETAILS*/
+  .script-details-container{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .input-details{
+    display: inline-block;
+    border: none;
+    font-size: 14pt;
+  }
+
+  .script-details{
+    display: inline;
+    font-weight: bold;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: 14pt;
+  }
+
+/*END SCRIPT DETAILS*/
+
+  .next-answer{
+    top: 0;
+    padding: 0;
+    float: left;
+  }
+
+  .answer-title{
+    display: inline-block;
+    margin: 20px auto;
+    font-size: 18pt;
+    vertical-align: middle;
+    color: white;
+    position: relative;
+    font-variant-caps: all-petite-caps;
+    letter-spacing: 2pt;
+   }
+
+  .remove-answer{
+    top: 0;
+    padding: 0;
+    float: right;
+  }
   
   /*END SCRIPT DETAILS*/
 
@@ -72,22 +94,33 @@
   }
   /*****************BUTTON ROW***************/
   
-    .next-answer{
-      top: 0;
-      padding: 0;
-      float: left;
-    }
+  .mat-card-header{
+    display: flex;
+    flex-direction: row;
+    background: #3a4f6e;
+  }
+
+  .boxed-pitch{
+    justify-items: stretch;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: auto;
+    display: block;
+    width: 90%;
+    background: #3a4f6e;
+    box-shadow: 5px 10px 8px #b9b9b3;
+  }
   
-    .answer-title{
-      display: inline-block;
-      margin: 20px auto;
-      font-size: 18pt;
-      vertical-align: middle;
+  .pitch-title{
       color: white;
-      position: relative;
+      text-align: center;
+      font-size: 30pt;
+      font-weight: 500;
+      margin-top: 10px;
+      margin-bottom: 10px;
       font-variant-caps: all-petite-caps;
       letter-spacing: 2pt;
-     }
   
     .remove-answer{
       top: 0;
@@ -97,105 +130,38 @@
     
     
 
-    ::ng-deep .mat-card.view-card.mat-card{
-      display: inline-block;
-      box-shadow: 5px 10px 8px #b9b9b3;
-      padding: 0;
-      position: relative;
-      width: 90%;
-    }
-    
-    .mat-card-header{
-      display: flex;
-      flex-direction: row;
-      background: #3a4f6e;
-    }
-  
-    .boxed-pitch{
-      justify-items: stretch;
-      margin-left: auto;
-      margin-right: auto;
+    .edit-icon{
+      margin-left: 40px;
+      margin-right: 40px;
       margin-top: 10px;
-      margin-bottom: auto;
-      display: block;
-      width: 90%;
-      background: #3a4f6e;
-      box-shadow: 5px 10px 8px #b9b9b3;
-    }
-    
-    .pitch-title{
-        color: white;
-        text-align: center;
-        font-size: 30pt;
-        font-weight: 500;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        font-variant-caps: all-petite-caps;
-        letter-spacing: 2pt;
+      margin-bottom: 10px;
+      display: inline-block;
+      
     
     }
-    
-    textarea {
-      margin: 0;
-      border: none;
-      width: 100%;
-      vertical-align: bottom;
-      background: #f1f1f1;
-      resize: none;
-      font-size: 20px;
-      box-sizing: border-box;
-      padding: 10px;
-      font-family: sans-serif;
-    }
-    
-    textarea::first-letter{
-      text-transform: uppercase;
-    }
-
-
   
-    .edit-ribbon-container{
-      background: #3a4f6e;
-      border: 1px solid black;
+    .save-edit-container{
       text-align: center;
+      background: #f1f1f1;
       padding-left: 10%;
       padding-right: 10%;
+    
     }
-  
-  
-      .edit-icon{
-        margin-left: 40px;
-        margin-right: 40px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        display: inline-block;
-        
-      
-      }
-    
-      .save-edit-container{
-        text-align: center;
-        background: #f1f1f1;
-        padding-left: 10%;
-        padding-right: 10%;
-      
-      }
-      .save-btn{
-        background: orangered;
-        color: white;
-        margin-left: 30px;
-        margin-right: 30px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-      }
-  
-      .edit-btn{
-        background: orange;
-        color: white;
-        margin-left: 40px;
-        margin-right: 40px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-      }
-   
-    
+    .save-btn{
+      background: orangered;
+      color: white;
+      margin-left: 30px;
+      margin-right: 30px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .edit-btn{
+      background: orange;
+      color: white;
+      margin-left: 40px;
+      margin-right: 40px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }

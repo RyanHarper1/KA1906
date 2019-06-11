@@ -30,6 +30,8 @@
 }
 /*END SCRIPT DETAILS*/
 
+
+
 .next-answer{
   top: 0;
   padding: 0;
@@ -185,6 +187,30 @@ textarea {
  :ng-deep .edit-icon.mat-button{
   justify-content: space-between;
 }
+
+.toolbar-editor{
+  justify-content: space-around;
+  background: white;
+
+}
+
+:host app-ngx-editor /deep/ .ngx-editor[_ngcontent-c11], .ngx-wrapper[_ngcontent-c11], .ngx-editor-textarea[_ngcontent-c11], {
+  min-height: 100px;
+  border: 1px solid #ddd;
+  background-color: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 2;
+  position: relative;
+}
+
+// .ngx-editor-textarea{
+//   min-height: 100px;
+// }
+
+
+
+
 
   .save-edit-container{
     text-align: center;
