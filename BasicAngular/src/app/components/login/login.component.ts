@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit(event) {
+  onSubmit() {
    this.submitted = true;
 
    if (this.logInForm.invalid) {

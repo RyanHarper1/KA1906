@@ -29,11 +29,11 @@ export class RegisterComponent implements OnInit {
 
   //  dialog: any;
 
-  constructor(public dialog: MatDialog,private router: Router,private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient) {
+  constructor(public dialog: MatDialog,private router: Router,public Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient) {
 
   }
 
-  onSubmit(AuthService) {
+  onSubmit() {
 
     if (this.registerForm.value.password != this.registerForm.value.confirmPass) {
       alert('Passwords do not match')
