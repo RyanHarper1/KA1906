@@ -61,5 +61,8 @@ export class ScriptShareComponent implements OnInit {
       this.ngOnInit()
     })
   }
+  subscribe(){
+    this.router.navigate(['subscribe']);
+  }
 
 }
