@@ -38,17 +38,17 @@
               <mat-form-field class="form-field">
                 <input class="form-input" matInput placeholder="Contact Number" formControlName="firstCtrl" required>
               </mat-form-field>
-              <mat-form-field class="form-field">
+              <!-- <mat-form-field class="form-field">
                 <input class="form-input" matInput placeholder="ABN" formControlName="firstCtrl" required>
-              </mat-form-field>
+              </mat-form-field> -->
               <mat-form-field class="form-field">
                 <input class="form-input" matInput placeholder="Company Address" formControlName="firstCtrl" required>
               </mat-form-field>
               <mat-form-field class="form-field">
                 <input class="form-input" matInput placeholder="Password" formControlName="firstCtrl" required>
               </mat-form-field>
-              <mat-form-field>
-                <mat-select class="form-field" matInput placeholder="Category" formControlName="firstCtrl" required>
+              <mat-form-field class="form-field" >
+                <mat-select matInput placeholder="Category" formControlName="firstCtrl" required>
                   <mat-option value="Hospitality">Hospitality</mat-option>
                   <mat-option value="Trades">Trades</mat-option>
                   <mat-option value="Accounting">Accounting</mat-option>
@@ -304,7 +304,7 @@
             <mat-card-actions> <button mat-button>Checkout</button>
               <div id="paypal-checkout-btn"></div>
             </mat-card-actions>
-            <button class="buttons" mat-button (click)="openTerms()">Terms and Conditions</button>
+            <!-- <button class="buttons" mat-button (click)="openTerms()">Terms and Conditions</button> -->
           </mat-card>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="1"></mat-grid-tile>
