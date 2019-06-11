@@ -133,7 +133,7 @@
           <td>
             <div class="btn-group-special">
             <button class="btn-v" (click) ="viewUploadedScript(lo)">view<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>
-            <button class="btn-d" (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">remove<mat-icon id="delete-icon" svgIcon="delete"></mat-icon></button>
+            <button class="btn-d" (click)="deleteUploadedScript(lo)" [routerLink]="[ '/current-script' ]">remove<mat-icon id="delete-icon" svgIcon="delete"></mat-icon></button>
             </div>
         </td>
           </tr>
@@ -169,8 +169,7 @@
             <td>
               <div class="btn-group-special">
                 <button class="btn-v" (click) ="viewUploadedScript(lp)">VIEW<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>
-                <button class="btn-d" (click)="deleteScript(li)" [routerLink]="[ '/current-script']">REMOVE<mat-icon id="delete-icon" svgIcon="delete"></mat-icon></button>
-              </div>
+             </div>
             </td>
           </table> 
  

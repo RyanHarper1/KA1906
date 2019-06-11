@@ -1,291 +1,316 @@
 <div class="bckgrnd-img">
 
-<mat-grid-list cols=5 rowHeight="500px">
-  <mat-grid-tile [colspan]="1"><img class="icon" src="/assets/img/WhiteLogo.png" alt="logo"  width="100%"></mat-grid-tile>
-  <mat-grid-tile [colspan]="3">
+  <mat-grid-list cols=5 rowHeight="500px">
+    <mat-grid-tile [colspan]="1"><img class="icon" src="/assets/img/WhiteLogo.png" alt="logo" width="100%">
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3">
       <div class="title">Subscribe to</div>
       <div class="sales-script">Script Share</div>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="1"></mat-grid-tile>
-</mat-grid-list>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1"></mat-grid-tile>
+  </mat-grid-list>
 
   <mat-horizontal-stepper style="background: none" [linear]="isLinear" #stepper>
-     
+
     <mat-step [stepControl]="firstFormGroup">
-        <ng-template matStepLabel>Register company</ng-template>
+      <ng-template matStepLabel>Register company</ng-template>
       <mat-grid-list cols=5 rowHeight="1000px">
-          <form [formGroup]="firstFormGroup">
-        <mat-grid-tile [colspan]="1"></mat-grid-tile>
-        <mat-grid-tile [colspan]="3">
-            
-                <div id="form-area">
-                    <div class="heading-inbox"><h1>Register here</h1></div>
-                <mat-form-field class="form-field">
-                    <input class="form-input" matInput placeholder="First name" formControlName="firstCtrl" required>
-                </mat-form-field>
-                <mat-form-field class="form-field">
-                    <input class="form-input" matInput placeholder="Last name" formControlName="firstCtrl" required>
-                </mat-form-field>
-                <mat-form-field class="form-field">
-                    <input class="form-input" matInput placeholder="Company name" formControlName="firstCtrl" required>
-                </mat-form-field>
-                <mat-form-field class="form-field">
-                    <input class="form-input" matInput placeholder="Email Address" formControlName="firstCtrl" required>
-                </mat-form-field>
-                <mat-form-field class="form-field">
-                    <input class="form-input" matInput placeholder="Contact Number" formControlName="firstCtrl" required>
-                </mat-form-field>
-                <mat-form-field class="form-field">
-                    <input class="form-input" matInput placeholder="ABN" formControlName="firstCtrl" required>
-                </mat-form-field>
-                <mat-form-field class="form-field">
-                    <input class="form-input" matInput placeholder="Company Address" formControlName="firstCtrl" required>
-                </mat-form-field>
-                <mat-form-field class="form-field">
-                    <input class="form-input" matInput placeholder="Password" formControlName="firstCtrl" required>
-                </mat-form-field>
-                <mat-form-field>
-                    <mat-select class="form-field" matInput placeholder="Category" formControlName="firstCtrl" required>
-                        <mat-option value="Hospitality">Hospitality</mat-option>
-                        <mat-option value="Trades">Trades</mat-option>
-                        <mat-option value="Accounting">Accounting</mat-option>
-                        <mat-option value="Health">Health</mat-option>
-                        <mat-option value="Sales and Marketing">Sales and Marketing</mat-option>
-                        <mat-option value="Management">Management</mat-option>
-                        <mat-option value="Manufacturing">Manufacturing</mat-option>
-                        <mat-option value="Government">Government</mat-option>
-                        <mat-option value="Engineering & Information Technology">Engineering & Information Technology</mat-option>
-                        <mat-option value="Banking & Finance">Banking & Finance</mat-option>
-                      </mat-select>
-                </mat-form-field>
-                <div class="checkbox-container">
-               <mat-checkbox type="checkbox" formControlName="firstCtrl" required>I agree to <a (click) = "openPrivacy()">Script Share terms and conditions</a></mat-checkbox>
-               </div>
-               <button class="reset-btn" mat-button (click)="stepper.reset()">Reset</button>
-               </div>
-               
-        </mat-grid-tile>
-        <mat-grid-tile [colspan]="1">
-            <div class="next-btn"><button class="next-btn" mat-button matStepperNext><mat-icon class="right-left-icon" svgIcon="right"></mat-icon></button></div>  
-        </mat-grid-tile>
-      </form>
+        <form [formGroup]="firstFormGroup">
+          <mat-grid-tile [colspan]="1"></mat-grid-tile>
+          <mat-grid-tile [colspan]="3">
+
+            <div id="form-area">
+              <div class="heading-inbox">
+                <h1>Register here</h1>
+              </div>
+              <mat-form-field class="form-field">
+                <input class="form-input" matInput placeholder="First name" formControlName="firstCtrl" required>
+              </mat-form-field>
+              <mat-form-field class="form-field">
+                <input class="form-input" matInput placeholder="Last name" formControlName="firstCtrl" required>
+              </mat-form-field>
+              <mat-form-field class="form-field">
+                <input class="form-input" matInput placeholder="Company name" formControlName="firstCtrl" required>
+              </mat-form-field>
+              <mat-form-field class="form-field">
+                <input class="form-input" matInput placeholder="Email Address" formControlName="firstCtrl" required>
+              </mat-form-field>
+              <mat-form-field class="form-field">
+                <input class="form-input" matInput placeholder="Contact Number" formControlName="firstCtrl" required>
+              </mat-form-field>
+              <mat-form-field class="form-field">
+                <input class="form-input" matInput placeholder="ABN" formControlName="firstCtrl" required>
+              </mat-form-field>
+              <mat-form-field class="form-field">
+                <input class="form-input" matInput placeholder="Company Address" formControlName="firstCtrl" required>
+              </mat-form-field>
+              <mat-form-field class="form-field">
+                <input class="form-input" matInput placeholder="Password" formControlName="firstCtrl" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-select class="form-field" matInput placeholder="Category" formControlName="firstCtrl" required>
+                  <mat-option value="Hospitality">Hospitality</mat-option>
+                  <mat-option value="Trades">Trades</mat-option>
+                  <mat-option value="Accounting">Accounting</mat-option>
+                  <mat-option value="Health">Health</mat-option>
+                  <mat-option value="Sales and Marketing">Sales and Marketing</mat-option>
+                  <mat-option value="Management">Management</mat-option>
+                  <mat-option value="Manufacturing">Manufacturing</mat-option>
+                  <mat-option value="Government">Government</mat-option>
+                  <mat-option value="Engineering & Information Technology">Engineering & Information Technology
+                  </mat-option>
+                  <mat-option value="Banking & Finance">Banking & Finance</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div class="checkbox-container">
+                <mat-checkbox type="checkbox" formControlName="firstCtrl" required>I agree to <a
+                    (click)="openPrivacy()">Script Share terms and conditions</a></mat-checkbox>
+              </div>
+              <button class="reset-btn" mat-button (click)="stepper.reset()">Reset</button>
+            </div>
+
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="1">
+            <div class="next-btn"><button class="next-btn" mat-button matStepperNext>
+                <mat-icon class="right-left-icon" svgIcon="right"></mat-icon>
+              </button></div>
+          </mat-grid-tile>
+        </form>
       </mat-grid-list>
-      
+
     </mat-step>
 
     <mat-step [stepControl]="secondFormGroup">
-        <ng-template matStepLabel>Confirm Plan</ng-template>
-        <mat-grid-list cols=8 rowHeight="1000px">
-            <form [formGroup]="secondFormGroup">
-                <mat-radio-group matInput formControlName="secondCtrl" required class="radio-group">
+      <ng-template matStepLabel>Confirm Plan</ng-template>
+      <mat-grid-list cols=8 rowHeight="1000px">
+        <form [formGroup]="secondFormGroup">
+          <mat-radio-group matInput formControlName="secondCtrl" required class="radio-group">
             <mat-grid-tile [colspan]="1">
-                <div class="next-btn"><button class="next-btn" mat-button matStepperPrevious><mat-icon class="right-left-icon" svgIcon="left"></mat-icon></button></div>  
+              <div class="next-btn"><button class="next-btn" mat-button matStepperPrevious>
+                  <mat-icon class="right-left-icon" svgIcon="left"></mat-icon>
+                </button></div>
             </mat-grid-tile>
             <mat-grid-tile [colspan]="6">
-                
-                      <div class="twenty-users">
-                          <label class="radio-group-label">1-20 Users</label>
-                          <mat-radio-button class="radio-button" [value]="season">
-                            <mat-card class="script-share-card">
-                                <mat-card-header class="share-script-header-cards">
-                                  <div class="monthly">Monthly</div>
-                                </mat-card-header>
-                                <mat-card-title>
-                                  <div class="price-bill-container">
-                                 <div class="price">$40</div><div class="month">/ month</div>
-                                 <div class="billed-monthly">Billed Monthly</div>
-                                </div>
-                              </mat-card-title>
-                                 
-                              </mat-card>
-                        </mat-radio-button>
-                        <br><br>
-                        <mat-radio-button class="radio-button" [value]="season">
-                            <mat-card class="script-share-card">
-                                <mat-card-header class="share-script-header-cards">
-                                  <div class="monthly">Quarterly</div>
-                                </mat-card-header>
-                                <mat-card-title>
-                                  <div class="price-bill-container">
-                                 <div class="price">$160</div><div class="month">/ quarter</div>
-                                 <div class="billed-monthly">Billed Quarterly</div>
-                                </div>
-                              </mat-card-title>
-                                 
-                              </mat-card>
-                        </mat-radio-button>
 
-                        <br><br>
-                        <mat-radio-button class="radio-button" [value]="season">
-                            <mat-card class="script-share-card">
-                                <mat-card-header class="share-script-header-cards">
-                                  <div class="monthly">Yearly</div>
-                                </mat-card-header>
-                                <mat-card-title>
-                                  <div class="price-bill-container">
-                                 <div class="price">$480</div><div class="month">/ year</div>
-                                 <div class="billed-monthly">Billed Yearly</div>
-                                </div>
-                              </mat-card-title>
-                                 
-                              </mat-card>
-                        </mat-radio-button>
+              <div class="twenty-users">
+                <label class="radio-group-label">1-20 Users</label>
+                <mat-radio-button class="radio-button" [value]="1">
+                  <mat-card class="script-share-card">
+                    <mat-card-header class="share-script-header-cards">
+                      <div class="monthly">Monthly</div>
+                    </mat-card-header>
+                    <mat-card-title>
+                      <div class="price-bill-container">
+                        <div class="price">$40</div>
+                        <div class="month">/ month</div>
+                        <div class="billed-monthly">Billed Monthly</div>
                       </div>
-                 
-                  <div class="hundy-users">
-                    <label class="radio-group-label"> 20-100 Users </label>
-                    <mat-radio-button class="radio-button" [value]="season">
-                      <mat-card class="script-share-card">
-                          <mat-card-header class="share-script-header-cards">
-                            <div class="monthly">Monthly</div>
-                          </mat-card-header>
-                          <mat-card-title>
-                            <div class="price-bill-container">
-                           <div class="price">$80</div><div class="month">/ month</div>
-                           <div class="billed-monthly">Billed Monthly</div>
-                          </div>
-              </mat-card-title>
-                           
-                        </mat-card>
-                  </mat-radio-button>
-                  <br><br>
-                  <mat-radio-button class="radio-button" [value]="season">
-                      <mat-card class="script-share-card">
-                          <mat-card-header class="share-script-header-cards">
-                            <div class="monthly">Quarterly</div>
-                          </mat-card-header>
-                          <mat-card-title>
-                            <div class="price-bill-container">
-                           <div class="price">$320</div><div class="month">/ quarter</div>
-                           <div class="billed-monthly">Billed Quarterly</div>
-                          </div>
-                        </mat-card-title>
-                           
-                        </mat-card>
-                  </mat-radio-button>
-                  <br><br>
-                  <mat-radio-button class="radio-button" [value]="season">
-                      <mat-card class="script-share-card">
-                          <mat-card-header class="share-script-header-cards">
-                            <div class="monthly">Yearly</div>
-                          </mat-card-header>
-                          <mat-card-title>
-                            <div class="price-bill-container">
-                           <div class="price">$960</div><div class="month">/ year</div>
-                           <div class="billed-monthly">Billed Yearly</div>
-                          </div>
-                        </mat-card-title>
-                        </mat-card>
-                  </mat-radio-button>
-                </div>
-                
-                  <div class="hundy-plus-users">
-                  <label class="radio-group-label"> 100+ Users </label>
-                    <mat-radio-button class="radio-button" [value]="season">
-                      <mat-card class="script-share-card">
-                          <mat-card-header class="share-script-header-cards">
-                            <div class="monthly">Monthly</div>
-                          </mat-card-header>
-                          <mat-card-title>
-                            <div class="price-bill-container">
-                           <div class="price">$160</div><div class="month">/ month</div>
-                           <div class="billed-monthly">Billed Monthly</div>
-                          </div>
-                        </mat-card-title>
-                           
-                        </mat-card>
-                  </mat-radio-button> 
-                    <br><br>
-                  <mat-radio-button class="radio-button" [value]="season">
-                      <mat-card class="script-share-card">
-                          <mat-card-header class="share-script-header-cards">
-                            <div class="monthly">Quarterly</div>
-                          </mat-card-header>
-                          <mat-card-title>
-                            <div class="price-bill-container">
-                           <div class="price">$640</div><div class="month">/ quarter</div>
-                           <div class="billed-monthly">Billed Quarterly</div>
-                          </div>
-                        </mat-card-title>
-                           
-                        </mat-card>
-                  </mat-radio-button>
+                    </mat-card-title>
 
-                  <br><br>
-                  <mat-radio-button class="radio-button" [value]="season">
-                      <mat-card class="script-share-card">
-                          <mat-card-header class="share-script-header-cards">
-                            <div class="monthly">Yearly</div>
-                          </mat-card-header>
-                          <mat-card-title>
-                            <div class="price-bill-container">
-                           <div class="price">$1920</div><div class="month">/ year</div>
-                           <div class="billed-monthly">Billed Yearly</div>
-                          </div>
-                        </mat-card-title>
-                        </mat-card>
-                  </mat-radio-button>
-                </div>  
+                  </mat-card>
+                </mat-radio-button>
+                <br><br>
+                <mat-radio-button class="radio-button" [value]="2">
+                  <mat-card class="script-share-card">
+                    <mat-card-header class="share-script-header-cards">
+                      <div class="monthly">Quarterly</div>
+                    </mat-card-header>
+                    <mat-card-title>
+                      <div class="price-bill-container">
+                        <div class="price">$160</div>
+                        <div class="month">/ quarter</div>
+                        <div class="billed-monthly">Billed Quarterly</div>
+                      </div>
+                    </mat-card-title>
+
+                  </mat-card>
+                </mat-radio-button>
+
+                <br><br>
+                <mat-radio-button class="radio-button" [value]="3">
+                  <mat-card class="script-share-card">
+                    <mat-card-header class="share-script-header-cards">
+                      <div class="monthly">Yearly</div>
+                    </mat-card-header>
+                    <mat-card-title>
+                      <div class="price-bill-container">
+                        <div class="price">$480</div>
+                        <div class="month">/ year</div>
+                        <div class="billed-monthly">Billed Yearly</div>
+                      </div>
+                    </mat-card-title>
+
+                  </mat-card>
+                </mat-radio-button>
+              </div>
+
+              <div class="hundy-users">
+                <label class="radio-group-label"> 20-100 Users </label>
+                <mat-radio-button class="radio-button" [value]="4">
+                  <mat-card class="script-share-card">
+                    <mat-card-header class="share-script-header-cards">
+                      <div class="monthly">Monthly</div>
+                    </mat-card-header>
+                    <mat-card-title>
+                      <div class="price-bill-container">
+                        <div class="price">$80</div>
+                        <div class="month">/ month</div>
+                        <div class="billed-monthly">Billed Monthly</div>
+                      </div>
+                    </mat-card-title>
+
+                  </mat-card>
+                </mat-radio-button>
+                <br><br>
+                <mat-radio-button class="radio-button" [value]="5">
+                  <mat-card class="script-share-card">
+                    <mat-card-header class="share-script-header-cards">
+                      <div class="monthly">Quarterly</div>
+                    </mat-card-header>
+                    <mat-card-title>
+                      <div class="price-bill-container">
+                        <div class="price">$320</div>
+                        <div class="month">/ quarter</div>
+                        <div class="billed-monthly">Billed Quarterly</div>
+                      </div>
+                    </mat-card-title>
+
+                  </mat-card>
+                </mat-radio-button>
+                <br><br>
+                <mat-radio-button class="radio-button" [value]="6">
+                  <mat-card class="script-share-card">
+                    <mat-card-header class="share-script-header-cards">
+                      <div class="monthly">Yearly</div>
+                    </mat-card-header>
+                    <mat-card-title>
+                      <div class="price-bill-container">
+                        <div class="price">$960</div>
+                        <div class="month">/ year</div>
+                        <div class="billed-monthly">Billed Yearly</div>
+                      </div>
+                    </mat-card-title>
+                  </mat-card>
+                </mat-radio-button>
+              </div>
+
+              <div class="hundy-plus-users">
+                <label class="radio-group-label"> 100+ Users </label>
+                <mat-radio-button class="radio-button" [value]="7">
+                  <mat-card class="script-share-card">
+                    <mat-card-header class="share-script-header-cards">
+                      <div class="monthly">Monthly</div>
+                    </mat-card-header>
+                    <mat-card-title>
+                      <div class="price-bill-container">
+                        <div class="price">$160</div>
+                        <div class="month">/ month</div>
+                        <div class="billed-monthly">Billed Monthly</div>
+                      </div>
+                    </mat-card-title>
+
+                  </mat-card>
+                </mat-radio-button>
+                <br><br>
+                <mat-radio-button class="radio-button" [value]="8">
+                  <mat-card class="script-share-card">
+                    <mat-card-header class="share-script-header-cards">
+                      <div class="monthly">Quarterly</div>
+                    </mat-card-header>
+                    <mat-card-title>
+                      <div class="price-bill-container">
+                        <div class="price">$640</div>
+                        <div class="month">/ quarter</div>
+                        <div class="billed-monthly">Billed Quarterly</div>
+                      </div>
+                    </mat-card-title>
+
+                  </mat-card>
+                </mat-radio-button>
+
+                <br><br>
+                <mat-radio-button class="radio-button" [value]="9">
+                  <mat-card class="script-share-card">
+                    <mat-card-header class="share-script-header-cards">
+                      <div class="monthly">Yearly</div>
+                    </mat-card-header>
+                    <mat-card-title>
+                      <div class="price-bill-container">
+                        <div class="price">$1920</div>
+                        <div class="month">/ year</div>
+                        <div class="billed-monthly">Billed Yearly</div>
+                      </div>
+                    </mat-card-title>
+                  </mat-card>
+                </mat-radio-button>
+              </div>
 
             </mat-grid-tile>
-          
+
             <mat-grid-tile [colspan]="1">
-               <div class="next-btn"><button class="next-btn" mat-button matStepperNext><mat-icon class="right-left-icon" svgIcon="right"></mat-icon></button></div>  
+              <div class="next-btn"><button class="next-btn" mat-button matStepperNext>
+                  <mat-icon class="right-left-icon" svgIcon="right"></mat-icon>
+                </button></div>
             </mat-grid-tile>
-            </mat-radio-group>
-          </form>
-          </mat-grid-list>
-    
+          </mat-radio-group>
+        </form>
+      </mat-grid-list>
+
     </mat-step>
 
     <mat-step>
       <ng-template matStepLabel>Make Payment</ng-template>
       <mat-grid-list cols=5 rowHeight="600px">
-        <mat-grid-tile [colspan]="1"><div class="next-btn"><button class="next-btn" mat-button matStepperPrevious><mat-icon class="right-left-icon" svgIcon="left"></mat-icon></button></div> 
+        <mat-grid-tile [colspan]="1">
+          <div class="next-btn"><button class="next-btn" mat-button matStepperPrevious>
+              <mat-icon class="right-left-icon" svgIcon="left"></mat-icon>
+            </button></div>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="3">
-            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-                <!-- Item No Column -->
-                <ng-container matColumnDef="itemno">
-                  <th class="header-cell" mat-header-cell *matHeaderCellDef> No. </th>
-                  <td class="cell" mat-cell *matCellDef="let element"> {{element.itemno}} </td>
-                </ng-container>
-              
-                <!-- Description Column -->
-                <ng-container matColumnDef="itemname">
-                  <th class="header-cell" mat-header-cell *matHeaderCellDef> Description </th>
-                  <td class="cell" mat-cell *matCellDef="let element"> {{element.itemname}} </td>
-                </ng-container>
-              
-                <!-- Amount Column -->
-                <ng-container matColumnDef="amount">
-                  <th class="header-cell" mat-header-cell *matHeaderCellDef> Amount </th>
-                  <td class="cell" mat-cell *matCellDef="let element"> {{element.amount}} </td>
-                </ng-container>
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-              </table>
+            <!-- Item No Column -->
+            <ng-container matColumnDef="itemno">
+              <th class="header-cell" mat-header-cell *matHeaderCellDef> No. </th>
+              <td class="cell" mat-cell *matCellDef="let element"> {{element.itemno}} </td>
+            </ng-container>
+
+            <!-- Description Column -->
+            <ng-container matColumnDef="itemname">
+              <th class="header-cell" mat-header-cell *matHeaderCellDef> Description </th>
+              <td class="cell" mat-cell *matCellDef="let element"> {{element.itemname}} </td>
+            </ng-container>
+
+            <!-- Amount Column -->
+            <ng-container matColumnDef="amount">
+              <th class="header-cell" mat-header-cell *matHeaderCellDef> Amount </th>
+              <td class="cell" mat-cell *matCellDef="let element"> {{element.amount}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="1">
-           
+
         </mat-grid-tile>
       </mat-grid-list>
 
       <mat-grid-list cols=5 rowHeight="300px">
         <mat-grid-tile [colspan]="1"></mat-grid-tile>
         <mat-grid-tile [colspan]="3">
-      <mat-card class="total-column">
-          <mat-card-title>Total</mat-card-title>
-          <mat-card-content>$30.00</mat-card-content>
-          <mat-card-actions> <button mat-button>Checkout</button><div id="paypal-checkout-btn"></div></mat-card-actions>
-          <button class = "buttons" mat-button (click) ="openTerms()">Terms and Conditions</button> 
-        </mat-card>
-      </mat-grid-tile>
-      <mat-grid-tile [colspan]="1"></mat-grid-tile>
+          <mat-card class="total-column">
+            <mat-card-title>Total</mat-card-title>
+            <mat-card-content>$30.00</mat-card-content>
+            <mat-card-actions> <button mat-button>Checkout</button>
+              <div id="paypal-checkout-btn"></div>
+            </mat-card-actions>
+            <button class="buttons" mat-button (click)="openTerms()">Terms and Conditions</button>
+          </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="1"></mat-grid-tile>
       </mat-grid-list>
 
-<!--Filler for bottom-->
+      <!--Filler for bottom-->
       <mat-grid-list cols=5 rowHeight="100px">
         <mat-grid-tile [colspan]="1"></mat-grid-tile>
         <mat-grid-tile [colspan]="3"></mat-grid-tile>
@@ -295,3 +320,5 @@
     </mat-step>
   </mat-horizontal-stepper>
 </div>
+HERE:
+{{secondFormGroup.value.secondCtrl}}

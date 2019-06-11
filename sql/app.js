@@ -135,6 +135,25 @@ app.post('/addscript', (req, res) => {
     });
 });
 
+app.post('/updatescripttime', (req, res) => {
+
+     let sql = 'UPDATE script SET edited = curdate() WHERE scriptId = ' + req.body.scriptId
+
+    console.log(sql);
+    let query = db.query(sql, (err, result) => {
+        if (err) {
+            throw err;
+        } else {
+            console.log("successfully entered");
+
+            reply = {
+                result: 'success', scriptId: result.insertId
+            }
+        }
+        res.send(reply);
+    });
+});
+
 
 
 //addscript questions/pitches
@@ -253,6 +272,25 @@ app.post('/delete-script', (req, res) => {
     console.log("On server side");
     console.log(script);
     let query = db.query(sql, script, (err, result) => {
+        if (err) {
+            throw err;
+        } else {
+            console.log("successfully deleted");
+
+            reply = {
+                result: 'success'
+            }
+        }
+        res.send(reply);
+    });
+});
+
+app.post('/deleteUploadedScript', (req, res) => {
+    let script = { texts: req.body.texts, questionId: req.body.questionId };
+    let sql = 'DELETE FROM store WHERE scriptID  = ' + req.body.scriptId;
+    console.log("On server side");
+    console.log(sql);
+    let query = db.query(sql, (err, result) => {
         if (err) {
             throw err;
         } else {
@@ -413,7 +451,7 @@ app.post('/upload-script', (req, res) => {
         if (result == null) {
             console.log('No current entries')
             let sql = 'INSERT INTO store SET ?';
-            let values = { usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, uploadDate: req.body.uploadDate, question: req.body.question, category: req.body.category, rating: 0, description: req.body.description }
+            let values = { usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, uploadDate: req.body.uploadDate, question: req.body.question, category: req.body.category, rating: 0, description: req.body.description, subCategory: req.body.subCategory }
             let query = db.query(sql, values, (err, result) => {
                 if (err) {
                     throw err;
@@ -425,7 +463,7 @@ app.post('/upload-script', (req, res) => {
             let query2 = "DELETE FROM store WHERE scriptID = " + req.body.scriptID
             let execute2 = db.query(query2, (err, result) => {
                 let sql = 'INSERT INTO store SET ?';
-                let values = { usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, uploadDate: req.body.uploadDate, question: req.body.question, category: req.body.category, rating: 0, description: req.body.description }
+                let values = { usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, uploadDate: req.body.uploadDate, question: req.body.question, category: req.body.category, rating: 0, description: req.body.description, subCategory:req.body.subCategory }
                 let query3 = db.query(sql, values, (err, result) => {
                     if (err) {
                         throw err;
