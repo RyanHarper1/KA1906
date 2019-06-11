@@ -43,7 +43,7 @@
 </div>
 
 <div *ngIf = loggedIn>
-    
+
   <mat-drawer-container [hasBackdrop]="false" #mode value="top" >
 
     <mat-drawer #drawer [mode]="mode.value" class="search-drawer">
@@ -80,44 +80,6 @@
         <mat-checkbox value="Area Sales">Area Sales</mat-checkbox><br />
   </div>
 
-      <mat-form-field class="filter">
-            <mat-select placeholder="Price-Min" [(ngModel)]="min">
-              <mat-option value="1">$1</mat-option>
-              <mat-option value="2">$2</mat-option>
-              <mat-option value="3">$3</mat-option>
-              <mat-option value="4">$4</mat-option>
-            </mat-select>
-        </mat-form-field><br />
-
-        <mat-form-field class="filter" >
-              <mat-select placeholder="Price-Max">
-                <mat-option value="100">Any</mat-option>
-                <mat-option value="3">$3</mat-option>
-                <mat-option value="4">$4</mat-option>
-                <mat-option value="5">$5</mat-option>
-              </mat-select>
-        </mat-form-field><br />
-
-        <mat-form-field class="filter">
-              <mat-select placeholder="Script Downloads">
-                <mat-option value="option">Any</mat-option>
-                <mat-option value="option">1-5</mat-option>
-                <mat-option value="option">6-10</mat-option>
-                <mat-option value="option">10+</mat-option>
-              </mat-select>
-          </mat-form-field><br />
-
-
-
-          <mat-form-field class="filter">
-              <mat-select placeholder="Templates">
-                <mat-option value="option">1-20</mat-option>
-                <mat-option value="option">21-40</mat-option>
-                <mat-option value="option">41-60</mat-option>
-                <mat-option value="option">61-80</mat-option>
-                <mat-option value="option">80+</mat-option>
-              </mat-select>
-          </mat-form-field><br />
 </div>
 
     </mat-drawer>
@@ -138,7 +100,7 @@
             <th>Reviews</th>
             <th>Rating</th>
           </tr>
-  
+
           <tr *ngFor="let li of list | categoryPipe:Cat | filter:term">
             <td>{{li.scriptName}}</td>
             <td>{{li.description}}</td>
