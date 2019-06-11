@@ -43,7 +43,7 @@
 </div>
 
 <div *ngIf = loggedIn>
-
+    <div fxLayout="row" fxLayoutAlign="space-evenly center" >
   <mat-drawer-container [hasBackdrop]="false" #mode value="top">
 
     <mat-drawer #drawer [mode]="mode.value" class="search-drawer"><br>
@@ -158,3 +158,4 @@
           </table> 
     </mat-drawer-content>
   </mat-drawer-container>
+</div>

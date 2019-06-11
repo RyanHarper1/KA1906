@@ -13,7 +13,9 @@ export class ScriptShareComponent implements OnInit {
   orgId = "";
   list: any;
   list2: any;
-  constructor(private auth: AuthService, private Http: HttpClient) { }
+  constructor(private auth: AuthService, private Http: HttpClient) {
+    
+   }
 
   ngOnInit() {
     this.list = {}
