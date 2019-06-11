@@ -8,7 +8,8 @@ import { EditServiceService } from 'src/app/edit-service.service';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ViewScriptService } from 'src/app/view-script.service';
-
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-current-scripts',
@@ -24,7 +25,8 @@ export class CurrentScriptsComponent implements OnInit {
   columns = ['scriptName', 'category'];
   username: String;
   loggedIn = false;
-  constructor(sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, private Http: HttpClient, private Auth: AuthService, private router: Router, private editService: EditServiceService, private viewService: ViewScriptService) {
+  purchasedList: any;
+  constructor(private snackBar: MatSnackBar, private dialog: MatDialog, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, private Http: HttpClient, private Auth: AuthService, private router: Router, private editService: EditServiceService, private viewService: ViewScriptService) {
 
     iconRegistry.addSvgIcon(
       'upload',
@@ -35,10 +37,13 @@ export class CurrentScriptsComponent implements OnInit {
     iconRegistry.addSvgIcon(
       'delete',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/times-solid.svg'));
-      iconRegistry.addSvgIcon(
+    iconRegistry.addSvgIcon(
       'view',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/eye-regular.svg'));
-      
+      iconRegistry.addSvgIcon(
+        'share',
+        sanitizer.bypassSecurityTrustResourceUrl('../assets/img/share.svg'));
+
 
 
 
@@ -60,6 +65,12 @@ export class CurrentScriptsComponent implements OnInit {
       store.subscribe((response) => {
 
         this.storelist = response;
+        console.log(response)
+      });
+      let purchased = this.Http.post('http://localhost:3000/purchased-scripts', { id: this.Auth.getId });
+      purchased.subscribe((response) => {
+
+        this.purchasedList = response;
         console.log(response)
       });
     }
@@ -87,34 +98,101 @@ export class CurrentScriptsComponent implements OnInit {
     this.router.navigate(['edit-script']);
 
   }
+  shareScript(script) {
+    console.log('sharing')
+    let share = this.Http.post('http://localhost:3000/sharescript', { scriptId: script.scriptId, orgId: this.Auth.orgId })
+    share.subscribe((result) => {
+      let snackBarRef = this.snackBar.open('Successfully Shared');
+    });
+  }
+  sharePurchasedScript(script) {
+    console.log('sharing')
+    let share = this.Http.post('http://localhost:3000/sharescript', { scriptId: script.scriptID, orgId: this.Auth.orgId })
+    share.subscribe((result) => {
+      let snackBarRef = this.snackBar.open('Successfully Shared');
+    });
+  }
   deleteScript(script) {
     let del = this.Http.post('http://localhost:3000/delete-script', { scriptId: script.scriptId });
     del.subscribe((response) => {
 
       this.ngOnInit()
+      let snackBarRef = this.snackBar.open('Successfully Deleted');
+    });
+    console.log(script);
+    let temp = {scriptID: script.scriptId}
+    this.deleteUploadedScript(temp)
+
+  }
+  deleteUploadedScript(script) {
+    let del = this.Http.post('http://localhost:3000/deleteUploadedScript', { scriptId: script.scriptID });
+    del.subscribe((response) => {
+
+      this.ngOnInit()
+      let snackBarRef = this.snackBar.open('Successfully Deleted');
     });
     console.log(script);
 
 
   }
   uploadScript(script) {
-    console.log('first question' + script.firstQuestionId)
-   // let dateFormat = require('dateformat');
-    let now = new Date();
-   // let date = String(dateFormat(now, "dd/mm/yyyy"));
-    let upload = this.Http.post('http://localhost:3000/upload-script', { usersID: this.Auth.id, scriptID: script.scriptId, uploadDate: now ,scriptName: script.scriptName, price: 5, category: script.category, question: Number(script.firstQuestionId), description: script.description });
-    upload.subscribe((response) => {
-      console.log(response)
-      this.ngOnInit();
+    const dialogRef = this.dialog.open(uploadForm, {
+      width: '700px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result != null) {
+        console.log('first question' + script.firstQuestionId)
+        // let dateFormat = require('dateformat');
+        let now = new Date();
+        // let date = String(dateFormat(now, "dd/mm/yyyy"));
+        let upload = this.Http.post('http://localhost:3000/upload-script', { usersID: this.Auth.id, scriptID: script.scriptId, uploadDate: now, scriptName: script.scriptName, price: result, category: script.category, question: Number(script.firstQuestionId), description: script.description, subCategory: script.subcategory });
+        upload.subscribe((response) => {
+          console.log(response)
+          this.ngOnInit();
+          let snackBarRef = this.snackBar.open('Successfully Uploaded');
+        });
+      }
+
     });
 
 
+
   }
-  viewScript(script){
+  viewScript(script) {
     this.viewService.setScript(script.scriptId);
     console.log(script);
     this.router.navigate(['view-script']);
   }
+  viewUploadedScript(script) {
+    this.viewService.setScript(script.scriptID);
+    console.log(script);
+    this.router.navigate(['view-script']);
+  }
 
+}
+
+@Component({
+  selector: 'uploadForm',
+  templateUrl: 'uploadForm.html',
+  // styleUrls: ['./uploadForm.scss']
+})
+export class uploadForm implements OnInit {
+  price: any;
+  constructor(public dialogRef: MatDialogRef<uploadForm>) {
+    //dialogRef.disableClose = true;
+  }
+  ngOnInit() {
+
+  }
+  submit() {
+    if (this.price < 1.5 || this.price == null) {
+      alert('Minimum price is $1.50. Please enter a higher amount')
+    } else {
+
+      this.dialogRef.close(this.price)
+    }
+
+  }
 
 }

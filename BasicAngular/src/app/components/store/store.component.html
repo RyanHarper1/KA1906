@@ -1,151 +1,160 @@
+<div fxLayout="row" fxLayoutAlign="space-evenly center" >
 <div id="banner">
   <img class="banner-img" src="/assets/img/store.png" width="100%" height="100%">
   <img class="logo-img" src="/assets/img/Logo.png" alt="logo" width="100%" heght="100%">
   <div class="title">Store</div>
-</div>
+</div></div>
 <div *ngIf = !loggedIn>
-    <div fxLayout="row" fxLayoutAlign="space-evenly center" >    
+    <div fxLayout="row" fxLayoutAlign="space-evenly center" >
         <div class="store-tbl-left">
-            If you are wanting to buy scripts for yourself then you can go to the store icon which essentially 
-            brings you out to the market of all of the sales script scripts that have been uploaded. When you 
-            first go to the store screen it will look very familiar to the current scripts page except their will 
-            be additional information for all scripts on the second part of the table. These will be obviously the 
+            If you are wanting to buy scripts for yourself then you can go to the store icon which essentially
+            brings you out to the market of all of the sales script scripts that have been uploaded. When you
+            first go to the store screen it will look very familiar to the current scripts page except their will
+            be additional information for all scripts on the second part of the table. These will be obviously the
             price of the script and also their will be a review section where you can click on reviews and you can
-             read reviews from other people that have bought the script. If a script is a fake script or they are 
-             just overloading a whole lot of rubbish just so they can make money then their reviews will soon 
+             read reviews from other people that have bought the script. If a script is a fake script or they are
+             just overloading a whole lot of rubbish just so they can make money then their reviews will soon
              indicate this.
         </div>
-        <img class="imgr" src="/assets/img/build.PNG">
+        <img class="imgr" src="/assets/img/homepics_store1.png">
     </div>
 
         <div fxLayout="row" fxLayoutAlign="space-evenly center" >
-            <img class="imgl" src="/assets/img/build.PNG">
+            <img class="imgl" src="/assets/img/homepics_store2.png">
             <div class="store-tbl-right">
-                    You will also notice that on the left-hand side of the menu is a filter bar where you can filter all of 
+                    You will also notice that on the left-hand side of the menu is a filter bar where you can filter all of
                     your searches. You may want all scripts from a particular industry that have been on the system for no
                         more than a year and are under a price of $5.00. This enables you to get the right script that you need
-                        more effectively and without any fuss plus if you use this filter option effectively you could probably 
+                        more effectively and without any fuss plus if you use this filter option effectively you could probably
                         get some great value scripts that out, they’re in the market that most people wouldn’t be aware of.
             </div>
         </div>
-    
+
         <div fxLayout="row" fxLayoutAlign="space-evenly center" >
             <div class="store-tbl-left">
-                There is a shopping cart that you use and once you have clicked on the purchase icon for the scripts 
-                then it will add to your shopping cart and once you have finished you can click on the cart and perform 
+                There is a shopping cart that you use and once you have clicked on the purchase icon for the scripts
+                then it will add to your shopping cart and once you have finished you can click on the cart and perform
                 the final transaction.
                 <p>
                 Once you have purchased a script it will immediately come up on your current scripts menu where you can use it for cold calling.
                 </p>
-            </div><img class="imgr" src="/assets/img/build.PNG">
+            </div><img class="imgr" src="/assets/img/homepics_store3.png">
           </div>
 </div>
 
 <div *ngIf = loggedIn>
-
-<mat-drawer-container [hasBackdrop]="false" #mode value="side">
-
-  <mat-drawer #drawer [mode]="mode.value">Search<br>
-     <mat-form-field>
-      <input matInput type = "text" placeholder="Keyword" [(ngModel)]="searchText" class="form-control">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-select placeholder="Select">
-        <mat-option value="option">Option1</mat-option>
-        <mat-option value="option">Option2</mat-option>
-        <mat-option value="option">Option3</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </mat-drawer>
-
-  <mat-select #mode value="side"></mat-select>
-  <mat-drawer-content>
-    <button mat-raised-button (click)="drawer.toggle()">Search</button>
-
-    <mat-grid-list  class= "gridList" cols="17" rowHeight="1:1.2" [gutterSize]="'10px'" *ngFor="let li of list">
-
-        <div fxLayout="row" fxLayoutAlign="space-evenly center" >  
-            <mat-card class="store-card">
-                    <mat-card-header class="store-header">{{li.scriptName}}</mat-card-header>
-                    <mat-card-title class="title-card">Description</mat-card-title>
-                    <mat-card-content class="content-card">
-                        <div class="content-div">
-                            {{li.description}} 
-                        </div>
-                    </mat-card-content>
-            </mat-card>
-            <mat-card class="store-card">
-                    <mat-card-title class="title-card">Category</mat-card-title>
-                    <mat-card-content class="content-card">
-                        <div class="content-div">
-                            {{li.category}} 
-                        </div>
-                    </mat-card-content>
-                </mat-card> 
-            <mat-card class="store-card">
-                    <mat-card-title class="title-card">Sub-Category</mat-card-title>
-                    <mat-card-content class="content-card">
-                        <div class="content-div">
-                            {{li.subcategory}} 
-                        </div>
-                    </mat-card-content>
-                </mat-card>  
-            <mat-card class="store-card">
-                    <mat-card-title class="title-card">Last Edited</mat-card-title>
-                    <mat-card-content class="content-card">
-                        <div class="content-div">
-                            {{li.edited}} 
-                        </div>
-                    </mat-card-content>
-                </mat-card>  
-            <mat-card class="store-card">
-                    <mat-card-title class="title-card">Unit Price</mat-card-title>
-                    <mat-card-content class="content-card">
-                        <div class="content-div">
-                            {{li.price}} 
-                        </div>
-                    </mat-card-content>
-                </mat-card>   
-            <mat-card class="store-card">
-                    <mat-card-title class="title-card">Template</mat-card-title>
-                    <mat-card-content class="content-card">
-                        <div class="content-div">
-                            {{li.templates}} 
-                        </div>
-                    </mat-card-content>
-                </mat-card>
-            <mat-card class="store-card">
-                    <mat-card-title class="title-card">Reviews</mat-card-title>
-                    <mat-card-content class="content-card">
-                    
-                    </mat-card-content>
-                </mat-card> 
-            <mat-card class="store-card">
-                    <mat-card-title class="title-card">Rating</mat-card-title>
-                    <mat-card-content class="content-card">
-                        
-                    </mat-card-content>
-                </mat-card>  
-            <mat-card class="btn-card" >
-                    <mat-card-actions>
-                        <button class="crnt-btn" mat-button (click) ="viewScript(li)">View
-                            <div class="crnt-icon">
-                            <mat-icon id="crnt-icon" svgIcon="view"></mat-icon>
-                            </div>
-                        </button>
-                </mat-card-actions>
-                </mat-card>
-            <mat-card class="btn-card" >
-                    <mat-card-actions>
-                        <button class="crnt-btn" mat-button (click) = "addToCart(li)">Add
-                            <div class="crnt-icon">
-                            <mat-icon id="crnt-icon" svgIcon="cart"></mat-icon>
-                            </div>
-                        </button>
-                </mat-card-actions>
-                </mat-card>
-        </div>
-</mat-grid-list>
     
-  </mat-drawer-content>
-</mat-drawer-container>
+  <mat-drawer-container [hasBackdrop]="false" #mode value="top">
+
+    <mat-drawer #drawer [mode]="mode.value" class="search-drawer"><br>
+<div class="search-container">
+       <mat-form-field class="filter">
+        <input matInput type = "text" placeholder="Keyword" [(ngModel)]="term">
+      </mat-form-field><br />
+
+      <mat-form-field class="filter" >
+        <mat-select [(ngModel)]="Cat" placeholder="Category" class="filter">
+          <mat-option value="Trades">Trades</mat-option>
+          <mat-option value="Accounting">Accounting</mat-option>
+          <mat-option value="Health">Health</mat-option>
+          <mat-option value="Sales & Marketing">Sales & Marketing</mat-option>
+          <mat-option value="Management">Management</mat-option>
+          <mat-option value="Manufacturing">Manufacturing</mat-option>
+          <mat-option value="Government">Government</mat-option>
+          <mat-option value="Engineering & Information Technology">Engineering & Information Technology</mat-option>
+          <mat-option value="Banking & Finance">Banking & Finance</mat-option>
+        </mat-select>
+      </mat-form-field><br />
+
+  <div [(ngModel)]="subCat" class="filter" >
+        <mat-checkbox value="Business Development">Business Development</mat-checkbox><br />
+        <mat-checkbox value="Outbound">Outbound</mat-checkbox><br />
+        <mat-checkbox value="Sales Representative">Sales Representative</mat-checkbox><br />
+        <mat-checkbox value="Inbound">Inbound</mat-checkbox><br />
+        <mat-checkbox value="Telesales">Telesales</mat-checkbox><br />
+        <mat-checkbox value="Sales Management">Sales Management</mat-checkbox><br />
+        <mat-checkbox value="Marketing">Marketing</mat-checkbox><br />
+        <mat-checkbox value="Territory Sales">Territory Sales</mat-checkbox><br />
+        <mat-checkbox value="Account Management">Account Management</mat-checkbox><br />
+        <mat-checkbox value="Area Sales">Area Sales</mat-checkbox><br />
+  </div>
+
+      <mat-form-field class="filter">
+            <mat-select placeholder="Price-Min" [(ngModel)]="min">
+              <mat-option value="1">$1</mat-option>
+              <mat-option value="2">$2</mat-option>
+              <mat-option value="3">$3</mat-option>
+              <mat-option value="4">$4</mat-option>
+            </mat-select>
+        </mat-form-field><br />
+
+        <mat-form-field class="filter" >
+              <mat-select placeholder="Price-Max">
+                <mat-option value="100">Any</mat-option>
+                <mat-option value="3">$3</mat-option>
+                <mat-option value="4">$4</mat-option>
+                <mat-option value="5">$5</mat-option>
+              </mat-select>
+        </mat-form-field><br />
+
+        <mat-form-field class="filter">
+              <mat-select placeholder="Script Downloads">
+                <mat-option value="option">Any</mat-option>
+                <mat-option value="option">1-5</mat-option>
+                <mat-option value="option">6-10</mat-option>
+                <mat-option value="option">10+</mat-option>
+              </mat-select>
+          </mat-form-field><br />
+
+
+
+          <mat-form-field class="filter">
+              <mat-select placeholder="Templates">
+                <mat-option value="option">1-20</mat-option>
+                <mat-option value="option">21-40</mat-option>
+                <mat-option value="option">41-60</mat-option>
+                <mat-option value="option">61-80</mat-option>
+                <mat-option value="option">80+</mat-option>
+              </mat-select>
+          </mat-form-field><br />
+</div>
+
+    </mat-drawer>
+
+    <mat-select #mode value="side"></mat-select>
+    <mat-drawer-content class="drawer-content">
+      <button class="search-btn" mat-raised-button (click)="drawer.toggle()">Search</button>
+
+      <table width="100%" cellspacing="10" >
+          <tr class="tr-header">
+            <th>Script Name</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Sub-Category</th>
+            <th>Price</th>
+            <th>Last Edited</th>
+            <th>Template</th>
+            <th>Reviews</th>
+            <th>Rating</th>
+          </tr>
+  
+          <tr *ngFor="let li of list | categoryPipe:Cat | filter:term">
+            <td>{{li.scriptName}}</td>
+            <td>{{li.description}}</td>
+            <td>{{li.category}}</td>
+            <td>{{li.subcategory}}</td>
+            <td>{{li.price}}</td>
+            <td>{{li.edited}}</td>
+            <td>{{li.template}}</td>
+            <td>this is a review</td>
+            <td><star-rating [starType]="'icon'" [rating]="2.63"></star-rating></td>
+            <td>
+              <div class="btn-group">
+                  <button class="btn-v" (click) ="viewScript(li)">VIEW<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>
+                  <button class="btn-a" (click) = "addToCart(li)">add<mat-icon id="crnt-icon" svgIcon="cart"></mat-icon></button>
+              </div>
+                </td>
+            </tr>
+          </table> 
+    </mat-drawer-content>
+  </mat-drawer-container>

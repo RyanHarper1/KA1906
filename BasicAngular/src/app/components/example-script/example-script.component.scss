@@ -11,46 +11,69 @@
 
 /*END BANNER*/
 
-/*START SCRIPT DETAILS*/
-  .script-details-container{
-    text-align: center;
-    margin: 50px;
-  }
+ /*START SCRIPT DETAILS*/
 
-  .input-details{
-    display: inline-block;
-    border: none;
-    font-size: 14pt;
-  }
+.input-details{
+  display: flex;
+  border: none;
+  font-size: 14pt;
+  margin-right: 300px;
+}
 
-  .script-details{
-    display: inline;
-    font-weight: bold;
-    padding-left: 1em;
-    padding-right: 1em;
-    font-size: 14pt;
-  }
+.script-details{
+  display: inline;
+  font-weight: bold;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size: 14pt;
+  margin-left: 60px;
+}
 
 /*END SCRIPT DETAILS*/
+
+/*****************BUTTON ROW***************/
+.add-btn >::ng-deep .mat-figure{
+  justify-content: center;
+}
+
+.mat-btn {
+  height:90%;
+  width: 90%;
+  margin: 10px;
+  background: #3a4f6e;
+  color: white;
+  cursor: pointer;
+  outline: 0;
+  border: none;
+  display: inline-block;
+  white-space: nowrap;
+  text-align: center;
+  min-width: 64px;
+  padding: 0 16px;
+  border-radius: 5px;
+  overflow: visible;
+}
+
+.add-answer{
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    font-variant-caps: all-petite-caps;
+    letter-spacing: 2pt;
+    line-height: 0;
+    margin-top: 20px;
+}
+/*****************BUTTON ROW***************/
+
 
 .example-tbl{
   padding: 10px;
   font-size: 16pt;
 }
+
 .bck-btn-container >::ng-deep .mat-figure{
   justify-content: left;
   margin-left: 5%;
-}
-
-#bck-btn{
-  background-color: #3a4f6e;
-  color: white;
-  float: left;
- }
-
-#bck-btn-icon{
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 .next-answer{
@@ -75,6 +98,11 @@
   background: #3a4f6e;
 }
 
+::ng-deep div.mat-card-header-text{
+  margin-left: 1px;
+  margin-top: 23px;
+  margin-bottom: 23px;
+}
   
 ::ng-deep .mat-card.example-card.mat-card{
   display: inline-block;
@@ -87,7 +115,7 @@
  .answer-title{
   display: inline-block;
   margin: 20px auto;
-  font-size: 18pt;
+  font-size: 20px;
   vertical-align: middle;
   color: white;
   position: relative;
@@ -119,6 +147,8 @@
     letter-spacing: 2pt;
   }
 
+
+
   textarea{
     margin: 0;
     border: none;
@@ -126,9 +156,14 @@
     vertical-align: bottom;
     background: #f1f1f1;
     resize: none;
-    font-size: 20px;
+    font-size: 14pt;
     box-sizing: border-box;
     padding: 20px;
+    font-family: sans-serif;
+  }
+
+  textarea::first-letter{
+    text-transform: uppercase;
   }
 
  

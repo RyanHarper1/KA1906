@@ -2,6 +2,32 @@
     border: 1px solid #3a4f6e;
    }
 
+  :host ::ng-deep .ngx-editor, 
+  .ngx-editor-textarea{
+    background-color: #f1f1f1 !important;
+    font-size: 14pt;
+  }
+
+
+  :host ::ng-deep .ngx-editor-grippie{
+    height: 9px !important;
+    background-color: #f1f1f1 !important;
+    position: absolute !important;
+    text-align: center !important;
+    cursor: s-resize !important;
+    border: 1px solid #ddd !important;
+    border-top: transparent !important;
+  }
+:host ::ng-deep .ngx-toolbar{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #f5f5f5;
+  font-size: 14pt;
+  padding: .2rem .2rem 0;
+  border: 1px solid #ddd;
+  justify-content: center;
+}
+  
    /*Override styling for mat-grid angular material*/
 ::ng-deep mat-grid-tile.mat-grid-tile .mat-figure {
     width: 100%;
@@ -11,13 +37,14 @@
     align-items: center;
     justify-content: center;
   }
-  
+
   /*Override styling for all mat-button*/
 ::ng-deep button.mat-button{
     background: #3a4f6e;
     color: white;
     margin-top: auto;
     margin-bottom: auto;
+    padding: 0;
     // margin: 10px;
   }
 
@@ -34,26 +61,23 @@
     font-size: large;
     padding: 16px;
   }
-
-  ::ng-deep div.mat-card-header-text{
-    margin: 0;
-  }
   
 /*Override mat-card-header styling*/
-  ::ng-deep .mat-card-header.header-card.mat-card-header{
-    display: flex;
-    flex-direction: row;
-    font-size: xx-large;
-    font-weight: 500;
-    font-variant-caps: all-small-caps;
-    border-radius: 10px;
-    color: darkred;
-    background: #FFFFFF;
-    text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    text-align: center;
-    margin-bottom: 10px;
-    padding-left: 10px;
+  // ::ng-deep .mat-card-header.header-card.mat-card-header{
+  //   display: flex;
+  //   flex-direction: row;
+  //   font-size: xx-large;
+  //   font-weight: 500;
+  //   font-variant-caps: all-small-caps;
+  //   border-radius: 10px;
+  //   color: darkred;
+  //   background: #FFFFFF;
+  //   text-shadow: -1px -1px 1px rgba(255, 255, 255, 0.1), 1px 1px 1px rgba(0, 0, 0, 0.5);
+  //   justify-content: center;
+  //   text-align: center;
+  //   margin-bottom: 10px;
+  //   padding-left: 10px;
    
-  }
+  // }
+  
   

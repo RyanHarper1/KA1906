@@ -1,7 +1,9 @@
+<div fxLayout="row" fxLayoutAlign="space-evenly center" > 
 <div id="banner">
   <img class="banner-img" src="/assets/img/current.png" width="100%" height="100%">
   <img class="logo-img" src="/assets/img/Logo.png" alt="logo" width="100%">
   <div class="title">Current Script</div>
+</div>
 </div>
 
 <div *ngIf=!loggedIn>
@@ -11,12 +13,12 @@
         scripts that you have bought on the store and scripts that have been shared with you via script share if you haven’t saved 
         bought or shared anything then you will get a blank screen. If you have saved bought or shared scripts then a menu you come up that 
         looks something like this.
-    </div><img class="imgr" src="/assets/img/build.PNG">
+    </div><img class="imgr" src="/assets/img/homepics_current1.png">
     
   </div>
 
   <div fxLayout="row" fxLayoutAlign="space-evenly center" > 
-      <img class="imgl" src="/assets/img/build.PNG">
+      <img class="imgl" src="/assets/img/homepics_current2.png">
         <div class="current-tbl-right">
             The menu items will appear in chronological order with the most current items at the top of the list. As you can see there 
             are 2 different menu styles! The ones that have been bought and the ones that are saved! Scripts that have been shared can either 
@@ -35,11 +37,11 @@
           outbound, inbound, business development etc. How many templates is handy so you can gauge how big your script is and the date saved is the date 
           that you last edited it. In the top right-hand corner, you can see you have the option to upload the script or Edit the script.
         </div>
-      <img class="imgr" src="/assets/img/build.PNG">
+      <img class="imgr" src="/assets/img/homepics_current3.png">
   </div>
   
   <div fxLayout="row" fxLayoutAlign="space-evenly center" > 
-      <img class="imgl" src="/assets/img/build.PNG">
+      <img class="imgl" src="/assets/img/homepics_current4.png">
         <div class="current-tbl-right">
             By clicking the editing function, it enables you to go into the script templates themselves and from their you can change your script to whatever 
             you want or need it to be. The heading, description, Category and sub category can all be changed via the save as option or save option when editing the script. 
@@ -53,11 +55,11 @@
               category plus allocate a realistic price. The market will determine how much your script is worth so if you’re not selling many scripts then you may 
               need to adjust the price or if your selling scripts by the hundreds then you might even see fit to raise your price for the script. 
             </div>
-            <img class="imgr" src="/assets/img/build.PNG">
+            <img class="imgr" src="/assets/img/homepics_current5.png">
   </div>
 
   <div fxLayout="row" fxLayoutAlign="space-evenly center" > 
-      <img class="imgl" src="/assets/img/build.PNG">
+      <img class="imgl" src="/assets/img/homepics_current6.png">
             <div class="current-tbl-right">
                 You will notice with the bought scripts on the second section of the table their will be some additional information such as how many users the script 
                 has the star rating and the date it was uploaded. Every user when purchasing a script has the option to rate the script after they have used it which 
@@ -71,305 +73,107 @@
   </div>
 </div>
 
-<!-- <mat-grid-list cols="4" rowHeight="100px" *ngIf=loggedIn label="Saved"> -->
-    <!-- <mat-grid-tile [colspan]="1"></mat-grid-tile>
-    <mat-grid-tile [colspan]="2">This is where all your saved scripts are listed.</mat-grid-tile>
-    <mat-grid-tile [colspan]="1"></mat-grid-tile>
-  </mat-grid-list> -->
 <mat-tab-group *ngIf=loggedIn style="margin-left: 5%; margin-right: 5%;margin-top: 3%">
 
 <mat-tab label="Saved"> 
-    <mat-grid-list cols="16" class= "gridList"  *ngFor="let li of list"  [gutterSize]="'5px'">
+   
+      <table width="100%" cellspacing="10" >
+        <tr class="tr-header">
+          <th>Script Name</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Sub-Category</th>
+          <th>Last Edited</th>
+          <th>Template</th>
+        </tr>
 
-      <div fxLayout="row" fxLayoutAlign="space-between center" > 
-        <mat-card class="current-card">
-            <mat-card-header class="header-card">{{li.scriptName}}</mat-card-header>
-        </mat-card>
-    
-        <mat-card class="current-card">
-              <mat-card-title class="title-card"><div class="title-div" >Description</div></mat-card-title>
-              <mat-card-content class="content-card"><div class="content-div"> {{li.description}}</div></mat-card-content>
-          </mat-card>
-          
-          <mat-card class="current-card">
-                <mat-card-title class="title-card"><div class="title-div" >Category</div></mat-card-title>
-                <mat-card-content class="content-card"><div class="content-div">{{li.category}}</div></mat-card-content>
-          </mat-card>
-            
-          <mat-card class="current-card">
-                  <mat-card-title class="title-card"><div class="title-div" >Sub-Category</div></mat-card-title>
-                  <mat-card-content class="content-card"><div class="content-div">{{li.subcategory}}</div></mat-card-content>
-              </mat-card>
-          
-          <mat-card class="current-card">  
-                  <mat-card-title class="title-card">Last Edited</mat-card-title>
-                  <mat-card-content class="content-card"><div class="content-div">{{li.edited}} </div></mat-card-content>
-          </mat-card>
-
-          <mat-card class="current-card">
-                <mat-card-title class="title-card">Template</mat-card-title>
-                <mat-card-content class="content-card"><div class="content-div">{{li.templates}}</div></mat-card-content>
-            </mat-card>
-
-          <mat-card class="btn-card" >
-              <mat-card-actions>
-                <button class="crnt-btn" mat-button (click) ="viewScript(li)">View
-                    <div class="crnt-icon">
-                    <mat-icon id="crnt-icon" svgIcon="view"></mat-icon>
-                    </div>
-                </button>
-          </mat-card-actions>
-          </mat-card>
-
-      <mat-card class="btn-card">
-        <mat-card-actions class="mat-card-actions-current">
-            <button class="crnt-btn" mat-button (click)="editScript(li)">Edit
-              <div class="crnt-icon">
-                <mat-icon id="btn-icon" svgIcon="edit"></mat-icon>
+        <tr *ngFor="let li of list">
+          <td>{{li.scriptName}}</td>
+          <td>{{li.description}}</td>
+          <td>{{li.category}}</td>
+          <td>{{li.subcategory}}</td>
+          <td>{{li.edited}}</td>
+          <td>{{li.template}}</td>
+          <td>
+              <div class="btn-group">
+                <button class="btn-v" (click) ="viewScript(li)">view<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>
+                <button class="btn-e" (click)="editScript(li)">edit<mat-icon id="crnt-icon" svgIcon="edit"></mat-icon> </button>
+                <button class="btn-u" (click)='uploadScript(li)'>upload<mat-icon id="crnt-icon" svgIcon="upload"></mat-icon> </button>
+                <button class="btn-s" (click) ="shareScript(li)" *ngIf ="Auth.orgId !=null">Share<mat-icon id="crnt-icon" svgIcon="share"></mat-icon> </button>
+                <button class="btn-d" (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">remove<mat-icon id="delete-icon" svgIcon="delete"></mat-icon></button>
               </div>
-            </button>
-        </mat-card-actions>
-      </mat-card>
-
-        <mat-card class="btn-card">
-          <mat-card-actions class="mat-card-actions-current">
-            <button class="crnt-btn" mat-button (click)='uploadScript(li)'>Upload
-                <div class="crnt-icon">
-                <mat-icon id="btn-icon" svgIcon="upload"></mat-icon>
-                </div>
-            </button>
-          </mat-card-actions>
-        </mat-card>
-
-          <mat-card class="btn-card">
-            <mat-card-actions class="mat-card-actions-current">
-              <button class="crnt-btn" mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">Remove
-                <div class="del-btn">
-                <mat-icon id="btn-icon" svgIcon="delete"></mat-icon>
-              </div>
-              </button>
-            </mat-card-actions>
-          </mat-card>
-          </div>
-    </mat-grid-list>
-  </mat-tab>
+          </td>
+        </table>
+        </mat-tab>
 
   <mat-tab label="Uploaded">
-    <mat-grid-list cols="18" class= "gridList" rowHeight="250px" *ngFor="let lo of storelist" [gutterSize]="'5px'">
-        <div fxLayout="row" fxLayoutAlign="space-between center" > 
-        <mat-card class="current-card">
-            <mat-card-header class="header-card">{{lo.scriptName}}</mat-card-header>
-        </mat-card>
-    
-        <mat-card class="current-card">
-              <mat-card-title class="title-card"><div class="title-div" >Description</div></mat-card-title>
-              <mat-card-content class="content-card"><div class="content-div"> {{lo.description}}</div></mat-card-content>
-          </mat-card>
-          
-          <mat-card class="current-card">
-                <mat-card-title class="title-card"><div class="title-div" >Category</div></mat-card-title>
-                <mat-card-content class="content-card"><div class="content-div">{{lo.category}}</div></mat-card-content>
-          </mat-card>
-            
-          <mat-card class="current-card">
-                  <mat-card-title class="title-card"><div class="title-div" >Sub-Category</div></mat-card-title>
-                  <mat-card-content class="content-card"><div class="content-div">{{lo.subcategory}}</div></mat-card-content>
-              </mat-card>
+  
+    <table width="100%" cellspacing="10" >
+        <tr class="tr-header">
+          <th>Script Name</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Sub-Category</th>
+          <th>Price</th>
+          <th>Last Edited</th>
+          <th>Template</th>
+          <th>Review</th>
+          <th>Rating</th>
+        </tr>
 
-          <mat-card class="current-card">
-              <mat-card-title class="title-card"><div class="title-div" >Unit Price</div></mat-card-title>
-              <mat-card-content class="content-card"><div class="content-div">{{lo.price}}</div></mat-card-content>
-          </mat-card>
-          
-          <mat-card class="current-card">  
-                  <mat-card-title class="title-card">Last Edited</mat-card-title>
-                  <mat-card-content class="content-card"><div class="content-div">{{lo.edited}} </div></mat-card-content>
-          </mat-card>
-
-          <mat-card class="current-card">
-                <mat-card-title class="title-card">Template</mat-card-title>
-                <mat-card-content class="content-card"><div class="content-div">{{lo.templates}}</div></mat-card-content>
-            </mat-card>
-
-            <mat-card class="current-card">
-                <mat-card-title class="title-card"><div class="title-div" >Review</div></mat-card-title>
-                <mat-card-content class="content-card"><div class="content-div">this is a review. i like reviews.</div></mat-card-content>
-            </mat-card>
-
-            <mat-card class="current-card">
-                <mat-card-title class="title-card"><div class="title-div" >Rating</div></mat-card-title>
-                <mat-card-content class="content-card"><div class="content-div">i rate you so much</div></mat-card-content>
-            </mat-card>
-
-          <mat-card class="btn-card" >
-              <mat-card-actions>
-                <button class="crnt-btn" mat-button (click) ="viewScript(lo)">View
-                    <div class="crnt-icon">
-                    <mat-icon id="crnt-icon" svgIcon="view"></mat-icon>
-                    </div>
-                </button>
-          </mat-card-actions>
-          </mat-card>
-
-      <mat-card class="btn-card">
-        <mat-card-actions class="mat-card-actions-current">
-            <button class="crnt-btn" mat-button (click)="editScript(lo)">Edit
-              <div class="crnt-icon">
-                <mat-icon id="btn-icon" svgIcon="edit"></mat-icon>
-              </div>
-            </button>
-        </mat-card-actions>
-      </mat-card>
-
-      <mat-card class="btn-card">
-            <mat-card-actions class="mat-card-actions-current">
-              <button class="crnt-btn" mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">Remove
-                <div class="del-btn">
-                <mat-icon id="btn-icon" svgIcon="delete"></mat-icon>
-              </div>
-              </button>
-            </mat-card-actions>
-          </mat-card>
-        </div>
-    </mat-grid-list>
+        <tr *ngFor="let lo of storelist">
+          <td>{{lo.scriptName}}</td>
+          <td>{{lo.description}}</td>
+          <td>{{lo.category}}</td>
+          <td>{{lo.subcategory}}</td>
+          <td>{{lo.price}}</td>
+          <td>{{lo.edited}}</td>
+          <td>{{lo.template}}</td>
+          <td>this is a review</td>
+          <td><star-rating [starType]="'icon'" [rating]="2.63"></star-rating></td>
+          <td>
+            <div class="btn-group-special">
+            <button class="btn-v" (click) ="viewUploadedScript(lo)">view<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>
+            <button class="btn-d" (click)="deleteUploadedScript(lo)" [routerLink]="[ '/current-script' ]">remove<mat-icon id="delete-icon" svgIcon="delete"></mat-icon></button>
+            </div>
+        </td>
+          </tr>
+        </table> 
 </mat-tab>
 
 
   <mat-tab label="Purchased">
-    <mat-grid-list cols="17" class= "gridList" rowHeight="120px" *ngFor="let lo of storelist" [gutterSize]="'5px'">
-        <mat-grid-tile [colspan]="2">
-          <mat-card class="current-card">
-              <mat-card-header class="header-card">
-                  {{lo.scriptName}}
-              </mat-card-header>
-          </mat-card>
-        </mat-grid-tile>
+    
+      <table width="100%" cellspacing="10" >
+          <tr class="tr-header">
+            <th>Script Name</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Sub-Category</th>
+            <th>Price</th>
+            <th>Uploaded</th>
+            <th>Template</th>
+            <th>Review</th>
+            <th>Rating</th>
+          </tr>
   
-          <mat-grid-tile [colspan]="2" > 
-              <mat-card class="current-card">
-                  <mat-card-content class="content-card"> 
-                    <mat-card-title class="title-card">
-                          <div class="title-div" >Description</div>
-                    </mat-card-title>
-                    <div class="content-div">
-                        {{lo.description}}
-                      </div>
-                  </mat-card-content>
-                </mat-card>
-          </mat-grid-tile>
-  
-          <mat-grid-tile [colspan]="2" >
-            <mat-card class="current-card">
-              <mat-card-content class="content-card">
-                  <mat-card-title class="title-card">
-                      <div class="title-div" >Category</div>
-                  </mat-card-title>
-                  <div class="content-div">
-                  {{lo.category}}
-                </div>
-              </mat-card-content>
-              </mat-card>
-          </mat-grid-tile>
-  
-          <mat-grid-tile [colspan]="2" >
-              <mat-card class="current-card">
-                <mat-card-content class="content-card">
-                    <mat-card-title class="title-card">
-                        <div class="title-div" >Sub-Category</div>
-                    </mat-card-title>
-                    <div class="content-div">
-                    {{lo.subcategory}}
-                  </div>
-                </mat-card-content>
-                </mat-card>
-            </mat-grid-tile>
-
-            <mat-grid-tile [colspan]="2" >
-                <mat-card class="current-card">
-                  <mat-card-content class="content-card">
-                      <mat-card-title class="title-card">
-                          <div class="title-div" >Price</div>
-                      </mat-card-title>
-                      <div class="content-div">
-                      {{lo.price}}
-                    </div>
-                  </mat-card-content>
-                  </mat-card>
-              </mat-grid-tile>
-  
-          <mat-grid-tile [colspan]="2" >
-              <mat-card class="current-card">       
-                  <mat-card-content class="content-card">
-                      <mat-card-title class="title-card">
-                          Last Edited
-                        </mat-card-title>
-                        <div class="content-div">
-                  {{lo.edited}}
-                      </div>
-                </mat-card-content>
-              </mat-card>
-              </mat-grid-tile>
-              
-              <mat-grid-tile [colspan]="2" >
-                  <mat-card class="current-card">
-                    <mat-card-content class="content-card">
-                        <mat-card-title class="title-card">
-                            Template
-                          </mat-card-title>
-                          <div class="content-div">
-                          {{lo.templates}}
-                        </div>
-                    </mat-card-content>
-                    </mat-card>
-                </mat-grid-tile>
-            
-          <mat-grid-tile [colspan]="1" >
-            <mat-card class="btn-card" >
-                <mat-card-actions>
-                  <button class="crnt-btn" mat-button (click) ="viewScript(li)">View
-                      <div class="crnt-icon">
-                      <mat-icon id="crnt-icon" svgIcon="view"></mat-icon>
-                      </div>
-                  </button>
-            </mat-card-actions>
-            </mat-card>
-          </mat-grid-tile>
-  
-      <mat-grid-tile [colspan]="1">
-        <mat-card class="btn-card">
-          <mat-card-actions class="mat-card-actions-current">
-              <button class="crnt-btn" mat-button (click)="editScript(li)">Edit
-                <div class="crnt-icon">
-                  <mat-icon id="btn-icon" svgIcon="edit"></mat-icon>
-                </div>
-              </button>
-          </mat-card-actions>
-        </mat-card>
-      </mat-grid-tile>
-  
-      <!-- <mat-grid-tile [colspan]="1">
-          <mat-card class="btn-card">
-            <mat-card-actions class="mat-card-actions-current">
-              <button class="crnt-btn" mat-button (click)='uploadScript(li)'>Upload
-                  <div class="crbt-icon">
-                  <mat-icon id="btn-icon" svgIcon="upload"></mat-icon>
-                  </div>
-              </button>
-            </mat-card-actions>
-          </mat-card>
-        </mat-grid-tile> -->
-        
-        <mat-grid-tile [colspan]="1">
-            <mat-card class="btn-card">
-              <mat-card-actions class="mat-card-actions-current">
-                <button class="crnt-btn" mat-button (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">Remove
-                  <div class="del-btn">
-                  <mat-icon id="btn-icon" svgIcon="delete"></mat-icon>
-                </div>
-                </button>
-              </mat-card-actions>
-            </mat-card>
-          </mat-grid-tile>
-      </mat-grid-list>
-  </mat-tab>
+          <tr *ngFor="let lp of purchasedList">
+            <td>{{lp.scriptName}}</td>
+            <td>{{lp.description}}</td>
+            <td>{{lp.category}}</td>
+            <td>{{lp.subcategory}}</td>
+            <td>{{lp.price}}</td>
+            <td>{{lp.uploadDate}}</td>
+            <td>{{lp.template}}</td>
+            <td><button class="review-btn">Write Review</button>This is a review</td>
+            <td><star-rating [starType]="'icon'" [rating]="2.63"></star-rating></td>
+            <td>
+              <div class="btn-group-special">
+                <button class="btn-v" (click) ="sharePurchasedScript(lp)" *ngIf ="Auth.orgId !=null">Share<mat-icon id="crnt-icon" ></mat-icon> </button>
+                <button class="btn-v" (click) ="viewUploadedScript(lp)">VIEW<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>
+             </div>
+            </td>
+          </table> 
+ 
+    </mat-tab>
 </mat-tab-group>

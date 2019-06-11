@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import '~css-star-rating/scss/star-rating';
 
 
 body, html {
@@ -14,8 +16,10 @@ body, html {
   margin-left: auto;
   margin-right: auto;
   position: relative;
+  // width: calc(100% - 1800);
+  // height: calc(100% - 350px);
   height: 350px;
-  width: 1500px;
+  width: 1800px;
   box-shadow: 5px 10px 8px #b9b9b3;
   background: #e6e6e6;
 }
@@ -64,6 +68,7 @@ body, html {
     background-color:#243A5D;
     color: white;
   }
+
   footer {
 
     background-color: #ddd;
@@ -73,3 +78,17 @@ body, html {
   }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// :host ::ng-deep .ngx-editor[_ngcontent-c11] .ngx-wrapper[_ngcontent-c11] .ngx-editor-textarea[_ngcontent-c11]{
+//   background-color: #f1f1f1;
+// }
+
+// :host ::ng-deep .ngx-editor-grippie[_ngcontent-c14]{
+//   height: 9px;
+//   background-color: #f1f1f1;
+//   position: absolute;
+//   text-align: center;
+//   cursor: s-resize;
+//   border: 1px solid #ddd;
+//   border-top: transparent;
+// }

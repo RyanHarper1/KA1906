@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ViewScriptService } from 'src/app/view-script.service';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-view-script',
   templateUrl: './view-script.component.html',
-  styleUrls: ['./view-script.component.scss']
+  styleUrls: ['./view-script.component.scss'],
 })
-export class ViewScriptComponent implements OnInit {
+export class ViewScriptComponent implements OnInit  {
   list: any;
   scriptId: any;
   scriptName: any;
@@ -21,7 +24,36 @@ export class ViewScriptComponent implements OnInit {
   previousAnswers: any[] ;
   previousAnswerCount = 0;
   loaded = false;
-  constructor(private view: ViewScriptService, private Http: HttpClient) { }
+  title = 'ngx-editor';
+  editorConfig = {
+    editable: false,
+    spellcheck: true,
+    background: 'white',
+    height: '150px',
+    minHeight: '150px',
+    translate: 'yes',
+    enableToolbar: false,
+    showToolbar: false,
+    placeholder: 'Enter text here...',
+  //   toolbar: [
+  //     ["bold", "italic", "underline", "strikeThrough", "superscript", "subscript"],
+  //     ["fontName", "fontSize", "color"],
+  //     ["justifyLeft", "justifyCenter", "justifyRight", "justifyFull", "indent", "outdent"],
+  //     ["cut", "copy", "delete", "removeFormat", "undo", "redo"],
+  //     ["paragraph", "blockquote", "removeBlockquote", "horizontalLine", "orderedList", "unorderedList"]
+  // ]
+  };
+
+  htmlContent = '';
+  
+  constructor(private view: ViewScriptService, private Http: HttpClient, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) { 
+    iconRegistry.addSvgIcon(
+      'back',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/back-btn.svg'));
+    iconRegistry.addSvgIcon(
+      'answer',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/chevron.svg'));
+  }
   
   ngOnInit() {
     this.scriptId = this.view.scriptId;

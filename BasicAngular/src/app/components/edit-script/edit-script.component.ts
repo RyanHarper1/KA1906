@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { EditServiceService } from 'src/app/edit-service.service';
 import { HttpClient } from '@angular/common/http'
 import { HttpClientModule } from '@angular/common/http';
@@ -24,7 +24,8 @@ interface scriptData {
 @Component({
   selector: 'app-edit-script',
   templateUrl: './edit-script.component.html',
-  styleUrls: ['./edit-script.component.scss']
+  styleUrls: ['./edit-script.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class EditScriptComponent implements OnInit {
   scriptId: any;
@@ -44,6 +45,29 @@ export class EditScriptComponent implements OnInit {
   response1: any;
   loadedScript = false;
   tempQuestionId: any;
+
+  title = 'ngx-editor';
+  editorConfig = {
+    editable: true,
+    spellcheck: true,
+    background: 'white',
+    height: '150px',
+    minHeight: '150px',
+    translate: 'yes',
+    enableToolbar: true,
+    showToolbar: true,
+    placeholder: 'Enter text here...',
+    toolbar: [
+      ["bold", "italic", "underline", "strikeThrough", "superscript", "subscript"],
+      ["fontName", "fontSize", "color"],
+      ["justifyLeft", "justifyCenter", "justifyRight", "justifyFull", "indent", "outdent"],
+      ["cut", "copy", "delete", "removeFormat", "undo", "redo"],
+      ["paragraph", "blockquote", "removeBlockquote", "horizontalLine", "orderedList", "unorderedList"]
+  ]
+  };
+
+  htmlContent = '';
+
   constructor(private editService: EditServiceService, private Http: HttpClient, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, private Auth: AuthService) {
 
     iconRegistry.addSvgIcon(
@@ -206,6 +230,10 @@ export class EditScriptComponent implements OnInit {
 
   }
   submit() {
+    
+
+    let updatetime = this.Http.post('http://localhost:3000/updatescripttime',{scriptId:this.scriptId});
+    updatetime.subscribe();
 
 
     if (this.questionId == null) {
@@ -277,81 +305,6 @@ export class EditScriptComponent implements OnInit {
         }
       });
     }
-    // if (this.loadedScript) {
-
-
-    //   let update = this.Http.post('http://localhost:3000/update-script', { questionId: this.questionId, question: this.question })
-    //   update.subscribe((result) => {
-    //     console.log(result)
-    //     console.log('THISGOING TO WORK')
-    //     for (let j = 0; j < this.answer; j++) {
-    //       if (this.answers[j].texts != "") {
-    //         console.log('THIS IS GOING TO WORK: ' + this.answers, this.answers[j].texts)
-
-    //         let send = this.Http.post<questionData>('http://localhost:3000/editAnswer', { texts: this.answers[j].texts, questionId: this.questionId, nextQuestionId: this.answers[j].nextQuestionId });
-    //         send.subscribe((res) => {
-    //           //console.log('THIS IS WHAT HAS RERTUEND: ' + res.result)
-    //         });
-
-    //       }
-    //     }
-    //   });
-
-
-    // }
-    // else {
-
-    //   console.log('ques: ' + this.questionId + 'scri' + this.scriptId)
-    //   //let sql = this.Auth.submitEditAnswer(this.questionId, this.scriptId, this.answers, this.question, this.tempAnswer)
-    //   console.log('It is trying to submit answer')
-    //   let request = this.Http.post<questionData>('http://localhost:3000/addQuestion', { texts: this.question, scriptId: this.scriptId });
-    //   request.subscribe((response1) => {
-    //     console.log('response1: ' + response1)
-    //     this.response1 = response1;
-    //     console.log('response1: ' + response1.questionId)
-    //     this.scriptData1.questionId = response1.questionId;
-
-    //     //insert answers
-    //     for (let i = 0; i < this.answers.length; i++) {
-    //       if (this.answers[i].texts != "") {
-    //         let ans = this.Http.post<questionData>('http://localhost:3000/addAnswer', { texts: this.answers[i].texts, questionId: response1.questionId });
-    //         ans.subscribe((response2) => {
-    //           this.response = response1
-    //           console.log('answer responses: ' + response2);
-
-    //         });
-    //       }
-    //     }
-    //     console.log('selected answer: ' + this.tempAnswer)
-    //     let update = this.Http.post('http://localhost:3000/updateAnswer', { nextQuestionId: response1.questionId, questionId: this.questionId, texts: this.tempAnswer });
-    //     update.subscribe((response2) => {
-    //       this.questionId = response1.questionId
-    //       let quest = this.Http.post('http://localhost:3000/get-question', { questionId: this.questionId });
-    //       quest.subscribe((response1) => {
-    //         console.log('response1: ' + response1[0].texts)
-    //         this.question = response1[0].texts;
-
-    //         //get answers
-    //         let ans = this.Http.post('http://localhost:3000/get-answer', { questionId: this.questionId });
-    //         ans.subscribe((response2) => {
-    //           let tempAnswers = response2;
-    //           this.answer = 0;
-    //           for (let i = 0; i < (<any>tempAnswers).length; i++) {
-    //             this.answers[i] = tempAnswers[i]
-    //             console.log('answer responses: ' + this.answers[i].texts);
-    //             this.answer++;
-    //           }
-    //           this.loadedScript = true;
-
-    //         });
-    //       });
-    //     });
-
-
-    //   });
-    //   //this.saved = true;
-
-    // }
   }
 
   backQuestion() {

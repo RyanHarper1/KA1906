@@ -1,0 +1,19 @@
+<mat-grid-tile [colspan] = "1" [rowspan] = "2"></mat-grid-tile>
+</mat-grid-list>
+<div class="background-style">
+<mat-grid-list cols=5 rowHeight="900px">
+  <mat-grid-tile [colspan]="1"></mat-grid-tile>
+  <mat-grid-tile [colspan]="3">
+    <div class="title">Your review will be posted publicly on the Sales Script web app</div>
+
+  <mat-card class="review-card">
+    <mat-card-header class="review-header">Write a review</mat-card-header>
+    <mat-card-content class="review-content">
+      <textarea name="review" id="textarea-review" placeholder="Enter your review here..." cols="70" rows="30"></textarea>
+      <div class="btn-group"><button class="cancel-btn">Cancel</button><button class="post-btn">Post</button></div>
+    </mat-card-content>
+  </mat-card>
+     
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1"></mat-grid-tile>
+  </mat-grid-list>

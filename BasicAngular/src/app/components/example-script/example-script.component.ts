@@ -23,6 +23,28 @@ export class ExampleScriptComponent implements OnInit {
   previousAnswers: any[] ;
   previousAnswerCount = 0;
   loaded = false;
+
+  title = 'ngx-editor';
+  editorConfig = {
+    editable: false,
+    spellcheck: true,
+    height: '150px',
+    minHeight: '150px',
+    translate: 'yes',
+    enableToolbar: false,
+    showToolbar: false,
+    placeholder: 'Enter text here...',
+  //   toolbar: [
+  //     ["bold", "italic", "underline", "strikeThrough", "superscript", "subscript"],
+  //     ["fontName", "fontSize", "color"],
+  //     ["justifyLeft", "justifyCenter", "justifyRight", "justifyFull", "indent", "outdent"],
+  //     ["cut", "copy", "delete", "removeFormat", "undo", "redo"],
+  //     ["paragraph", "blockquote", "removeBlockquote", "horizontalLine", "orderedList", "unorderedList"]
+  // ]
+  };
+
+  htmlContent = '';
+
   constructor(sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, private Http: HttpClient) {
 
     iconRegistry.addSvgIcon(
@@ -66,7 +88,7 @@ export class ExampleScriptComponent implements OnInit {
 
   ngOnInit() {
       this.previousAnswers = []
-    let query = this.Http.post('http://localhost:3000/get-script', {scriptId: 61});
+    let query = this.Http.post('http://localhost:3000/get-script', {scriptId: 357});
     query.subscribe((response)=>{
       console.log('response to this is: ' + response)
       this.response=response;

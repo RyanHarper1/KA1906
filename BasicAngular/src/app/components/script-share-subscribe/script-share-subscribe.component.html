@@ -1,19 +1,20 @@
 <div class="bckgrnd-img">
 
-<mat-grid-list cols=5 rowHeight="200px">
-  <mat-grid-tile [colspan]="1"><img class="icon" src="/assets/img/WhiteLogo.png" alt="logo"  width="100%"></mat-grid-tile>
-  <mat-grid-tile [colspan]="3">
+  <mat-grid-list cols=5 rowHeight="500px">
+    <mat-grid-tile [colspan]="1"><img class="icon" src="/assets/img/WhiteLogo.png" alt="logo" width="100%">
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="3">
       <div class="title">Subscribe to</div>
       <div class="sales-script">Script Share</div>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="1"></mat-grid-tile>
-</mat-grid-list>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1"></mat-grid-tile>
+  </mat-grid-list>
 
 
   <mat-horizontal-stepper style="background: none" [linear]="isLinear" #stepper>
 
     <mat-step [stepControl]="firstFormGroup">
-        <ng-template matStepLabel>Register company</ng-template>
+      <ng-template matStepLabel>Register company</ng-template>
       <mat-grid-list cols=5 rowHeight="1000px">
           <form [formGroup]="firstFormGroup">
         <mat-grid-tile [colspan]="1"></mat-grid-tile>
@@ -58,10 +59,10 @@
     </mat-step>
 
     <mat-step [stepControl]="secondFormGroup">
-        <ng-template matStepLabel>Confirm Plan</ng-template>
-        <mat-grid-list cols=8 rowHeight="1000px">
-            <form [formGroup]="secondFormGroup">
-                <mat-radio-group matInput formControlName="secondCtrl" required class="radio-group">
+      <ng-template matStepLabel>Confirm Plan</ng-template>
+      <mat-grid-list cols=8 rowHeight="1000px">
+        <form [formGroup]="secondFormGroup">
+          <mat-radio-group matInput formControlName="secondCtrl" required class="radio-group">
             <mat-grid-tile [colspan]="1">
                 <div class="next-btn"><button class="next-btn" mat-button matStepperPrevious><mat-icon class="right-left-icon" svgIcon="left"></mat-icon></button></div>
             </mat-grid-tile>
@@ -224,11 +225,14 @@
 
     <mat-step>
       <ng-template matStepLabel>Make Payment</ng-template>
-      <mat-grid-list cols=5 rowHeight="400px">
-        <mat-grid-tile [colspan]="1"><div class="next-btn"><button class="next-btn" mat-button matStepperPrevious><mat-icon class="right-left-icon" svgIcon="left"></mat-icon></button></div>
+      <mat-grid-list cols=5 rowHeight="600px">
+        <mat-grid-tile [colspan]="1">
+          <div class="next-btn"><button class="next-btn" mat-button matStepperPrevious>
+              <mat-icon class="right-left-icon" svgIcon="left"></mat-icon>
+            </button></div>
         </mat-grid-tile>
         <mat-grid-tile [colspan]="3">
-            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
                 <!-- Item No Column -->
                 <ng-container matColumnDef="itemno">
@@ -256,7 +260,7 @@
         </mat-grid-tile>
       </mat-grid-list>
 
-      <mat-grid-list cols=5 rowHeight="200px">
+      <mat-grid-list cols=5 rowHeight="300px">
         <mat-grid-tile [colspan]="1"></mat-grid-tile>
         <mat-grid-tile [colspan]="3">
       <mat-card class="total-column">
@@ -267,6 +271,14 @@
       </mat-grid-tile>
       <mat-grid-tile [colspan]="1"></mat-grid-tile>
       </mat-grid-list>
+
+      <!--Filler for bottom-->
+      <mat-grid-list cols=5 rowHeight="100px">
+        <mat-grid-tile [colspan]="1"></mat-grid-tile>
+        <mat-grid-tile [colspan]="3"></mat-grid-tile>
+        <mat-grid-tile [colspan]="1"></mat-grid-tile>
+      </mat-grid-list>
+
     </mat-step>
   </mat-horizontal-stepper>
 </div>

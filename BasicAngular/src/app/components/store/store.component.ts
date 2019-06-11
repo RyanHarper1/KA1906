@@ -3,20 +3,24 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { AuthService } from 'src/app/auth.service';
-import { MatIconRegistry } from '@angular/material';
+import { MatIconRegistry, MatSnackBar } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { CartService } from 'src/app/cart.service';
 import { Router } from '@angular/router';
 import { ViewScriptService } from 'src/app/view-script.service';
+import{ CategoryPipe } from '../../pipes/category.pipe';
+import{ MinPricePipe } from '../../pipes/min-price.pipe';
+import{ RatingPipe } from '../../pipes/rating.pipe';
 
 @Component({
   selector: 'app-store',
   templateUrl: './store.component.html',
-  styleUrls: ['./store.component.scss']
+  styleUrls: ['./store.component.scss'],
+  providers: [MinPricePipe, CategoryPipe, RatingPipe]
 
 })
 export class StoreComponent implements OnInit {
-  constructor(private viewService: ViewScriptService,private Http: HttpClient, private Auth : AuthService, private cartService: CartService, private router: Router, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) { 
+  constructor(private snackBar: MatSnackBar,private viewService: ViewScriptService,private Http: HttpClient, private Auth : AuthService, private cartService: CartService, private router: Router, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) {
     iconRegistry.addSvgIcon(
       'cart',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/cart.svg'));
@@ -57,7 +61,7 @@ export class StoreComponent implements OnInit {
 
       this.list=response;
       console.log(response)
-      this.router.navigate(['/store']);
+      let snackBarRef = this.snackBar.open('Added to cart');
     });
     console.log(store);
   }

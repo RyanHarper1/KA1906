@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth.service';
-import { MatIconRegistry, MatDialog, MatDialogRef } from '@angular/material';
+import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 
 
@@ -12,7 +12,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 
 export class NavComponent implements OnInit {
 
-  constructor(private Auth: AuthService, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, public dialog: MatDialog) {
+  constructor(private Auth:AuthService,sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) {
     iconRegistry.addSvgIcon(
       'cart',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/cart.svg'));
@@ -21,17 +21,18 @@ export class NavComponent implements OnInit {
   loggedIn: Boolean;
   ngOnInit() {
     this.Auth.change.subscribe(loggedIn => {
-      this.loggedIn = loggedIn;
+           this.loggedIn = loggedIn;
       console.log('nav: ' + this.loggedIn)
     });
 
   }
-  logout() {
+  logout(){
     this.Auth.logout();
     this.Auth.change.subscribe(loggedIn => {
       this.loggedIn = loggedIn;
-      console.log('nav2: ' + this.loggedIn)
-    });
-    this.loggedIn = false;
+ console.log('nav2: ' + this.loggedIn)
+  });
+  this.loggedIn = false;
   }
+
 }

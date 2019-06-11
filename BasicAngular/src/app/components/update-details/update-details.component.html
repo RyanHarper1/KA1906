@@ -1,18 +1,21 @@
+<div fxLayout="row" fxLayoutAlign="space-evenly center" > 
 <div id="banner">
   <img class="banner-img" src="/assets/img/access-blur-close-up-257930.jpg" width="100%" height="100%">
   <img class="logo-img" src="/assets/img/WhiteLogo.png" alt="logo" width="100%" heght="100%">
   <div class="title">Update Details</div>
-  <!-- <img class="icon" src="assets/img/Login-icon.png"> -->
-</div>
+  <img class="icon" src="assets/img/user-edit-solid.svg">
+</div></div>
 
 <mat-grid-list cols="7" rowHeight="300px">
   <mat-grid-tile [colspan]="1" [rowspan]="2"></mat-grid-tile>
   <mat-grid-tile [colspan]="5" [rowspan]="2">
+
     <div class="userDetails">
       <mat-form-field>
         <input matInput placeholder="Email"  required [formControl] = "email">
         <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
       </mat-form-field>
+
       <mat-form-field>
         <input matInput placeholder="Current Password" required [formControl] = "curPass" type= password>
       </mat-form-field>
@@ -24,9 +27,7 @@
       <mat-form-field>
         <input matInput placeholder="Confirm Password" required [formControl] = "confirmPass" type= password>
       </mat-form-field>
-      <mat-error *ngIf="submitted">{{getErrorMessage1()}}</mat-error>
       <button class="update-details-btn" mat-button type="submit" (click)= "submit()">Submit</button>
-      
     </div>
     
   </mat-grid-tile>

@@ -1,9 +1,10 @@
+<div fxLayout="row" fxLayoutAlign="space-evenly center" > 
 <div id="banner">
   <img class="banner-img" src="/assets/img/example.png" width="100%" height="100%">
   <img class="logo-img" src="/assets/img/Logo.png" alt="logo" width="100%" heght="100%">
   <div class="title">Example Script</div>
 </div>
-
+</div>
 <!--Description explaining how build script works with example script-->
 <mat-grid-list cols="11" rowHeight="220px">
     <mat-grid-tile [colspan]="1"> </mat-grid-tile>
@@ -18,26 +19,29 @@
     <mat-grid-tile [colspan]="1"> </mat-grid-tile>
   </mat-grid-list>
 
-<!--Script details-->
-<div *ngIf = "loaded"> 
-<div class="script-details-container">
-  <div class="script-details">Category</div>
-    <input class="input-details"type="text" [(ngModel)] ="category" readonly>
-  <div class="script-details">Script Name</div>
-    <input class="input-details" type="text" [(ngModel)] ="scriptName" readonly>
-  </div>
+  <!--Script details-->
+  <div *ngIf = "loaded"> 
+    <mat-grid-list class="gridList" cols="8" rowHeight="70px">
+          <mat-grid-tile [colspan]="1"></mat-grid-tile>
+          <mat-grid-tile class="script-detail-grid-tile" [colspan]="1"><div class="script-details">Script Name</div></mat-grid-tile>
+          <mat-grid-tile class="edit-script-grid-tile" [colspan]="2"><input class="input-details" type="text" [(ngModel)] ="scriptName" readonly></mat-grid-tile>
+          <mat-grid-tile class="script-detail-grid-tile" [colspan]="1"><div class="script-details">Category</div></mat-grid-tile>
+          <mat-grid-tile class="edit-script-grid-tile" [colspan]="2"><input class="input-details" type="text" [(ngModel)] ="category" readonly ></mat-grid-tile>
+          <mat-grid-tile class="edit-script-grid-tile" [colspan]="1"></mat-grid-tile>
+      </mat-grid-list>
 
 <!--Back button row-->
-
-  <mat-grid-list cols="11" rowHeight="50px">
-    <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-    <mat-grid-tile class="bck-btn-container" [colspan]="3">
-    <button id="bck-btn" mat-button (click)="backQuestion()" *ngIf ="previousAnswerCount > 0 "><mat-icon id="bck-btn-icon" svgIcon="back"></mat-icon>Back</button>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="3"></mat-grid-tile>
-    <mat-grid-tile [colspan]="3"></mat-grid-tile>
-    <mat-grid-tile [colspan]="1"> </mat-grid-tile>
-  </mat-grid-list>
+      <mat-grid-list cols="11" rowHeight="100px">
+        <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+        <mat-grid-tile class="add-btn" [colspan]="3">
+            <button class="mat-btn" mat-button (click)="backQuestion()" *ngIf ="previousAnswerCount > 0 ">
+                    <mat-icon svgIcon="back"></mat-icon><div class="add-answer">Back</div>
+            </button>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="3"> </mat-grid-tile>
+        <mat-grid-tile [colspan]="3"> </mat-grid-tile>
+        <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+    </mat-grid-list>
 
   <!--Objections-->
 
@@ -50,13 +54,13 @@
         <div class="answer-title">Answer</div>
       </mat-card-header>
       <mat-card-content> 
-          <textarea [(ngModel)]="answers[1].texts" rows="4" cols="40" name="texts" readonly></textarea>
+          <textarea [(ngModel)]="answers[0].texts" rows="4" cols="40" name="texts" readonly></textarea>
       </mat-card-content>
     </mat-card>
   
   </mat-grid-tile>
     
-  <mat-grid-tile [colspan]="3" *ngIf="answer > 1">
+  <mat-grid-tile [colspan]="3">
     <mat-card class="example-card" *ngIf="answer > 1">
         <mat-card-header>
           <div class="next-answer"><button mat-button (click)="nextQuestion(answer[1],1)" *ngIf="answers[1].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
@@ -68,7 +72,7 @@
       </mat-card>
   </mat-grid-tile>
   
-  <mat-grid-tile [colspan]="3" *ngIf="answer > 2">
+  <mat-grid-tile [colspan]="3">
     <mat-card class="example-card" *ngIf="answer > 2">
         <mat-card-header>
           <div class="next-answer"><button mat-button (click)="nextQuestion(answer[2],2)" *ngIf="answers[2].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
@@ -80,10 +84,10 @@
       </mat-card>
   </mat-grid-tile>
 
-  <mat-grid-tile [colspan]="1"*ngIf="answer > 3"></mat-grid-tile>
+  <mat-grid-tile [colspan]="1"></mat-grid-tile>
 
-  <mat-grid-tile [colspan]="1"*ngIf="answer > 3"> </mat-grid-tile>
-  <mat-grid-tile [colspan]="3" *ngIf="answer > 3">
+  <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+  <mat-grid-tile [colspan]="3">
       <mat-card class="example-card" *ngIf="answer > 3">
           <mat-card-header>
             <div class="next-answer"><button mat-button (click)="nextQuestion(answer[3],3)" *ngIf="answers[3].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
@@ -95,7 +99,7 @@
         </mat-card>
   </mat-grid-tile>
   
-  <mat-grid-tile [colspan]="3" *ngIf="answer > 4">
+  <mat-grid-tile [colspan]="3">
       <mat-card class="example-card" *ngIf="answer > 4">
           <mat-card-header>
             <div class="next-answer"><button mat-button (click)="nextQuestion(answer[4],4)" *ngIf="answers[4].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
@@ -107,7 +111,7 @@
         </mat-card>
   </mat-grid-tile>
 
-  <mat-grid-tile [colspan]="3" *ngIf="answer > 5">
+  <mat-grid-tile [colspan]="3">
       <mat-card class="example-card" *ngIf="answer > 5">
           <mat-card-header>
             <div class="next-answer"><button mat-button (click)="nextQuestion(answer[5],5)" *ngIf="answers[5].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
@@ -119,9 +123,9 @@
         </mat-card>
   </mat-grid-tile>
 
-  <mat-grid-tile [colspan]="1"*ngIf="answer > 6"> </mat-grid-tile>
-  <mat-grid-tile [colspan]="1"*ngIf="answer > 6"> </mat-grid-tile>
-  <mat-grid-tile [colspan]="3" *ngIf="answer > 6">
+  <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+  <mat-grid-tile [colspan]="1"> </mat-grid-tile>
+  <mat-grid-tile [colspan]="3">
       <mat-card class="example-card" *ngIf="answer > 6">
           <mat-card-header>
             <div class="next-answer"><button mat-button (click)="nextQuestion(answer[6],6)" *ngIf="answers[6].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
@@ -133,7 +137,7 @@
         </mat-card>
   </mat-grid-tile>
 
-  <mat-grid-tile [colspan]="3"*ngIf="answer > 7">
+  <mat-grid-tile [colspan]="3">
       <mat-card class="example-card" *ngIf="answer > 7">
           <mat-card-header>
             <div class="next-answer"><button mat-button (click)="nextQuestion(answer[7],7)" *ngIf="answers[7].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
@@ -145,7 +149,7 @@
         </mat-card>
   </mat-grid-tile>
 
-  <mat-grid-tile [colspan]="3" *ngIf="answer > 8">
+  <mat-grid-tile [colspan]="3">
       <mat-card class="example-card" *ngIf="answer > 8">
       <mat-card-header>
         <div class="next-answer"><button mat-button (click)="nextQuestion(answer[8],8)" *ngIf="answers[8].nextQuestionId != NULL"><mat-icon svgIcon="answer"></mat-icon></button></div>
@@ -156,15 +160,15 @@
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
+  <mat-grid-tile [colspan]="1"> </mat-grid-tile>
 
-</mat-grid-list>
-<mat-grid-list cols="11" rowHeight="1:1.2" [gutterSize]="'10px'">
 <!--Pitch-->
 <mat-grid-tile [colspan]="2"> </mat-grid-tile>
 <mat-grid-tile [colspan]="7" [rowspan] ="3">
     <div class="boxed-pitch">
       <div class="pitch-title">Pitch</div>
-      <textarea [(ngModel)]="question" rows="8" cols="80" readonly></textarea>
+      <app-ngx-editor class="toolbar-editor" [config]="editorConfig" [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="question" ></app-ngx-editor>
+      <!-- <textarea [(ngModel)]="question" rows="8" cols="80" readonly></textarea> -->
     </div>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="2"> </mat-grid-tile>

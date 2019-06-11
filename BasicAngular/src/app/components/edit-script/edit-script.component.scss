@@ -67,16 +67,11 @@
   background: #3a4f6e;
 }
 
-// ::ng-deep div.mat-card-header-text{
-//   margin-left: 1px;
-//   margin-top: 23px;
-//   margin-bottom: 23px;
-// }
 
-::ng-deep .mat-card.edit-card.mat-card{
+  .edit-card{
   display: inline-block;
   box-shadow: 5px 10px 8px #b9b9b3;
-  padding: 0;
+  padding: 0 !important;
   position: relative;
   width: 90%;
 }
@@ -179,16 +174,14 @@ textarea {
   font-size: 20px;
   box-sizing: border-box;
   padding: 10px;
+  font-family: sans-serif;
 }
 
-.toolbar-container{
-  background: #3a4f6e;
-  text-align: center;
-  margin: 10px;
-  justify-items: stretch;
-  display: flex;
-  justify-content: space-around;
+textarea::first-letter{
+  text-transform: uppercase;
 }
+
+
 
  :ng-deep .edit-icon.mat-button{
   justify-content: space-between;
@@ -196,7 +189,7 @@ textarea {
 
   .save-edit-container{
     text-align: center;
-    margin: 10px;
+    margin: 5px;
     padding: 5px;
   }
 
@@ -204,9 +197,29 @@ textarea {
     background: orange;
     color: white;
     width: 120px;
-    height: 60px;
+    height: 50px;
     font-size: 18pt;
     font-variant-caps: all-petite-caps;
     letter-spacing: 2pt;
   }
 
+  
+  .toolbar-editor{
+    justify-content: space-around;
+    background: white;
+  
+  }
+  // .ngx-editor[_ngcontent-c11] .ngx-wrapper[_ngcontent-c11] .ngx-editor-textarea[_ngcontent-c11]{
+  //   min-height: 100px;
+  //   border: 1px solid #ddd;
+  //   background-color: white;
+  //   overflow-x: hidden;
+  //   overflow-y: auto;
+  //   z-index: 2;
+  //   position: relative;
+  // }
+
+  // .ngx-editor-textarea{
+  //   background-color: white;
+  //   min-height: 100px;
+  // }
