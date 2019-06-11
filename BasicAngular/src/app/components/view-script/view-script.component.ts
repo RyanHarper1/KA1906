@@ -4,12 +4,13 @@ import { ViewScriptService } from 'src/app/view-script.service';
 import { MatIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 
+
 @Component({
   selector: 'app-view-script',
   templateUrl: './view-script.component.html',
-  styleUrls: ['./view-script.component.scss']
+  styleUrls: ['./view-script.component.scss'],
 })
-export class ViewScriptComponent implements OnInit {
+export class ViewScriptComponent implements OnInit  {
   list: any;
   scriptId: any;
   scriptName: any;
@@ -23,7 +24,6 @@ export class ViewScriptComponent implements OnInit {
   previousAnswers: any[] ;
   previousAnswerCount = 0;
   loaded = false;
-
   title = 'ngx-editor';
   editorConfig = {
     editable: false,

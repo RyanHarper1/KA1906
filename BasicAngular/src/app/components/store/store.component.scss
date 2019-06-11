@@ -162,4 +162,48 @@
   /*****************BUTTON EFFECTS END*****************/
 
  
+/*****************SEARCH STYLING START*****************/
+.search-drawer{
+  width: 25%;
+  height: 50%;
+}
+.search-container{
+margin: 30px;
+display: block;
+// width: 50%;
+// height: 300px;
+}
 
+.filter{
+  display: block;
+  position: relative;
+  flex: auto;
+  min-width: 0;
+  width: 300px !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-btn{
+  width: 425px;
+  height: 40px;
+  justify-items: center;
+  font-variant-caps: all-petite-caps;
+  letter-spacing: 2pt;
+  font-size: 16pt;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+  background: #1a1b1b;
+  color: white;
+  margin-left: 10px;
+}
+
+.drawer-content{
+  margin-top: 10px;
+}
+
+
+
+
+
+
+/*****************SEARCH STYLING END*****************/

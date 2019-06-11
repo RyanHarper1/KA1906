@@ -46,14 +46,14 @@
 
   <mat-drawer-container [hasBackdrop]="false" #mode value="top">
 
-    <mat-drawer #drawer [mode]="mode.value">Search<br>
-
-       <mat-form-field>
+    <mat-drawer #drawer [mode]="mode.value" class="search-drawer"><br>
+<div class="search-container">
+       <mat-form-field class="filter">
         <input matInput type = "text" placeholder="Keyword" [(ngModel)]="term">
       </mat-form-field><br />
 
-      <mat-form-field>
-        <mat-select [(ngModel)]="Cat" placeholder="Category">
+      <mat-form-field class="filter" >
+        <mat-select [(ngModel)]="Cat" placeholder="Category" class="filter">
           <mat-option value="Trades">Trades</mat-option>
           <mat-option value="Accounting">Accounting</mat-option>
           <mat-option value="Health">Health</mat-option>
@@ -66,7 +66,7 @@
         </mat-select>
       </mat-form-field><br />
 
-  <div [(ngModel)]="subCat">
+  <div [(ngModel)]="subCat" class="filter" >
         <mat-checkbox value="Business Development">Business Development</mat-checkbox><br />
         <mat-checkbox value="Outbound">Outbound</mat-checkbox><br />
         <mat-checkbox value="Sales Representative">Sales Representative</mat-checkbox><br />
@@ -79,21 +79,7 @@
         <mat-checkbox value="Area Sales">Area Sales</mat-checkbox><br />
   </div>
 
-  <!-- Rating:
-    <mat-slider
-        class = "tp-margin"
-        [thumbLabel] = "thumbLabel"
-        [(ngModel)] = "value"
-        min="0"
-        max="5"
-        step="1"
-        tickInterval="auto">
-    </mat-slider><br /> -->
-
-
-    <!-- <mat-datepicker #myDatepicker></mat-datepicker> -->
-
-      <mat-form-field>
+      <mat-form-field class="filter">
             <mat-select placeholder="Price-Min" [(ngModel)]="min">
               <mat-option value="1">$1</mat-option>
               <mat-option value="2">$2</mat-option>
@@ -102,7 +88,7 @@
             </mat-select>
         </mat-form-field><br />
 
-        <mat-form-field>
+        <mat-form-field class="filter" >
               <mat-select placeholder="Price-Max">
                 <mat-option value="100">Any</mat-option>
                 <mat-option value="3">$3</mat-option>
@@ -111,7 +97,7 @@
               </mat-select>
         </mat-form-field><br />
 
-        <mat-form-field>
+        <mat-form-field class="filter">
               <mat-select placeholder="Script Downloads">
                 <mat-option value="option">Any</mat-option>
                 <mat-option value="option">1-5</mat-option>
@@ -122,7 +108,7 @@
 
 
 
-          <mat-form-field>
+          <mat-form-field class="filter">
               <mat-select placeholder="Templates">
                 <mat-option value="option">1-20</mat-option>
                 <mat-option value="option">21-40</mat-option>
@@ -131,30 +117,44 @@
                 <mat-option value="option">80+</mat-option>
               </mat-select>
           </mat-form-field><br />
+</div>
 
     </mat-drawer>
 
     <mat-select #mode value="side"></mat-select>
-    <mat-drawer-content>
-      <button mat-raised-button (click)="drawer.toggle()">Search</button>
-      <table>
-        <tr *ngFor="let li of list | categoryPipe:Cat | filter:term">
-          <td>
-            Name: {{li.scriptName}}<br>
-            Description: {{li.description}}<br>
-            Category: {{li.category}}<br>
-          </td>
-          <td>
-            Price: ${{li.price}}<br>
-            Rating: {{li.rating}}<br>
-            Date: {{li.uploadDate | slice:0:10}}<br>
-          </td>
+    <mat-drawer-content class="drawer-content">
+      <button class="search-btn" mat-raised-button (click)="drawer.toggle()">Search</button>
 
-          <td><button mat-button (click)="addToCart(li)" [routerLink]="[ '/store' ]">Add To Cart</button></td>
-        </tr>
-
-      </table>
-
-
+      <table width="100%" cellspacing="10" >
+          <tr class="tr-header">
+            <th>Script Name</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Sub-Category</th>
+            <th>Price</th>
+            <th>Last Edited</th>
+            <th>Template</th>
+            <th>Reviews</th>
+            <th>Rating</th>
+          </tr>
+  
+          <tr *ngFor="let li of list | categoryPipe:Cat | filter:term">
+            <td>{{li.scriptName}}</td>
+            <td>{{li.description}}</td>
+            <td>{{li.category}}</td>
+            <td>{{li.subcategory}}</td>
+            <td>{{li.price}}</td>
+            <td>{{li.edited}}</td>
+            <td>{{li.template}}</td>
+            <td>this is a review</td>
+            <td><star-rating [starType]="'icon'" [rating]="2.63"></star-rating></td>
+            <td>
+              <div class="btn-group">
+                  <button class="btn-v" (click) ="viewScript(li)">VIEW<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>
+                  <button class="btn-a" (click) = "addToCart(li)">add<mat-icon id="crnt-icon" svgIcon="cart"></mat-icon></button>
+              </div>
+                </td>
+            </tr>
+          </table> 
     </mat-drawer-content>
   </mat-drawer-container>
