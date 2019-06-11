@@ -40,6 +40,9 @@ export class CurrentScriptsComponent implements OnInit {
     iconRegistry.addSvgIcon(
       'view',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/eye-regular.svg'));
+      iconRegistry.addSvgIcon(
+        'share',
+        sanitizer.bypassSecurityTrustResourceUrl('../assets/img/share.svg'));
 
 
 

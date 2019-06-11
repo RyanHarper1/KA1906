@@ -119,12 +119,12 @@ tr:hover{
 .btn-group {		
   position: relative;	
   display: inline-block;
-  width: 250px;
+  width: 300px;
   // border: 1px solid black;
   margin: auto;
 }
 
-.btn-v, .btn-e, .btn-u, .btn-d {
+.btn-v, .btn-e, .btn-u, .btn-d, .btn-s {
   width: 60px;
   height: 50px;
   padding: 3px;
@@ -159,6 +159,11 @@ tr:hover{
 .btn-d:hover{
   background: brown;
 }
+
+.btn-s:hover{
+  background: lightcoral;
+}
+
  
 
 #crnt-icon{
