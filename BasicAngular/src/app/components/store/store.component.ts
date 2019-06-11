@@ -8,15 +8,19 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { CartService } from 'src/app/cart.service';
 import { Router } from '@angular/router';
 import { ViewScriptService } from 'src/app/view-script.service';
+import{ CategoryPipe } from '../../pipes/category.pipe';
+import{ MinPricePipe } from '../../pipes/min-price.pipe';
+import{ RatingPipe } from '../../pipes/rating.pipe';
 
 @Component({
   selector: 'app-store',
   templateUrl: './store.component.html',
-  styleUrls: ['./store.component.scss']
+  styleUrls: ['./store.component.scss'],
+  providers: [MinPricePipe, CategoryPipe, RatingPipe]
 
 })
 export class StoreComponent implements OnInit {
-  constructor(private viewService: ViewScriptService,private Http: HttpClient, private Auth : AuthService, private cartService: CartService, private router: Router, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) { 
+  constructor(private viewService: ViewScriptService,private Http: HttpClient, private Auth : AuthService, private cartService: CartService, private router: Router, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) {
     iconRegistry.addSvgIcon(
       'cart',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/cart.svg'));
