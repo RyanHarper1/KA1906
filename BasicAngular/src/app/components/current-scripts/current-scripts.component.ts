@@ -10,6 +10,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ViewScriptService } from 'src/app/view-script.service';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { MatSnackBarModule, MatSnackBar } from '@angular/material/snack-bar';
+import { confirmDelete } from '../admin/admin.component';
 
 @Component({
   selector: 'app-current-scripts',
@@ -40,9 +41,9 @@ export class CurrentScriptsComponent implements OnInit {
     iconRegistry.addSvgIcon(
       'view',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/eye-regular.svg'));
-      iconRegistry.addSvgIcon(
-        'share',
-        sanitizer.bypassSecurityTrustResourceUrl('../assets/img/share.svg'));
+    iconRegistry.addSvgIcon(
+      'share',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/share.svg'));
 
 
 
@@ -113,18 +114,47 @@ export class CurrentScriptsComponent implements OnInit {
     });
   }
   deleteScript(script) {
-    let del = this.Http.post('http://localhost:3000/delete-script', { scriptId: script.scriptId });
-    del.subscribe((response) => {
-
-      this.ngOnInit()
-      let snackBarRef = this.snackBar.open('Successfully Deleted');
+    const dialogRef = this.dialog.open(confirmDelete, {
+      width: '700px'
     });
-    console.log(script);
-    let temp = {scriptID: script.scriptId}
-    this.deleteUploadedScript(temp)
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result == 'yes') {
+        let del = this.Http.post('http://localhost:3000/delete-script', { scriptId: script.scriptId });
+        del.subscribe((response) => {
+
+          this.ngOnInit()
+          let snackBarRef = this.snackBar.open('Successfully Deleted');
+        });
+        console.log(script);
+        let temp = { scriptID: script.scriptId }
+        this.deleteUploadedScriptNoPrompt(temp)
+
+      }
+    })
+
 
   }
   deleteUploadedScript(script) {
+    const dialogRef = this.dialog.open(confirmDelete, {
+      width: '700px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result == 'yes') {
+        let del = this.Http.post('http://localhost:3000/deleteUploadedScript', { scriptId: script.scriptID });
+        del.subscribe((response) => {
+
+          this.ngOnInit()
+          let snackBarRef = this.snackBar.open('Successfully Deleted');
+        });
+        console.log(script);
+      }
+    })
+
+
+  }
+  deleteUploadedScriptNoPrompt(script) {
     let del = this.Http.post('http://localhost:3000/deleteUploadedScript', { scriptId: script.scriptID });
     del.subscribe((response) => {
 
