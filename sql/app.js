@@ -284,6 +284,42 @@ app.post('/delete-script', (req, res) => {
         res.send(reply);
     });
 });
+app.post('/delete-script', (req, res) => {
+    let script = { texts: req.body.texts, questionId: req.body.questionId };
+    let sql = 'DELETE FROM script WHERE scriptId  = ' + req.body.scriptId;
+    console.log("On server side");
+    console.log(script);
+    let query = db.query(sql, script, (err, result) => {
+        if (err) {
+            throw err;
+        } else {
+            console.log("successfully deleted");
+
+            reply = {
+                result: 'success'
+            }
+        }
+        res.send(reply);
+    });
+});
+
+app.post('/deleteOrgScript', (req, res) => {
+   let sql = 'DELETE FROM orgScripts WHERE scriptId  = ' + req.body.scriptId;
+    console.log("On server side");
+
+    let query = db.query(sql, (err, result) => {
+        if (err) {
+            throw err;
+        } else {
+            console.log("successfully deleted");
+
+            reply = {
+                result: 'success'
+            }
+        }
+        res.send(reply);
+    });
+});
 
 app.post('/deleteUploadedScript', (req, res) => {
     let script = { texts: req.body.texts, questionId: req.body.questionId };

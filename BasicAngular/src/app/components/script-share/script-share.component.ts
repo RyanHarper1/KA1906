@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { listLazyRoutes } from '@angular/compiler/src/aot/lazy_routes';
+import { ViewScriptService } from 'src/app/view-script.service';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-script-share',
@@ -13,7 +16,7 @@ export class ScriptShareComponent implements OnInit {
   orgId = "";
   list: any;
   list2: any;
-  constructor(private auth: AuthService, private Http: HttpClient) {
+  constructor(private snackBar: MatSnackBar,private viewService: ViewScriptService,private router: Router,private auth: AuthService, private Http: HttpClient) {
     
    }
 
@@ -31,8 +34,11 @@ export class ScriptShareComponent implements OnInit {
           console.log(this.list[i].scriptId)
           let get = this.Http.post('http://localhost:3000/get-script', {scriptId: this.list[i].scriptId});
           get.subscribe((response1) => {
-            this.list2[i] = response1[0];
+            if(response1[0].scriptId != null){
+              this.list2[i] = response1[0];
             console.log(this.list2[i])
+            }
+            
           
         });
       }
@@ -42,6 +48,18 @@ export class ScriptShareComponent implements OnInit {
       
     }
 
+  }
+  viewScript(script) {
+    this.viewService.setScript(script.scriptId);
+    console.log(script);
+    this.router.navigate(['view-script']);
+  }
+  deleteScript(script){
+    let del = this.Http.post('http://localhost:3000/deleteOrgScript',{scriptId:script.scriptId})
+    del.subscribe((result) => {
+      let snackBarRef = this.snackBar.open('Successfully Deleted');
+      this.ngOnInit()
+    })
   }
 
 }

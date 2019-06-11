@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { getDefaultService } from 'selenium-webdriver/chrome';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -25,7 +26,7 @@ export class RegisterComponent implements OnInit {
 
   //  dialog: any;
 
-  constructor(private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient) {
+  constructor(private router: Router,private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient) {
 
   }
 
@@ -47,6 +48,7 @@ export class RegisterComponent implements OnInit {
 
         this.Auth.register(this.registerForm);
         this.success = true;
+        this.router.navigate(['login']);
       }
     }
   }

@@ -253,10 +253,8 @@
                       <td>{{ln?.template}}</td>
                       <td>
                           <div class="btn-group">
-                            <button class="btn-v" (click) ="viewScript(li)">view<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>
-                            <button class="btn-e" (click)="editScript(li)">edit<mat-icon id="crnt-icon" svgIcon="edit"></mat-icon> </button>
-                            <button class="btn-u" (click)='uploadScript(li)'>upload<mat-icon id="crnt-icon" svgIcon="upload"></mat-icon> </button>
-                            <button class="btn-d" (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">remove<mat-icon id="delete-icon" svgIcon="delete"></mat-icon></button>
+                            <button class="btn-v" (click) ="viewScript(ln)">view<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>
+                            <button class="btn-d" (click)="deleteScript(ln)" >remove<mat-icon id="delete-icon" svgIcon="delete"></mat-icon></button>
                           </div>
                       </td>
                     </table>
