@@ -18,6 +18,7 @@ import {UpdateDetailsComponent} from './components/update-details/update-details
 import { AdminComponent } from './components/admin/admin.component';
 import { ViewScriptComponent } from './components/view-script/view-script.component';
 import { terms, contact } from './components/footer/footer.component';
+import { confirm} from './components/cart/cart.component'
 import { ScriptShareSubscribeComponent } from './components/script-share-subscribe/script-share-subscribe.component';
 
 const routes: Routes = [
@@ -25,6 +26,10 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent
   },
+  {
+  path: 'confirm',
+  component: confirm
+},
   {
     path: 'register',
     component: RegisterComponent
@@ -37,7 +42,7 @@ const routes: Routes = [
     path: '',
     component: HomeComponent,
   },
-  
+
   //Only allow access to following components when signed in
   {
     path: 'cart',
@@ -77,44 +82,44 @@ const routes: Routes = [
     {
     path: 'DialogForm',
     component: DialogForm,
-    
+
   },
   {
     path: 'terms',
     component: terms,
-    
+
   },
   {
     path: 'contact',
     component: contact,
-    
+
   },
   {
     path: 'privacy',
     component: privacy,
-    
+
   },
   {
   path: 'subscribe',
   component: ScriptShareSubscribeComponent,
-  
+
 },
 {
   path: 'uploadForm',
   component: uploadForm,
-  
+
 },
   {
   path: 'admin',
   component: AdminComponent,
   canActivate: [AuthGuard]
-  
+
 },
 {
   path: 'view-script',
   component: ViewScriptComponent,
   canActivate: [AuthGuard]
-  
+
 }
 ];
 

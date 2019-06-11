@@ -36,6 +36,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxEditorModule } from 'ngx-editor';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { StarRatingModule } from 'angular-star-rating';
+import { RatingPipe } from './pipes/rating.pipe';
+import { CategoryPipe } from './pipes/category.pipe';
+import { MinPricePipe } from './pipes/min-price.pipe';
+import { SubCategoryPipe } from './pipes/sub-category.pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { confirm} from './components/cart/cart.component';
+
 
 @NgModule({
   declarations: [
@@ -61,6 +68,12 @@ import { StarRatingModule } from 'angular-star-rating';
     contact,
     ScriptShareSubscribeComponent,
     uploadForm,
+    RatingPipe,
+    CategoryPipe,
+    MinPricePipe,
+    SubCategoryPipe,
+    confirm
+
   ],
   imports: [
     FormsModule,
@@ -89,7 +102,8 @@ import { StarRatingModule } from 'angular-star-rating';
     FlexLayoutModule,
     NgxEditorModule,
     TooltipModule,
-    StarRatingModule.forRoot()
+    StarRatingModule.forRoot(),
+    Ng2SearchPipeModule
 
   ],
   exports: [
