@@ -60,19 +60,16 @@ export class CurrentScriptsComponent implements OnInit {
       let current = this.Http.post('http://localhost:3000/current-scripts', { id: this.Auth.getId });
       current.subscribe((response) => {
         this.list = response;
-        console.log(response)
       });
       let store = this.Http.post('http://localhost:3000/uploaded', { id: this.Auth.getId });
       store.subscribe((response) => {
 
         this.storelist = response;
-        console.log(response)
       });
       let purchased = this.Http.post('http://localhost:3000/purchased-scripts', { id: this.Auth.getId });
       purchased.subscribe((response) => {
 
         this.purchasedList = response;
-        console.log(response)
       });
     }
 
@@ -95,19 +92,16 @@ export class CurrentScriptsComponent implements OnInit {
   }
   editScript(script) {
     this.editService.setScript(script.scriptId);
-    console.log(script);
     this.router.navigate(['edit-script']);
 
   }
   shareScript(script) {
-    console.log('sharing')
     let share = this.Http.post('http://localhost:3000/sharescript', { scriptId: script.scriptId, orgId: this.Auth.orgId })
     share.subscribe((result) => {
       let snackBarRef = this.snackBar.open('Successfully Shared');
     });
   }
   sharePurchasedScript(script) {
-    console.log('sharing')
     let share = this.Http.post('http://localhost:3000/sharescript', { scriptId: script.scriptID, orgId: this.Auth.orgId })
     share.subscribe((result) => {
       let snackBarRef = this.snackBar.open('Successfully Shared');
@@ -126,7 +120,7 @@ export class CurrentScriptsComponent implements OnInit {
           this.ngOnInit()
           let snackBarRef = this.snackBar.open('Successfully Deleted');
         });
-        console.log(script);
+  
         let temp = { scriptID: script.scriptId }
         this.deleteUploadedScriptNoPrompt(temp)
 
@@ -148,7 +142,6 @@ export class CurrentScriptsComponent implements OnInit {
           this.ngOnInit()
           let snackBarRef = this.snackBar.open('Successfully Deleted');
         });
-        console.log(script);
       }
     })
 
@@ -161,7 +154,6 @@ export class CurrentScriptsComponent implements OnInit {
       this.ngOnInit()
       let snackBarRef = this.snackBar.open('Successfully Deleted');
     });
-    console.log(script);
 
 
   }
@@ -172,13 +164,11 @@ export class CurrentScriptsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result != null) {
-        console.log('first question' + script.firstQuestionId)
         // let dateFormat = require('dateformat');
         let now = new Date();
         // let date = String(dateFormat(now, "dd/mm/yyyy"));
         let upload = this.Http.post('http://localhost:3000/upload-script', { usersID: this.Auth.id, scriptID: script.scriptId, uploadDate: now, scriptName: script.scriptName, price: result, category: script.category, question: Number(script.firstQuestionId), description: script.description, subCategory: script.subcategory });
         upload.subscribe((response) => {
-          console.log(response)
           this.ngOnInit();
           let snackBarRef = this.snackBar.open('Successfully Uploaded');
         });
@@ -191,12 +181,10 @@ export class CurrentScriptsComponent implements OnInit {
   }
   viewScript(script) {
     this.viewService.setScript(script.scriptId);
-    console.log(script);
     this.router.navigate(['view-script']);
   }
   viewUploadedScript(script) {
     this.viewService.setScript(script.scriptID);
-    console.log(script);
     this.router.navigate(['view-script']);
   }
 

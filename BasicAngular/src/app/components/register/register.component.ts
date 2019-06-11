@@ -40,13 +40,11 @@ export class RegisterComponent implements OnInit {
     } else {
 
 
-      console.log("yes");
-      console.log(this.registerForm.value)
+    
 
       this.submitted = true;
       if (this.registerForm.invalid) {
-        console.log('invalid')
-        return;
+       return;
       } else {
 
         this.Auth.register(this.registerForm);

@@ -136,16 +136,10 @@ export class BuildScriptComponent implements OnInit {
 
   Submit() {
 
-    console.log("yes");
-    //console.log(this.scriptForm.value)
-    //console.log(this.questionForm.value)
-    for (let i = 0; i < this.answers.length; i++) {
-      console.log(this.answers[i].texts);
-
-    }
+   
 
     if (this.scriptId == null) {
-      console.log(this.texts);
+    
 
       this.Auth.sendScript<scriptData>(this.scriptName, this.category, this.subcategory, this.description, this.texts, this.answers);
 
@@ -195,19 +189,18 @@ export class BuildScriptComponent implements OnInit {
 
     this.scriptId = this.Auth.scriptData1.scriptId
     this.tempAnswer = this.answers[num].texts;
-    console.log('temp answer ' + this.tempAnswer)
+ 
     if (this.answers[num].nextQuestionId != null) {
       this.loadedScript = true;
-      console.log('previous:' + this.previousAnswers[this.previousAnswerCount])
-
+   
       this.questionId = Number(this.answers[num].questionId)
       this.previousAnswers[this.previousAnswerCount] = Number(this.questionId);
       this.previousAnswerCount++;
-      console.log(Number(this.questionId))
+
       this.answer = 0;
       let quest = this.Http.post('http://localhost:3000/get-question', { questionId: Number(this.answers[num].nextQuestionId) });
       quest.subscribe((response1) => {
-        console.log('response1: ' + response1[0].texts)
+       
         this.texts = response1[0].texts;
         this.questionId = response1[0].questionId;
         // get answers
@@ -219,8 +212,7 @@ export class BuildScriptComponent implements OnInit {
           }
           for (let i = 0; i < (<any>tempAnswers).length; i++) {
             this.answers[i] = tempAnswers[i]
-            console.log('answer responses: ' + this.answers[i].texts);
-            this.answer++;
+           this.answer++;
           }
         });
       });
@@ -229,7 +221,7 @@ export class BuildScriptComponent implements OnInit {
     }
     else {
       this.loadedScript = false;
-      console.log('no next question linked')
+   
       this.previousAnswers[this.previousAnswerCount] = Number(this.questionId);
       this.tempQuestionId = this.questionId;
       this.questionId = null;
@@ -253,11 +245,9 @@ export class BuildScriptComponent implements OnInit {
     return this.saved
   }
   submitAnswer() {
-    console.log('ques:' + this.response)
     this.scriptData1.questionId = this.Auth.scriptData1.questionId;
     this.scriptData1.scriptId = this.Auth.scriptData1.scriptId;
-    console.log('ques: ' + this.questionId + 'scri' + this.scriptId)
-    this.Auth.submitAnswer(this.scriptData1.questionId, this.scriptData1.scriptId, this.answers, this.texts, this.tempAnswer)
+   this.Auth.submitAnswer(this.scriptData1.questionId, this.scriptData1.scriptId, this.answers, this.texts, this.tempAnswer)
     this.saved = true;
   }
 
@@ -276,24 +266,18 @@ export class BuildScriptComponent implements OnInit {
         this.category = result.category;
         this.subcategory = result.subcategory;
         this.description = result.description;
-        console.log('Dialog result:' + result.name);
-        console.log('Dialog result:' + result.category);
-        console.log('Dialog result:' + result.subcategory);
+  
         this.Submit()
       });
     }
     else {
 
       if (this.questionId == null) {
-        console.log('ques: ' + this.questionId + 'scri' + this.scriptId)
-        //let sql = this.Auth.submitEditAnswer(this.questionId, this.scriptId, this.answers, this.question, this.tempAnswer)
-        console.log('It is trying to submit answer')
-        let request = this.Http.post<questionData>('http://localhost:3000/addQuestion', { texts: this.texts, scriptId: this.scriptId });
+       //let sql = this.Auth.submitEditAnswer(this.questionId, this.scriptId, this.answers, this.question, this.tempAnswer)
+      let request = this.Http.post<questionData>('http://localhost:3000/addQuestion', { texts: this.texts, scriptId: this.scriptId });
         request.subscribe((response1) => {
-          console.log('response1: ' + response1)
-          this.response1 = response1;
-          console.log('response1: ' + response1.questionId)
-          this.scriptData1.questionId = response1.questionId;
+        this.response1 = response1;
+         this.scriptData1.questionId = response1.questionId;
 
           //insert answers
           for (let i = 0; i < this.answers.length; i++) {
@@ -301,19 +285,17 @@ export class BuildScriptComponent implements OnInit {
               let ans = this.Http.post<questionData>('http://localhost:3000/addAnswer', { texts: this.answers[i].texts, questionId: response1.questionId });
               ans.subscribe((response2) => {
                 this.response2 = response1
-                console.log('answer responses: ' + response2);
-
+              
               });
             }
           }
-          console.log('selected answer: ' + this.tempAnswer)
+      
           let update = this.Http.post('http://localhost:3000/updateAnswer', { nextQuestionId: response1.questionId, questionId: this.tempQuestionId, texts: this.tempAnswer });
           update.subscribe((response2) => {
             this.questionId = response1.questionId
             let quest = this.Http.post('http://localhost:3000/get-question', { questionId: this.questionId });
             quest.subscribe((response1) => {
-              console.log('response1: ' + response1[0].texts)
-              this.texts = response1[0].texts;
+             this.texts = response1[0].texts;
 
               //get answers
               let ans = this.Http.post('http://localhost:3000/get-answer', { questionId: this.questionId });
@@ -322,8 +304,7 @@ export class BuildScriptComponent implements OnInit {
                 this.answer = 0;
                 for (let i = 0; i < (<any>tempAnswers).length; i++) {
                   this.answers[i] = tempAnswers[i]
-                  console.log('answer responses: ' + this.answers[i].texts);
-                  this.answer++;
+                 this.answer++;
                 }
                 this.loadedScript = true;
 
@@ -338,16 +319,12 @@ export class BuildScriptComponent implements OnInit {
       } else {
         let update = this.Http.post('http://localhost:3000/update-script', { questionId: this.questionId, question: this.texts })
         update.subscribe((result) => {
-          console.log(result)
-          console.log('THIS IS GOING TO WORK')
-          for (let j = 0; j < this.answer; j++) {
+        for (let j = 0; j < this.answer; j++) {
             if (this.answers[j].texts != "") {
-              console.log('THIS IS GOING TO WORK: ' + this.answers, this.answers[j].texts)
-
+           
               let send = this.Http.post<questionData>('http://localhost:3000/editAnswer', { texts: this.answers[j].texts, questionId: this.questionId, nextQuestionId: this.answers[j].nextQuestionId });
               send.subscribe((res) => {
-                //console.log('THIS IS WHAT HAS RERTUEND: ' + res.result)
-              });
+             });
 
             }
           }
@@ -360,7 +337,6 @@ export class BuildScriptComponent implements OnInit {
     this.answer = 0;
     let quest = this.Http.post('http://localhost:3000/get-question', { questionId: this.previousAnswers[this.previousAnswerCount - 1] });
     quest.subscribe((response1) => {
-      console.log('response1: ' + response1[0].texts)
       this.texts = response1[0].texts;
       this.questionId = response1[0].questionId;
       // get answers
@@ -372,7 +348,6 @@ export class BuildScriptComponent implements OnInit {
         }
         for (let i = 0; i < (<any>tempAnswers).length; i++) {
           this.answers[i] = tempAnswers[i]
-          console.log('answer responses: ' + this.answers[i].texts);
           this.answer++;
         }
         this.previousAnswerCount--;
@@ -412,11 +387,7 @@ export class DialogForm implements OnInit {
   closeDialog() {
     if (this.description != "" && this.category != "" && this.subcategory != "" && this.name != "") {
       let data1 = { description: this.description, category: this.category, subcategory: this.subcategory, name: this.name }
-      console.log(this.subcategory)
-      console.log(this.category)
-      //this.data.category = this.category;
-      //this.data.subcategory = this.subcategory;
-      //this.data.name = this.name;
+    
       this.dialogRef.close(data1);
     } else {
       alert('Please Complete All fields')

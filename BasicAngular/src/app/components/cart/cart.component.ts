@@ -45,7 +45,6 @@ export class CartComponent implements OnInit {
       cart.subscribe((response) => {
 
         this.list=response;
-        console.log(response)
       });
     }
   }
@@ -58,10 +57,8 @@ export class CartComponent implements OnInit {
     del.subscribe((response) => {
 
       this.list=response;
-      console.log(response)
       this.ngOnInit();
     });
-    // console.log(cart);
   }
 
   addToPayment(cart){
@@ -70,10 +67,8 @@ export class CartComponent implements OnInit {
     add.subscribe((response) => {
 
       this.list=response;
-      console.log(response)
       this.router.navigate(['/cart']);
     });
-    console.log(cart);
   }
 
     paypalConfig = {
@@ -95,7 +90,6 @@ export class CartComponent implements OnInit {
       onAuthorize: (data, actions) => {
         return actions.payment.execute().then((payment) => {
           this.addToPayment(this.list);
-          console.log('Transaction completed ' + payment.invoice_number);
           this.clearCart();
           this.confirmation();
           this.router.navigate(['current-scripts']);
@@ -127,10 +121,8 @@ export class CartComponent implements OnInit {
     del.subscribe((response) => {
 
       this.list=response;
-      console.log(response);
       this.ngOnInit();
     });
-    console.log(cart);
   }
 
 //sum price

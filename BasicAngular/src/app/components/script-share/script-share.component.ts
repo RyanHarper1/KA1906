@@ -33,18 +33,15 @@ export class ScriptShareComponent implements OnInit {
     this.list2 =[]
     this.logged = this.auth.loggedIn;
     this.orgId = this.auth.orgId;
-    console.log(this.orgId)
     if (this.logged){
       let scripts = this.Http.post('http://localhost:3000/get-orgscripts', {orgId: this.auth.orgId});
       scripts.subscribe((response) => {
         this.list = response;
         for (let i = 0; i < this.list.length;i++){
-          console.log(this.list[i].scriptId)
           let get = this.Http.post('http://localhost:3000/get-script', {scriptId: this.list[i].scriptId});
           get.subscribe((response1) => {
             if(response1[0].scriptId != null){
               this.list2[i] = response1[0];
-            console.log(this.list2[i])
             }
             
           
@@ -59,7 +56,6 @@ export class ScriptShareComponent implements OnInit {
   }
   viewScript(script) {
     this.viewService.setScript(script.scriptId);
-    console.log(script);
     this.router.navigate(['view-script']);
   }
   deleteScript(script){
