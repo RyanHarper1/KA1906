@@ -347,7 +347,17 @@ app.post('/current-scripts', (req, res) => {
         res.send(result);
     });
 });
-
+app.post('/purchased-scripts', (req, res) => {
+    console.log(req.body.id);
+    let sql = 'SELECT * FROM PayPal WHERE usersID = ' + req.body.id;
+    let query = db.query(sql, (err, result) => {
+        console.log(sql)
+        if (err) {
+            throw err;
+        }
+        res.send(result);
+    });
+});
 app.get('/example-scripts', (req, res) => {
     console.log(req.body.id);
     let sql = 'SELECT * FROM script WHERE example = "Y" ';

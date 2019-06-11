@@ -25,6 +25,7 @@ export class CurrentScriptsComponent implements OnInit {
   columns = ['scriptName', 'category'];
   username: String;
   loggedIn = false;
+  purchasedList:any;
   constructor(public dialog: MatDialog, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry, private Http: HttpClient, private Auth: AuthService, private router: Router, private editService: EditServiceService, private viewService: ViewScriptService) {
 
     iconRegistry.addSvgIcon(
@@ -61,6 +62,12 @@ export class CurrentScriptsComponent implements OnInit {
       store.subscribe((response) => {
 
         this.storelist = response;
+        console.log(response)
+      });
+      let purchased = this.Http.post('http://localhost:3000/purchased-scripts', { id: this.Auth.getId });
+      purchased.subscribe((response) => {
+
+        this.purchasedList = response;
         console.log(response)
       });
     }
@@ -123,6 +130,11 @@ export class CurrentScriptsComponent implements OnInit {
   }
   viewScript(script) {
     this.viewService.setScript(script.scriptId);
+    console.log(script);
+    this.router.navigate(['view-script']);
+  }
+  viewUploadedScript(script) {
+    this.viewService.setScript(script.scriptID);
     console.log(script);
     this.router.navigate(['view-script']);
   }

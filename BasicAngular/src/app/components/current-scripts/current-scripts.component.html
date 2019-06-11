@@ -132,7 +132,7 @@
           <td><star-rating [starType]="'icon'" [rating]="2.63"></star-rating></td>
           <td>
             <div class="btn-group-special">
-            <button class="btn-v" (click) ="viewScript(li)">view<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>
+            <button class="btn-v" (click) ="viewUploadedScript(lo)">view<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>
             <button class="btn-d" (click)="deleteScript(li)" [routerLink]="[ '/current-script' ]">remove<mat-icon id="delete-icon" svgIcon="delete"></mat-icon></button>
             </div>
         </td>
@@ -150,25 +150,25 @@
             <th>Category</th>
             <th>Sub-Category</th>
             <th>Price</th>
-            <th>Last Edited</th>
+            <th>Uploaded</th>
             <th>Template</th>
             <th>Review</th>
             <th>Rating</th>
           </tr>
   
-          <tr *ngFor="let lo of list">
-            <td>{{lo.scriptName}}</td>
-            <td>{{lo.description}}</td>
-            <td>{{lo.category}}</td>
-            <td>{{lo.subcategory}}</td>
-            <td>{{lo.price}}</td>
-            <td>{{lo.edited}}</td>
-            <td>{{lo.template}}</td>
+          <tr *ngFor="let lp of purchasedList">
+            <td>{{lp.scriptName}}</td>
+            <td>{{lp.description}}</td>
+            <td>{{lp.category}}</td>
+            <td>{{lp.subcategory}}</td>
+            <td>{{lp.price}}</td>
+            <td>{{lp.uploadDate}}</td>
+            <td>{{lp.template}}</td>
             <td><button class="review-btn">Write Review</button>This is a review</td>
             <td><star-rating [starType]="'icon'" [rating]="2.63"></star-rating></td>
             <td>
               <div class="btn-group-special">
-                <button class="btn-v" (click) ="viewScript(li)">VIEW<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>
+                <button class="btn-v" (click) ="viewUploadedScript(lp)">VIEW<mat-icon id="crnt-icon" svgIcon="view"></mat-icon> </button>
                 <button class="btn-d" (click)="deleteScript(li)" [routerLink]="[ '/current-script']">REMOVE<mat-icon id="delete-icon" svgIcon="delete"></mat-icon></button>
               </div>
             </td>
