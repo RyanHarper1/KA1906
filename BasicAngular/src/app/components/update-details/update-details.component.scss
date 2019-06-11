@@ -44,7 +44,7 @@
   margin-right: auto; margin-left: auto; margin-top:2%;
   width: 80%;
   box-sizing: border-box;
-  background: rgba(0,0,0,.5);
+  background: #b9b9b3;
   padding: 40px;
   box-shadow: 5px 10px 8px #b9b9b3;
   border-radius: 10px;
@@ -52,15 +52,17 @@
   font-family: Helvetica, sans-serif;
 }
 
-.mat-input-element,
- .mat-form-field-underline,
- .mat-form-field-underline.ng-tns-c12-4.ng-star-inserted{
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-label {
   color: white;
 }
 
-::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline,
-.mat-form-field-underline ng-tns-c12-1 ng-star-inserted{
+::ng-deep .mat-step-header .mat-step-label.mat-step-label-active{
   color: white;
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline{
+  background-color: ghostwhite;
+  opacity: 0.3;
 }
 
 .update-details-btn{
