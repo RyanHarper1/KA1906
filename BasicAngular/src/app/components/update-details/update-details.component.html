@@ -27,7 +27,6 @@
       <mat-form-field>
         <input matInput placeholder="Confirm Password" required [formControl] = "confirmPass" type= password>
       </mat-form-field>
-      <mat-error *ngIf="submitted">{{getErrorMessage1()}}</mat-error>
       <button class="update-details-btn" mat-button type="submit" (click)= "submit()">Submit</button>
     </div>
     
