@@ -6,6 +6,9 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { getDefaultService } from 'selenium-webdriver/chrome';
 import { Router } from '@angular/router';
+import { privacy } from '../login/login.component';
+import { terms } from '../footer/footer.component';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-register',
@@ -26,7 +29,7 @@ export class RegisterComponent implements OnInit {
 
   //  dialog: any;
 
-  constructor(private router: Router,private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient) {
+  constructor(public dialog: MatDialog,private router: Router,private Auth: AuthService, private formBuilder: FormBuilder, private Http: HttpClient) {
 
   }
 
@@ -62,6 +65,16 @@ export class RegisterComponent implements OnInit {
       password: ['', Validators.required],
       confirmPass: ['', Validators.required]
     })
+  }
+  openPrivacy() {
+    const dialogRef1 = this.dialog.open(privacy, {
+      width: '700px'
+    });
+  }
+  openTerms() {
+    const dialogRef = this.dialog.open(terms, {
+      width: '700px'
+    });
   }
 
 }
