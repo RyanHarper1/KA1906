@@ -40,6 +40,8 @@ import { RatingPipe } from './pipes/rating.pipe';
 import { CategoryPipe } from './pipes/category.pipe';
 import { MinPricePipe } from './pipes/min-price.pipe';
 import { SubCategoryPipe } from './pipes/sub-category.pipe';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 @NgModule({
   declarations: [
@@ -97,7 +99,8 @@ import { SubCategoryPipe } from './pipes/sub-category.pipe';
     FlexLayoutModule,
     NgxEditorModule,
     TooltipModule,
-    StarRatingModule.forRoot()
+    StarRatingModule.forRoot(),
+    Ng2SearchPipeModule
 
   ],
   exports: [
