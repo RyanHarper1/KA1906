@@ -7,12 +7,16 @@ import { HttpClient } from '@angular/common/http';
 export class ViewScriptService {
 
   scriptId: any;
+  store =false;
 
   constructor(private Http: HttpClient) { }
 
   setScript(scriptId){
     this.scriptId = scriptId
 
+  }
+  setStore(){
+    this.store = true;
   }
 
 }

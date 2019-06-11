@@ -25,6 +25,7 @@ export class ViewScriptComponent implements OnInit  {
   previousAnswerCount = 0;
   loaded = false;
   title = 'ngx-editor';
+  store = false;
   editorConfig = {
     editable: false,
     spellcheck: true,
@@ -35,6 +36,7 @@ export class ViewScriptComponent implements OnInit  {
     enableToolbar: false,
     showToolbar: false,
     placeholder: 'Enter text here...',
+
   //   toolbar: [
   //     ["bold", "italic", "underline", "strikeThrough", "superscript", "subscript"],
   //     ["fontName", "fontSize", "color"],
@@ -57,6 +59,7 @@ export class ViewScriptComponent implements OnInit  {
   
   ngOnInit() {
     this.scriptId = this.view.scriptId;
+    this.store = this.view.store
   
   this.previousAnswers = []
   let query = this.Http.post('http://localhost:3000/get-script', {scriptId: this.scriptId});
