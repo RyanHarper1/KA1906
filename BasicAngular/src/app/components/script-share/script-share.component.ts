@@ -6,6 +6,8 @@ import { ViewScriptService } from 'src/app/view-script.service';
 import { Router } from '@angular/router';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { confirmDelete } from '../admin/admin.component';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-script-share',
@@ -17,8 +19,13 @@ export class ScriptShareComponent implements OnInit {
   orgId = "";
   list: any;
   list2: any;
-  constructor(public dialog: MatDialog,private snackBar: MatSnackBar,private viewService: ViewScriptService,private router: Router,private auth: AuthService, private Http: HttpClient) {
-    
+  constructor(public dialog: MatDialog,private snackBar: MatSnackBar,private viewService: ViewScriptService,private router: Router,private auth: AuthService, private Http: HttpClient, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry) {
+    iconRegistry.addSvgIcon(
+      'view',
+      sanitizer.bypassSecurityTrustResourceUrl('../assets/img/eye-regular.svg'));
+      iconRegistry.addSvgIcon(
+        'delete',
+        sanitizer.bypassSecurityTrustResourceUrl('../assets/img/red-cross.svg'));
    }
 
   ngOnInit() {
