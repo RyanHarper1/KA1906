@@ -52,8 +52,8 @@ app.on('error', function (err) {
 //Register users
 app.post('/addusers', (req, res) => {
     let hash = crypto.createHash('sha512').update(req.body.password).digest('hex');
-    
-    
+
+
     let test = req.body;
     let reply = {};
     console.log(test);
@@ -241,7 +241,7 @@ app.post('/editAnswer', (req, res) => {
             }
             res.send(reply);
         }
-       
+
     });
 });
 
@@ -559,6 +559,33 @@ app.post('/updateDetails', (req, res) => {
         }else{
             res.send({result: 'password is incorrect'})
         }
-       
+
     });
+});
+
+//Register Company
+app.post('/addOrg', (req, res) => {
+    let hash = crypto.createHash('sha512').update(req.body.password).digest('hex');
+
+
+    let test = req.body;
+    let reply = {};
+    console.log(test);
+    let user = { fName: req.body.fName, lName: req.body.lName, companyName: req.body.companyName, email: req.body.email, phone: req.body.phone, address: req.body.address, password: hash, plan: req.body.plan };
+    let sql = 'INSERT INTO organisation SET ?';
+    console.log("On server side");
+    console.log(user);
+    let query = db.query(sql, user, (err, result) => {
+        if (err) {
+            throw err;
+        } else {
+            console.log("successfully entered");
+
+            reply = {
+                result: 'success', fName: req.body.fName, lName: req.body.lName, companyName: req.body.companyName, email: req.body.email, phone: req.body.phone, address: req.body.address, password: hash, plan: req.body.plan
+            }
+        }
+        res.send(reply);
+    });
+
 });

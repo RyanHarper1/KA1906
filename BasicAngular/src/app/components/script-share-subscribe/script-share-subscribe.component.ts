@@ -6,6 +6,8 @@ import { MatDialogRef, MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
 import { NgxPayPalModule } from 'ngx-paypal';
 import {IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from 'src/app/auth.service';
 
 declare let paypal: any;
 
@@ -25,6 +27,9 @@ export class ScriptShareSubscribeComponent implements OnInit {
   dataSource = ELEMENT_DATA;
   subRadio: any;
   payPrice: string = '';
+  list: any;
+  submitted = false;
+  success = false;
 
 radioChangeHandler(event: any){
 
@@ -34,7 +39,7 @@ radioChangeHandler(event: any){
 
 
 
-  constructor(private _formBuilder: FormBuilder, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry,public dialog: MatDialog, private router: Router) {
+  constructor(private Auth: AuthService, private _formBuilder: FormBuilder, sanitizer: DomSanitizer, iconRegistry: MatIconRegistry,public dialog: MatDialog, private router: Router, private Http: HttpClient) {
     iconRegistry.addSvgIcon(
       'right',
       sanitizer.bypassSecurityTrustResourceUrl('../assets/img/chevron-right-solid.svg'));
@@ -51,8 +56,16 @@ radioChangeHandler(event: any){
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
+      fname: ['', Validators.required],
+      lname: ['', Validators.required],
+      companyName: ['', Validators.required],
+      email: ['', Validators.required],
+      phone: ['', Validators.required],
+      address: ['', Validators.required],
+      password: ['', Validators.required],
       firstCtrl: ['', Validators.required]
     });
+
     this.secondFormGroup = this._formBuilder.group({
       secondCtrl: ['', Validators.required]
     });
@@ -62,6 +75,18 @@ radioChangeHandler(event: any){
       const dialogRef1 = this.dialog.open(privacy, {
         width: '700px'
       });
+    }
+
+    onSubmit(AuthService){
+      this.submitted = true;
+      if (this.firstFormGroup.invalid) {
+        console.log('invalid')
+        return;
+      } else {
+
+        this.Auth.registerOrg(this.firstFormGroup);
+        this.success = true;
+      }
     }
 
 
@@ -79,16 +104,16 @@ radioChangeHandler(event: any){
             return actions.payment.create({
               payment: {
                 transactions: [
-                  { amount: { total: 0.01, currency: 'AUD' } }
+                  { amount: { total: this.secondFormGroup.value.secondCtrl, currency: 'AUD' } }
                 ]
               }
             });
           },
           onAuthorize: (data, actions) => {
             return actions.payment.execute().then((payment) => {
-              //this.addToPayment(this.list);
               console.log('Transaction completed ' + payment.invoice_number);
-              //this.clearCart(this.list.usersID);
+              this.onSubmit(AuthService);
+
             })
           }
         };
@@ -111,6 +136,8 @@ radioChangeHandler(event: any){
             })
           }
 
+
+          //add Company
   }
 
 

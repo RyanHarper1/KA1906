@@ -84,10 +84,10 @@ export class AuthService {
             ans.subscribe((response2) => {
               this.response = response1
               console.log('answer responses: ' + response2);
-  
+
             });
           }
-       
+
         }
 
 
@@ -164,6 +164,19 @@ export class AuthService {
     });
 
   }
+
+  //User register function
+  registerOrg(object) {
+
+    let posts = this.Http.post('http://localhost:3000/addOrg', object.value);
+    posts.subscribe((response) => {
+      this.response = response;
+
+      console.log(this.response)
+    });
+
+  }
+
   @HostListener('setLoggedIn')
   setLoggedIn(value: boolean) {
 
