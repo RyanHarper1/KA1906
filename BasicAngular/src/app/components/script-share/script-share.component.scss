@@ -56,6 +56,12 @@
     border-top-right-radius: 4px;
   }
 
+  .users{
+    font-size: 20pt;
+    font-variant-caps: all-petite-caps;
+    font-weight: bolder;
+  }
+
   ::ng-deep .mat-card.script-share-card.mat-card{
     box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
     box-shadow: 280ms cubic-bezier(.4,0,.2,1);

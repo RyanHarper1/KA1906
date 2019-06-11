@@ -188,6 +188,7 @@
 .search-drawer{
   width: 25%;
   height: 50%;
+  // position: relative;
 }
 
 .search-icon{
@@ -199,11 +200,11 @@ margin: 30px;
 display: block;
 }
 
-.mat-drawer-inner-container{
-  width: 100%;
+::ng-deep .search-drawer.mat-drawer.mat-drawer-side{
+  // ng-tns-c9-58 ng-trigger ng-trigger-transform ng-star-inserted
+  // transform: none;
+  // visibility: visible;
   height: 100% !important;
-    overflow: hidden;
-    -webkit-overflow-scrolling: none;
 }
 
 .filter{
