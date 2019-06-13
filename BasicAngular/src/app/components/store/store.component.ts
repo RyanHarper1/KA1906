@@ -51,14 +51,10 @@ export class StoreComponent implements OnInit {
     store.subscribe((response) => {
 
       this.list=response;
-      console.log(response)
-    });
+   });
   }
 
-  /*setCart(cart){
-    this.cartService.setStoreID(cart.storeId);
-    console.log(cart);
-  }*/
+ 
 
   addToCart(store){
     let add = this.Http.post('http://localhost:3000/add-item', {storeID: store.storeID, usersID: this.Auth.id, scriptID: store.scriptID, scriptName:store.scriptName, price: store.price,
@@ -66,16 +62,13 @@ export class StoreComponent implements OnInit {
     add.subscribe((response) => {
 
       this.list=response;
-      console.log(response)
       let snackBarRef = this.snackBar.open('Added to cart');
     });
-    console.log(store);
   }
   viewScript(script){
     this.viewService.setScript(script.scriptID);
     this.viewService.setStore();
-    console.log(script);
-    this.router.navigate(['view-script']);
+   this.router.navigate(['view-script']);
   }
 
 }

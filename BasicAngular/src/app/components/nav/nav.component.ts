@@ -22,15 +22,13 @@ export class NavComponent implements OnInit {
   ngOnInit() {
     this.Auth.change.subscribe(loggedIn => {
            this.loggedIn = loggedIn;
-      console.log('nav: ' + this.loggedIn)
-    });
+   });
 
   }
   logout(){
     this.Auth.logout();
     this.Auth.change.subscribe(loggedIn => {
       this.loggedIn = loggedIn;
- console.log('nav2: ' + this.loggedIn)
   });
   this.loggedIn = false;
   }

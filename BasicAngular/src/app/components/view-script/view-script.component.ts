@@ -64,8 +64,7 @@ export class ViewScriptComponent implements OnInit  {
   this.previousAnswers = []
   let query = this.Http.post('http://localhost:3000/get-script', {scriptId: this.scriptId});
   query.subscribe((response)=>{
-    console.log('response to this is: ' + response)
-    this.response=response;
+   this.response=response;
     this.category = response[0].category;
     this.scriptName = response[0].scriptName;
     this.questionId = response[0].firstQuestionId;
@@ -73,7 +72,6 @@ export class ViewScriptComponent implements OnInit  {
 // get question
     let quest = this.Http.post('http://localhost:3000/get-question',{questionId: this.questionId});
     quest.subscribe((response1)=>{
-    console.log('response1: ' + response1[0].texts)
     this.question = response1[0].texts;
 
     // get answers
@@ -81,7 +79,6 @@ export class ViewScriptComponent implements OnInit  {
       ans.subscribe((response2) => {
       this.answers = response2;
         for( let i = 0; i < this.answers.length; i++){
-          console.log('answer responses: ' + this.answers[i].texts);
           this.answer++;
         }
         this.loaded = true;
@@ -95,16 +92,13 @@ export class ViewScriptComponent implements OnInit  {
 nextQuestion(object,num){
   if( this.answers[num].nextQuestionId != null){
     
-    console.log('previous:' + this.previousAnswers[this.previousAnswerCount])
-   
+    
     this.questionId =  Number(this.answers[num].questionId)
     this.previousAnswers[this.previousAnswerCount] = Number(this.questionId);
     this.previousAnswerCount++;
-    console.log(Number(this.questionId))
-      this.answer = 0;
+    this.answer = 0;
       let quest = this.Http.post('http://localhost:3000/get-question',{questionId: Number(this.answers[num].nextQuestionId)});
       quest.subscribe((response1)=>{
-      console.log('response1: ' + response1[0].texts)
       this.question = response1[0].texts;
 
       // get answers
@@ -112,7 +106,6 @@ nextQuestion(object,num){
         ans.subscribe((response2) => {
         this.answers = response2;
           for( let i = 0; i < this.answers.length; i++){
-            console.log('answer responses: ' + this.answers[i].texts);
             this.answer++;
           }
 
@@ -126,7 +119,6 @@ backQuestion(){
   this.answer = 0;
   let quest = this.Http.post('http://localhost:3000/get-question',{questionId: this.previousAnswers[this.previousAnswerCount -1]});
   quest.subscribe((response1)=>{
-  console.log('response1: ' + response1[0].texts)
   this.question = response1[0].texts;
 
   // get answers
@@ -134,8 +126,7 @@ backQuestion(){
     ans.subscribe((response2) => {
     this.answers = response2;
       for( let i = 0; i < this.answers.length; i++){
-        console.log('answer responses: ' + this.answers[i].texts);
-        this.answer++;
+       this.answer++;
       }
       this.previousAnswerCount--;
 

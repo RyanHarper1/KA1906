@@ -40,10 +40,9 @@ export class LoginComponent implements OnInit {
    }
 
    this.success = true;
-   //console.log();
+  
    this.Auth.login(this.logInForm.value.email,this.logInForm.value.password).subscribe(data => {
-    console.log('result is: ' + data.result);
-    this.result = data.message;
+   this.result = data.message;
     if ( data.result == 'true'){
       this.Auth.userDetails(data);
       this.router.navigate(['home']);

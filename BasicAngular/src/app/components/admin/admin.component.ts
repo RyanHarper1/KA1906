@@ -39,7 +39,6 @@ export class AdminComponent implements OnInit {
       this.list = response
     })
 
-    console.log('list is=' + this.list)
 
 
   }
@@ -82,7 +81,7 @@ deleteUser(user){
   const dialogRef = this.dialog.open(confirmDelete, {
     width: '700px'
   });
-  console.log(user)
+
   dialogRef.afterClosed().subscribe(result => {
     if (result == 'yes') {
       let del = this.Http.post('http://localhost:3000/deleteOrgUser', { id: user.id })
