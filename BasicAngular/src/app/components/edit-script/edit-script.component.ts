@@ -120,7 +120,7 @@ export class EditScriptComponent implements OnInit {
 
   getScript(scriptId) {
     //get script
-    let query = this.Http.post('http://localhost:3000/get-script', { scriptId: scriptId });
+    let query = this.Http.post('http://salesscript.com.au/sql/get-script', { scriptId: scriptId });
     query.subscribe((response) => {
       this.response = response;
       this.category = response[0].category;
@@ -131,13 +131,13 @@ export class EditScriptComponent implements OnInit {
 
 
       //get question
-      let quest = this.Http.post('http://localhost:3000/get-question', { questionId: this.questionId });
+      let quest = this.Http.post('http://salesscript.com.au/sql/get-question', { questionId: this.questionId });
       quest.subscribe((response1) => {
         this.question = response1[0].texts;
         this.questionId = response1[0].questionId;
 
         //get answers
-        let ans = this.Http.post('http://localhost:3000/get-answer', { questionId: this.questionId });
+        let ans = this.Http.post('http://salesscript.com.au/sql/get-answer', { questionId: this.questionId });
         ans.subscribe((response2) => {
           let tempAnswers = response2;
           for (let i = 0; i < (<any>tempAnswers).length; i++) {
@@ -179,12 +179,12 @@ export class EditScriptComponent implements OnInit {
       this.previousAnswers[this.previousAnswerCount] = Number(this.questionId);
       this.previousAnswerCount++;
       this.answer = 0;
-      let quest = this.Http.post('http://localhost:3000/get-question', { questionId: Number(this.answers[num].nextQuestionId) });
+      let quest = this.Http.post('http://salesscript.com.au/sql/get-question', { questionId: Number(this.answers[num].nextQuestionId) });
       quest.subscribe((response1) => {
         this.question = response1[0].texts;
         this.questionId = response1[0].questionId;
         // get answers
-        let ans = this.Http.post('http://localhost:3000/get-answer', { questionId: Number(this.answers[num].nextQuestionId) });
+        let ans = this.Http.post('http://salesscript.com.au/sql/get-answer', { questionId: Number(this.answers[num].nextQuestionId) });
         ans.subscribe((response2) => {
           let tempAnswers = response2;
           for (let i = 0; i < 9; i++) {
@@ -223,12 +223,12 @@ export class EditScriptComponent implements OnInit {
   submit() {
 
 
-    let updatetime = this.Http.post('http://localhost:3000/updatescripttime', { scriptId: this.scriptId });
+    let updatetime = this.Http.post('http://salesscript.com.au/sql/updatescripttime', { scriptId: this.scriptId });
     updatetime.subscribe();
 
 
     if (this.questionId == null) {
-     let request = this.Http.post<questionData>('http://localhost:3000/addQuestion', { texts: this.question, scriptId: this.scriptId });
+     let request = this.Http.post<questionData>('http://salesscript.com.au/sql/addQuestion', { texts: this.question, scriptId: this.scriptId });
       request.subscribe((response1) => {
         this.response1 = response1;
         this.scriptData1.questionId = response1.questionId;
@@ -236,22 +236,22 @@ export class EditScriptComponent implements OnInit {
         //insert answers
         for (let i = 0; i < this.answers.length; i++) {
           if (this.answers[i].texts != "") {
-            let ans = this.Http.post<questionData>('http://localhost:3000/addAnswer', { texts: this.answers[i].texts, questionId: response1.questionId });
+            let ans = this.Http.post<questionData>('http://salesscript.com.au/sql/addAnswer', { texts: this.answers[i].texts, questionId: response1.questionId });
             ans.subscribe((response2) => {
               this.response = response1
             
             });
           }
         }
-       let update = this.Http.post('http://localhost:3000/updateAnswer', { nextQuestionId: response1.questionId, questionId: this.tempQuestionId, texts: this.tempAnswer });
+       let update = this.Http.post('http://salesscript.com.au/sql/updateAnswer', { nextQuestionId: response1.questionId, questionId: this.tempQuestionId, texts: this.tempAnswer });
         update.subscribe((response2) => {
           this.questionId = response1.questionId
-          let quest = this.Http.post('http://localhost:3000/get-question', { questionId: this.questionId });
+          let quest = this.Http.post('http://salesscript.com.au/sql/get-question', { questionId: this.questionId });
           quest.subscribe((response1) => {
             this.question = response1[0].texts;
 
             //get answers
-            let ans = this.Http.post('http://localhost:3000/get-answer', { questionId: this.questionId });
+            let ans = this.Http.post('http://salesscript.com.au/sql/get-answer', { questionId: this.questionId });
             ans.subscribe((response2) => {
               let tempAnswers = response2;
               this.answer = 0;
@@ -270,12 +270,12 @@ export class EditScriptComponent implements OnInit {
     
 
     } else {
-      let update = this.Http.post('http://localhost:3000/update-script', { questionId: this.questionId, question: this.question })
+      let update = this.Http.post('http://salesscript.com.au/sql/update-script', { questionId: this.questionId, question: this.question })
       update.subscribe((result) => {
       for (let j = 0; j < this.answer; j++) {
           if (this.answers[j].texts != "") {
            
-            let send = this.Http.post<questionData>('http://localhost:3000/editAnswer', { texts: this.answers[j].texts, questionId: this.questionId, nextQuestionId: this.answers[j].nextQuestionId });
+            let send = this.Http.post<questionData>('http://salesscript.com.au/sql/editAnswer', { texts: this.answers[j].texts, questionId: this.questionId, nextQuestionId: this.answers[j].nextQuestionId });
             send.subscribe((res) => {
            });
 
@@ -287,11 +287,11 @@ export class EditScriptComponent implements OnInit {
 
   backQuestion() {
     this.answer = 0;
-    let quest = this.Http.post('http://localhost:3000/get-question', { questionId: this.previousAnswers[this.previousAnswerCount - 1] });
+    let quest = this.Http.post('http://salesscript.com.au/sql/get-question', { questionId: this.previousAnswers[this.previousAnswerCount - 1] });
     quest.subscribe((response1) => {
      this.question = response1[0].texts;
       this.questionId = response1[0].questionId;
-      let ans = this.Http.post('http://localhost:3000/get-answer', { questionId: this.previousAnswers[this.previousAnswerCount - 1] });
+      let ans = this.Http.post('http://salesscript.com.au/sql/get-answer', { questionId: this.previousAnswers[this.previousAnswerCount - 1] });
       ans.subscribe((response2) => {
         let tempAnswers = response2;
         for (let i = 0; i < 9; i++) {

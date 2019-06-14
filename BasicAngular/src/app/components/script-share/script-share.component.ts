@@ -34,11 +34,11 @@ export class ScriptShareComponent implements OnInit {
     this.logged = this.auth.loggedIn;
     this.orgId = this.auth.orgId;
     if (this.logged){
-      let scripts = this.Http.post('http://localhost:3000/get-orgscripts', {orgId: this.auth.orgId});
+      let scripts = this.Http.post('http://salesscript.com.au/sql/get-orgscripts', {orgId: this.auth.orgId});
       scripts.subscribe((response) => {
         this.list = response;
         for (let i = 0; i < this.list.length;i++){
-          let get = this.Http.post('http://localhost:3000/get-script', {scriptId: this.list[i].scriptId});
+          let get = this.Http.post('http://salesscript.com.au/sql/get-script', {scriptId: this.list[i].scriptId});
           get.subscribe((response1) => {
             if(response1[0].scriptId != null){
               this.list2[i] = response1[0];
@@ -65,7 +65,7 @@ export class ScriptShareComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result == 'yes') {
-    let del = this.Http.post('http://localhost:3000/deleteOrgScript',{scriptId:script.scriptId})
+    let del = this.Http.post('http://http://salesscript.com.au/sql/deleteOrgScript',{scriptId:script.scriptId})
     del.subscribe((result) => {
       let snackBarRef = this.snackBar.open('Successfully Deleted');
       this.ngOnInit()

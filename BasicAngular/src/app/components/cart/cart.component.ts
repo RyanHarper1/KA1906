@@ -41,7 +41,7 @@ export class CartComponent implements OnInit {
     this.loggedIn = this.Auth.loggedIn
     //this.initConfig();//ngrx-paypal
     if (this.loggedIn){
-      let cart = this.Http.post('http://localhost:3000/cart', {id: this.Auth.getId});
+      let cart = this.Http.post('http://salesscript.com.au/sql/cart', {id: this.Auth.getId});
       cart.subscribe((response) => {
 
         this.list=response;
@@ -53,7 +53,7 @@ export class CartComponent implements OnInit {
   addScript: boolean = false;
 
   clearCart(){
-    let del = this.Http.post('http://localhost:3000/clear-cart', {usersID: this.Auth.getId});
+    let del = this.Http.post('http://salesscript.com.au/sql/clear-cart', {usersID: this.Auth.getId});
     del.subscribe((response) => {
 
       this.list=response;
@@ -62,7 +62,7 @@ export class CartComponent implements OnInit {
   }
 
   addToPayment(cart){
-    let add = this.Http.post('http://localhost:3000/payment-details', {storeID: cart.storeID, usersID: this.Auth.getId, scriptID: cart.scriptID, scriptName: cart.scriptName, price: this.getTotal,
+    let add = this.Http.post('http://salesscript.com.au/sql/payment-details', {storeID: cart.storeID, usersID: this.Auth.getId, scriptID: cart.scriptID, scriptName: cart.scriptName, price: this.getTotal,
                   description: cart.description, rating: cart.rating, uploadDate: cart.uploadDate, category: cart.category});
     add.subscribe((response) => {
 
@@ -117,7 +117,7 @@ export class CartComponent implements OnInit {
     //Paypal Test
 
   deleteCart(cart){
-    let del = this.Http.post('http://localhost:3000/delete-item', {cartID: cart.cartID});
+    let del = this.Http.post('http://salesscript.com.au/sql/delete-item', {cartID: cart.cartID});
     del.subscribe((response) => {
 
       this.list=response;

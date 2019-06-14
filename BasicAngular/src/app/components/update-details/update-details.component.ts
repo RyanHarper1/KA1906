@@ -34,7 +34,7 @@ errormessage: any;
     if( this.email.valid && this.curPass.valid && this.newPass.valid && this.confirmPass.valid ){
     
       this.submitted = true;
-      let post = this.Http.post<any>('http://localhost:3000/updateDetails',{id: this.Auth.id, email: this.email.value, password: this.curPass.value, newPass: this.confirmPass.value})
+      let post = this.Http.post<any>('http://salesscript.com.au/sql/updateDetails',{id: this.Auth.id, email: this.email.value, password: this.curPass.value, newPass: this.confirmPass.value})
       post.subscribe((response) => {
         this.errormessage = response.result
         let snackBarRef = this.snackBar.open(this.errormessage);

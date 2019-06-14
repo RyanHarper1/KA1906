@@ -62,7 +62,7 @@ export class ViewScriptComponent implements OnInit  {
     this.store = this.view.store
   
   this.previousAnswers = []
-  let query = this.Http.post('http://localhost:3000/get-script', {scriptId: this.scriptId});
+  let query = this.Http.post('http://salesscript.com.au/sql/get-script', {scriptId: this.scriptId});
   query.subscribe((response)=>{
    this.response=response;
     this.category = response[0].category;
@@ -70,12 +70,12 @@ export class ViewScriptComponent implements OnInit  {
     this.questionId = response[0].firstQuestionId;
 
 // get question
-    let quest = this.Http.post('http://localhost:3000/get-question',{questionId: this.questionId});
+    let quest = this.Http.post('http://salesscript.com.au/sql/get-question',{questionId: this.questionId});
     quest.subscribe((response1)=>{
     this.question = response1[0].texts;
 
     // get answers
-      let ans = this.Http.post('http://localhost:3000/get-answer', {questionId: this.questionId});
+      let ans = this.Http.post('http://salesscript.com.au/sql/get-answer', {questionId: this.questionId});
       ans.subscribe((response2) => {
       this.answers = response2;
         for( let i = 0; i < this.answers.length; i++){
@@ -97,12 +97,12 @@ nextQuestion(object,num){
     this.previousAnswers[this.previousAnswerCount] = Number(this.questionId);
     this.previousAnswerCount++;
     this.answer = 0;
-      let quest = this.Http.post('http://localhost:3000/get-question',{questionId: Number(this.answers[num].nextQuestionId)});
+      let quest = this.Http.post('http://salesscript.com.au/sql/get-question',{questionId: Number(this.answers[num].nextQuestionId)});
       quest.subscribe((response1)=>{
       this.question = response1[0].texts;
 
       // get answers
-        let ans = this.Http.post('http://localhost:3000/get-answer', {questionId: Number(this.answers[num].nextQuestionId)});
+        let ans = this.Http.post('http://salesscript.com.au/sql/get-answer', {questionId: Number(this.answers[num].nextQuestionId)});
         ans.subscribe((response2) => {
         this.answers = response2;
           for( let i = 0; i < this.answers.length; i++){
@@ -117,12 +117,12 @@ nextQuestion(object,num){
 }
 backQuestion(){
   this.answer = 0;
-  let quest = this.Http.post('http://localhost:3000/get-question',{questionId: this.previousAnswers[this.previousAnswerCount -1]});
+  let quest = this.Http.post('http://salesscript.com.au/sql/get-question',{questionId: this.previousAnswers[this.previousAnswerCount -1]});
   quest.subscribe((response1)=>{
   this.question = response1[0].texts;
 
   // get answers
-    let ans = this.Http.post('http://localhost:3000/get-answer', {questionId: this.previousAnswers[this.previousAnswerCount -1]});
+    let ans = this.Http.post('http://salesscript.com.au/sql/get-answer', {questionId: this.previousAnswers[this.previousAnswerCount -1]});
     ans.subscribe((response2) => {
     this.answers = response2;
       for( let i = 0; i < this.answers.length; i++){

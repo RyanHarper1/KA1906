@@ -57,16 +57,16 @@ export class CurrentScriptsComponent implements OnInit {
     this.purchased = false;
     this.loggedIn = this.Auth.loggedIn
     if (this.loggedIn) {
-      let current = this.Http.post('http://localhost:3000/current-scripts', { id: this.Auth.getId });
+      let current = this.Http.post('http://salesscript.com.au/sql/current-scripts', { id: this.Auth.getId });
       current.subscribe((response) => {
         this.list = response;
       });
-      let store = this.Http.post('http://localhost:3000/uploaded', { id: this.Auth.getId });
+      let store = this.Http.post('http://salesscript.com.au/sql/uploaded', { id: this.Auth.getId });
       store.subscribe((response) => {
 
         this.storelist = response;
       });
-      let purchased = this.Http.post('http://localhost:3000/purchased-scripts', { id: this.Auth.getId });
+      let purchased = this.Http.post('http://salesscript.com.au/sql/purchased-scripts', { id: this.Auth.getId });
       purchased.subscribe((response) => {
 
         this.purchasedList = response;
@@ -96,13 +96,13 @@ export class CurrentScriptsComponent implements OnInit {
 
   }
   shareScript(script) {
-    let share = this.Http.post('http://localhost:3000/sharescript', { scriptId: script.scriptId, orgId: this.Auth.orgId })
+    let share = this.Http.post('http://salesscript.com.au/sql/sharescript', { scriptId: script.scriptId, orgId: this.Auth.orgId })
     share.subscribe((result) => {
       let snackBarRef = this.snackBar.open('Successfully Shared');
     });
   }
   sharePurchasedScript(script) {
-    let share = this.Http.post('http://localhost:3000/sharescript', { scriptId: script.scriptID, orgId: this.Auth.orgId })
+    let share = this.Http.post('http://salesscript.com.au/sql/sharescript', { scriptId: script.scriptID, orgId: this.Auth.orgId })
     share.subscribe((result) => {
       let snackBarRef = this.snackBar.open('Successfully Shared');
     });
@@ -114,7 +114,7 @@ export class CurrentScriptsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result == 'yes') {
-        let del = this.Http.post('http://localhost:3000/delete-script', { scriptId: script.scriptId });
+        let del = this.Http.post('http://salesscript.com.au/sql/delete-script', { scriptId: script.scriptId });
         del.subscribe((response) => {
 
           this.ngOnInit()
@@ -136,7 +136,7 @@ export class CurrentScriptsComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result == 'yes') {
-        let del = this.Http.post('http://localhost:3000/deleteUploadedScript', { scriptId: script.scriptID });
+        let del = this.Http.post('http://salesscript.com.au/sql/deleteUploadedScript', { scriptId: script.scriptID });
         del.subscribe((response) => {
 
           this.ngOnInit()
@@ -148,7 +148,7 @@ export class CurrentScriptsComponent implements OnInit {
 
   }
   deleteUploadedScriptNoPrompt(script) {
-    let del = this.Http.post('http://localhost:3000/deleteUploadedScript', { scriptId: script.scriptID });
+    let del = this.Http.post('http://salesscript.com.au/sql/deleteUploadedScript', { scriptId: script.scriptID });
     del.subscribe((response) => {
 
       this.ngOnInit()
@@ -167,7 +167,7 @@ export class CurrentScriptsComponent implements OnInit {
         // let dateFormat = require('dateformat');
         let now = new Date();
         // let date = String(dateFormat(now, "dd/mm/yyyy"));
-        let upload = this.Http.post('http://localhost:3000/upload-script', { usersID: this.Auth.id, scriptID: script.scriptId, uploadDate: now, scriptName: script.scriptName, price: result, category: script.category, question: Number(script.firstQuestionId), description: script.description, subCategory: script.subcategory });
+        let upload = this.Http.post('http://salesscript.com.au/sql/upload-script', { usersID: this.Auth.id, scriptID: script.scriptId, uploadDate: now, scriptName: script.scriptName, price: result, category: script.category, question: Number(script.firstQuestionId), description: script.description, subCategory: script.subcategory });
         upload.subscribe((response) => {
           this.ngOnInit();
           let snackBarRef = this.snackBar.open('Successfully Uploaded');

@@ -47,7 +47,7 @@ export class StoreComponent implements OnInit {
   ngOnInit() {
     this.usersID = this.Auth.getId;
     this.loggedIn = this.Auth.loggedIn
-    let store = this.Http.get('http://localhost:3000/store');
+    let store = this.Http.get('http://salesscript.com.au/sql/store');
     store.subscribe((response) => {
 
       this.list=response;
@@ -57,7 +57,7 @@ export class StoreComponent implements OnInit {
  
 
   addToCart(store){
-    let add = this.Http.post('http://localhost:3000/add-item', {storeID: store.storeID, usersID: this.Auth.id, scriptID: store.scriptID, scriptName:store.scriptName, price: store.price,
+    let add = this.Http.post('http://salesscript.com.au/sql/add-item', {storeID: store.storeID, usersID: this.Auth.id, scriptID: store.scriptID, scriptName:store.scriptName, price: store.price,
                   description: store.description, rating: store.rating, uploadDate: store.uploadDate, category: store.category});
     add.subscribe((response) => {
 

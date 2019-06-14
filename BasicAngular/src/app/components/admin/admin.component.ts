@@ -34,7 +34,7 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
 
-    let query = this.Http.post('http://localhost:3000/orgUsers', { id: this.Auth.id });
+    let query = this.Http.post('http://salesscript.com.au/sql/orgUsers', { id: this.Auth.id });
     query.subscribe((response) => {
       this.list = response
     })
@@ -47,14 +47,14 @@ export class AdminComponent implements OnInit {
       alert('Please enter all required information')
     } else {
       if(this.userType == 1){
-        let newUser = this.Http.post('http://localhost:3000/newOrgUser', { fName: this.fName, lName: this.lName, email: this.email, password: this.password ,orgId: this.Auth.orgId, admin:'U'})
+        let newUser = this.Http.post('http://salesscript.com.au/sql/newOrgUser', { fName: this.fName, lName: this.lName, email: this.email, password: this.password ,orgId: this.Auth.orgId, admin:'U'})
         newUser.subscribe(res => {
           this.ngOnInit();
         })
       
 
       }else{
-        let newUser = this.Http.post('http://localhost:3000/newOrgUser', { fName: this.fName, lName: this.lName, email: this.email, password: this.password ,orgId: this.Auth.orgId,admin:'A'})
+        let newUser = this.Http.post('http://salesscript.com.au/sql/newOrgUser', { fName: this.fName, lName: this.lName, email: this.email, password: this.password ,orgId: this.Auth.orgId,admin:'A'})
         newUser.subscribe(res => {
           this.ngOnInit();
         })
@@ -63,12 +63,12 @@ export class AdminComponent implements OnInit {
   }
   editUser(user){
     if(user.admin == 'A'){
-      let newUser = this.Http.post('http://localhost:3000/updateOrgUser', { id:user.id, admin: 'U'})
+      let newUser = this.Http.post('http://salesscript.com.au/sql/updateOrgUser', { id:user.id, admin: 'U'})
       newUser.subscribe(res => {
         this.ngOnInit();
       })
     }else{
-      let newUser = this.Http.post('http://localhost:3000/updateOrgUser', { id:user.id, admin: 'A'})
+      let newUser = this.Http.post('http://salesscript.com.au/sql/updateOrgUser', { id:user.id, admin: 'A'})
         newUser.subscribe(res => {
           this.ngOnInit();
         })
@@ -84,7 +84,7 @@ deleteUser(user){
 
   dialogRef.afterClosed().subscribe(result => {
     if (result == 'yes') {
-      let del = this.Http.post('http://localhost:3000/deleteOrgUser', { id: user.id })
+      let del = this.Http.post('http://salesscript.com.au/sql/deleteOrgUser', { id: user.id })
       del.subscribe(res => {
         this.ngOnInit();
       })

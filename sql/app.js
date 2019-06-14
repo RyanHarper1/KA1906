@@ -33,7 +33,7 @@ app.use(bodyParser.json());
 // Create connection
 const db = mysql.createConnection({
     host: '178.128.58.183',
-    user: 'user',
+    user: 'userAdmin',
     password: 'Welcome1',
     database: 'SalesScript'
 });
@@ -41,11 +41,11 @@ const db = mysql.createConnection({
 // Connect to db
 db.connect((err) => {
 
-    console.log('MySql Connected...');
+    //('MySql Connected...');
 });
 
 app.on('error', function (err) {
-    console.log("[mysql error]", err);
+    //("[mysql error]", err);
 });
 
 
@@ -56,16 +56,16 @@ app.post('/addusers', (req, res) => {
 
     let test = req.body;
     let reply = {};
-    console.log(test);
+    //(test);
     let user = { fName: req.body.fName, lName: req.body.lName, email: req.body.email, password: hash };
     let sql = 'INSERT INTO users SET ?';
-    console.log("On server side");
-    console.log(user);
+    //("On server side");
+    //(user);
     let query = db.query(sql, user, (err, result) => {
         if (err) {
             throw err;
         } else {
-            console.log("successfully entered");
+            //("successfully entered");
 
             reply = {
                 result: 'success', name: req.body.username, fName: req.body.fName, lName: req.body.lName, email: req.body.email
@@ -81,16 +81,16 @@ app.post('/newOrgUser', (req, res) => {
 
     let test = req.body;
     let reply = {};
-    console.log(test);
+    //(test);
     let user = { fName: req.body.fName, lName: req.body.lName, email: req.body.email, password: hash,orgId:req.body.orgId,admin:req.body.admin };
     let sql = 'INSERT INTO users SET ?';
-    console.log("On server side");
-    console.log(user);
+    //("On server side");
+    //(user);
     let query = db.query(sql, user, (err, result) => {
         if (err) {
             throw err;
         } else {
-            console.log("successfully entered");
+            //("successfully entered");
 
             reply = {
                 result: 'success', name: req.body.username, fName: req.body.fName, lName: req.body.lName, email: req.body.email
@@ -105,8 +105,8 @@ app.post('/newOrgUser', (req, res) => {
 app.post('/login', (req, res) => {
     let user = { username: req.body.email, password: req.body.password };
     let sql = 'SELECT * FROM users WHERE email = ?';
-    console.log("On server side");
-    console.log(req.body.email);
+    //("On server side");
+    //(req.body.email);
 
     let query = db.query(sql, req.body.email, (err, result) => {
 
@@ -117,11 +117,11 @@ app.post('/login', (req, res) => {
         if (result.length > 0) {
             let hash = crypto.createHash('sha512').update(req.body.password).digest('hex');
             if (result[0].password == hash) {
-                console.log("Authenticated");
+                //("Authenticated");
                 //req.session.user = result.id;
                 res.send({ result: 'true', id: result[0].id, fName: result[0].fName, lName: result[0].lName, email: result[0].email, username: result[0].username, orgId: result[0].orgId ,admin:result[0].admin})
             } else {
-                console.log("incorrect");
+                //("incorrect");
                 res.send({ result: 'false', message: 'Username or password incorrect' })
             }
         } else {
@@ -141,16 +141,16 @@ app.post('/addscript', (req, res) => {
     let test = req.body;
     let reply = {};
 
-    console.log(test);
+    //(test);
     let script = { usersID: req.body.usersID, category: req.body.category, scriptName: req.body.scriptName, subcategory: req.body.subcategory, description: req.body.description };
     let sql = 'INSERT INTO script SET ?';
-    console.log("On server side");
-    console.log(script);
+    //("On server side");
+    //(script);
     let query = db.query(sql, script, (err, result) => {
         if (err) {
             throw err;
         } else {
-            console.log("successfully entered");
+            //("successfully entered");
 
             reply = {
                 result: 'success', scriptId: result.insertId
@@ -164,12 +164,12 @@ app.post('/updatescripttime', (req, res) => {
 
      let sql = 'UPDATE script SET edited = curdate() WHERE scriptId = ' + req.body.scriptId
 
-    console.log(sql);
+    //(sql);
     let query = db.query(sql, (err, result) => {
         if (err) {
             throw err;
         } else {
-            console.log("successfully entered");
+            //("successfully entered");
 
             reply = {
                 result: 'success', scriptId: result.insertId
@@ -184,12 +184,12 @@ app.post('/updateOrgUser', (req, res) => {
 
     let sql = 'UPDATE users SET admin = "' + req.body.admin + '" WHERE id = ' + req.body.id
 
-   console.log(sql);
+   //(sql);
    let query = db.query(sql, (err, result) => {
        if (err) {
            throw err;
        } else {
-           console.log("successfully entered");
+           //("successfully entered");
 
            reply = {
                result: 'success', scriptId: result.insertId
@@ -205,11 +205,11 @@ app.post('/updateOrgUser', (req, res) => {
 app.post('/addquestion', (req, res) => {
     let test = req.body;
     let reply = {};
-    console.log(test);
+    //(test);
     let script = { texts: req.body.texts, scriptId: req.body.scriptId };
     let sql = 'INSERT INTO question SET ?';
-    console.log("On server side");
-    console.log(script);
+    //("On server side");
+    //(script);
     let query = db.query(sql, script, (err, result) => {
         if (err) {
             throw err;
@@ -228,26 +228,26 @@ app.post('/addquestion', (req, res) => {
 
 
 app.post('/addFirstQuestion', (req, res) => {
-    console.log('ADD FIRST QUESTION');
+    //('ADD FIRST QUESTION');
     let test = req.body;
     let reply = {};
-    console.log(test);
+    //(test);
     let script = { texts: req.body.texts, scriptId: req.body.scriptId };
     let sql = 'INSERT INTO question SET ?';
-    console.log("On server side first");
-    console.log(script);
+    //("On server side first");
+    //(script);
     let query = db.query(sql, script, (err, result) => {
         if (err) {
             throw err;
         } else {
             //Update Script with First Question ID
-            console.log("successfully entered, trying for question");
+            //("successfully entered, trying for question");
             let updateScript = 'UPDATE SalesScript.script SET firstQuestionId = ' + result.insertId + ' WHERE scriptId = ' + req.body.scriptId;
             let query2 = db.query(updateScript, (err, result1) => {
                 if (err) {
                     throw err;
                 } else {
-                    console.log(result1);
+                    //(result1);
                     res.send({ questionId: result.insertId })
                 }
             });
@@ -262,16 +262,16 @@ app.post('/addFirstQuestion', (req, res) => {
 app.post('/addAnswer', (req, res) => {
     let test = req.body;
     let reply = {};
-    console.log(test);
+    //(test);
     let script = { texts: req.body.texts, questionId: req.body.questionId };
     let sql = 'INSERT INTO answer SET ?';
-    console.log("On server side");
-    console.log(script);
+    //("On server side");
+    //(script);
     let query = db.query(sql, script, (err, result) => {
         if (err) {
             throw err;
         } else {
-            console.log("successfully entered");
+            //("successfully entered");
 
             reply = {
                 result: 'success', idanswer: result.insertId
@@ -285,20 +285,20 @@ app.post('/editAnswer', (req, res) => {
 
     let test = req.body;
     let reply = {};
-    console.log(test);
+    //(test);
 
     let script = { texts: req.body.texts, questionId: Number(req.body.questionId), nextQuestionId: req.body.nextQuestionId };
     if (Number(script.nextQuestionId < 1)) {
         script.nextQuestionId = null
     }
     let sql = 'INSERT INTO answer SET ?';
-    console.log(sql + script);
-    console.log(script);
+    //(sql + script);
+    //(script);
     let query = db.query(sql, script, (err, result) => {
         if (err) {
             throw err;
         } else {
-            console.log(result);
+            //(result);
 
             reply = {
                 result: 'success', idanswer: result.insertId
@@ -314,13 +314,13 @@ app.post('/editAnswer', (req, res) => {
 app.post('/delete-script', (req, res) => {
     let script = { texts: req.body.texts, questionId: req.body.questionId };
     let sql = 'DELETE FROM script WHERE scriptId  = ' + req.body.scriptId;
-    console.log("On server side");
-    console.log(script);
+    //("On server side");
+    //(script);
     let query = db.query(sql, script, (err, result) => {
         if (err) {
             throw err;
         } else {
-            console.log("successfully deleted");
+            //("successfully deleted");
 
             reply = {
                 result: 'success'
@@ -332,13 +332,13 @@ app.post('/delete-script', (req, res) => {
 app.post('/delete-script', (req, res) => {
     let script = { texts: req.body.texts, questionId: req.body.questionId };
     let sql = 'DELETE FROM script WHERE scriptId  = ' + req.body.scriptId;
-    console.log("On server side");
-    console.log(script);
+    //("On server side");
+    //(script);
     let query = db.query(sql, script, (err, result) => {
         if (err) {
             throw err;
         } else {
-            console.log("successfully deleted");
+            //("successfully deleted");
 
             reply = {
                 result: 'success'
@@ -350,13 +350,13 @@ app.post('/delete-script', (req, res) => {
 
 app.post('/deleteOrgScript', (req, res) => {
    let sql = 'DELETE FROM orgScripts WHERE scriptId  = ' + req.body.scriptId;
-    console.log(sql);
+    //(sql);
 
     let query = db.query(sql, (err, result) => {
         if (err) {
             throw err;
         } else {
-            console.log("successfully deleted");
+            //("successfully deleted");
 
             reply = {
                 result: 'success'
@@ -367,13 +367,13 @@ app.post('/deleteOrgScript', (req, res) => {
 });
 app.post('/deleteOrgUser', (req, res) => {
     let sql = 'DELETE FROM users WHERE id  = ' + req.body.id;
-     console.log(sql);
+     //(sql);
  
      let query = db.query(sql, (err, result) => {
          if (err) {
              throw err;
          } else {
-             console.log("successfully deleted");
+             //("successfully deleted");
  
              reply = {
                  result: 'success'
@@ -386,13 +386,13 @@ app.post('/deleteOrgUser', (req, res) => {
 app.post('/deleteUploadedScript', (req, res) => {
     let script = { texts: req.body.texts, questionId: req.body.questionId };
     let sql = 'DELETE FROM store WHERE scriptID  = ' + req.body.scriptId;
-    console.log("On server side");
-    console.log(sql);
+    //("On server side");
+    //(sql);
     let query = db.query(sql, (err, result) => {
         if (err) {
             throw err;
         } else {
-            console.log("successfully deleted");
+            //("successfully deleted");
 
             reply = {
                 result: 'success'
@@ -405,13 +405,13 @@ app.post('/deleteUploadedScript', (req, res) => {
 app.post('/delete-item', (req, res) => {
     let cart = { storeID: req.body.storeID, usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, description: req.body.description, rating: req.body.rating, uploadDate: req.body.uploadDate, category: req.body.category };
     let sql = 'DELETE FROM cart WHERE cartID  = ' + req.body.cartID;
-    console.log("On server side");
-    console.log(cart);
+    //("On server side");
+    //(cart);
     let query = db.query(sql, cart, (err, result) => {
         if (err) {
             throw err;
         } else {
-            console.log("successfully deleted");
+            //("successfully deleted");
 
             reply = {
                 result: 'success'
@@ -430,13 +430,13 @@ app.post('/add-item', (req, res) => {
         description: req.body.description, rating: req.body.rating, uploadDate: req.body.uploadDate, category: req.body.category
     };
     let sql = 'INSERT INTO cart SET ?';
-    console.log("On server side");
-    console.log(store);
+    //("On server side");
+    //(store);
     let query = db.query(sql, store, (err, result) => {
         if (err) {
             throw err;
         } else {
-            console.log("successfully added");
+            //("successfully added");
 
             reply = {
                 result: 'success', idanswer: result.insertId
@@ -460,7 +460,7 @@ app.get('/store', (req, res) => {
 
 //load cart
 app.post('/cart', (req, res) => {
-    console.log(req.body.id);
+    //(req.body.id);
     let sql = 'SELECT * FROM cart WHERE usersId = ' + req.body.id;
     let query = db.query(sql, (err, result) => {
 
@@ -473,7 +473,7 @@ app.post('/cart', (req, res) => {
 
 
 app.post('/current-scripts', (req, res) => {
-    console.log(req.body.id);
+    //(req.body.id);
     let sql = 'SELECT * FROM script WHERE usersId = ' + req.body.id + ' AND example = "N" AND purchased = "N"';
     let query = db.query(sql, (err, result) => {
 
@@ -484,10 +484,10 @@ app.post('/current-scripts', (req, res) => {
     });
 });
 app.post('/purchased-scripts', (req, res) => {
-    console.log(req.body.id);
+    //(req.body.id);
     let sql = 'SELECT * FROM PayPal WHERE usersID = ' + req.body.id;
     let query = db.query(sql, (err, result) => {
-        console.log(sql)
+        //(sql)
         if (err) {
             throw err;
         }
@@ -495,7 +495,7 @@ app.post('/purchased-scripts', (req, res) => {
     });
 });
 app.get('/example-scripts', (req, res) => {
-    console.log(req.body.id);
+    //(req.body.id);
     let sql = 'SELECT * FROM script WHERE example = "Y" ';
     let query = db.query(sql, (err, result) => {
 
@@ -507,21 +507,21 @@ app.get('/example-scripts', (req, res) => {
 });
 
 app.post('/get-script', (req, res) => {
-    console.log(req.body.scriptId);
+    //(req.body.scriptId);
     let sql = 'SELECT * FROM script WHERE scriptId = ' + req.body.scriptId;
     let query = db.query(sql, (err, result) => {
 
         if (err) {
             throw err;
         }
-        console.log(result)
+        //(result)
         res.send(result);
     });
 });
 app.post('/get-question', (req, res) => {
-    console.log(req.body.questionId);
+    //(req.body.questionId);
     let sql = 'SELECT * FROM question WHERE questionId = ' + Number(req.body.questionId);
-    console.log(sql);
+    //(sql);
     let query = db.query(sql, (err, result) => {
 
         if (err) {
@@ -532,7 +532,7 @@ app.post('/get-question', (req, res) => {
 });
 
 app.post('/get-answer', (req, res) => {
-    console.log(req.body.questionId);
+    //(req.body.questionId);
     let sql = 'SELECT * FROM answer WHERE questionId = ' + req.body.questionId;
     let query = db.query(sql, (err, result) => {
 
@@ -547,7 +547,7 @@ app.post('/upload-script', (req, res) => {
     let check = "SELECT * FROM store WHERE scriptID = " + req.body.scriptID
     let execute = db.query(check, (err, result) => {
         if (result == null) {
-            console.log('No current entries')
+            //('No current entries')
             let sql = 'INSERT INTO store SET ?';
             let values = { usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, uploadDate: req.body.uploadDate, question: req.body.question, category: req.body.category, rating: 0, description: req.body.description, subCategory: req.body.subCategory }
             let query = db.query(sql, values, (err, result) => {
@@ -557,7 +557,7 @@ app.post('/upload-script', (req, res) => {
                 res.send(result);
             });
         } else {
-            console.log('Entry exists. Removing then reuploading')
+            //('Entry exists. Removing then reuploading')
             let query2 = "DELETE FROM store WHERE scriptID = " + req.body.scriptID
             let execute2 = db.query(query2, (err, result) => {
                 let sql = 'INSERT INTO store SET ?';
@@ -588,7 +588,7 @@ app.post('/uploaded', (req, res) => {
 });
 
 app.post('/updateAnswer', (req, res) => {
-    console.log('Updated request is: ' + req.body.nextQuestionId + ' + ' + req.body.questionId + ' + ' + req.body.texts);
+    //('Updated request is: ' + req.body.nextQuestionId + ' + ' + req.body.questionId + ' + ' + req.body.texts);
     let sql = 'UPDATE answer set nextQuestionId = ' + req.body.nextQuestionId + ' WHERE questionId = ' + req.body.questionId + ' AND texts = "' + req.body.texts + '"';
     let query = db.query(sql, (err, result) => {
         if (err) {
@@ -604,14 +604,14 @@ app.post('/orgUsers', (req, res) => {
         if (err) {
             throw err;
         }
-        console.log(result)
+        //(result)
 
         let sql2 = 'SELECT * FROM users WHERE orgId = ' + result[0].orgId;
         let query2 = db.query(sql2, (err, result1) => {
             if (err) {
                 throw err;
             }
-            console.log('result 2= ' + result1);
+            //('result 2= ' + result1);
             res.send(result1);
         });
     });
@@ -624,7 +624,7 @@ app.post('/get-orgscripts', (req, res) => {
         if (err) {
             throw err;
         }
-        console.log(result);
+        //(result);
         res.send(result);
     });
 
@@ -636,20 +636,20 @@ app.post('/sharescript', (req, res) => {
         if (err) {
             throw err;
         }
-        console.log(result);
+        //(result);
         res.send(result);
     });
 
 });
 
 app.listen('3000', () => {
-    console.log('server started on port 3000');
+    //('server started on port 3000');
 });
 
 
 //get storeID
 app.post('/get-answer', (req, res) => {
-    console.log(req.body.questionId);
+    //(req.body.questionId);
     let sql = 'SELECT * FROM answer WHERE questionId = ' + req.body.questionId;
     let query = db.query(sql, (err, result) => {
 
@@ -664,13 +664,13 @@ app.post('/get-answer', (req, res) => {
 app.post('/clear-cart', (req, res) => {
     let cart = { storeID: req.body.storeID, usersID: req.body.usersID, scriptID: req.body.scriptID, scriptName: req.body.scriptName, price: req.body.price, description: req.body.description, rating: req.body.rating, uploadDate: req.body.uploadDate, category: req.body.category };
     let sql = 'DELETE FROM cart WHERE usersID  = ' + req.body.usersID;
-    console.log("On server side");
-    console.log(cart);
+    //("On server side");
+    //(cart);
     let query = db.query(sql, [cart], (err, result) => {
         if (err) {
             throw err;
         } else {
-            console.log("successfully deleted");
+            //("successfully deleted");
 
             reply = {
                 result: 'success'
@@ -688,13 +688,13 @@ app.post('/payment-details', (req, res) => {
         description: req.body.description, rating: req.body.rating, uploadDate: req.body.uploadDate, category: req.body.category
     };
     let sql = 'INSERT INTO PayPal SET ?';
-    console.log("On server side");
-    console.log(paid);
+    //("On server side");
+    //(paid);
     let query = db.query(sql, [paid], (err, result) => {
         if (err) {
             throw err;
         } else {
-            console.log("successfully added");
+            //("successfully added");
 
             reply = {
             }
@@ -727,9 +727,9 @@ app.post('/updateDetails', (req, res) => {
     let hash1 = crypto.createHash('sha512').update(req.body.password).digest('hex');
 
     let sql = "SELECT * FROM users WHERE id = '" + req.body.id + "'AND password = '" + hash + "'"
-    console.log(sql)
+    //(sql)
     let query = db.query(sql, (err, result) => {
-        console.log(result)
+        //(result)
         if (err) {
             throw err;
         }

@@ -42,8 +42,8 @@ export class AuthService {
   orgId = null;
   blank = "";
   returns: object;
-  address:any;
-  admin:any;
+  address: any;
+  admin: any;
   scriptData1 = {} as scriptData;
   @Output() change: EventEmitter<boolean> = new EventEmitter();
 
@@ -54,35 +54,35 @@ export class AuthService {
   //User login function
   login(email, password) {
 
-    return this.Http.post<userData>('http://localhost:3000/login', { email: email, password: password })
+    return this.Http.post<userData>('http://salesscript.com.au/sql/login', { email: email, password: password })
 
   }
 
 
   sendScript<scriptData>(scriptName, category, subcategory, description, question, answers) {
     //insert script
-    let posts = this.Http.post('http://localhost:3000/addscript', { usersID: this.id, category: category, scriptName: scriptName, subcategory: subcategory, description: description });
+    let posts = this.Http.post('http://salesscript.com.au/sql/addscript', { usersID: this.id, category: category, scriptName: scriptName, subcategory: subcategory, description: description });
     posts.subscribe((response) => {
       this.response = response;
 
-   
-      let quest = this.Http.post<questionData>('http://localhost:3000/addFirstQuestion', { texts: question, scriptId: this.response.scriptId });
+
+      let quest = this.Http.post<questionData>('http://salesscript.com.au/sql/addFirstQuestion', { texts: question, scriptId: this.response.scriptId });
       quest.subscribe((response1) => {
         this.returns = {};
         this.response1 = response1;
         this.scriptData1.scriptId = this.response.scriptId;
-      
+
         this.scriptData1.questionId = response1.questionId;
         //insert answers
         for (let i = 0; i < answers.length; i++) {
-         if (answers[i].texts != ""){
-            let ans = this.Http.post<questionData>('http://localhost:3000/addAnswer', { texts: answers[i].texts, questionId: response1.questionId });
+          if (answers[i].texts != "") {
+            let ans = this.Http.post<questionData>('http://salesscript.com.au/sql/addAnswer', { texts: answers[i].texts, questionId: response1.questionId });
             ans.subscribe((response2) => {
               this.response = response1
-             
+
             });
           }
-       
+
         }
 
 
@@ -96,21 +96,21 @@ export class AuthService {
   }
 
   submitAnswer(questionId, scriptId, answers, question, selectedAnswer) {
-   let quest = this.Http.post<questionData>('http://localhost:3000/addQuestion', { texts: question, scriptId: scriptId });
+    let quest = this.Http.post<questionData>('http://salesscript.com.au/sql/addQuestion', { texts: question, scriptId: scriptId });
     quest.subscribe((response1) => {
-     this.response1 = response1;
-     this.scriptData1.questionId = response1.questionId;
+      this.response1 = response1;
+      this.scriptData1.questionId = response1.questionId;
       //insert answers
       for (let i = 0; i < answers.length; i++) {
-        let ans = this.Http.post<questionData>('http://localhost:3000/addAnswer', { texts: answers[i], questionId: response1.questionId });
+        let ans = this.Http.post<questionData>('http://salesscript.com.au/sql/addAnswer', { texts: answers[i], questionId: response1.questionId });
         ans.subscribe((response2) => {
           this.response = response1
-          
+
 
         });
       }
-      
-      let update = this.Http.post('http://localhost:3000/updateAnswer', { nextQuestionId: response1.questionId, questionId: questionId, texts: selectedAnswer });
+
+      let update = this.Http.post('http://salesscript.com.au/sql/updateAnswer', { nextQuestionId: response1.questionId, questionId: questionId, texts: selectedAnswer });
       update.subscribe((response2) => {
 
       });
@@ -119,19 +119,19 @@ export class AuthService {
     });
   }
   submitEditAnswer(questionId, scriptId, answers, question, selectedAnswer) {
-   let quest = this.Http.post<questionData>('http://localhost:3000/addQuestion', { texts: question, scriptId: scriptId });
+    let quest = this.Http.post<questionData>('http://salesscript.com.au/sql/addQuestion', { texts: question, scriptId: scriptId });
     quest.subscribe((response1) => {
       this.response1 = response1;
       this.scriptData1.questionId = response1.questionId;
       //insert answers
       for (let i = 0; i < answers.length; i++) {
-        let ans = this.Http.post<questionData>('http://localhost:3000/addAnswer', { texts: answers[i].texts, questionId: response1.questionId });
+        let ans = this.Http.post<questionData>('http://salesscript.com.au/sql/addAnswer', { texts: answers[i].texts, questionId: response1.questionId });
         ans.subscribe((response2) => {
           this.response = response1
-        
+
         });
       }
-     let update = this.Http.post('http://localhost:3000/updateAnswer', { nextQuestionId: response1.questionId, questionId: questionId, texts: selectedAnswer });
+      let update = this.Http.post('http://salesscript.com.au/sql/updateAnswer', { nextQuestionId: response1.questionId, questionId: questionId, texts: selectedAnswer });
       update.subscribe((response2) => {
 
       });
@@ -143,11 +143,11 @@ export class AuthService {
   //User register function
   register(object) {
 
-    let posts = this.Http.post('http://localhost:3000/addusers', object.value);
+    let posts = this.Http.post('http://salesscript.com.au/sql/addusers', object.value);
     posts.subscribe((response) => {
       this.response = response;
 
-    
+
     });
 
   }
@@ -172,13 +172,24 @@ export class AuthService {
     this.orgId = object.orgId;
     this.admin = object.admin;
 
-   
+
   }
   get getUsername() {
     return String(this.username);
   }
   get getId() {
     return this.id;
+  }
+  //User register function
+  registerOrg(object) {
+
+    let posts = this.Http.post('http://salesscript.com.au/sql/addOrg', object.value);
+    posts.subscribe((response) => {
+      this.response = response;
+
+      console.log(this.response)
+    });
+
   }
   @HostListener('logout')
   logout() {
@@ -190,7 +201,7 @@ export class AuthService {
     this.username = '';
     this.orgId = null;
     this.admin = null;
-    
+
   }
 
 

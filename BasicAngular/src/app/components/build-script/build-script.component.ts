@@ -198,13 +198,13 @@ export class BuildScriptComponent implements OnInit {
       this.previousAnswerCount++;
 
       this.answer = 0;
-      let quest = this.Http.post('http://localhost:3000/get-question', { questionId: Number(this.answers[num].nextQuestionId) });
+      let quest = this.Http.post('http://salesscript.com.au/sql/get-question', { questionId: Number(this.answers[num].nextQuestionId) });
       quest.subscribe((response1) => {
        
         this.texts = response1[0].texts;
         this.questionId = response1[0].questionId;
         // get answers
-        let ans = this.Http.post('http://localhost:3000/get-answer', { questionId: Number(this.answers[num].nextQuestionId) });
+        let ans = this.Http.post('http://salesscript.com.au/sql/get-answer', { questionId: Number(this.answers[num].nextQuestionId) });
         ans.subscribe((response2) => {
           let tempAnswers = response2;
           for (let i = 0; i < 9; i++) {
@@ -274,7 +274,7 @@ export class BuildScriptComponent implements OnInit {
 
       if (this.questionId == null) {
        //let sql = this.Auth.submitEditAnswer(this.questionId, this.scriptId, this.answers, this.question, this.tempAnswer)
-      let request = this.Http.post<questionData>('http://localhost:3000/addQuestion', { texts: this.texts, scriptId: this.scriptId });
+      let request = this.Http.post<questionData>('http://salesscript.com.au/sql/addQuestion', { texts: this.texts, scriptId: this.scriptId });
         request.subscribe((response1) => {
         this.response1 = response1;
          this.scriptData1.questionId = response1.questionId;
@@ -282,7 +282,7 @@ export class BuildScriptComponent implements OnInit {
           //insert answers
           for (let i = 0; i < this.answers.length; i++) {
             if (this.answers[i].texts != "") {
-              let ans = this.Http.post<questionData>('http://localhost:3000/addAnswer', { texts: this.answers[i].texts, questionId: response1.questionId });
+              let ans = this.Http.post<questionData>('http://salesscript.com.au/sql/addAnswer', { texts: this.answers[i].texts, questionId: response1.questionId });
               ans.subscribe((response2) => {
                 this.response2 = response1
               
@@ -290,15 +290,15 @@ export class BuildScriptComponent implements OnInit {
             }
           }
       
-          let update = this.Http.post('http://localhost:3000/updateAnswer', { nextQuestionId: response1.questionId, questionId: this.tempQuestionId, texts: this.tempAnswer });
+          let update = this.Http.post('http://salesscript.com.au/sql/updateAnswer', { nextQuestionId: response1.questionId, questionId: this.tempQuestionId, texts: this.tempAnswer });
           update.subscribe((response2) => {
             this.questionId = response1.questionId
-            let quest = this.Http.post('http://localhost:3000/get-question', { questionId: this.questionId });
+            let quest = this.Http.post('http://salesscript.com.au/sql/get-question', { questionId: this.questionId });
             quest.subscribe((response1) => {
              this.texts = response1[0].texts;
 
               //get answers
-              let ans = this.Http.post('http://localhost:3000/get-answer', { questionId: this.questionId });
+              let ans = this.Http.post('http://salesscript.com.au/sql/get-answer', { questionId: this.questionId });
               ans.subscribe((response2) => {
                 let tempAnswers = response2;
                 this.answer = 0;
@@ -317,12 +317,12 @@ export class BuildScriptComponent implements OnInit {
         //this.saved = true;
 
       } else {
-        let update = this.Http.post('http://localhost:3000/update-script', { questionId: this.questionId, question: this.texts })
+        let update = this.Http.post('http://salesscript.com.au/sql/update-script', { questionId: this.questionId, question: this.texts })
         update.subscribe((result) => {
         for (let j = 0; j < this.answer; j++) {
             if (this.answers[j].texts != "") {
            
-              let send = this.Http.post<questionData>('http://localhost:3000/editAnswer', { texts: this.answers[j].texts, questionId: this.questionId, nextQuestionId: this.answers[j].nextQuestionId });
+              let send = this.Http.post<questionData>('http://salesscript.com.au/sql/editAnswer', { texts: this.answers[j].texts, questionId: this.questionId, nextQuestionId: this.answers[j].nextQuestionId });
               send.subscribe((res) => {
              });
 
@@ -335,12 +335,12 @@ export class BuildScriptComponent implements OnInit {
   }
   backQuestion() {
     this.answer = 0;
-    let quest = this.Http.post('http://localhost:3000/get-question', { questionId: this.previousAnswers[this.previousAnswerCount - 1] });
+    let quest = this.Http.post('http://salesscript.com.au/sql/get-question', { questionId: this.previousAnswers[this.previousAnswerCount - 1] });
     quest.subscribe((response1) => {
       this.texts = response1[0].texts;
       this.questionId = response1[0].questionId;
       // get answers
-      let ans = this.Http.post('http://localhost:3000/get-answer', { questionId: this.previousAnswers[this.previousAnswerCount - 1] });
+      let ans = this.Http.post('http://salesscript.com.au/sql/get-answer', { questionId: this.previousAnswers[this.previousAnswerCount - 1] });
       ans.subscribe((response2) => {
         let tempAnswers = response2;
         for (let i = 0; i < 9; i++) {
