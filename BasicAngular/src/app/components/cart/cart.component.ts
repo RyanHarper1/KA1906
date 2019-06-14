@@ -62,7 +62,7 @@ export class CartComponent implements OnInit {
   }
 
   addToPayment(cart){
-    let add = this.Http.post('http://salesscript.com.au/sql/payment-details', {storeID: cart.storeID, usersID: this.Auth.getId, scriptID: cart.scriptID, scriptName: cart.scriptName, price: this.getTotal,
+    let add = this.Http.post('http://salesscript.com.au/sql/payment-details', {storeID: cart.storeID, usersID: this.Auth.getId, scriptID: cart.scriptID, scriptName: cart.scriptName, price: this.getTotal(),
                   description: cart.description, rating: cart.rating, uploadDate: cart.uploadDate, category: cart.category});
     add.subscribe((response) => {
 
@@ -72,7 +72,7 @@ export class CartComponent implements OnInit {
   }
 
     paypalConfig = {
-      env: 'sandbox',
+      env: 'production',
       client: {
         sandbox: 'ATLwc0WWOHlrcKAOnk3GauEX2bsQjQjvzi8SnoB7LyUewiXe_XZdcuM-yhK2wKEw_uPNeT4CNdXn0VTv',
         production: 'Ad8s5ANbWU0uocw05O7SirbgSjricgca63l-m-Hk-zfrsh6nFQCs_366WYQQXc6qV2omh4pjTrOqeIB3'
@@ -87,12 +87,22 @@ export class CartComponent implements OnInit {
           }
         });
       },
+      // onAuthorize: (data, actions) => {
+      //   return actions.payment.execute().then((payment) => {
+      //     this.addToPayment(this.list);
+      //     this.clearCart();
+      //     this.confirmation();
+      //     this.router.navigate(['current-scripts']);
+      //   })
+      // }
       onAuthorize: (data, actions) => {
         return actions.payment.execute().then((payment) => {
-          this.addToPayment(this.list);
-          this.clearCart();
+          for(let i=0; i<this.list.length; i++){
+            this.addToPayment(this.list[i]);
+          }
+          //console.log('Transaction completed ' + payment.invoice_number);
           this.confirmation();
-          this.router.navigate(['current-scripts']);
+          this.clearCart();
         })
       }
     };

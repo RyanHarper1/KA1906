@@ -11,12 +11,13 @@ import { ViewScriptService } from 'src/app/view-script.service';
 import{ CategoryPipe } from '../../pipes/category.pipe';
 import{ MinPricePipe } from '../../pipes/min-price.pipe';
 import{ RatingPipe } from '../../pipes/rating.pipe';
+import{ SubCategoryPipe } from '../../pipes/sub-category.pipe';
 
 @Component({
   selector: 'app-store',
   templateUrl: './store.component.html',
   styleUrls: ['./store.component.scss'],
-  providers: [MinPricePipe, CategoryPipe, RatingPipe]
+  providers: [MinPricePipe, CategoryPipe, RatingPipe,SubCategoryPipe]
 
 })
 export class StoreComponent implements OnInit {
@@ -40,6 +41,9 @@ export class StoreComponent implements OnInit {
   loggedIn = false;
   columns = [ 'scriptName','category', 'uploadDate', 'category', 'rating' ];
   usersID: any;
+  subCat:string;
+  term:string;
+  Cat:string;
 
   isDesc: boolean = false;
   column: string = 'CategoryName';
@@ -54,7 +58,7 @@ export class StoreComponent implements OnInit {
    });
   }
 
- 
+
 
   addToCart(store){
     let add = this.Http.post('http://salesscript.com.au/sql/add-item', {storeID: store.storeID, usersID: this.Auth.id, scriptID: store.scriptID, scriptName:store.scriptName, price: store.price,
@@ -69,6 +73,12 @@ export class StoreComponent implements OnInit {
     this.viewService.setScript(script.scriptID);
     this.viewService.setStore();
    this.router.navigate(['view-script']);
+  }
+
+  clearSearch(){
+    this.subCat="";
+    this.Cat="";
+    this.term="";
   }
 
 }
